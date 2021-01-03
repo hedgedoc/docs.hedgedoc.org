@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2020 The HedgeDoc developers (see AUTHORS file)
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install structor
+        run:  "curl -sfL https://raw.githubusercontent.com/traefik/structor/master/godownloader.sh | bash -s -- -b . v1.7.0"
+      - name: Run Structor
+        run:  ./structor -o hedgedoc -r hedgedoc \
+              --menu.js-file="./version-menu.js.gotmpl" \
+              --exp-branch=master --debug
