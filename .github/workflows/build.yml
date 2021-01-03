@@ -18,5 +18,6 @@ jobs:
         run:  "curl -sfL https://raw.githubusercontent.com/traefik/structor/master/godownloader.sh | bash -s -- -b . v1.7.0"
       - name: Run Structor
         run:  ./structor -o hedgedoc -r hedgedoc \
+              --dockerfile-name "docs.Dockerfile"
               --menu.js-file="./version-menu.js.gotmpl" \
               --exp-branch=master --debug
