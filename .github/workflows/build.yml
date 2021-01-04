@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          repository: 'hedgedoc/hedgedoc'
       - name: Install structor
         run:  "curl -sfL https://raw.githubusercontent.com/traefik/structor/master/godownloader.sh | bash -s -- -b ."
       - name: Add dummy requirements.txt
