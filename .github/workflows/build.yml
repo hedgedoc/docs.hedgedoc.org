@@ -19,3 +19,8 @@ jobs:
         run: cp mkdocs.requirements.txt requirements.txt
       - name: Run Structor
         run:  ./structor -o hedgedoc -r hedgedoc --dockerfile-url="https://raw.githubusercontent.com/hedgedoc/docs.hedgedoc.org/main/docs.Dockerfile" --menu.js-file="https://github.com/hedgedoc/docs.hedgedoc.org/blob/main/version-menu.js.gotmpl" --exp-branch=master
+      - name: Deploy to GitHub Pages Branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
