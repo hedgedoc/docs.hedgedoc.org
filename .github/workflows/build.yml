@@ -22,5 +22,5 @@ jobs:
       - name: Run Structor
         run:  ./structor -o hedgedoc -r hedgedoc \
               --dockerfile-url="https://raw.githubusercontent.com/hedgedoc/docs.hedgedoc.org/main/docs.Dockerfile"
-              --menu.js-file="./version-menu.js.gotmpl" \
+              --menu.js-file="https://github.com/hedgedoc/docs.hedgedoc.org/blob/main/version-menu.js.gotmpl" \
               --exp-branch=master
