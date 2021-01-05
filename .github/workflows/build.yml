@@ -13,12 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-#      - name: Install structor
-#        run:  "curl -sfL https://raw.githubusercontent.com/traefik/structor/master/godownloader.sh | bash -s -- -b ."
-#      - name: Run Structor
-#        run:  ./structor -o hedgedoc -r hedgedoc --dockerfile-url="https://raw.githubusercontent.com/hedgedoc/docs.hedgedoc.org/main/docs.Dockerfile" --menu.js-file="https://github.com/hedgedoc/docs.hedgedoc.org/blob/main/version-menu.js.gotmpl" --exp-branch=master
-      
-
       - name: Checkout main
         uses: actions/checkout@v2
         with:
@@ -38,3 +32,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
+
+
+#      - name: Install structor
+#        run:  "curl -sfL https://raw.githubusercontent.com/traefik/structor/master/godownloader.sh | bash -s -- -b ."
+#      - name: Run Structor
+#        run:  ./structor -o hedgedoc -r hedgedoc --dockerfile-url="https://raw.githubusercontent.com/hedgedoc/docs.hedgedoc.org/main/docs.Dockerfile" --menu.js-file="https://github.com/hedgedoc/docs.hedgedoc.org/blob/main/version-menu.js.gotmpl" --exp-branch=master
+      
