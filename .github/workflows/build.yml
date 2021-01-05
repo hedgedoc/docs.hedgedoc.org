@@ -18,7 +18,7 @@ jobs:
         with:
           repository: 'hedgedoc/hedgedoc'
       - name: Install pip depdencies
-        run: pip3 isntall -r requirements.txt
+        run: pip3 install -r requirements.txt
         working-directory: docs
 
       - name: Build docs
