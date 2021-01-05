@@ -1,0 +1,1182 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HedgeDoc Documentation">
+      
+      
+      
+        <meta name="author" content="HedgeDoc Developers">
+      
+      
+        <link rel="canonical" href="https://docs.hedgedoc.org/guides/auth/saml-keycloak/">
+      
+      <link rel="shortcut icon" href="../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>SAML Keycloak - HedgeDoc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-color.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="hedgedoc" data-md-color-accent="hedgedoc">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-setup-hedgedoc-saml-with-keycloak" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://docs.hedgedoc.org" title="HedgeDoc" class="md-header-nav__button md-logo" aria-label="HedgeDoc">
+      
+  <img src="../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            HedgeDoc
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              SAML Keycloak
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/hedgedoc/hedgedoc/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../setup/manual-setup/" class="md-tabs__link">
+        Installation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ldap-ad/" class="md-tabs__link md-tabs__link--active">
+        Guides
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../configuration/" class="md-tabs__link">
+      Configuration
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../dev/getting-started/" class="md-tabs__link">
+        Developer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://hedgedoc.org/faq" class="md-tabs__link">
+      FAQ
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.hedgedoc.org" title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc">
+      
+  <img src="../../../images/logo.svg" alt="logo">
+
+    </a>
+    HedgeDoc
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/hedgedoc/hedgedoc/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+    
+    <label class="md-nav__link" for="nav-2">
+      Installation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Installation" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../setup/manual-setup/" class="md-nav__link">
+      Manual Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../setup/reverse-proxy/" class="md-nav__link">
+      Reverse Proxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../setup/docker/" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../setup/cloudron/" class="md-nav__link">
+      Cloudron
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../setup/heroku/" class="md-nav__link">
+      Heroku
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../setup/docker-linuxserver/" class="md-nav__link">
+      LinuxServer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../setup/yunohost/" class="md-nav__link">
+      Yunohost
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Guides
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Guides" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Authentication
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Authentication" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Authentication
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../ldap-ad/" class="md-nav__link">
+      LDAP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../oauth/" class="md-nav__link">
+      OAuth
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../saml/" class="md-nav__link">
+      SAML
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SAML Keycloak
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      SAML Keycloak
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-keycloak" class="md-nav__link">
+    Configuring Keycloak
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Keycloak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-public-certificate" class="md-nav__link">
+    Get the public certificate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-client" class="md-nav__link">
+    Create a new client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-hedgedoc" class="md-nav__link">
+    Configure HedgeDoc
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure HedgeDoc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config-file" class="md-nav__link">
+    Config file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    Environment Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-certificate-optional" class="md-nav__link">
+    Client certificate (optional)
+  </a>
+  
+    <nav class="md-nav" aria-label="Client certificate (optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-private-keys-for-signing" class="md-nav__link">
+    Create Private Keys for Signing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-private-certificate-generated-by-keycloak" class="md-nav__link">
+    Convert Private Certificate generated by KeyCloak
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-persistent-identifiers" class="md-nav__link">
+    Use Persistent Identifiers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../saml-onelogin/" class="md-nav__link">
+      SAML Onelogin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../github/" class="md-nav__link">
+      GitHub
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../gitlab-self-hosted/" class="md-nav__link">
+      GitLab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../keycloak/" class="md-nav__link">
+      Keycloak
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../nextcloud/" class="md-nav__link">
+      NextCloud
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../twitter/" class="md-nav__link">
+      Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../migrate-etherpad/" class="md-nav__link">
+      Migrate from Etherpad
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../migrations-and-breaking-changes/" class="md-nav__link">
+      Breaking Changes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../minio-image-upload/" class="md-nav__link">
+      Minion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../s3-image-upload/" class="md-nav__link">
+      S3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../providing-terms/" class="md-nav__link">
+      Setting Terms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../configuration/" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    
+    <label class="md-nav__link" for="nav-5">
+      Developer
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Developer" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Developer
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../dev/getting-started/" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../dev/api/" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../dev/ot/" class="md-nav__link">
+      Operational Transformation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../dev/webpack/" class="md-nav__link">
+      Webpack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../dev/documentation/" class="md-nav__link">
+      Documentation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="https://hedgedoc.org/faq" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/auth/saml-keycloak.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="how-to-setup-hedgedoc-saml-with-keycloak">How to setup HedgeDoc SAML with Keycloak<a class="headerlink" href="#how-to-setup-hedgedoc-saml-with-keycloak" title="Permanent link">&para;</a></h1>
+<h2 id="configuring-keycloak">Configuring Keycloak<a class="headerlink" href="#configuring-keycloak" title="Permanent link">&para;</a></h2>
+<h3 id="get-the-public-certificate">Get the public certificate<a class="headerlink" href="#get-the-public-certificate" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Select the Realm you want to use for your HedgeDoc SAML</li>
+<li>Select "Realm Settings" in left sidebar</li>
+<li>Select the "Keys" tab</li>
+<li>Click the button "Certificate" at <code>RS256</code> algorithm
+<img alt="keycloak_idp_cert" src="../../../images/auth/keycloak_idp_cert.png" /></li>
+<li>Copy this key and save it to the file specified in <code>saml.idpCert</code> property of the HedgeDoc configuration or <code>CMD_SAML_IDPCERT</code> environment variable</li>
+</ol>
+<h3 id="create-a-new-client">Create a new client<a class="headerlink" href="#create-a-new-client" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Select "Client" in left sidebar
+<img alt="keycloak_clients_overview" src="../../../images/auth/keycloak_clients_overview.png" /></li>
+<li>Click on the "Create" button</li>
+<li>Set a Client ID and specify this in <code>saml.issuer</code> property of the HedgeDoc configuration or <code>CMD_SAML_ISSUER</code> environment variable</li>
+<li>Select <code>SAML</code> as Client Protocol</li>
+<li>Set Client SAML Endpoint to <code>https://hedgedoc.example.com/auth/saml</code> (replace <code>https://hedgedoc.example.com</code> with the base URL of your HedgeDoc installation)
+<img alt="keycloak_add_client" src="../../../images/auth/keycloak_add_client.png" /></li>
+<li>Leave "Client Signature Required" enabled</li>
+<li>Set Root URL to <code>https://hedgedoc.example.com</code> (replace it here also with the base URL of your HedgeDoc installation)</li>
+<li>Set Valid Redirect URIs to <code>https://hedgedoc.example.com/auth/saml/callback</code> (you should also define all other domains of your HedgeDoc installtion with the suffix <code>/auth/saml/callback</code>)</li>
+<li>Set Base URL to <code>/</code>
+<img alt="keycloak_client_overview" src="../../../images/auth/keycloak_client_overview.png" /></li>
+<li><em>(optional)</em> You can set which Name ID Format should be used</li>
+</ol>
+<h2 id="configure-hedgedoc">Configure HedgeDoc<a class="headerlink" href="#configure-hedgedoc" title="Permanent link">&para;</a></h2>
+<h3 id="config-file">Config file<a class="headerlink" href="#config-file" title="Permanent link">&para;</a></h3>
+<p>You have to put the following block inside your <code>config.json</code>:</p>
+<pre><code class="language-json">&quot;saml&quot;: {
+  &quot;issuer&quot;: &quot;hedgedoc&quot;, // Change to the &quot;Client ID&quot; specified in the Keycloak Client
+  &quot;identifierFormat&quot;: &quot;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&quot;,
+  &quot;idpSsoUrl&quot;: &quot;https://keycloak.example.org/auth/realms/test/protocol/saml&quot;, // replace keycloak.example.org with the url of your keycloak server
+  &quot;idpCert&quot;: &quot;/path/to/the/cert.pem&quot;,
+  &quot;clientCert&quot;: &quot;/path/to/the/key.pem&quot; // this one is optional, see below
+}
+</code></pre>
+<h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>CMD_SAML_IDPSSOURL</code>: <code>https://keycloak.example.org/auth/realms/test/protocol/saml</code> (replace keycloak.example.org with the url of your keycloak server)</li>
+<li><code>CMD_SAML_IDPCERT</code>: <code>/path/to/the/cert.pem</code></li>
+<li><em>(optional, see below)</em> <code>CMD_SAML_CLIENTCERT</code>: <code>/path/to/the/key.pem</code></li>
+<li><code>CMD_SAML_ISSUER</code>: <code>hedgedoc</code> (Change to the "Client ID" specified in the Keycloak Client)</li>
+<li><code>CMD_SAML_IDENTIFIERFORMAT</code>: <code>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</code></li>
+</ul>
+<h2 id="client-certificate-optional">Client certificate <em>(optional)</em><a class="headerlink" href="#client-certificate-optional" title="Permanent link">&para;</a></h2>
+<p>If you want keycloak to be able to verify HedgeDoc, you hava to create a client certificate. There are two options for this:</p>
+<h3 id="create-private-keys-for-signing">Create Private Keys for Signing<a class="headerlink" href="#create-private-keys-for-signing" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Generate the private key and certificate with the following commands:</li>
+</ol>
+<pre><code class="language-shell">openssl genrsa -out priv.pem 2048
+openssl req -new -x509 -key priv.pem -out cert.pem
+</code></pre>
+<p><em>execute the following steps in keycloak</em></p>
+<ol>
+<li>Select "Client" in left sidebar</li>
+<li>Go to your HedgeDoc-Client</li>
+<li>Select the "SAML Keys" tab
+<img alt="keycloak_saml_import_cert" src="../../../images/auth/keycloak_saml_import_cert.png" /></li>
+<li>Click on "Import"</li>
+<li>Select <code>Certificate PEM</code> as "Archive Format"</li>
+<li>Now upload the generated cert.pem (in this case named <code>cert.pem</code>)
+<img alt="keycloak_saml_import_cert_details" src="../../../images/auth/keycloak_saml_import_cert_details.png" /></li>
+<li>Click on "Import"</li>
+<li>Move or copy this key (in this case named <code>key.pem</code>) and save it to the file specified in <code>saml.clientCert</code> property of the HedgeDoc configuration or in the enviroment-variable <code>CMD_SAML_CLIENTCERT</code></li>
+</ol>
+<h3 id="convert-private-certificate-generated-by-keycloak">Convert Private Certificate generated by KeyCloak<a class="headerlink" href="#convert-private-certificate-generated-by-keycloak" title="Permanent link">&para;</a></h3>
+<p>Instead if generating you own certificate, you can also use the one generated by keycloak.</p>
+<ol>
+<li>Select "Client" in left sidebar</li>
+<li>Go to your HedgeDoc-Client</li>
+<li>
+<p>Select the "SAML Keys" tab
+<img alt="keycloak_saml_export_cert" src="../../../images/auth/keycloak_saml_export_cert.png" /></p>
+</li>
+<li>
+<p>Now click on "Export"</p>
+</li>
+<li>Here you can select the output format, choose <code>PKCS12</code>. You also have to set a password. Choose your own.
+<img alt="keycloak_saml_export_cert_details" src="../../../images/auth/keycloak_saml_export_cert_details.png" /></li>
+<li>Click on "Download" and save the file somewhere on you computer</li>
+<li>You now have to extract the private Key. You can do this with the following command. WHen asked, enter your password.</li>
+</ol>
+<pre><code class="language-shell">openssl pkcs12 -in keystore.p12 -out key.pem -nocerts -nodes
+</code></pre>
+<ol>
+<li>Move or copy this key (in this case named <code>key.pem</code>) and save it to the file specified in <code>saml.idpCert</code> property of the HedgeDoc configuration or in the enviroment-variable <code>CMD_SAML_CLIENTCERT</code></li>
+</ol>
+<h2 id="use-persistent-identifiers">Use Persistent Identifiers<a class="headerlink" href="#use-persistent-identifiers" title="Permanent link">&para;</a></h2>
+<p>Instead of using the username as the owner-key in the HedgeDoc database, you can also use a persistent identifier. This allows to change the username, without them loosing access to their notes.</p>
+<ol>
+<li>Go to the HedgeDoc-Client in keycloak. Now enable the option "Force Name ID Format" and select "persistent" as the "Name ID Format".
+<img alt="keycloak_force_idformat" src="../../../images/auth/keycloak_force_idformat.png" /></li>
+<li>For HedgeDoc to be able to use the username and email configured in keycloak, you have to create the following SAML protocol mappers:
+    2.1. Create a mapper with the type <code>User Property</code>. Set the Name, Property and SAML Attribute Name to <code>username</code>. Now you can specify a friendly name (for example <code>Username</code>)
+<img alt="keycloak_mapper_username" src="../../../images/auth/keycloak_mapper_username.png" />
+    2.2 Create a mapper with the type <code>User Property</code>. Set the Name, Property and SAML Attribute Name to <code>email</code>. Now you can specify a friendly name (for example <code>E-Mail</code>)
+<img alt="keycloak_mapper_email" src="../../../images/auth/keycloak_mapper_email.png" /></li>
+</ol>
+<p>The configured mappers should look like this:
+<img alt="keycloak_mapper_overview" src="../../../images/auth/keycloak_mapper_overview.png" /></p>
+<ol>
+<li>You now have to add the following block to the saml-definition inside your <code>config.json</code>:</li>
+</ol>
+<pre><code class="language-json">&quot;attribute&quot;: {
+      &quot;username&quot;: &quot;username&quot;
+      &quot;email&quot;: &quot;email&quot;,
+}
+</code></pre>
+<p>It you configure HedgeDoc with enviroment variables, these are the ones you have to set:</p>
+<pre><code class="language-bash">CMD_SAML_ATTRIBUTE_USERNAME=username
+CMD_SAML_ATTRIBUTE_EMAIL=email
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../saml/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                SAML
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../saml-onelogin/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                SAML Onelogin
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs', 'navigation.sections', 'toc.integrate'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

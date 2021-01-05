@@ -1,0 +1,2285 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HedgeDoc Documentation">
+      
+      
+      
+        <meta name="author" content="HedgeDoc Developers">
+      
+      
+        <link rel="canonical" href="https://docs.hedgedoc.org/configuration/">
+      
+      <link rel="shortcut icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>Configuration - HedgeDoc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../theme/styles/hedgedoc-color.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="hedgedoc" data-md-color-accent="hedgedoc">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://docs.hedgedoc.org" title="HedgeDoc" class="md-header-nav__button md-logo" aria-label="HedgeDoc">
+      
+  <img src="../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            HedgeDoc
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Configuration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/hedgedoc/hedgedoc/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../setup/manual-setup/" class="md-tabs__link">
+        Installation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../guides/auth/ldap-ad/" class="md-tabs__link">
+        Guides
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Configuration
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../dev/getting-started/" class="md-tabs__link">
+        Developer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://hedgedoc.org/faq" class="md-tabs__link">
+      FAQ
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.hedgedoc.org" title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc">
+      
+  <img src="../images/logo.svg" alt="logo">
+
+    </a>
+    HedgeDoc
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/hedgedoc/hedgedoc/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+    
+    <label class="md-nav__link" for="nav-2">
+      Installation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Installation" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/manual-setup/" class="md-nav__link">
+      Manual Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/reverse-proxy/" class="md-nav__link">
+      Reverse Proxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/docker/" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/cloudron/" class="md-nav__link">
+      Cloudron
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/heroku/" class="md-nav__link">
+      Heroku
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/docker-linuxserver/" class="md-nav__link">
+      LinuxServer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../setup/yunohost/" class="md-nav__link">
+      Yunohost
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    
+    <label class="md-nav__link" for="nav-3">
+      Guides
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Guides" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" >
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Authentication
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Authentication" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Authentication
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/ldap-ad/" class="md-nav__link">
+      LDAP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/oauth/" class="md-nav__link">
+      OAuth
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/saml/" class="md-nav__link">
+      SAML
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/saml-keycloak/" class="md-nav__link">
+      SAML Keycloak
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/saml-onelogin/" class="md-nav__link">
+      SAML Onelogin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/github/" class="md-nav__link">
+      GitHub
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/gitlab-self-hosted/" class="md-nav__link">
+      GitLab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/keycloak/" class="md-nav__link">
+      Keycloak
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/nextcloud/" class="md-nav__link">
+      NextCloud
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/auth/twitter/" class="md-nav__link">
+      Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/migrate-etherpad/" class="md-nav__link">
+      Migrate from Etherpad
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/migrations-and-breaking-changes/" class="md-nav__link">
+      Breaking Changes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/minio-image-upload/" class="md-nav__link">
+      Minion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/s3-image-upload/" class="md-nav__link">
+      S3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/providing-terms/" class="md-nav__link">
+      Setting Terms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Configuration
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nodejs" class="md-nav__link">
+    Node.JS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hedgedoc-basics" class="md-nav__link">
+    HedgeDoc basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hedgedoc-paths-stuff" class="md-nav__link">
+    HedgeDoc paths stuff
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hedgedoc-location" class="md-nav__link">
+    HedgeDoc Location
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-security-aspects" class="md-nav__link">
+    Web security aspects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-and-external-requests" class="md-nav__link">
+    Privacy and External Requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#users-and-privileges" class="md-nav__link">
+    Users and Privileges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-methods" class="md-nav__link">
+    Login methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Login methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#email-local-account" class="md-nav__link">
+    Email (local account)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropbox-login" class="md-nav__link">
+    Dropbox Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facebook-login" class="md-nav__link">
+    Facebook Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-login" class="md-nav__link">
+    GitHub Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitlab-login" class="md-nav__link">
+    GitLab Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-login" class="md-nav__link">
+    Google Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-login" class="md-nav__link">
+    LDAP Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mattermost-login" class="md-nav__link">
+    Mattermost Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth2-login" class="md-nav__link">
+    OAuth2 Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saml-login" class="md-nav__link">
+    SAML Login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twitter-login" class="md-nav__link">
+    Twitter Login
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-storage" class="md-nav__link">
+    Upload Storage
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amazon-s3" class="md-nav__link">
+    Amazon S3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-blob-storage" class="md-nav__link">
+    Azure Blob Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imgur" class="md-nav__link">
+    imgur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minio" class="md-nav__link">
+    Minio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lutim" class="md-nav__link">
+    Lutim
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    
+    <label class="md-nav__link" for="nav-5">
+      Developer
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Developer" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Developer
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../dev/getting-started/" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../dev/api/" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../dev/ot/" class="md-nav__link">
+      Operational Transformation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../dev/webpack/" class="md-nav__link">
+      Webpack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../dev/documentation/" class="md-nav__link">
+      Documentation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="https://hedgedoc.org/faq" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/configuration.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
+<p>You can choose to configure HedgeDoc with either a config file or with environment variables.</p>
+<p>Environment variables take precedence over configurations from the config files. They generally start with <code>CMD_</code> for our own options, but we also list node-specific options you can configure this way.</p>
+<ul>
+<li>
+<p>Environment variables are processed in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/environment.js"><code>lib/config/environment.js</code></a> - so this is the first place to look if anything is missing not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js"><code>lib/config/default.js</code></a>, in case you wonder if you even need to override it.</p>
+</li>
+<li>
+<p>The config file is processed in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/index.js"><code>lib/config/index.js</code></a> - so this is the first place to look if anything is missing not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js"><code>lib/config/default.js</code></a>, in case you wonder if you even need to override it. To get started, it is a good idea to take the <code>config.json.example</code> and copy it
+to <code>config.json</code> before filling in your own details.</p>
+</li>
+</ul>
+<p><strong>Note:</strong> <em>Due to the rename process we renamed all <code>HMD_</code>-prefix variables to be <code>CMD_</code>-prefixed. The old ones continue to work.</em></p>
+<h2 id="nodejs">Node.JS<a class="headerlink" href="#nodejs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>NODE_ENV</code></td>
+<td><code>production</code> or <code>development</code></td>
+<td>set current environment (will apply corresponding settings in the <code>config.json</code>)</td>
+</tr>
+<tr>
+<td><code>debug</code></td>
+<td><code>DEBUG</code></td>
+<td><code>true</code> or <code>false</code></td>
+<td>set debug mode, show more logs</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hedgedoc-basics">HedgeDoc basics<a class="headerlink" href="#hedgedoc-basics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>CMD_CONFIG_FILE</code></td>
+<td><strong>no default</strong>, <code>/path/to/config.json</code></td>
+<td>optional override for the path to HedgeDoc's config file</td>
+</tr>
+<tr>
+<td><code>db</code></td>
+<td></td>
+<td><strong><code>undefined</code></strong>, <code>{ "dialect": "sqlite", "storage": "./db.hedgedoc.sqlite" }</code></td>
+<td>set the db configs, <a href="http://sequelize.readthedocs.org/en/latest/api/sequelize/">see more here</a></td>
+</tr>
+<tr>
+<td><code>dbURL</code></td>
+<td><code>CMD_DB_URL</code></td>
+<td><strong><code>undefined</code></strong>, <code>postgres://username:password@localhost:5432/hedgedoc</code> or <code>mysql://username:password@localhost:3306/hedgedoc</code></td>
+<td>Set the db in URL style. If set, then the relevant <code>db</code> config entries will be overridden.</td>
+</tr>
+<tr>
+<td><code>loglevel</code></td>
+<td><code>CMD_LOGLEVEL</code></td>
+<td><strong><code>info</code></strong>, <code>debug</code> ...</td>
+<td>Defines what kind of logs are provided to stdout. Available options: <code>debug</code>, <code>verbose</code>, <code>info</code>, <code>warn</code>, <code>error</code></td>
+</tr>
+<tr>
+<td><code>forbiddenNoteIDs</code></td>
+<td><code>CMD_FORBIDDEN_NOTE_IDS</code></td>
+<td><strong><code>['robots.txt', 'favicon.ico', 'api', 'build', 'css', 'docs', 'fonts', 'js', 'uploads', 'vendor', 'views']</code></strong>, <code>['robots.txt']</code> or <code>'robots.txt'</code></td>
+<td>disallow creation of notes, even if <code>allowFreeUrl</code> or <code>CMD_ALLOW_FREEURL</code> is <code>true</code></td>
+</tr>
+<tr>
+<td><code>imageUploadType</code></td>
+<td><code>CMD_IMAGE_UPLOAD_TYPE</code></td>
+<td><strong><code>filesystem</code></strong>, <code>imgur</code>, <code>s3</code>, <code>minio</code>, <code>azure</code>, <code>lutim</code></td>
+<td>Where to upload images. For S3, see our Image Upload Guides for <a href="../guides/s3-image-upload/">S3</a> or <a href="../guides/minio-image-upload/">Minio</a>, also there's a whole section on their respective env vars below.</td>
+</tr>
+<tr>
+<td><code>sourceURL</code></td>
+<td><code>CMD_SOURCE_URL</code></td>
+<td><strong>no default</strong>, <code>https://github.com/hedgedoc/hedgedoc/tree/&lt;current commit&gt;</code></td>
+<td>Provides the link to the source code of HedgeDoc on the entry page (Please, make sure you change this when you run a modified version)</td>
+</tr>
+<tr>
+<td><code>tooBusyLag</code></td>
+<td><code>CMD_TOOBUSY_LAG</code></td>
+<td><strong><code>70</code></strong></td>
+<td>CPU time for one event loop tick until node throttles connections. (milliseconds)</td>
+</tr>
+<tr>
+<td><code>staticCacheTime</code></td>
+<td></td>
+<td><strong><code>1 * 24 * 60 * 60 * 1000</code></strong></td>
+<td>static file cache time</td>
+</tr>
+<tr>
+<td><code>heartbeatInterval</code></td>
+<td></td>
+<td><strong><code>5000</code></strong></td>
+<td>socket.io heartbeat interval</td>
+</tr>
+<tr>
+<td><code>heartbeatTimeout</code></td>
+<td></td>
+<td><strong><code>10000</code></strong></td>
+<td>socket.io heartbeat timeout</td>
+</tr>
+<tr>
+<td><code>documentMaxLength</code></td>
+<td></td>
+<td><strong><code>100000</code></strong></td>
+<td>note max length</td>
+</tr>
+<tr>
+<td><code>linkifyHeaderStyle</code></td>
+<td></td>
+<td><strong><code>keep-case</code></strong>, <code>lower-case</code>, <code>gfm</code></td>
+<td>how is a header text converted into a link id</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hedgedoc-paths-stuff">HedgeDoc paths stuff<a class="headerlink" href="#hedgedoc-paths-stuff" title="Permanent link">&para;</a></h2>
+<p>these are rarely used for various reasons.</p>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example values</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>defaultNotePath</code></td>
+<td></td>
+<td><strong><code>./public/default.md</code></strong></td>
+<td>default note file path<sup>1</sup>, empty notes will be created with this template.</td>
+</tr>
+<tr>
+<td><code>dhParamPath</code></td>
+<td></td>
+<td><strong><code>undefined</code></strong>, <code>./cert/dhparam.pem</code></td>
+<td>SSL dhparam path<sup>1</sup> (only need when you set <code>useSSL</code>)</td>
+</tr>
+<tr>
+<td><code>sslCAPath</code></td>
+<td></td>
+<td><strong><code>undefined</code></strong>, <code>['./cert/COMODORSAAddTrustCA.crt']</code></td>
+<td>SSL ca chain<sup>1</sup> (only need when you set <code>useSSL</code>)</td>
+</tr>
+<tr>
+<td><code>sslCertPath</code></td>
+<td></td>
+<td><strong><code>undefined</code></strong>, <code>./cert/hedgedoc_io.crt</code></td>
+<td>SSL cert path<sup>1</sup> (only need when you set <code>useSSL</code>)</td>
+</tr>
+<tr>
+<td><code>sslKeyPath</code></td>
+<td></td>
+<td><strong><code>undefined</code></strong>, <code>./cert/client.key</code></td>
+<td>SSL key path<sup>1</sup> (only need when you set <code>useSSL</code>)</td>
+</tr>
+<tr>
+<td><code>tmpPath</code></td>
+<td></td>
+<td><strong><code>os.tmpdir()</code></strong>, <code>./tmp/</code></td>
+<td>temp directory path<sup>1</sup></td>
+</tr>
+<tr>
+<td><code>docsPath</code></td>
+<td></td>
+<td><strong><code>./public/docs</code></strong></td>
+<td>docs directory path<sup>1</sup></td>
+</tr>
+<tr>
+<td><code>viewPath</code></td>
+<td></td>
+<td><strong><code>./public/views</code></strong></td>
+<td>template directory path<sup>1</sup></td>
+</tr>
+<tr>
+<td><code>uploadsPath</code></td>
+<td></td>
+<td><strong><code>./public/uploads</code></strong></td>
+<td>uploads directory<sup>1</sup> - needs to be persistent when you use imageUploadType <code>filesystem</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> <em>relative paths are based on HedgeDoc's base directory</em></p>
+<h2 id="hedgedoc-location">HedgeDoc Location<a class="headerlink" href="#hedgedoc-location" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>domain</code></td>
+<td><code>CMD_DOMAIN</code></td>
+<td><strong><code>null</code></strong>, <code>localhost</code>, <code>hedgedoc.org</code></td>
+<td>domain name</td>
+</tr>
+<tr>
+<td><code>urlPath</code></td>
+<td><code>CMD_URL_PATH</code></td>
+<td><strong><code>null</code></strong>, <code>hedgedoc</code></td>
+<td>If HedgeDoc is run from a subdirectory like <code>www.example.com/&lt;urlpath&gt;</code></td>
+</tr>
+<tr>
+<td><code>host</code></td>
+<td><code>CMD_HOST</code></td>
+<td><strong><code>0.0.0.0</code></strong>, <code>localhost</code></td>
+<td>interface/ip to listen on</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td><code>CMD_PORT</code></td>
+<td><strong><code>3000</code></strong>, <code>80</code></td>
+<td>port to listen on</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>CMD_PATH</code></td>
+<td><strong>no default</strong>, <code>/var/run/hedgedoc.sock</code></td>
+<td>path to UNIX domain socket to listen on (if specified, <code>host</code> or <code>CMD_HOST</code> and <code>port</code> or <code>CMD_PORT</code> are ignored)</td>
+</tr>
+<tr>
+<td><code>protocolUseSSL</code></td>
+<td><code>CMD_PROTOCOL_USESSL</code></td>
+<td><strong><code>false</code></strong> or <code>true</code></td>
+<td>set to use SSL protocol for resources path (only applied when domain is set)</td>
+</tr>
+<tr>
+<td><code>useSSL</code></td>
+<td></td>
+<td><strong><code>false</code></strong> or <code>true</code></td>
+<td>set to use SSL server (if <code>true</code>, will auto turn on <code>protocolUseSSL</code>)</td>
+</tr>
+<tr>
+<td><code>urlAddPort</code></td>
+<td><code>CMD_URL_ADDPORT</code></td>
+<td><strong><code>false</code></strong> or <code>true</code></td>
+<td>set to add port on callback URL (ports <code>80</code> or <code>443</code> won't be applied) (only applied when domain is set)</td>
+</tr>
+<tr>
+<td><code>allowOrigin</code></td>
+<td><code>CMD_ALLOW_ORIGIN</code></td>
+<td><strong><code>['localhost']</code></strong>, <code>['hedgedoc.org']</code>, <code>['localhost', 'hedgedoc.org']</code></td>
+<td>domain name whitelist (use comma to separate)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="web-security-aspects">Web security aspects<a class="headerlink" href="#web-security-aspects" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hsts</code></td>
+<td></td>
+<td><code>{"enable": true, "maxAgeSeconds": 31536000, "includeSubdomains": true, "preload": true}</code></td>
+<td><a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">HSTS</a> options to use with HTTPS (default is the example value, max age is a year)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_HSTS_ENABLE</code></td>
+<td><strong><code>true</code></strong> or <code>false</code></td>
+<td>set to enable <a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">HSTS</a> if HTTPS is also enabled (default is <code>true</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_HSTS_INCLUDE_SUBDOMAINS</code></td>
+<td><strong><code>true</code></strong> or <code>false</code></td>
+<td>set to include subdomains in HSTS (default is <code>true</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_HSTS_MAX_AGE</code></td>
+<td><strong><code>31536000</code></strong>, <code>60 * 60 * 24 * 365</code></td>
+<td>max duration in seconds to tell clients to keep HSTS status (default is a year)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_HSTS_PRELOAD</code></td>
+<td><strong><code>true</code></strong> or <code>false</code></td>
+<td>whether to allow preloading of the site's HSTS status (e.g. into browsers)</td>
+</tr>
+<tr>
+<td><code>csp</code></td>
+<td></td>
+<td><code>{"enable": true, "directives": {"scriptSrc": "trustworthy-scripts.example.com"}, "upgradeInsecureRequests": "auto", "addDefaults": true}</code></td>
+<td>Configures <a href="https://helmetjs.github.io/docs/csp/">Content Security Policy</a>. Directives are passed to Helmet - see <a href="https://helmetjs.github.io/docs/csp/">their documentation</a> for more information on the format. Some defaults are added to the configured values so that the application doesn't break. To disable this behaviour, set <code>addDefaults</code> to <code>false</code>. Further, if <code>usecdn</code> is on, some CDN locations are allowed too. By default (<code>auto</code>), insecure (HTTP) requests are upgraded to HTTPS via CSP if <code>useSSL</code> is on. To change this behaviour, set <code>upgradeInsecureRequests</code> to either <code>true</code> or <code>false</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_CSP_ENABLE</code></td>
+<td><strong><code>true</code></strong> or <code>false</code></td>
+<td>whether to enable Content Security Policy (directives cannot be configured with environment variables)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_CSP_REPORTURI</code></td>
+<td><strong><code>undefined</code></strong>, <code>https://&lt;someid&gt;.report-uri.com/r/d/csp/enforce</code></td>
+<td>Allows to add a URL for CSP reports in case of violations</td>
+</tr>
+<tr>
+<td><code>cookiePolicy</code></td>
+<td><code>CMD_COOKIE_POLICY</code></td>
+<td><strong><code>lax</code></strong>, <code>strict</code> or <code>none</code></td>
+<td>Set a SameSite policy whether cookies are send from cross-origin. Be careful: setting a SameSite value of none without https breaks the editor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="privacy-and-external-requests">Privacy and External Requests<a class="headerlink" href="#privacy-and-external-requests" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allowGravatar</code></td>
+<td><code>CMD_ALLOW_GRAVATAR</code></td>
+<td><strong><code>true</code></strong> or <code>false</code></td>
+<td>set to <code>false</code> to disable <a href="https://www.libravatar.org/">Libravatar</a> as profile picture source on your instance. Libravatar is a federated open-source alternative to Gravatar.</td>
+</tr>
+<tr>
+<td><code>useCDN</code></td>
+<td><code>CMD_USECDN</code></td>
+<td><strong><code>false</code></strong> or <code>true</code></td>
+<td>set to use CDN resources or not (default is <code>false</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="users-and-privileges">Users and Privileges<a class="headerlink" href="#users-and-privileges" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allowAnonymous</code></td>
+<td><code>CMD_ALLOW_ANONYMOUS</code></td>
+<td><strong><code>true</code></strong> or <code>false</code></td>
+<td>Set to allow anonymous usage (default is <code>true</code>).</td>
+</tr>
+<tr>
+<td><code>allowAnonymousEdits</code></td>
+<td><code>CMD_ALLOW_ANONYMOUS_EDITS</code></td>
+<td><strong><code>false</code></strong> or <code>true</code></td>
+<td>If <code>allowAnonymous</code> is <code>false</code>: allow users to select <code>freely</code> permission, allowing guests to edit existing notes (default is <code>false</code>).</td>
+</tr>
+<tr>
+<td><code>allowFreeURL</code></td>
+<td><code>CMD_ALLOW_FREEURL</code></td>
+<td><strong><code>false</code></strong> or <code>true</code></td>
+<td>Set to allow new note creation by accessing a nonexistent note URL. This is the behavior familiar from <a href="https://github.com/ether/etherpad-lite">Etherpad</a>.</td>
+</tr>
+<tr>
+<td><code>defaultPermission</code></td>
+<td><code>CMD_DEFAULT_PERMISSION</code></td>
+<td><strong><code>editable</code></strong>, <code>freely</code>, <code>limited</code>, <code>locked</code>, <code>protected</code> or <code>private</code></td>
+<td>Set notes default permission (only applied on signed-in users).</td>
+</tr>
+<tr>
+<td><code>sessionName</code></td>
+<td></td>
+<td><strong><code>connect.sid</code></strong></td>
+<td>Cookie session name.</td>
+</tr>
+<tr>
+<td><code>sessionLife</code></td>
+<td><code>CMD_SESSION_LIFE</code></td>
+<td><strong><code>14 * 24 * 60 * 60 * 1000</code></strong>, <code>1209600000</code> (14 days)</td>
+<td>Cookie session life time in milliseconds.</td>
+</tr>
+<tr>
+<td><code>sessionSecret</code></td>
+<td><code>CMD_SESSION_SECRET</code></td>
+<td><strong><code>secret</code></strong></td>
+<td>Cookie session secret used to sign the session cookie. If none is set, one will randomly generated on each startup, meaning all your users will be logged out.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="login-methods">Login methods<a class="headerlink" href="#login-methods" title="Permanent link">&para;</a></h2>
+<h3 id="email-local-account">Email (local account)<a class="headerlink" href="#email-local-account" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td><code>CMD_EMAIL</code></td>
+<td><strong><code>true</code></strong> or <code>false</code></td>
+<td>Set to allow email sign-in. The default is <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>allowEmailRegister</code></td>
+<td><code>CMD_ALLOW_EMAIL_REGISTER</code></td>
+<td><strong><code>true</code></strong> or <code>false</code></td>
+<td>Set to allow registration of new accounts using an email address. If set to <code>false</code>, you can still create accounts using the command line - see <code>bin/manage_users</code> for details (In production mode, remember to run it with <code>NODE_ENV</code> set as <code>production</code> in the enviroment). This setting has no effect if <code>email</code> or <code>CMD_EMAIL</code> is <code>false</code>. The default for <code>allowEmailRegister</code> or <code>CMD_ALLOW_EMAIL_REGISTER</code> is <code>true</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dropbox-login">Dropbox Login<a class="headerlink" href="#dropbox-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dropbox</code></td>
+<td></td>
+<td><code>{clientID: ..., clientSecret: ...}</code></td>
+<td>An object containing the client ID and the client secret obtained by the <a href="https://www.dropbox.com/developers/apps">Dropbox developer tools</a></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_DROPBOX_CLIENTID</code></td>
+<td><strong>no default</strong></td>
+<td>Dropbox API client id</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_DROPBOX_CLIENTSECRET</code></td>
+<td><strong>no default</strong></td>
+<td>Dropbox API client secret</td>
+</tr>
+</tbody>
+</table>
+<h3 id="facebook-login">Facebook Login<a class="headerlink" href="#facebook-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>facebook</code></td>
+<td></td>
+<td><code>{clientID: ..., clientSecret: ...}</code></td>
+<td>An object containing the client ID and the client secret obtained by the <a href="https://developers.facebook.com/apps">Facebook app console</a></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_FACEBOOK_CLIENTID</code></td>
+<td><strong>no default</strong></td>
+<td>Facebook API client id</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_FACEBOOK_CLIENTSECRET</code></td>
+<td><strong>no default</strong></td>
+<td>Facebook API client secret</td>
+</tr>
+</tbody>
+</table>
+<h3 id="github-login">GitHub Login<a class="headerlink" href="#github-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>github</code></td>
+<td></td>
+<td><code>{clientID: ..., clientSecret: ...}</code></td>
+<td>An object containing the client ID and the client secret obtained by the GitHub developer page. For more details have a look at the <a href="../guides/auth/github/">GitHub auth guide</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GITHUB_CLIENTID</code></td>
+<td><strong>no default</strong></td>
+<td>GitHub API client id</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GITHUB_CLIENTSECRET</code></td>
+<td><strong>no default</strong></td>
+<td>GitHub API client secret</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gitlab-login">GitLab Login<a class="headerlink" href="#gitlab-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gitlab</code></td>
+<td></td>
+<td><code>{baseURL: ..., scope: ..., version: ..., clientID: ..., clientSecret: ...}</code></td>
+<td>An object containing your GitLab application data. Refer to the <a href="../guides/auth/gitlab-self-hosted/">GitLab guide</a> for more details!</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GITLAB_SCOPE</code></td>
+<td><strong>no default</strong>, <code>read_user</code> or <code>api</code></td>
+<td>GitLab API requested scope (default is <code>api</code>) (GitLab snippet import/export need <code>api</code> scope)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GITLAB_BASEURL</code></td>
+<td><strong>no default</strong></td>
+<td>GitLab authentication endpoint, set to use other endpoint than GitLab.com (optional)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GITLAB_CLIENTID</code></td>
+<td><strong>no default</strong></td>
+<td>GitLab API client id</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GITLAB_CLIENTSECRET</code></td>
+<td><strong>no default</strong></td>
+<td>GitLab API client secret</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GITLAB_VERSION</code></td>
+<td><strong><code>v4</code></strong></td>
+<td>GitLab API version (v3 or v4)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="google-login">Google Login<a class="headerlink" href="#google-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>google</code></td>
+<td></td>
+<td><code>{clientID: ..., clientSecret: ..., hostedDomain: ...}</code></td>
+<td>An object containing the client ID and the client secret obtained by the <a href="https://console.cloud.google.com/apis">Google API console</a></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GOOGLE_CLIENTID</code></td>
+<td><strong>no default</strong></td>
+<td>Google API client id</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GOOGLE_CLIENTSECRET</code></td>
+<td><strong>no default</strong></td>
+<td>Google API client secret</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_GOOGLE_HOSTEDDOMAIN</code></td>
+<td><strong>no default</strong>, <code>example.com</code></td>
+<td>Provided only if the user belongs to a hosted domain. default is <code>undefined</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ldap-login">LDAP Login<a class="headerlink" href="#ldap-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ldap</code></td>
+<td></td>
+<td><code>{providerName: ..., url: ..., bindDn: ..., bindCredentials: ..., searchBase: ..., searchFilter: ..., searchAttributes: ..., usernameField: ..., useridField: ..., tlsca: ...}</code></td>
+<td>An object detailing the LDAP connection. Refer to the <a href="../guides/auth/ldap-ad/">LDAP-AD guide</a> for more details!</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_URL</code></td>
+<td><strong>no default</strong>, <code>ldap://example.com</code></td>
+<td>URL of LDAP server</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_BINDDN</code></td>
+<td><strong>no default</strong></td>
+<td>bindDn for LDAP access</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_BINDCREDENTIALS</code></td>
+<td><strong>no default</strong>,</td>
+<td>bindCredentials for LDAP access</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_SEARCHBASE</code></td>
+<td><strong>no default</strong>, <code>o=users,dc=example,dc=com</code></td>
+<td>LDAP directory to begin search from</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_SEARCHFILTER</code></td>
+<td><strong>no default</strong>, <code>(uid={{username}})</code></td>
+<td>LDAP filter to search with</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_SEARCHATTRIBUTES</code></td>
+<td><strong>no default</strong>, <code>displayName, mail</code></td>
+<td>LDAP attributes to search with (use comma to separate)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_USERIDFIELD</code></td>
+<td><strong>no default</strong>, <code>uidNumber</code> or <code>uid</code> or <code>sAMAccountName</code></td>
+<td>The LDAP field which is used uniquely identify a user on HedgeDoc</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_USERNAMEFIELD</code></td>
+<td><strong>no default</strong>, fallback to userid</td>
+<td>The LDAP field which is used as the username on HedgeDoc</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_TLS_CA</code></td>
+<td><strong>no default</strong>, <code>server-cert.pem, root.pem</code></td>
+<td>Root CA for LDAP TLS in PEM format (use comma to separate)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LDAP_PROVIDERNAME</code></td>
+<td><strong>no default</strong>, <code>My institution</code></td>
+<td>Optional name to be displayed at login form indicating the LDAP provider</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mattermost-login">Mattermost Login<a class="headerlink" href="#mattermost-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mattermost</code></td>
+<td></td>
+<td><code>{baseURL: ..., clientID: ..., clientSecret: ...}</code></td>
+<td>An object containing the base URL of your Mattermost application data. Refer to the <a href="../guides/auth/mattermost-self-hosted/">Mattermost guide</a> for more details!</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_MATTERMOST_BASEURL</code></td>
+<td><strong>no default</strong></td>
+<td>Mattermost authentication endpoint for versions below 5.0. For Mattermost version 5.0 and above, see <a href="../guides/auth/mattermost-self-hosted/">guide</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_MATTERMOST_CLIENTID</code></td>
+<td><strong>no default</strong></td>
+<td>Mattermost API client id</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_MATTERMOST_CLIENTSECRET</code></td>
+<td><strong>no default</strong></td>
+<td>Mattermost API client secret</td>
+</tr>
+</tbody>
+</table>
+<h3 id="oauth2-login">OAuth2 Login<a class="headerlink" href="#oauth2-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>oauth2</code></td>
+<td></td>
+<td><code>{baseURL: ..., userProfileURL: ..., userProfileUsernameAttr: ..., userProfileDisplayNameAttr: ..., userProfileEmailAttr: ..., tokenURL: ..., authorizationURL: ..., clientID: ..., clientSecret: ..., scope: ...}</code></td>
+<td>An object detailing your OAuth2 provider. Refer to the <a href="../guides/auth/mattermost-self-hosted/">Mattermost</a> or <a href="../guides/auth/nextcloud/">Nextcloud</a> examples for more details!</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_USER_PROFILE_URL</code></td>
+<td><strong>no default</strong>, <code>https://example.com</code></td>
+<td>Where to retrieve information about a user after successful login. Needs to output JSON. (no default value) Refer to the <a href="../guides/auth/mattermost-self-hosted/">Mattermost</a> or <a href="../guides/auth/nextcloud/">Nextcloud</a> examples for more details on all of the <code>CMD_OAUTH2...</code> options.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR</code></td>
+<td><strong>no default</strong>, <code>name</code></td>
+<td>where to find the username in the JSON from the user profile URL. (no default value)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR</code></td>
+<td><strong>no default</strong>, <code>display-name</code></td>
+<td>where to find the display-name in the JSON from the user profile URL. (no default value)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR</code></td>
+<td><strong>no default</strong>, <code>email</code></td>
+<td>where to find the email address in the JSON from the user profile URL. (no default value)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_USER_PROFILE_ID_ATTR</code></td>
+<td><strong>no default</strong>, <code>user_uuid</code></td>
+<td>where to find the dedicated user ID (optional, overrides <code>CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_TOKEN_URL</code></td>
+<td><strong>no default</strong>, <code>https://example.com</code></td>
+<td>sometimes called token endpoint, please refer to the documentation of your OAuth2 provider (no default value)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_AUTHORIZATION_URL</code></td>
+<td><strong>no default</strong>, <code>https://example.com</code></td>
+<td>authorization URL of your provider, please refer to the documentation of your OAuth2 provider (no default value)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_CLIENT_ID</code></td>
+<td><strong>no default</strong>, <code>afae02fckafd...</code></td>
+<td>you will get this from your OAuth2 provider when you register HedgeDoc as OAuth2-client, (no default value)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_CLIENT_SECRET</code></td>
+<td><strong>no default</strong>, <code>afae02fckafd...</code></td>
+<td>you will get this from your OAuth2 provider when you register HedgeDoc as OAuth2-client, (no default value)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_PROVIDERNAME</code></td>
+<td><strong>no default</strong>, <code>My institution</code></td>
+<td>Optional name to be displayed at login form indicating the oAuth2 provider</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_SCOPE</code></td>
+<td><strong>no default</strong>, <code>openid email profile</code></td>
+<td>Scope to request for OIDC (OpenID Connect) providers.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_ROLES_CLAIM</code></td>
+<td><strong>no default</strong>, <code>roles</code></td>
+<td>ID token claim, which is supposed to provide an array of strings of roles</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_ACCESS_ROLE</code></td>
+<td><strong>no default</strong>, <code>role/hedgedoc</code></td>
+<td>The role which should be included in the ID token roles claim to grant access</td>
+</tr>
+</tbody>
+</table>
+<h3 id="saml-login">SAML Login<a class="headerlink" href="#saml-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>saml</code></td>
+<td></td>
+<td><code>{idpSsoUrl: ..., idpCert: ..., clientCert: ..., issuer: ..., identifierFormat: ..., disableRequestedAuthnContext: ..., groupAttribute: ..., externalGroups: [], requiredGroups: [], attribute: {id: ..., username: ..., email: ...}}</code></td>
+<td>An object detailing your SAML provider. Refer to the <a href="../guides/auth/saml-onelogin/">OneLogin</a> and <a href="../guides/auth/saml/">SAML</a> guides for more details!</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_IDPSSOURL</code></td>
+<td><strong>no default</strong>, <code>https://idp.example.com/sso</code></td>
+<td>authentication endpoint of IdP. for details, see <a href="../guides/auth/saml-onelogin/">guide</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_IDPCERT</code></td>
+<td><strong>no default</strong>, <code>/path/to/cert.pem</code></td>
+<td>certificate file path of IdP in PEM format</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_CLIENTCERT</code></td>
+<td><strong>no default</strong>, <code>/path/to/privatecert.pem</code></td>
+<td>certificate file path for the client in PEM format (optional)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_ISSUER</code></td>
+<td><strong>no default</strong></td>
+<td>Issuer to supply to identity provider (optional, default: <code>serverURL</code> config)"</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_DISABLEREQUESTEDAUTHNCONTEXT</code></td>
+<td><strong>no default</strong>, <code>true</code> or <code>false</code></td>
+<td>true to allow any authentication method, false restricts to password authentication (PasswordProtectedTransport) method (default: false)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_IDENTIFIERFORMAT</code></td>
+<td><strong><code>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</code></strong></td>
+<td>name identifier format (optional, default: <code>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_GROUPATTRIBUTE</code></td>
+<td><strong>no default</strong>, <code>memberOf</code></td>
+<td>attribute name for group list (optional)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_REQUIREDGROUPS</code></td>
+<td><strong>no default</strong>, <code>hedgedoc-users</code></td>
+<td>group names that allowed (use vertical bar to separate) (optional)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_EXTERNALGROUPS</code></td>
+<td><strong>no default</strong>, <code>Temporary-staff</code></td>
+<td>group names that not allowed (use vertical bar to separate) (optional)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_ATTRIBUTE_ID</code></td>
+<td><strong>no default</strong>, <code>sAMAccountName</code></td>
+<td>attribute map for <code>id</code> (optional, default: NameID of SAML response)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_ATTRIBUTE_USERNAME</code></td>
+<td><strong>no default</strong>, <code>mailNickname</code></td>
+<td>attribute map for <code>username</code> (optional, default: NameID of SAML response)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_SAML_ATTRIBUTE_EMAIL</code></td>
+<td><strong>no default</strong>, <code>mail</code></td>
+<td>attribute map for <code>email</code> (optional, default: NameID of SAML response if <code>CMD_SAML_IDENTIFIERFORMAT</code> is default)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="twitter-login">Twitter Login<a class="headerlink" href="#twitter-login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>twitter</code></td>
+<td></td>
+<td><code>{consumerKey: ..., consumerSecret: ...}</code></td>
+<td>An object containing the consumer key and secret obtained by the <a href="https://developer.twitter.com/apps">Twitter developer tools</a>. For more details have a look at the <a href="../guides/auth/twitter/">Twitter auth guide</a></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_TWITTER_CONSUMERKEY</code></td>
+<td><strong>no default</strong></td>
+<td>Twitter API consumer key</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_TWITTER_CONSUMERSECRET</code></td>
+<td><strong>no default</strong></td>
+<td>Twitter API consumer secret</td>
+</tr>
+</tbody>
+</table>
+<h2 id="upload-storage">Upload Storage<a class="headerlink" href="#upload-storage" title="Permanent link">&para;</a></h2>
+<p>These are only relevant when they are also configured in sync with their
+<code>CMD_IMAGE_UPLOAD_TYPE</code>. Also keep in mind, that <code>filesystem</code> is available, so
+you don't have to use either of these.</p>
+<h3 id="amazon-s3">Amazon S3<a class="headerlink" href="#amazon-s3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s3</code></td>
+<td></td>
+<td><code>{ "accessKeyId": "YOUR_S3_ACCESS_KEY_ID", "secretAccessKey": "YOUR_S3_ACCESS_KEY", "region": "YOUR_S3_REGION" }</code></td>
+<td>When <code>imageuploadtype</code> be set to <code>s3</code>, you would also need to setup this key, check our <a href="../guides/s3-image-upload/">S3 Image Upload Guide</a></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_S3_ACCESS_KEY_ID</code></td>
+<td><strong>no default</strong></td>
+<td>AWS access key id</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_S3_SECRET_ACCESS_KEY</code></td>
+<td><strong>no default</strong></td>
+<td>AWS secret key</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_S3_REGION</code></td>
+<td><strong>no default</strong>, <code>ap-northeast-1</code></td>
+<td>AWS S3 region</td>
+</tr>
+<tr>
+<td><code>s3bucket</code></td>
+<td><code>CMD_S3_BUCKET</code></td>
+<td><strong>no default</strong></td>
+<td>AWS S3 bucket name</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_S3_ENDPOINT ENV</code></td>
+<td><strong>no default</strong></td>
+<td>S3 API endpoint if you don't use AWS name</td>
+</tr>
+</tbody>
+</table>
+<h3 id="azure-blob-storage">Azure Blob Storage<a class="headerlink" href="#azure-blob-storage" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>CMD_AZURE_CONNECTION_STRING</code></td>
+<td><strong>no default</strong></td>
+<td>Azure Blob Storage connection string</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_AZURE_CONTAINER</code></td>
+<td><strong>no default</strong></td>
+<td>Azure Blob Storage container name (automatically created if non existent)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="imgur">imgur<a class="headerlink" href="#imgur" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>CMD_IMGUR_CLIENTID</code></td>
+<td><strong>no default</strong></td>
+<td>Imgur API client id</td>
+</tr>
+</tbody>
+</table>
+<h3 id="minio">Minio<a class="headerlink" href="#minio" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>minio</code></td>
+<td></td>
+<td><code>{ "accessKey": "YOUR_MINIO_ACCESS_KEY", "secretKey": "YOUR_MINIO_SECRET_KEY", "endpoint": "YOUR_MINIO_HOST", port: 9000, secure: true }</code></td>
+<td>When <code>imageUploadType</code> is set to <code>minio</code>, you need to set this key. Also check out our <a href="../guides/minio-image-upload/">Minio Image Upload Guide</a></td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_MINIO_ACCESS_KEY</code></td>
+<td><strong>no default</strong></td>
+<td>Minio access key</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_MINIO_SECRET_KEY</code></td>
+<td><strong>no default</strong></td>
+<td>Minio secret key</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_MINIO_ENDPOINT</code></td>
+<td><strong>no default</strong>, <code>minio.example.org</code></td>
+<td>Address of your Minio endpoint/instance</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_MINIO_PORT</code></td>
+<td><strong>no default</strong>, <code>9000</code></td>
+<td>Port that is used for your Minio instance</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_MINIO_SECURE</code></td>
+<td><strong>no default</strong>, <code>true</code></td>
+<td>If set to <code>true</code> HTTPS is used for Minio</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lutim">Lutim<a class="headerlink" href="#lutim" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>config file</th>
+<th>environment</th>
+<th><strong>default</strong> and example value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lutim</code></td>
+<td></td>
+<td><code>{"url": "YOUR_LUTIM_URL"}</code></td>
+<td>When <code>imageUploadType</code> is set to <code>lutim</code>, you can setup the lutim url</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_LUTIM_URL</code></td>
+<td><strong><code>https://framapic.org/</code></strong></td>
+<td>When <code>CMD_IMAGE_UPLOAD_TYPE</code> is set to <code>lutim</code>, you can setup the lutim url</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../guides/providing-terms/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Setting Terms
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../dev/getting-started/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Getting Started
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['navigation.tabs', 'navigation.sections', 'toc.integrate'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
