@@ -19,13 +19,11 @@ jobs:
           repository: 'hedgedoc/hedgedoc'
       - name: Install pip depdencies
         run: pip3 isntall -r requirements.txt
-        with:
-            working-directory: docs
+        working-directory: docs
 
       - name: Build docs
         run: mkdocs build
-        with:
-            working-directory: docs
+        working-directory: docs
 
       - name: Deploy to GitHub Pages Branch
         uses: peaceiris/actions-gh-pages@v3
