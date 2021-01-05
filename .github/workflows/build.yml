@@ -34,6 +34,9 @@ jobs:
         run: mkdocs build
         working-directory: docs
 
+      - name: Add CNAME
+        run: echo "docs.hedgedoc.org" > ./docs/site/CNAME
+
       - name: Deploy to GitHub Pages Branch
         uses: peaceiris/actions-gh-pages@v3
         with:
