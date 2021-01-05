@@ -13,10 +13,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Install structor
-        run:  "curl -sfL https://raw.githubusercontent.com/traefik/structor/master/godownloader.sh | bash -s -- -b ."
-      - name: Run Structor
-        run:  ./structor -o hedgedoc -r hedgedoc --dockerfile-url="https://raw.githubusercontent.com/hedgedoc/docs.hedgedoc.org/main/docs.Dockerfile" --menu.js-file="https://github.com/hedgedoc/docs.hedgedoc.org/blob/main/version-menu.js.gotmpl" --exp-branch=master
+#      - name: Install structor
+#        run:  "curl -sfL https://raw.githubusercontent.com/traefik/structor/master/godownloader.sh | bash -s -- -b ."
+#      - name: Run Structor
+#        run:  ./structor -o hedgedoc -r hedgedoc --dockerfile-url="https://raw.githubusercontent.com/hedgedoc/docs.hedgedoc.org/main/docs.Dockerfile" --menu.js-file="https://github.com/hedgedoc/docs.hedgedoc.org/blob/main/version-menu.js.gotmpl" --exp-branch=master
+      
+
+      - name: Checkout main
+        uses: actions/checkout@v2
+        with:
+          repository: 'hedgedoc/hedgedoc'
+      - name: Install pip depdencies
+        run: pip3 isntall -r requirements.txt
+        with:
+            working-directory: docs
+
+      - name: Build docs
+        run: mkdocs build
+        with:
+            working-directory: docs
+
       - name: Deploy to GitHub Pages Branch
         uses: peaceiris/actions-gh-pages@v3
         with:
