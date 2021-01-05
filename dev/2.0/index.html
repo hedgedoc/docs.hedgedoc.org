@@ -13,14 +13,14 @@
         <meta name="author" content="HedgeDoc Developers">
       
       
-        <link rel="canonical" href="https://docs.hedgedoc.org/setup/docker-linuxserver/">
+        <link rel="canonical" href="https://docs.hedgedoc.org/dev/2.0/">
       
       <link rel="shortcut icon" href="../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>LinuxServer - HedgeDoc</title>
+        <title>2.0 Development Hints - HedgeDoc</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linuxserverio-hedgedoc-image" class="md-skip">
+        <a href="#20-development-hints" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              LinuxServer
+              2.0 Development Hints
             
           </span>
         </div>
@@ -179,15 +179,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../manual-setup/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../setup/manual-setup/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -238,7 +236,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../dev/getting-started/" class="md-tabs__link">
+      <a href="../getting-started/" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -322,14 +320,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
     
     <label class="md-nav__link" for="nav-2">
       Installation
@@ -350,7 +346,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../manual-setup/" class="md-nav__link">
+    <a href="../../setup/manual-setup/" class="md-nav__link">
       Manual Installation
     </a>
   </li>
@@ -363,7 +359,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../reverse-proxy/" class="md-nav__link">
+    <a href="../../setup/reverse-proxy/" class="md-nav__link">
       Reverse Proxy
     </a>
   </li>
@@ -376,7 +372,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docker/" class="md-nav__link">
+    <a href="../../setup/docker/" class="md-nav__link">
       Docker
     </a>
   </li>
@@ -389,7 +385,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cloudron/" class="md-nav__link">
+    <a href="../../setup/cloudron/" class="md-nav__link">
       Cloudron
     </a>
   </li>
@@ -402,7 +398,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../heroku/" class="md-nav__link">
+    <a href="../../setup/heroku/" class="md-nav__link">
       Heroku
     </a>
   </li>
@@ -413,20 +409,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../setup/docker-linuxserver/" class="md-nav__link">
       LinuxServer
     </a>
-    
   </li>
 
         
@@ -437,7 +424,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../yunohost/" class="md-nav__link">
+    <a href="../../setup/yunohost/" class="md-nav__link">
       Yunohost
     </a>
   </li>
@@ -778,7 +765,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dev/getting-started/" class="md-nav__link">
+    <a href="../getting-started/" class="md-nav__link">
       Getting Started
     </a>
   </li>
@@ -791,7 +778,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dev/api/" class="md-nav__link">
+    <a href="../api/" class="md-nav__link">
       API
     </a>
   </li>
@@ -804,7 +791,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dev/ot/" class="md-nav__link">
+    <a href="../ot/" class="md-nav__link">
       Operational Transformation
     </a>
   </li>
@@ -817,7 +804,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dev/webpack/" class="md-nav__link">
+    <a href="../webpack/" class="md-nav__link">
       Webpack
     </a>
   </li>
@@ -830,7 +817,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dev/documentation/" class="md-nav__link">
+    <a href="../documentation/" class="md-nav__link">
       Documentation
     </a>
   </li>
@@ -866,35 +853,19 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/setup/docker-linuxserver.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/dev/2.0.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="linuxserverio-hedgedoc-image">LinuxServer.io HedgeDoc Image<a class="headerlink" href="#linuxserverio-hedgedoc-image" title="Permanent link">&para;</a></h1>
-<p><a href="https://discord.gg/YWrKVTn" title="realtime support / chat with the community and the team."><img alt="Discord" src="https://img.shields.io/discord/354974912613449730.svg?color=94398d&amp;labelColor=555555&amp;logoColor=ffffff&amp;style=for-the-badge&amp;label=Discord&amp;logo=discord" /></a>
-<a href="https://github.com/linuxserver/docker-hedgedoc/releases"><img alt="GitHub Release" src="https://img.shields.io/github/release/linuxserver/docker-hedgedoc.svg?color=94398d&amp;labelColor=555555&amp;logoColor=ffffff&amp;style=for-the-badge&amp;logo=github" /></a>
-<a href="https://github.com/linuxserver/docker-hedgedoc/packages"><img alt="GitHub Package Repository" src="https://img.shields.io/static/v1.svg?color=94398d&amp;labelColor=555555&amp;logoColor=ffffff&amp;style=for-the-badge&amp;label=linuxserver.io&amp;message=GitHub%20Package&amp;logo=github" /></a>
-<a href="https://gitlab.com/linuxserver.io/docker-hedgedoc/container_registry"><img alt="GitLab Container Registry" src="https://img.shields.io/static/v1.svg?color=94398d&amp;labelColor=555555&amp;logoColor=ffffff&amp;style=for-the-badge&amp;label=linuxserver.io&amp;message=GitLab%20Registry&amp;logo=gitlab" /></a>
-<a href="https://microbadger.com/images/linuxserver/hedgedoc" title="Get your own version badge on microbadger.com"><img alt="MicroBadger Layers" src="https://img.shields.io/microbadger/layers/linuxserver/hedgedoc.svg?color=94398d&amp;labelColor=555555&amp;logoColor=ffffff&amp;style=for-the-badge" /></a>
-<a href="https://hub.docker.com/r/linuxserver/hedgedoc"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/linuxserver/hedgedoc.svg?color=94398d&amp;labelColor=555555&amp;logoColor=ffffff&amp;style=for-the-badge&amp;label=pulls&amp;logo=docker" /></a>
-<a href="https://hub.docker.com/r/linuxserver/hedgedoc"><img alt="Docker Stars" src="https://img.shields.io/docker/stars/linuxserver/hedgedoc.svg?color=94398d&amp;labelColor=555555&amp;logoColor=ffffff&amp;style=for-the-badge&amp;label=stars&amp;logo=docker" /></a>
-<a href="https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-hedgedoc/job/main/"><img alt="Jenkins Build" src="https://img.shields.io/jenkins/build?labelColor=555555&amp;logoColor=ffffff&amp;style=for-the-badge&amp;jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-hedgedoc%2Fjob%2Fmain%2F&amp;logo=jenkins" /></a>
-<a href="https://ci-tests.linuxserver.io/linuxserver/hedgedoc/latest/index.html"><img alt="LSIO CI" src="https://img.shields.io/badge/dynamic/yaml?color=94398d&amp;labelColor=555555&amp;logoColor=ffffff&amp;style=for-the-badge&amp;label=CI&amp;query=CI&amp;url=https%3A%2F%2Fci-tests.linuxserver.io%2Flinuxserver%2Fhedgedoc%2Flatest%2Fci-status.yml" /></a></p>
-<p><a href="https://linuxserver.io">LinuxServer.io</a> have created an Ubuntu-based multi-arch container image for x86-64, arm64 and
-armhf.</p>
+                <h1 id="20-development-hints">2.0 Development Hints<a class="headerlink" href="#20-development-hints" title="Permanent link">&para;</a></h1>
+<h2 id="dev-setup">Dev Setup<a class="headerlink" href="#dev-setup" title="Permanent link">&para;</a></h2>
 <ul>
-<li>It supports all the environment variables detailed in the <a href="../../configuration/">configuration documentation</a> to modify
-  it according to your needs.</li>
-<li>It gets rebuilt on new releases from HedgeDoc and also weekly if necessary to update any other package changes in the
-  underlying container, making it easy to keep your HedgeDoc instance up to date.</li>
-<li>It also details how to
-  easily <a href="https://github.com/linuxserver/docker-hedgedoc/#application-setup">utilize Docker networking to reverse proxy</a>
-  HedgeDoc using their <a href="https://github.com/linuxserver/docker-swag">SWAG docker image</a></li>
+<li>Clone backend and frontend in two folders.</li>
+<li>Run <code>yarn install</code> in both projects</li>
+<li>Start the backend server in watch mode using <code>yarn start:dev</code>. The backend is then accessible on port 3000.</li>
+<li>Start the frontend dev server using <code>yarn start</code>. The frontend is now accessible on port 3001. </li>
 </ul>
-<p>In order to contribute check the LinuxServer.io <a href="https://github.com/linuxserver/docker-hedgedoc/">GitHub repository</a> for
-HedgeDoc. And to find all tags and versions of the image, check
-the <a href="https://hub.docker.com/r/linuxserver/hedgedoc">Docker Hub repository</a>.</p>
                 
               
               
@@ -909,41 +880,6 @@ the <a href="https://hub.docker.com/r/linuxserver/hedgedoc">Docker Hub repositor
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../heroku/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Heroku
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../yunohost/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Yunohost
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

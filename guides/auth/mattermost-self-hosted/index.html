@@ -20,7 +20,7 @@
     
     
       
-        <title>Authentication guide - Mattermost (self-hosted) - HedgeDoc</title>
+        <title>Mattermost self hosted - HedgeDoc</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Authentication guide - Mattermost (self-hosted)
+              Mattermost self hosted
             
           </span>
         </div>
@@ -862,9 +862,7 @@
 <p><strong>Note:</strong> <em>The Mattermost setup portion of this document is just a quick guide. See the <a href="https://docs.mattermost.com/developer/oauth-2-0-applications.html">official documentation</a> for more details.</em></p>
 <p>This guide uses the generic OAuth2 module for compatibility with Mattermost version 5.0 and above.</p>
 <ol>
-<li>
-<p>Sign-in with an administrator account to your Mattermost instance</p>
-</li>
+<li>Sign-in with an administrator account to your Mattermost instance</li>
 <li>
 <p>Make sure <strong>OAuth 2.0 Service Provider</strong> is enabled in the Main Menu (menu button next to your username in the top left corner) --&gt; System Console --&gt; Custom Integrations menu, which you can find at <code>https://your.mattermost.domain/admin_console/integrations/custom</code><br />
 <img alt="mattermost-enable-oauth2" src="../../../images/auth/mattermost-enable-oauth2.png" /></p>
@@ -881,7 +879,7 @@
 <img alt="mattermost-oauth-app-form" src="../../../images/auth/mattermost-oauth-app-form.png" /></p>
 </li>
 </ol>
-<p><em>Note: The callback URL is \&lt;your-hedgedoc-url>/auth/oauth2/callback</em></p>
+<p><em>Note: The callback URL is \&lt;your-codimd-url>/auth/oauth2/callback</em></p>
 <ol>
 <li>
 <p>After saving the application, you'll receive the Client ID and Client Secret<br />
@@ -889,13 +887,12 @@
 </li>
 <li>
 <p>Add the Client ID and Client Secret to your config.json file or pass them as environment variables</p>
-</li>
-<li>
-<p><code>config.json</code>:
-    <code>javascript
-    {
-      "production": {
-        "oauth2": {
+<ul>
+<li><code>config.json</code>:
+  <code>javascript
+  {
+    "production": {
+      "oauth2": {
           "baseURL": "https://your.mattermost.domain",
           "userProfileURL": "https://your.mattermost.domain/api/v4/users/me",
           "userProfileUsernameAttr": "id",
@@ -905,10 +902,9 @@
           "authorizationURL": "https://your.mattermost.domain/oauth/authorize",
           "clientID": "ii4p1u3jz7dXXXXXXXXXXXXXXX",
           "clientSecret": "mqzzx6fydbXXXXXXXXXXXXXXXX"
-        }
       }
-    }</code></p>
-<ul>
+    }
+  }</code></li>
 <li>environment variables:
   <code>sh
   CMD_OAUTH2_BASEURL=https://your.mattermost.domain

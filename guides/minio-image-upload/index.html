@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#minio-guide-for-hedgedoc" class="md-skip">
+        <a href="#minio-guide-for-codimd" class="md-skip">
           Skip to content
         </a>
       
@@ -873,8 +873,8 @@
                   </a>
                 
                 
-                <h1 id="minio-guide-for-hedgedoc">Minio Guide for HedgeDoc<a class="headerlink" href="#minio-guide-for-hedgedoc" title="Permanent link">&para;</a></h1>
-<p><em>Note:</em> This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</p>
+                <h1 id="minio-guide-for-codimd">Minio Guide for CodiMD<a class="headerlink" href="#minio-guide-for-codimd" title="Permanent link">&para;</a></h1>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>CodiMD</code> in your mind :smile: thanks!</em></p>
 <ol>
 <li>First of all you need to setup Minio itself.</li>
 </ol>
@@ -892,11 +892,11 @@
    docker logs test-minio</code></p>
 <p><img alt="docker logs" src="../../images/minio-image-upload/docker-logs.png" /></p>
 <ol>
-<li>Open <a href="http://localhost:9000">http://localhost:9000</a> and login with the shown credentials.</li>
+<li>Open http://localhost:9000 and login with the shown credentials.</li>
 </ol>
 <p><img alt="minio default view" src="../../images/minio-image-upload/default-view.png" /></p>
 <ol>
-<li>Create a bucket for HedgeDoc</li>
+<li>Create a bucket for CodiMD</li>
 </ol>
 <p><img alt="minio create bucket" src="../../images/minio-image-upload/create-bucket.png" /></p>
 <ol>
@@ -907,7 +907,7 @@
 <p><img alt="minio policy adding" src="../../images/minio-image-upload/create-policy.png" />
    <em>Add policy for uploads</em></p>
 <ol>
-<li>Set credentials and configs for Minio in HedgeDoc's <code>config.json</code></li>
+<li>Set credentials and configs for Minio in CodiMD's <code>config.json</code></li>
 </ol>
 <p><code>JSON
    "minio": {
@@ -924,7 +924,7 @@
 <li>Set bucket name</li>
 </ol>
 <p><code>JSON
-   "s3bucket": "hedgedoc"</code></p>
+   "s3bucket": "codimd"</code></p>
 <ol>
 <li>Set upload type.</li>
 </ol>
@@ -943,16 +943,9 @@
        "port": 9000,
        "secure": false
      },
-     "s3bucket": "hedgedoc",
+     "s3bucket": "codimd",
      "imageuploadtype": "minio"
    }</code></p>
-<ol>
-<li>If you were using filesystem before</li>
-</ol>
-<p>and you want to migrate assets to minio.</p>
-<p>You could use a convenience script located in <code>bin/migrate_from_fs_to_minio</code>.</p>
-<p>Be careful, read carefully what it does, it was not tested in all environments.</p>
-<p>Take it as an inspiration to make your own migration script.</p>
                 
               
               

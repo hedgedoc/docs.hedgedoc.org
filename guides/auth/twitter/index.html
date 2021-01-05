@@ -874,14 +874,10 @@
                 
                 
                 <h1 id="authentication-guide-twitter">Authentication guide - Twitter<a class="headerlink" href="#authentication-guide-twitter" title="Permanent link">&para;</a></h1>
-<p><em>Note:</em> This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</p>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>CodiMD</code> in your mind :smile: thanks!</em></p>
 <ol>
-<li>
-<p>Sign-in or sign-up for a Twitter account</p>
-</li>
-<li>
-<p>Go to the Twitter Application management page <a href="https://apps.twitter.com/">here</a></p>
-</li>
+<li>Sign-in or sign-up for a Twitter account</li>
+<li>Go to the Twitter Application management page <a href="https://apps.twitter.com/">here</a></li>
 <li>
 <p>Click on the <strong>Create New App</strong> button to create a new Twitter app:<br />
 <img alt="create-twitter-app" src="../../../images/auth/create-twitter-app.png" /></p>
@@ -891,7 +887,7 @@
 <img alt="register-twitter-application" src="../../../images/auth/register-twitter-application.png" /></p>
 </li>
 </ol>
-<p><em>Note:</em> you may have to register your phone number with Twitter to create a Twitter application</p>
+<p><em>Note: you may have to register your phone number with Twitter to create a Twitter application</em></p>
 <p>To do this Click your profile icon --&gt; Settings and privacy --&gt; Mobile  --&gt; Select Country/region --&gt; Enter phone number --&gt; Click Continue</p>
 <ol>
 <li>
@@ -904,24 +900,22 @@
 </li>
 <li>
 <p>Add your Consumer Key and Consumer Secret to your <code>config.json</code> file or pass them as environment variables:</p>
-</li>
-<li>
-<p><code>config.json</code>:
-    <code>javascript
-    {
-      "production": {
-        "twitter": {
+<ul>
+<li><code>config.json</code>:
+  <code>javascript
+  {
+    "production": {
+      "twitter": {
           "consumerKey": "esTCJFXXXXXXXXXXXXXXXXXXX",
           "consumerSecret": "zpCs4tU86pRVXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        }
       }
-    }</code></p>
-</li>
-<li>
-<p>environment variables:
-    <code>sh
-    CMD_TWITTER_CONSUMERKEY=esTCJFXXXXXXXXXXXXXXXXXXX
-    CMD_TWITTER_CONSUMERSECRET=zpCs4tU86pRVXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</code></p>
+    }
+  }</code></li>
+<li>environment variables:
+  <code>sh
+  CMD_TWITTER_CONSUMERKEY=esTCJFXXXXXXXXXXXXXXXXXXX
+  CMD_TWITTER_CONSUMERSECRET=zpCs4tU86pRVXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</code></li>
+</ul>
 </li>
 </ol>
                 

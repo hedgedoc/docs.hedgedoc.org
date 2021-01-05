@@ -917,48 +917,42 @@
                 <h1 id="manual-installation">Manual Installation<a class="headerlink" href="#manual-installation" title="Permanent link">&para;</a></h1>
 <h2 id="requirements-on-your-server">Requirements on your server<a class="headerlink" href="#requirements-on-your-server" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Node.js 10.13 or up</li>
-<li>Database (PostgreSQL, MySQL, MariaDB, SQLite, MSSQL)<br />
-  The database must use charset <code>utf8</code>. This is typically the default in PostgreSQL and SQLite.<br />
-  In MySQL and MariaDB UTF-8 might need to be set with <code>alter database &lt;DBNAME&gt; character set utf8 collate utf8_bin;</code><br />
-  Be aware of older MySQL and MariaDB versions which sometimes use shorter representations of UTF-8 than 4 bytes.
-  This can break if symbols with more bytes are used.
-  You can use <code>alter database &lt;DBNAME&gt; character set utf8mb4 COLLATE utf8mb4_unicode_ci</code> to be on the safe side.</li>
-<li>NPM (and its dependencies, <a href="https://github.com/nodejs/node-gyp#installation">node-gyp</a>)</li>
-<li>Yarn</li>
+<li>Node.js 8.5 or up</li>
+<li>Database (PostgreSQL, MySQL, MariaDB, SQLite, MSSQL). Must use charset <code>utf8</code>: this is typically the
+  default in PostgreSQL and SQLite, while in MySQL and MariaDB utf8 might need to be set with
+  <code>alter database &lt;DBNAME&gt; character set utf8 collate utf8_bin;</code></li>
+<li>npm (and its dependencies, <a href="https://github.com/nodejs/node-gyp#installation">node-gyp</a>)</li>
+<li>yarn</li>
 <li>Bash (for the setup script)</li>
-<li>For <strong>building</strong> the HedgeDoc frontend you need a machine with at least <strong>2 GB</strong> RAM.<ul>
-<li>Starting with release 1.7 the release tarball includes the frontend, so building it yourself is not necessary.</li>
-</ul>
-</li>
+<li>For <strong>building</strong> CodiMD we recommend to use a machine with at least <strong>2GB</strong> RAM</li>
 </ul>
 <h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Check if you meet the <a href="#requirements-on-your-server">requirements at the top of this document</a>.</li>
-<li>Download a <a href="https://github.com/hedgedoc/hedgedoc/releases">release</a> tarball and extract it.
-   Alternatively, you can use Git to clone the repository and checkout a release, e.g. with <code>git clone -b 1.7.0 https://github.com/hedgedoc/hedgedoc.git</code>.</li>
-<li>Enter the directory and type <code>bin/setup</code>, which will install the dependencies and create configs.</li>
-<li>Modify the file named <code>config.json</code> or configure HedgeDoc through environment variables which will overwrite the configs, see docs <a href="https://github.com/hedgedoc/hedgedoc/blob/master/docs/configuration.md">here</a>.</li>
-<li><strong>If using the release tarball for 1.7.0 or newer, this step can be skipped.</strong><br />
-   Build the frontend bundle by <code>yarn run build</code> (use <code>yarn run dev</code> if you are in development)</li>
-<li>Modify the file named <code>.sequelizerc</code>, change the value of the variable <code>url</code> to your db connection string. For example:</li>
-<li><code>postgres://username:password@localhost:5432/hedgedoc</code></li>
-<li><code>mysql://username:password@localhost:3306/hedgedoc</code></li>
-<li><code>sqlite:///opt/hedgedoc/hedgedoc.sqlite</code> (note that you need to use an absolute path to the SQLite file)</li>
-<li>It is recommended to start your server manually once: <code>NODE_ENV=production yarn start</code>, this way it's easier to see warnings or errors that might occur (leave out <code>NODE_ENV=production</code> for development).</li>
+<li>Clone this repository (preferred) or download a release and unzip it.</li>
+<li>Enter the directory and type <code>bin/setup</code>, which will install npm dependencies and create configs.</li>
+<li>Modify <code>config.json</code>, see docs <a href="https://github.com/codimd/server/blob/master/docs/configuration-config-file.md">here</a>.</li>
+<li>Instead of modifying <code>config.json</code>, it's possible to configure CodiMD through environment variables which will
+   overwrite the configs, see docs <a href="https://github.com/codimd/server/blob/master/docs/configuration-env-vars.md">here</a>.</li>
+<li>Build front-end bundle by <code>yarn run build</code> (use <code>yarn run dev</code> if you are in development)</li>
+<li>Modify the file named <code>.sequelizerc</code>, change the value of the variable <code>url</code> with your db connection string. For example:</li>
+<li><code>postgres://username:password@localhost:5432/codimd</code></li>
+<li><code>mysql://username:password@localhost:3306/codimd</code></li>
+<li><code>sqlite://:memory:</code></li>
+<li>It is recommended to start your server manually once: <code>npm start --production</code>, this way it's easier to see warnings or errors that might occur (leave out <code>--production</code> for development).</li>
 <li>Run the server as you like (node, forever, pm2, SystemD, Init-Scripts)</li>
 </ol>
 <h2 id="how-to-upgrade-your-installation">How to upgrade your installation<a class="headerlink" href="#how-to-upgrade-your-installation" title="Permanent link">&para;</a></h2>
-<p>If you are upgrading HedgeDoc from an older version, follow these steps:</p>
+<p>If you are upgrading CodiMD from an older version, follow these steps:</p>
 <ol>
 <li>Check if you meet the <a href="#requirements-on-your-server">requirements at the top of this document</a>.</li>
 <li>Verify which version you were running before and take a look at <a href="../../guides/migrations-and-breaking-changes/">migrations and breaking changes</a> to see if additional steps, or configuration changes are necessary!</li>
-<li>Fully stop your old HedgeDoc server.</li>
+<li>Fully stop your old CodiMD server.</li>
 <li><code>git pull</code> or unzip a new release in the directory.</li>
 <li>Run <code>bin/setup</code>. This will take care of installing dependencies. It is safe to run on an existing installation.</li>
 <li>Build front-end bundle by <code>yarn run build</code> (use <code>yarn run dev</code> if you are in development).</li>
-<li>It is recommended to start your server manually once: <code>NODE_ENV=production yarn start</code>, this way it's easier to see warnings or errors that might occur (leave out <code>NODE_ENV=production</code> for development).</li>
-<li>You can now restart the HedgeDoc server!</li>
+<li>It is recommended to start your server manually once: <code>npm start --production</code>, this way it's easier to see warnings or errors that might occur (leave out <code>--production</code> for development).</li>
+<li>You can now restart the CodiMD server!</li>
 </ol>
                 
               

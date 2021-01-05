@@ -874,13 +874,10 @@
                 
                 
                 <h1 id="authentication-guide-github">Authentication guide - GitHub<a class="headerlink" href="#authentication-guide-github" title="Permanent link">&para;</a></h1>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>CodiMD</code> in your mind :smile: thanks!</em></p>
 <ol>
-<li>
-<p>Sign-in or sign-up for a GitHub account</p>
-</li>
-<li>
-<p>Navigate to developer settings in your GitHub account <a href="https://github.com/settings/developers">here</a> and select the "OAuth Apps" tab</p>
-</li>
+<li>Sign-in or sign-up for a GitHub account</li>
+<li>Navigate to developer settings in your GitHub account <a href="https://github.com/settings/developers">here</a> and select the "OAuth Apps" tab</li>
 <li>
 <p>Click on the <strong>New OAuth App</strong> button, to create a new OAuth App:<br />
 <img alt="create-oauth-app" src="../../../images/auth/create-oauth-app.png" /></p>
@@ -890,7 +887,7 @@
 <img alt="register-oauth-application-form" src="../../../images/auth/register-oauth-application-form.png" /></p>
 </li>
 </ol>
-<p><strong>Note:</strong> <em>The callback URL is <your-hedgedoc-url>/auth/github/callback</em></p>
+<p><strong>Note:</strong> <em>The callback URL is <your-codimd-url>/auth/github/callback</em></p>
 <ol>
 <li>
 <p>After successfully registering the application, you'll receive the Client ID and Client Secret for the application<br />
@@ -898,25 +895,23 @@
 </li>
 <li>
 <p>Add the Client ID and Client Secret to your config.json file or pass them as environment variables</p>
-</li>
-<li>
-<p><code>config.json</code>:
-    <code>js
-    {
-      "production": {
-        "github": {
+<ul>
+<li><code>config.json</code>:
+  <code>js
+  {
+    "production": {
+      "github": {
           "clientID": "3747d30eaccXXXXXXXXX",
           "clientSecret": "2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX"
-        }
       }
-    }</code></p>
-</li>
-<li>
-<p>environment variables:
-    ```sh
-    CMD_GITHUB_CLIENTID=3747d30eaccXXXXXXXXX
-    CMD_GITHUB_CLIENTSECRET=2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX
-    ````</p>
+    }
+  }</code></li>
+<li>environment variables:
+  ```sh
+  CMD_GITHUB_CLIENTID=3747d30eaccXXXXXXXXX
+  CMD_GITHUB_CLIENTSECRET=2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX
+  ````</li>
+</ul>
 </li>
 </ol>
                 

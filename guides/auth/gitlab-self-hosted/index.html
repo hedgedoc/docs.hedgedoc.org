@@ -874,7 +874,7 @@
                 
                 
                 <h1 id="gitlab-self-hosted">GitLab (self-hosted)<a class="headerlink" href="#gitlab-self-hosted" title="Permanent link">&para;</a></h1>
-<p><em>Note:</em> This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</p>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>CodiMD</code> in your mind :smile: thanks!</em></p>
 <ol>
 <li>Sign in to your GitLab</li>
 <li>Navigate to the application management page at <code>https://your.gitlab.domain/admin/applications</code> (admin permissions required)</li>
@@ -889,7 +889,7 @@
 <ol>
 <li>In the <code>docker-compose.yml</code> add the following environment variables to <code>app:</code> <code>environment:</code></li>
 </ol>
-<pre><code class="language-Dockerfile">- CMD_DOMAIN=your.hedgedoc.domain
+<pre><code>- CMD_DOMAIN=your.codimd.domain
 - CMD_URL_ADDPORT=true
 - CMD_PROTOCOL_USESSL=true
 - CMD_GITLAB_BASEURL=https://your.gitlab.domain
@@ -898,7 +898,7 @@
 </code></pre>
 <ol>
 <li>Run <code>docker-compose up -d</code> to apply your settings.</li>
-<li>Sign in to your HedgeDoc using your GitLab ID:</li>
+<li>Sign in to your CodiMD using your GitLab ID:</li>
 </ol>
 <p><img alt="Sign in via GitLab" src="../../../images/auth/gitlab-sign-in.png" /></p>
                 

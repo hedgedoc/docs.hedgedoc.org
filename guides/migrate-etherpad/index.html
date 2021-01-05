@@ -923,19 +923,19 @@
                 
                 <h1 id="pad-migration-guide-from-etherpad-lite">Pad migration guide from etherpad-lite<a class="headerlink" href="#pad-migration-guide-from-etherpad-lite" title="Permanent link">&para;</a></h1>
 <p>The goal of this migration is to do a "dumb" import from all the pads in Etherpad, to notes in
-HedgeDoc. In particular, the url locations of the pads in Etherpad will be lost. Furthermore, any
+CodiMD. In particular, the url locations of the pads in Etherpad will be lost. Furthermore, any
 metadata in Etherpad, such as revisions, author data and also formatted text will not be migrated
-to HedgeDoc (only the plain text contents).</p>
-<p>Note that this guide is not really meant as a support guide. I migrated my own Etherpad to HedgeDoc,
+to CodiMD (only the plain text contents).</p>
+<p>Note that this guide is not really meant as a support guide. I migrated my own Etherpad to CodiMD,
 and it turned out to be quite easy in my opinion. In this guide I share my experience. Stuff may
 require some creativity to work properly in your case. When I wrote this guide, I was using
-<a href="https://github.com/ether/etherpad-lite/tree/1.7.0">etherpad 1.7.0</a> and <a href="https://github.com/hedgedoc/hedgedoc/tree/1.2.1">codimd 1.2.1</a>. Good luck!</p>
+<a href="https://github.com/ether/etherpad-lite/tree/1.7.0">Etherpad 1.7.0</a> and <a href="https://github.com/codimd/server/tree/1.2.1">CodiMD 1.2.1</a>. Good luck!</p>
 <h2 id="0-requirements">0. Requirements<a class="headerlink" href="#0-requirements" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>curl</code></li>
 <li>running Etherpad server</li>
-<li>running HedgeDoc server</li>
-<li><a href="https://github.com/hedgedoc/cli/blob/master/bin/hedgedoc">hedgedoc-cli</a></li>
+<li>running CodiMD server</li>
+<li><a href="https://github.com/codimd/cli/blob/master/bin/codimd">codimd-cli</a></li>
 </ul>
 <h2 id="1-retrieve-the-list-of-pads">1. Retrieve the list of pads<a class="headerlink" href="#1-retrieve-the-list-of-pads" title="Permanent link">&para;</a></h2>
 <p>First, compose a list of all the pads that you want to have migrated from your Etherpad. Other than
@@ -943,31 +943,31 @@ the admin interface, Etherpad does not have a dedicated function to dump a list 
 However, the Etherpad wiki explains how to list all the pads by <a href="https://github.com/ether/etherpad-lite/wiki/How-to-list-all-pads/49701ecdcbe07aea7ad27ffa23aed0d99c2e17db">talking directly to the
 database</a>.</p>
 <p>You will end up with a file containing a pad name on each line:</p>
-<pre><code class="language-bash">date-ideas
+<pre><code>date-ideas
 groceries
 london
 weddingchecklist
 (...)
 </code></pre>
 <h2 id="2-run-the-migration">2. Run the migration<a class="headerlink" href="#2-run-the-migration" title="Permanent link">&para;</a></h2>
-<p>Download <a href="https://github.com/hedgedoc/cli/blob/master/bin/hedgedoc">hedgedoc-cli</a> and put the script in the same directory as the file containing the pad names.
+<p>Download <a href="https://github.com/codimd/cli/blob/master/bin/codimd">codimd-cli</a> and put the script in the same directory as the file containing the pad names.
 Add to this directory the file listed below, I called it <code>migrate-etherpad.sh</code>. Modify at least the
-configuration settings <code>ETHERPAD_SERVER</code> and <code>HEDGEDOC_SERVER</code>.</p>
+configuration settings <code>ETHERPAD_SERVER</code> and <code>CODIMD_SERVER</code>.</p>
 <pre><code class="language-shell">#!/bin/sh
 
 # migrate-etherpad.sh
 #
-# Description: Migrate pads from etherpad to HedgeDoc
+# Description: Migrate pads from etherpad to codimd
 # Author: Daan Sprenkels &lt;hello@dsprenkels.com&gt;
 
-# This script uses the HedgeDoc command line script[1] to import a list of pads from
-# [1]: https://github.com/hedgedoc/cli/blob/master/bin/hedgedoc
+# This script uses the codimd command line script[1] to import a list of pads from
+# [1]: https://github.com/codimd/cli/blob/master/bin/codimd
 
 # The base url to where etherpad is hosted
 ETHERPAD_SERVER=&quot;https://etherpad.example.com&quot;
 
-# The base url where HedgeDoc is hosted
-HEDGEDOC_SERVER=&quot;https://hedgedoc.example.com&quot;
+# The base url where codimd is hosted
+CODIMD_SERVER=&quot;https://codimd.example.com&quot;
 
 # Write a list of pads and the urls which they were migrated to
 REDIRECTS_FILE=&quot;redirects.txt&quot;
@@ -985,38 +985,38 @@ for PAD_NAME in $1; do
     PAD_FILE=&quot;$(mktemp)&quot;
     curl &quot;$ETHERPAD_SERVER/p/$PAD_NAME/export/txt&quot; &gt;&quot;$PAD_FILE&quot;
 
-    # Import the pad into HedgeDoc
-    OUTPUT=&quot;$(./hedgedoc import &quot;$PAD_FILE&quot;)&quot;
+    # Import the pad into codimd
+    OUTPUT=&quot;$(./codimd import &quot;$PAD_FILE&quot;)&quot;
     echo &quot;$PAD_NAME -&gt; $OUTPUT&quot; &gt;&gt;&quot;$REDIRECTS_FILE&quot;
 done
 </code></pre>
 <p>Call this file like this:</p>
 <pre><code class="language-shell">./migrate-etherpad.sh pad_names.txt
 </code></pre>
-<p>This will download all the pads in <code>pad_names.txt</code> and put them on HedgeDoc. They will get assigned
+<p>This will download all the pads in <code>pad_names.txt</code> and put them on CodiMD. They will get assigned
 random ids, so you won't be able to find them. The script will save the mappings to a file though
 (in my case <code>redirects.txt</code>). You can use this file to redirect your users when they visit your
 etherpad using a <code>301 Permanent Redirect</code> status code (see the next section).</p>
 <h2 id="3-setup-redirects-optional">3. Setup redirects (optional)<a class="headerlink" href="#3-setup-redirects-optional" title="Permanent link">&para;</a></h2>
 <p>I got a <code>redirects.txt</code> file that looked a bit like this:</p>
-<pre><code class="language-log">date-ideas -&gt; Found. Redirecting to https://hedgedoc.example.com/mPt0KfiKSBOTQ3mNcdfn
-groceries -&gt; Found. Redirecting to https://hedgedoc.example.com/UukqgwLfhYyUUtARlcJ2_y
-london -&gt; Found. Redirecting to https://hedgedoc.example.com/_d3wa-BE8t4Swv5w7O2_9R
-weddingchecklist -&gt; Found. Redirecting to https://hedgedoc.example.com/XcQGqlBjl0u40wfT0N8TzQ
+<pre><code>date-ideas -&gt; Found. Redirecting to https://codimd.example.com/mPt0KfiKSBOTQ3mNcdfn
+groceries -&gt; Found. Redirecting to https://codimd.example.com/UukqgwLfhYyUUtARlcJ2_y
+london -&gt; Found. Redirecting to https://codimd.example.com/_d3wa-BE8t4Swv5w7O2_9R
+weddingchecklist -&gt; Found. Redirecting to https://codimd.example.com/XcQGqlBjl0u40wfT0N8TzQ
 (...)
 </code></pre>
 <p>Using some <code>sed</code> magic, I changed it to an nginx config snippet:</p>
-<pre><code class="language-nginx">location = /p/date-ideas {
-    return 301 https://hedgedoc.example.com/mPt0M1KfiKSBOTQ3mNcdfn;
+<pre><code>location = /p/date-ideas {
+    return 301 https://codimd.example.com/mPt0M1KfiKSBOTQ3mNcdfn;
 }
 location = /p/groceries {
-    return 301 https://hedgedoc.example.com/UukqgwLfhYyUUtARlcJ2_y;
+    return 301 https://codimd.example.com/UukqgwLfhYyUUtARlcJ2_y;
 }
 location = /p/london {
-    return 301 https://hedgedoc.example.com/_d3wa-BE8t4Swv5w7O2_9R;
+    return 301 https://codimd.example.com/_d3wa-BE8t4Swv5w7O2_9R;
 }
 location = /p/weddingchecklist {
-    return 301 https://hedgedoc.example.com/XcQGqlBjl0u40wfT0N8TzQ;
+    return 301 https://codimd.example.com/XcQGqlBjl0u40wfT0N8TzQ;
 }
 </code></pre>
 <p>I put this file into my <code>etherpad.example.com</code> nginx config, such that all the users would be
