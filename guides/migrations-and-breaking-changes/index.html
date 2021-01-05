@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../theme/styles/roboto.css">
     
     
       
@@ -686,6 +683,33 @@
     Migrating to 1.3.2
   </a>
   
+    <nav class="md-nav" aria-label="Migrating to 1.3.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#native-setup-using-git" class="md-nav__link">
+    Native setup using git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heroku" class="md-nav__link">
+    Heroku
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -923,7 +947,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/migrations-and-breaking-changes.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/migrations-and-breaking-changes.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -934,16 +958,16 @@
 <h2 id="migrating-to-132">Migrating to 1.3.2<a class="headerlink" href="#migrating-to-132" title="Permanent link">&para;</a></h2>
 <p>This is not a breaking change, but to stay up to date with the community
 repository, you may need to update a few urls. This is not a breaking change.</p>
-<p>See more at <a href="https://github.com/codimd/server/issues/10">issue #10</a></p>
-<p><strong>Native setup using git:</strong></p>
-<p>Change the upstream remote using <code>git remote set-url origin https://github.com/codimd/server.git</code>.</p>
-<p><strong>Docker:</strong></p>
-<p>When you use our <a href="https://github.com/codimd/container">container repository</a> 
-(which was previously <code>codimd-container</code>) all you can simply run <code>git pull</code> and
+<p>See more at <a href="https://github.com/hedgedoc/hedgedoc/issues/10">issue #10</a></p>
+<h3 id="native-setup-using-git">Native setup using git<a class="headerlink" href="#native-setup-using-git" title="Permanent link">&para;</a></h3>
+<p>Change the upstream remote using <code>git remote set-url origin https://github.com/hedgedoc/hedgedoc.git</code>.</p>
+<h3 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<p>When you use our <a href="https://github.com/hedgedoc/container">container repository</a> 
+(which was previously <code>hedgedoc-container</code>) all you can simply run <code>git pull</code> and
 your <code>docker-compose.yml</code> will be updated.</p>
 <p>When you setup things yourself, make sure you use the new image:
-<a href="https://quay.io/repository/codimd/server?tab=tags"><code>quay.io/codimd/server</code></a>.</p>
-<p><strong>Heroku:</strong></p>
+<a href="https://quay.io/repository/hedgedoc/hedgedoc?tab=tags"><code>quay.io/hedgedoc/hedgedoc</code></a>.</p>
+<h3 id="heroku">Heroku<a class="headerlink" href="#heroku" title="Permanent link">&para;</a></h3>
 <p>All you need to do is <a href="https://devcenter.heroku.com/articles/github-integration#disconnecting-from-github">disconnect GitHub</a>
 and <a href="https://devcenter.heroku.com/articles/github-integration#enabling-github-integration">reconnect it</a>
 with this new repository.</p>

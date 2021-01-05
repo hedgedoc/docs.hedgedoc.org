@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
     
     
       
@@ -70,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#keycloakred-hat-sso-self-hosted" class="md-skip">
+        <a href="#oauth-with-keycloakred-hat-sso-self-hosted" class="md-skip">
           Skip to content
         </a>
       
@@ -636,7 +633,7 @@
         
           <li class="md-nav__item">
   <a href="#additional-steps-to-circumvent-generic-oauth2-issue" class="md-nav__link">
-    Additional steps to circumvent generic OAuth2 issue:
+    Additional steps to circumvent generic OAuth2 issue
   </a>
   
 </li>
@@ -917,39 +914,39 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/auth/keycloak.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/auth/keycloak.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="keycloakred-hat-sso-self-hosted">Keycloak/Red Hat SSO (self-hosted)<a class="headerlink" href="#keycloakred-hat-sso-self-hosted" title="Permanent link">&para;</a></h1>
+                <h1 id="oauth-with-keycloakred-hat-sso-self-hosted">OAuth with Keycloak/Red Hat SSO (self-hosted)<a class="headerlink" href="#oauth-with-keycloakred-hat-sso-self-hosted" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>This guide assumes you have run and configured Keycloak. If you'd like to meet this prerequisite quickly, it can be achieved by running a <code>jboss/keycloak</code> container and attaching it to your network. Set the environment variables KEYCLOAK_USER and <code>KEYCLOAK_PASSWORD</code>, and expose port 8080.</p>
 <p>Where HTTPS is specified throughout, use HTTP instead. You may also have to specify the exposed port, 8080.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Sign in to the administration portal for your Keycloak instance at https://keycloak.example.com/auth/admin/master/console</li>
+<li>Sign in to the administration portal for your Keycloak instance at <a href="https://keycloak.example.com/auth/admin/master/console">https://keycloak.example.com/auth/admin/master/console</a></li>
 </ol>
 <p>You may note that a separate realm is specified throughout this tutorial. It is best practice not to use the master realm, as it normally contains the realm-management client that federates access using the policies and permissions you can create.</p>
 <ol>
 <li>Navigate to the client management page at <code>https://keycloak.example.com/auth/admin/master/console/#/realms/your-realm/clients</code> (admin permissions required)</li>
-<li>Click <strong>Create</strong> to create a new client and fill out the registration form. You should set the Root URL to the fully qualified public URL of your CodiMD instance.</li>
+<li>Click <strong>Create</strong> to create a new client and fill out the registration form. You should set the Root URL to the fully qualified public URL of your HedgeDoc instance.</li>
 <li>Click <strong>Save</strong></li>
 <li>Set the <strong>Access Type</strong> of the client to <code>confidential</code>. This will make your client require a client secret upon authentication.</li>
 </ol>
 <hr />
-<h3 id="additional-steps-to-circumvent-generic-oauth2-issue">Additional steps to circumvent generic OAuth2 issue:<a class="headerlink" href="#additional-steps-to-circumvent-generic-oauth2-issue" title="Permanent link">&para;</a></h3>
+<h3 id="additional-steps-to-circumvent-generic-oauth2-issue">Additional steps to circumvent generic OAuth2 issue<a class="headerlink" href="#additional-steps-to-circumvent-generic-oauth2-issue" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Select Client Scopes from the sidebar, and begin to create a new client scope using the Create button.</li>
 <li>Ensure that the <strong>Name</strong> field is set to <code>id</code>.</li>
 <li>Create a new mapper under the Mappers tab. This should reference the User Property <code>id</code>. <code>Claim JSON Type</code> should be String and all switches below should be enabled. Save the mapper.</li>
-<li>Go to the client you set up in the previous steps using the Clients page, then choose the Client Scopes tab. Apply the scope you've created. This should mitigate errors as seen in <a href="https://github.com/codimd/server/issues/56">codimd/server#56</a>, as the <code>/userinfo</code> endpoint should now bring back the user's ID under the <code>id</code> key as well as <code>sub</code>.</li>
+<li>Go to the client you set up in the previous steps using the Clients page, then choose the Client Scopes tab. Apply the scope you've created. This should mitigate errors as seen in <a href="https://github.com/hedgedoc/hedgedoc/issues/56">hedgedoc/hedgedoc#56</a>, as the <code>/userinfo</code> endpoint should now bring back the user's ID under the <code>id</code> key as well as <code>sub</code>.</li>
 </ol>
 <hr />
 <ol>
 <li>In the <code>docker-compose.yml</code> add the following environment variables to <code>app:</code> <code>environment:</code></li>
 </ol>
-<pre><code>CMD_OAUTH2_USER_PROFILE_URL=https://keycloak.example.com/auth/realms/your-realm/protocol/openid-connect/userinfo
+<pre><code class="language-Dockerfile">CMD_OAUTH2_USER_PROFILE_URL=https://keycloak.example.com/auth/realms/your-realm/protocol/openid-connect/userinfo
 CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=preferred_username
 CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR=name
 CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR=email
@@ -958,13 +955,13 @@ CMD_OAUTH2_AUTHORIZATION_URL=https://keycloak.example.com/auth/realms/your-realm
 CMD_OAUTH2_CLIENT_ID=&lt;your client ID&gt;
 CMD_OAUTH2_CLIENT_SECRET=&lt;your client secret, which you can find under the Credentials tab for your client&gt;
 CMD_OAUTH2_PROVIDERNAME=Keycloak
-CMD_DOMAIN=&lt;codimd.example.com&gt;
+CMD_DOMAIN=&lt;hedgedoc.example.com&gt;
 CMD_PROTOCOL_USESSL=true 
 CMD_URL_ADDPORT=false
 </code></pre>
 <ol>
 <li>Run <code>docker-compose up -d</code> to apply your settings.</li>
-<li>Sign in to your CodiMD using your Keycloak ID</li>
+<li>Sign in to your HedgeDoc using your Keycloak ID</li>
 </ol>
                 
               

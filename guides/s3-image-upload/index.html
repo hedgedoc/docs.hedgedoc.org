@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../theme/styles/roboto.css">
     
     
       
@@ -70,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guide-setup-codimd-s3-image-upload" class="md-skip">
+        <a href="#guide-setup-hedgedoc-s3-image-upload" class="md-skip">
           Skip to content
         </a>
       
@@ -897,25 +894,25 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/s3-image-upload.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/s3-image-upload.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="guide-setup-codimd-s3-image-upload">Guide - Setup CodiMD S3 image upload<a class="headerlink" href="#guide-setup-codimd-s3-image-upload" title="Permanent link">&para;</a></h1>
-<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>CodiMD</code> in your mind :smile: thanks!</em></p>
+                <h1 id="guide-setup-hedgedoc-s3-image-upload">Guide - Setup HedgeDoc S3 image upload<a class="headerlink" href="#guide-setup-hedgedoc-s3-image-upload" title="Permanent link">&para;</a></h1>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</em></p>
 <ol>
 <li>
-<p>Go to <a href="https://console.aws.amazon.com/s3/home">AWS S3 console</a> and create a new bucket.</p>
-<p><img alt="create-bucket" src="../../images/s3-image-upload/create-bucket.png" /></p>
+<p>Go to <a href="https://console.aws.amazon.com/s3/home">AWS S3 console</a> and create a new bucket.
+   <img alt="create-bucket" src="../../images/s3-image-upload/create-bucket.png" /></p>
 </li>
 <li>
-<p>Click on bucket, select <strong>Properties</strong>  on the side panel, and find <strong>Permission</strong> section. Click <strong>Edit bucket policy</strong>.</p>
-<p><img alt="bucket-property" src="../../images/s3-image-upload/bucket-property.png" /></p>
+<p>Click on bucket, select <strong>Properties</strong>  on the side panel, and find <strong>Permission</strong> section. Click <strong>Edit bucket policy</strong>.
+   <img alt="bucket-property" src="../../images/s3-image-upload/bucket-property.png" /></p>
 </li>
 <li>
-<p>Enter the following policy, replace <code>bucket_name</code> with your bucket name:</p>
-<p><img alt="bucket-policy-editor" src="../../images/s3-image-upload/bucket-policy-editor.png" /></p>
+<p>Enter the following policy, replace <code>bucket_name</code> with your bucket name:
+   <img alt="bucket-policy-editor" src="../../images/s3-image-upload/bucket-policy-editor.png" /></p>
 <p><code>json
 {
     "Version": "2012-10-17",
@@ -933,16 +930,16 @@
 <p>Go to IAM console and create a new IAM user. Remember your user credentials(<code>key</code>/<code>access token</code>)</p>
 </li>
 <li>
-<p>Enter user page, select <strong>Permission</strong> tab, look at <strong>Inline Policies</strong> section, and click <strong>Create User Policy</strong></p>
-<p><img alt="iam-user" src="../../images/s3-image-upload/iam-user.png" /></p>
+<p>Enter user page, select <strong>Permission</strong> tab, look at <strong>Inline Policies</strong> section, and click <strong>Create User Policy</strong>
+   <img alt="iam-user" src="../../images/s3-image-upload/iam-user.png" /></p>
 </li>
 <li>
-<p>Select <strong>Custom Policy</strong></p>
-<p><img alt="custom-policy" src="../../images/s3-image-upload/custom-policy.png" /></p>
+<p>Select <strong>Custom Policy</strong>
+   <img alt="custom-policy" src="../../images/s3-image-upload/custom-policy.png" /></p>
 </li>
 <li>
-<p>Enter the following policy, replace <code>bucket_name</code> with your bucket name:</p>
-<p><img alt="review-policy" src="../../images/s3-image-upload/review-policy.png" /></p>
+<p>Enter the following policy, replace <code>bucket_name</code> with your bucket name:
+   <img alt="review-policy" src="../../images/s3-image-upload/review-policy.png" /></p>
 <p><code>json
 {
     "Version": "2012-10-17",
@@ -961,23 +958,23 @@
 </li>
 <li>
 <p>Edit <code>config.json</code> and set following keys:</p>
+</li>
+</ol>
 <p><code>javascript
-{
-    "production": {
-        ...
-        "imageuploadtype": "s3",
-        "s3": {
-            "accessKeyId": "YOUR_S3_ACCESS_KEY_ID",
-            "secretAccessKey": "YOUR_S3_ACCESS_KEY",
-            "region": "YOUR_S3_REGION" // example: ap-northeast-1
-        },
-        "s3bucket": "YOUR_S3_BUCKET_NAME"
-    }
-}</code></p>
-</li>
-<li>
-<p>In additional to edit <code>config.json</code> directly, you could also try <a href="../../configuration/">environment variables</a>.</p>
-</li>
+   {
+     "production": {
+       ...
+       "imageuploadtype": "s3",
+       "s3": {
+         "accessKeyId": "YOUR_S3_ACCESS_KEY_ID",
+         "secretAccessKey": "YOUR_S3_ACCESS_KEY",
+         "region": "YOUR_S3_REGION" // example: ap-northeast-1
+       },
+       "s3bucket": "YOUR_S3_BUCKET_NAME"
+     }
+   }</code></p>
+<ol>
+<li>In additional to edit <code>config.json</code> directly, you could also try <a href="../../configuration/">environment variables</a>.</li>
 </ol>
 <h2 id="related-tools">Related Tools<a class="headerlink" href="#related-tools" title="Permanent link">&para;</a></h2>
 <ul>

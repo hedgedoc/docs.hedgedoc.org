@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../theme/styles/roboto.css">
     
     
       
@@ -70,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#setup-your-terms-of-use" class="md-skip">
+        <a href="#how-to-set-up-your-terms-of-use" class="md-skip">
           Skip to content
         </a>
       
@@ -722,9 +719,52 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Setting Terms
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" class="md-nav__link md-nav__link--active">
       Setting Terms
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup-your-terms-of-use" class="md-nav__link">
+    Setup your terms of use
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-your-privacy-policy" class="md-nav__link">
+    Setup your privacy policy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-your-imprint" class="md-nav__link">
+    Setup your imprint
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -866,22 +906,23 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/providing-terms.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/providing-terms.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="setup-your-terms-of-use">Setup your terms of use<a class="headerlink" href="#setup-your-terms-of-use" title="Permanent link">&para;</a></h1>
+                <h1 id="how-to-set-up-your-terms-of-use">How to set up your terms of use<a class="headerlink" href="#how-to-set-up-your-terms-of-use" title="Permanent link">&para;</a></h1>
+<h2 id="setup-your-terms-of-use">Setup your terms of use<a class="headerlink" href="#setup-your-terms-of-use" title="Permanent link">&para;</a></h2>
 <p>To setup your terms of use, you need to provide a document called <code>terms-of-use.md</code> which contains them. Of course written in Markdown.</p>
-<p>It has to be provided under <code>./public/docs/</code> and will be automatically turned into a CodiMD document. It will also automatically updated as soon as you change the document on disk.</p>
+<p>It has to be provided under <code>./public/docs/</code> and will be automatically turned into a HedgeDoc document. It will also automatically updated as soon as you change the document on disk.</p>
 <p>As soon as the file exists a link will show up in the bottom part along with the release notes and link to them.</p>
-<h1 id="setup-your-privacy-policy">Setup your privacy policy<a class="headerlink" href="#setup-your-privacy-policy" title="Permanent link">&para;</a></h1>
+<h2 id="setup-your-privacy-policy">Setup your privacy policy<a class="headerlink" href="#setup-your-privacy-policy" title="Permanent link">&para;</a></h2>
 <p>To add a privacy policy you can use the same technique as for the terms of use. The main difference is that the document is called <code>privacy.md</code>.</p>
 <p>See our example file <code>./public/docs/privacy.md.example</code> container some useful hints for writing your own privacy policy.</p>
 <p>As with the terms of use, a link to the privacy notices will show up in the area where the release notes are provided on the index page.</p>
-<h1 id="setup-your-imprint">Setup your imprint<a class="headerlink" href="#setup-your-imprint" title="Permanent link">&para;</a></h1>
+<h2 id="setup-your-imprint">Setup your imprint<a class="headerlink" href="#setup-your-imprint" title="Permanent link">&para;</a></h2>
 <p>To add an imprint you can use the same technique as for the terms of use. The main difference is that the document is called <code>imprint.md</code>.</p>
-<p>It has to be provided under <code>./public/docs/</code> and will be automatically turned into a CodiMD document. It will also automatically updated as soon as you change the document on disk.</p>
+<p>It has to be provided under <code>./public/docs/</code> and will be automatically turned into a HedgeDoc document. It will also automatically updated as soon as you change the document on disk.</p>
 <p>As with the terms of use, a link to the imprint will show up in the area where the release notes are provided on the index page.</p>
                 
               

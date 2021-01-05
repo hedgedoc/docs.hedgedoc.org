@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
     
     
       
@@ -868,16 +865,19 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/auth/github.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/auth/github.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="authentication-guide-github">Authentication guide - GitHub<a class="headerlink" href="#authentication-guide-github" title="Permanent link">&para;</a></h1>
-<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>CodiMD</code> in your mind :smile: thanks!</em></p>
 <ol>
-<li>Sign-in or sign-up for a GitHub account</li>
-<li>Navigate to developer settings in your GitHub account <a href="https://github.com/settings/developers">here</a> and select the "OAuth Apps" tab</li>
+<li>
+<p>Sign-in or sign-up for a GitHub account</p>
+</li>
+<li>
+<p>Navigate to developer settings in your GitHub account <a href="https://github.com/settings/developers">here</a> and select the "OAuth Apps" tab</p>
+</li>
 <li>
 <p>Click on the <strong>New OAuth App</strong> button, to create a new OAuth App:<br />
 <img alt="create-oauth-app" src="../../../images/auth/create-oauth-app.png" /></p>
@@ -887,7 +887,7 @@
 <img alt="register-oauth-application-form" src="../../../images/auth/register-oauth-application-form.png" /></p>
 </li>
 </ol>
-<p><strong>Note:</strong> <em>The callback URL is <your-codimd-url>/auth/github/callback</em></p>
+<p><strong>Note:</strong> <em>The callback URL is <your-hedgedoc-url>/auth/github/callback</em></p>
 <ol>
 <li>
 <p>After successfully registering the application, you'll receive the Client ID and Client Secret for the application<br />
@@ -895,23 +895,25 @@
 </li>
 <li>
 <p>Add the Client ID and Client Secret to your config.json file or pass them as environment variables</p>
-<ul>
-<li><code>config.json</code>:
-  <code>js
-  {
-    "production": {
-      "github": {
+</li>
+<li>
+<p><code>config.json</code>:
+    <code>js
+    {
+      "production": {
+        "github": {
           "clientID": "3747d30eaccXXXXXXXXX",
           "clientSecret": "2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX"
+        }
       }
-    }
-  }</code></li>
-<li>environment variables:
-  ```sh
-  CMD_GITHUB_CLIENTID=3747d30eaccXXXXXXXXX
-  CMD_GITHUB_CLIENTSECRET=2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX
-  ````</li>
-</ul>
+    }</code></p>
+</li>
+<li>
+<p>environment variables:
+    ```sh
+    CMD_GITHUB_CLIENTID=3747d30eaccXXXXXXXXX
+    CMD_GITHUB_CLIENTSECRET=2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX
+    ````</p>
 </li>
 </ol>
                 

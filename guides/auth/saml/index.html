@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
     
     
       
@@ -868,54 +865,74 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/auth/saml.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/auth/saml.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="authentication-guide-saml">Authentication guide - SAML<a class="headerlink" href="#authentication-guide-saml" title="Permanent link">&para;</a></h1>
-<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>CodiMD</code> in your mind :smile: thanks!</em></p>
+<p><em>Note:</em> This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</p>
 <p>The basic procedure is the same as the case of OneLogin which is mentioned in <a href="../saml-onelogin/">OneLogin-Guide</a>. If you want to match your IdP, you can use more configurations as below.</p>
 <ul>
-<li>If your IdP accepts metadata XML of the service provider to ease configuration, use this url to download metadata XML.<ul>
+<li>
+<p>If your IdP accepts metadata XML of the service provider to ease configuration, use this url to download metadata XML.</p>
+<ul>
 <li>{{your-serverurl}}/auth/saml/metadata</li>
-<li><em>Note: If not accessible from IdP, download to local once and upload to IdP.</em></li>
+<li><em>Note:</em> If not accessible from IdP, download to local once and upload to IdP.</li>
 </ul>
 </li>
-<li>Change the value of <code>issuer</code>, <code>identifierFormat</code> to match your IdP.</li>
-<li><code>issuer</code>: A unique id to identify the application to the IdP, which is the base URL of your CodiMD as default</li>
-<li><code>identifierFormat</code>: A format of unique id to identify the user of IdP, which is the format based on email address as default. It is recommend that you use as below.<ul>
+<li>
+<p>Change the value of <code>issuer</code>, <code>identifierFormat</code> to match your IdP.</p>
+</li>
+<li>
+<p><code>issuer</code>: A unique id to identify the application to the IdP, which is the base URL of your HedgeDoc as default</p>
+</li>
+<li>
+<p><code>identifierFormat</code>: A format of unique id to identify the user of IdP, which is the format based on email address as default. It is recommend that you use as below.</p>
+<ul>
 <li>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress (default)</li>
 <li>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</li>
 </ul>
 </li>
-<li><code>config.json</code>:
+<li>
+<p><code>config.json</code>:
     <code>javascript
     {
       "production": {
         "saml": {
           /* omitted */
-          "issuer": "mycodimd"
+          "issuer": "myhedgedoc"
           "identifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
         }
       }
-    }</code></li>
+    }</code></p>
+</li>
 <li>
 <p>environment variables
-    <code>CMD_SAML_ISSUER=mycodimd
+    <code>env
+    CMD_SAML_ISSUER=myhedgedoc
     CMD_SAML_IDENTIFIERFORMAT=urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</code></p>
 </li>
 <li>
 <p>Change mapping of attribute names to customize the displaying user name and email address to match your IdP.</p>
 </li>
-<li><code>attribute</code>: A dictionary to map attribute names</li>
-<li><code>attribute.id</code>: A primary key of user table for your CodiMD</li>
-<li><code>attribute.username</code>: Attribute name of displaying user name on CodiMD</li>
-<li><code>attribute.email</code>: Attribute name of email address, which will be also used for Gravatar<ul>
-<li><em>Note: Default value of all attributes is NameID of SAML response, which is email address if <code>identifierFormat</code> is default.</em></li>
+<li>
+<p><code>attribute</code>: A dictionary to map attribute names</p>
+</li>
+<li>
+<p><code>attribute.id</code>: A primary key of user table for your HedgeDoc</p>
+</li>
+<li>
+<p><code>attribute.username</code>: Attribute name of displaying user name on HedgeDoc</p>
+</li>
+<li>
+<p><code>attribute.email</code>: Attribute name of email address, which will be also used for Gravatar</p>
+<ul>
+<li><em>Note:</em> Default value of all attributes is NameID of SAML response, which is email address if <code>identifierFormat</code> is default.</li>
 </ul>
 </li>
-<li><code>config.json</code>:
+<li>
+<p><code>config.json</code>:
     <code>javascript
     {
       "production": {
@@ -928,7 +945,8 @@
           }
         }
       }
-    }</code></li>
+    }</code></p>
+</li>
 <li>
 <p>environment variables
     <code>sh
@@ -939,29 +957,39 @@
 <li>
 <p>If you want to control permission by group membership, add group attribute name and required group (allowed) or external group (not allowed).</p>
 </li>
-<li><code>groupAttribute</code>: An attribute name of group membership</li>
-<li><code>requiredGroups</code>: Group names array for allowed access to CodiMD. Use vertical bar to separate for environment variables.</li>
-<li><code>externalGroups</code>: Group names array for not allowed access to CodiMD. Use vertical bar to separate for environment variables.<ul>
-<li><em>Note: Evaluates <code>externalGroups</code> first</em></li>
+<li>
+<p><code>groupAttribute</code>: An attribute name of group membership</p>
+</li>
+<li>
+<p><code>requiredGroups</code>: Group names array for allowed access to HedgeDoc. Use vertical bar to separate for environment variables.</p>
+</li>
+<li>
+<p><code>externalGroups</code>: Group names array for not allowed access to HedgeDoc. Use vertical bar to separate for environment variables.</p>
+<ul>
+<li><em>Note:</em> Evaluates <code>externalGroups</code> first</li>
 </ul>
 </li>
-<li><code>config.json</code>:
+<li>
+<p><code>config.json</code>:
     <code>javascript
     {
       "production": {
         "saml": {
           /* omitted */
           "groupAttribute": "memberOf",
-          "requiredGroups": [ "codimd-users", "board-members" ],
+          "requiredGroups": [ "hedgedoc-users", "board-members" ],
           "externalGroups": [ "temporary-staff" ]
         }
       }
-    }</code></li>
-<li>environment variables
+    }</code></p>
+</li>
+<li>
+<p>environment variables
     <code>sh
     CMD_SAML_GROUPATTRIBUTE=memberOf
-    CMD_SAML_REQUIREDGROUPS=codimd-users|board-members
-    CMD_SAML_EXTERNALGROUPS=temporary-staff</code></li>
+    CMD_SAML_REQUIREDGROUPS=hedgedoc-users|board-members
+    CMD_SAML_EXTERNALGROUPS=temporary-staff</code></p>
+</li>
 </ul>
                 
               

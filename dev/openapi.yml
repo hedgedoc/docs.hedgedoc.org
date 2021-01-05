@@ -57,7 +57,8 @@ paths:
         default:
           description: Redirect to the imported note
       parameters:
-        - name: alias
+        -
+          name: alias
           in: path
           required: true
           description: The alias for the note-id under which the note will be saved
@@ -79,7 +80,8 @@ paths:
         404:
           description: Note does not exist
       parameters:
-        - name: note
+        -
+          name: note
           in: path
           required: true
           description: The note which should be downloaded

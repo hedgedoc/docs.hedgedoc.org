@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../theme/styles/roboto.css">
     
     
       
@@ -916,7 +913,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/dev/getting-started.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/dev/getting-started.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -930,8 +927,9 @@
    (cloning is the preferred way, but you can also download and unzip a release)</p>
 </li>
 <li>
-<p>Enter the directory and run <code>bin/setup</code>, which will install npm dependencies and create configs. The setup script is
-   written in Bash, you would need bash as a prerequisite.</p>
+<p>Enter the directory and run <code>bin/setup</code>, which will install npm dependencies
+   and create configs. The setup script is written in Bash, you would need bash
+   as a prerequisite.</p>
 </li>
 <li>
 <p>Setup the <a href="../../configuration/">config file</a> or set up
@@ -953,7 +951,8 @@ rebuild the frontend or restart the server if necessary.</p>
 to run both at the same time.</p>
 <ol>
 <li>
-<p>Use <code>yarn run dev</code> if you want webpack to continuously rebuild the frontend code.</p>
+<p>Use <code>yarn run dev</code> if you want webpack to continuously rebuild the frontend
+   code.</p>
 </li>
 <li>
 <p>To auto-reload the server, the easiest method is to install <a href="https://www.npmjs.com/package/nodemon">nodemon</a>

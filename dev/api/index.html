@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../theme/styles/roboto.css">
     
     
       
@@ -909,17 +906,18 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/dev/api.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/dev/api.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="api-documentation">API documentation<a class="headerlink" href="#api-documentation" title="Permanent link">&para;</a></h1>
-<p>Several tasks of HedgeDoc can be automated through HTTP requests. The available endpoints for this api are described in
-this document. For code-autogeneration there is an OpenAPIv3-compatible description available <a href="../openapi.yml">here</a>.</p>
+<p>Several tasks of HedgeDoc can be automated through HTTP requests.
+The available endpoints for this api are described in this document.
+For code-autogeneration there is an OpenAPIv3-compatible description available <a href="../openapi.yml">here</a>.</p>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
 <p>These endpoints create notes, return information about them or export them.<br />
-You have to replace <em>\&lt;NOTE></em> with either the alias or id of a note you want to work on.</p>
+You have to replace <em>\&lt;NOTE></em> with either the alias or id of a note you want to work on. </p>
 <table>
 <thead>
 <tr>
@@ -932,48 +930,57 @@ You have to replace <em>\&lt;NOTE></em> with either the alias or id of a note yo
 <tr>
 <td><code>/new</code></td>
 <td><code>GET</code></td>
-<td>**Creates a new</td>
-</tr>
-<tr>
-<td>note.**<br>A random id will be assigned and the content will equal to the template (blank by default). After note creation a redirect is issued to the created note.</td>
-<td></td>
-<td></td>
+<td><strong>Creates a new note.</strong><br>A random id will be assigned and the content will equal to the template (blank by default). After note creation a redirect is issued to the created note.</td>
 </tr>
 <tr>
 <td><code>/new</code></td>
 <td><code>POST</code></td>
-<td>**Imports some markdown data into a new</td>
-</tr>
-<tr>
-<td>note.**<br>A random id will be assigned and the content will equal to the body of the received HTTP-request. The <code>Content-Type: text/markdown</code> header should be set on this request.</td>
-<td></td>
-<td></td>
+<td><strong>Imports some markdown data into a new note.</strong><br>A random id will be assigned and the content will equal to the body of the received HTTP-request. The <code>Content-Type: text/markdown</code> header should be set on this request.</td>
 </tr>
 <tr>
 <td><code>/new/&lt;ALIAS&gt;</code></td>
 <td><code>POST</code></td>
-<td>**Imports some markdown data into a new note with a</td>
+<td><strong>Imports some markdown data into a new note with a given alias.</strong><br>This endpoint equals to the above one except that the alias from the url will be assigned to the note if <a href="../../configuration/#users-and-privileges">FreeURL-mode</a> is enabled.</td>
+</tr>
+<tr>
+<td><code>/&lt;NOTE&gt;/download</code> or <code>/s/&lt;SHORT-ID&gt;/download</code></td>
+<td><code>GET</code></td>
+<td><strong>Returns the raw markdown content of a note.</strong></td>
+</tr>
+<tr>
+<td><code>/&lt;NOTE&gt;/publish</code></td>
+<td><code>GET</code></td>
+<td><strong>Redirects to the published version of the note.</strong></td>
+</tr>
+<tr>
+<td><code>/&lt;NOTE&gt;/slide</code></td>
+<td><code>GET</code></td>
+<td><strong>Redirects to the slide-presentation of the note.</strong><br>This is only useful on notes which are designed to be slides.</td>
+</tr>
+<tr>
+<td><code>/&lt;NOTE&gt;/info</code></td>
+<td><code>GET</code></td>
+<td><strong>Returns metadata about the note.</strong><br>This includes the title and description of the note as well as the creation date and viewcount. The data is returned as a JSON object.</td>
+</tr>
+<tr>
+<td><code>/&lt;NOTE&gt;/revision</code></td>
+<td><code>GET</code></td>
+<td><strong>Returns a list of the available note revisions.</strong><br>The list is returned as a JSON object with an array of revision-id and length associations. The revision-id equals to the timestamp when the revision was saved.</td>
+</tr>
+<tr>
+<td><code>/&lt;NOTE&gt;/revision/&lt;REVISION-ID&gt;</code></td>
+<td><code>GET</code></td>
+<td><strong>Returns the revision of the note with some metadata.</strong><br>The revision is returned as a JSON object with the content of the note and the authorship.</td>
+</tr>
+<tr>
+<td><code>/&lt;NOTE&gt;/gist</code></td>
+<td><code>GET</code></td>
+<td><strong>Creates a new GitHub Gist with the note's content.</strong><br>If <a href="../../configuration/#github-login">GitHub integration</a> is configured, the user will be redirected to GitHub and a new Gist with the content of the note will be created.</td>
 </tr>
 </tbody>
 </table>
-<p>given alias.<strong><br>This endpoint equals to the above one except that the alias from the url will be assigned to the note
-if <a href="../../configuration/#users-and-privileges">FreeURL-mode</a> is enabled. | | <code>/&lt;NOTE&gt;/download</code>
-or <code>/s/&lt;SHORT-ID&gt;/download</code> | <code>GET</code>       | </strong>Returns the raw markdown content of a note.<strong>
-| | <code>/&lt;NOTE&gt;/publish</code>                              | <code>GET</code>       | </strong>Redirects to the published version of the note.<strong>
-| | <code>/&lt;NOTE&gt;/slide</code>                                | <code>GET</code>       | </strong>Redirects to the slide-presentation of the
-note.<strong><br>This is only useful on notes which are designed to be slides. | | <code>/&lt;NOTE&gt;/info</code>
-| <code>GET</code>       | </strong>Returns metadata about the note.<strong><br>This includes the title and description of the note as well as
-the creation date and viewcount. The data is returned as a JSON object. | | <code>/&lt;NOTE&gt;/revision</code>
-| <code>GET</code>       | </strong>Returns a list of the available note revisions.<strong><br>The list is returned as a JSON object with an
-array of revision-id and length associations. The revision-id equals to the timestamp when the revision was saved. |
-| <code>/&lt;NOTE&gt;/revision/&lt;REVISION-ID&gt;</code>               | <code>GET</code>       | </strong>Returns the revision of the note with some
-metadata.<strong><br>The revision is returned as a JSON object with the content of the note and the authorship. |
-| <code>/&lt;NOTE&gt;/gist</code>                                 | <code>GET</code>       | </strong>Creates a new GitHub Gist with the note's
-content.**<br>If <a href="../../configuration/#github-login">GitHub integration</a> is configured, the user will be redirected to
-GitHub and a new Gist with the content of the note will be created. |</p>
 <h2 id="user-history">User / History<a class="headerlink" href="#user-history" title="Permanent link">&para;</a></h2>
-<p>These endpoints return information about the current logged-in user and it's note history. If no user is logged-in, the
-most of this requests will fail with either a HTTP 403 or a JSON object containing <code>{"status":"forbidden"}</code>.</p>
+<p>These endpoints return information about the current logged-in user and it's note history. If no user is logged-in, the most of this requests will fail with either a HTTP 403 or a JSON object containing <code>{"status":"forbidden"}</code>.</p>
 <table>
 <thead>
 <tr>
@@ -986,72 +993,37 @@ most of this requests will fail with either a HTTP 403 or a JSON object containi
 <tr>
 <td><code>/me</code></td>
 <td><code>GET</code></td>
-<td>**Returns the profile data of the current logged-in</td>
-</tr>
-<tr>
-<td>user.**<br>The data is returned as a JSON object containing the user-id, the user's name and a url to the profile picture.</td>
-<td></td>
-<td></td>
+<td><strong>Returns the profile data of the current logged-in user.</strong><br>The data is returned as a JSON object containing the user-id, the user's name and a url to the profile picture.</td>
 </tr>
 <tr>
 <td><code>/me/export</code></td>
 <td><code>GET</code></td>
-<td>**Exports a zip-archive with all notes of the current</td>
-</tr>
-<tr>
-<td>user.**</td>
-<td></td>
-<td></td>
+<td><strong>Exports a zip-archive with all notes of the current user.</strong></td>
 </tr>
 <tr>
 <td><code>/history</code></td>
 <td><code>GET</code></td>
-<td>**Returns a list of the last viewed</td>
-</tr>
-<tr>
-<td>notes.**<br>The list is returned as a JSON object with an array containing for each entry it's id, title, tags, last visit time and pinned status.</td>
-<td></td>
-<td></td>
+<td><strong>Returns a list of the last viewed notes.</strong><br>The list is returned as a JSON object with an array containing for each entry it's id, title, tags, last visit time and pinned status.</td>
 </tr>
 <tr>
 <td><code>/history</code></td>
 <td><code>POST</code></td>
-<td>**Replace user's history with a new</td>
-</tr>
-<tr>
-<td>one.**<br>The body must be form-encoded and contain a field <code>history</code> with a JSON-encoded array like its returned from the server when exporting the history.</td>
-<td></td>
-<td></td>
+<td><strong>Replace user's history with a new one.</strong><br>The body must be form-encoded and contain a field <code>history</code> with a JSON-encoded array like its returned from the server when exporting the history.</td>
 </tr>
 <tr>
 <td><code>/history</code></td>
 <td><code>DELETE</code></td>
-<td>**Deletes the user's</td>
-</tr>
-<tr>
-<td>history.**</td>
-<td></td>
-<td></td>
+<td><strong>Deletes the user's history.</strong></td>
 </tr>
 <tr>
 <td><code>/history/&lt;NOTE&gt;</code></td>
 <td><code>POST</code></td>
-<td>**Toggles the pinned status in the history for a</td>
-</tr>
-<tr>
-<td>note.**<br>The body must be form-encoded and contain a field <code>pinned</code> that is either <code>true</code> or <code>false</code>.</td>
-<td></td>
-<td></td>
+<td><strong>Toggles the pinned status in the history for a note.</strong><br>The body must be form-encoded and contain a field <code>pinned</code> that is either <code>true</code> or <code>false</code>.</td>
 </tr>
 <tr>
 <td><code>/history/&lt;NOTE&gt;</code></td>
 <td><code>DELETE</code></td>
-<td>**Deletes a note from the user's</td>
-</tr>
-<tr>
-<td>history.**</td>
-<td></td>
-<td></td>
+<td><strong>Deletes a note from the user's history.</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1069,12 +1041,7 @@ most of this requests will fail with either a HTTP 403 or a JSON object containi
 <tr>
 <td><code>/status</code></td>
 <td><code>GET</code></td>
-<td>**Returns the current status of the HedgeDoc</td>
-</tr>
-<tr>
-<td>instance.**<br>The data is returned as a JSON object containing the number of notes stored on the server, (distinct) online users and more.</td>
-<td></td>
-<td></td>
+<td><strong>Returns the current status of the HedgeDoc instance.</strong><br>The data is returned as a JSON object containing the number of notes stored on the server, (distinct) online users and more.</td>
 </tr>
 </tbody>
 </table>

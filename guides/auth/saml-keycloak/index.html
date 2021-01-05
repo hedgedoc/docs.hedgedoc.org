@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
     
     
       
@@ -978,7 +975,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/auth/saml-keycloak.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/auth/saml-keycloak.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -991,27 +988,23 @@
 <li>Select "Realm Settings" in left sidebar</li>
 <li>Select the "Keys" tab</li>
 <li>Click the button "Certificate" at <code>RS256</code> algorithm
-   <img alt="keycloak_idp_cert" src="../../../images/auth/keycloak_idp_cert.png" /></li>
-<li>Copy this key and save it to the file specified in <code>saml.idpCert</code> property of the HedgeDoc configuration
-   or <code>CMD_SAML_IDPCERT</code> environment variable</li>
+<img alt="keycloak_idp_cert" src="../../../images/auth/keycloak_idp_cert.png" /></li>
+<li>Copy this key and save it to the file specified in <code>saml.idpCert</code> property of the HedgeDoc configuration or <code>CMD_SAML_IDPCERT</code> environment variable</li>
 </ol>
 <h3 id="create-a-new-client">Create a new client<a class="headerlink" href="#create-a-new-client" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Select "Client" in left sidebar
-   <img alt="keycloak_clients_overview" src="../../../images/auth/keycloak_clients_overview.png" /></li>
+<img alt="keycloak_clients_overview" src="../../../images/auth/keycloak_clients_overview.png" /></li>
 <li>Click on the "Create" button</li>
-<li>Set a Client ID and specify this in <code>saml.issuer</code> property of the HedgeDoc configuration or <code>CMD_SAML_ISSUER</code>
-   environment variable</li>
+<li>Set a Client ID and specify this in <code>saml.issuer</code> property of the HedgeDoc configuration or <code>CMD_SAML_ISSUER</code> environment variable</li>
 <li>Select <code>SAML</code> as Client Protocol</li>
-<li>Set Client SAML Endpoint to <code>https://hedgedoc.example.com/auth/saml</code> (replace <code>https://hedgedoc.example.com</code> with the
-   base URL of your HedgeDoc installation)
-   <img alt="keycloak_add_client" src="../../../images/auth/keycloak_add_client.png" /></li>
+<li>Set Client SAML Endpoint to <code>https://hedgedoc.example.com/auth/saml</code> (replace <code>https://hedgedoc.example.com</code> with the base URL of your HedgeDoc installation)
+<img alt="keycloak_add_client" src="../../../images/auth/keycloak_add_client.png" /></li>
 <li>Leave "Client Signature Required" enabled</li>
 <li>Set Root URL to <code>https://hedgedoc.example.com</code> (replace it here also with the base URL of your HedgeDoc installation)</li>
-<li>Set Valid Redirect URIs to <code>https://hedgedoc.example.com/auth/saml/callback</code> (you should also define all other
-   domains of your HedgeDoc installtion with the suffix <code>/auth/saml/callback</code>)</li>
+<li>Set Valid Redirect URIs to <code>https://hedgedoc.example.com/auth/saml/callback</code> (you should also define all other domains of your HedgeDoc installtion with the suffix <code>/auth/saml/callback</code>)</li>
 <li>Set Base URL to <code>/</code>
-   <img alt="keycloak_client_overview" src="../../../images/auth/keycloak_client_overview.png" /></li>
+<img alt="keycloak_client_overview" src="../../../images/auth/keycloak_client_overview.png" /></li>
 <li><em>(optional)</em> You can set which Name ID Format should be used</li>
 </ol>
 <h2 id="configure-hedgedoc">Configure HedgeDoc<a class="headerlink" href="#configure-hedgedoc" title="Permanent link">&para;</a></h2>
@@ -1027,16 +1020,14 @@
 </code></pre>
 <h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>CMD_SAML_IDPSSOURL</code>: <code>https://keycloak.example.org/auth/realms/test/protocol/saml</code> (replace keycloak.example.org with
-  the url of your keycloak server)</li>
+<li><code>CMD_SAML_IDPSSOURL</code>: <code>https://keycloak.example.org/auth/realms/test/protocol/saml</code> (replace keycloak.example.org with the url of your keycloak server)</li>
 <li><code>CMD_SAML_IDPCERT</code>: <code>/path/to/the/cert.pem</code></li>
 <li><em>(optional, see below)</em> <code>CMD_SAML_CLIENTCERT</code>: <code>/path/to/the/key.pem</code></li>
 <li><code>CMD_SAML_ISSUER</code>: <code>hedgedoc</code> (Change to the "Client ID" specified in the Keycloak Client)</li>
 <li><code>CMD_SAML_IDENTIFIERFORMAT</code>: <code>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</code></li>
 </ul>
 <h2 id="client-certificate-optional">Client certificate <em>(optional)</em><a class="headerlink" href="#client-certificate-optional" title="Permanent link">&para;</a></h2>
-<p>If you want keycloak to be able to verify HedgeDoc, you hava to create a client certificate. There are two options for
-this:</p>
+<p>If you want keycloak to be able to verify HedgeDoc, you hava to create a client certificate. There are two options for this:</p>
 <h3 id="create-private-keys-for-signing">Create Private Keys for Signing<a class="headerlink" href="#create-private-keys-for-signing" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Generate the private key and certificate with the following commands:</li>
@@ -1049,14 +1040,13 @@ openssl req -new -x509 -key priv.pem -out cert.pem
 <li>Select "Client" in left sidebar</li>
 <li>Go to your HedgeDoc-Client</li>
 <li>Select the "SAML Keys" tab
-   <img alt="keycloak_saml_import_cert" src="../../../images/auth/keycloak_saml_import_cert.png" /></li>
+<img alt="keycloak_saml_import_cert" src="../../../images/auth/keycloak_saml_import_cert.png" /></li>
 <li>Click on "Import"</li>
 <li>Select <code>Certificate PEM</code> as "Archive Format"</li>
 <li>Now upload the generated cert.pem (in this case named <code>cert.pem</code>)
-   <img alt="keycloak_saml_import_cert_details" src="../../../images/auth/keycloak_saml_import_cert_details.png" /></li>
+<img alt="keycloak_saml_import_cert_details" src="../../../images/auth/keycloak_saml_import_cert_details.png" /></li>
 <li>Click on "Import"</li>
-<li>Move or copy this key (in this case named <code>key.pem</code>) and save it to the file specified in <code>saml.clientCert</code> property
-   of the HedgeDoc configuration or in the enviroment-variable <code>CMD_SAML_CLIENTCERT</code></li>
+<li>Move or copy this key (in this case named <code>key.pem</code>) and save it to the file specified in <code>saml.clientCert</code> property of the HedgeDoc configuration or in the enviroment-variable <code>CMD_SAML_CLIENTCERT</code></li>
 </ol>
 <h3 id="convert-private-certificate-generated-by-keycloak">Convert Private Certificate generated by KeyCloak<a class="headerlink" href="#convert-private-certificate-generated-by-keycloak" title="Permanent link">&para;</a></h3>
 <p>Instead if generating you own certificate, you can also use the one generated by keycloak.</p>
@@ -1065,37 +1055,31 @@ openssl req -new -x509 -key priv.pem -out cert.pem
 <li>Go to your HedgeDoc-Client</li>
 <li>
 <p>Select the "SAML Keys" tab
-   <img alt="keycloak_saml_export_cert" src="../../../images/auth/keycloak_saml_export_cert.png" /></p>
+<img alt="keycloak_saml_export_cert" src="../../../images/auth/keycloak_saml_export_cert.png" /></p>
 </li>
 <li>
 <p>Now click on "Export"</p>
 </li>
 <li>Here you can select the output format, choose <code>PKCS12</code>. You also have to set a password. Choose your own.
-   <img alt="keycloak_saml_export_cert_details" src="../../../images/auth/keycloak_saml_export_cert_details.png" /></li>
+<img alt="keycloak_saml_export_cert_details" src="../../../images/auth/keycloak_saml_export_cert_details.png" /></li>
 <li>Click on "Download" and save the file somewhere on you computer</li>
 <li>You now have to extract the private Key. You can do this with the following command. WHen asked, enter your password.</li>
 </ol>
 <pre><code class="language-shell">openssl pkcs12 -in keystore.p12 -out key.pem -nocerts -nodes
 </code></pre>
 <ol>
-<li>Move or copy this key (in this case named <code>key.pem</code>) and save it to the file specified in <code>saml.idpCert</code> property of
-   the HedgeDoc configuration or in the enviroment-variable <code>CMD_SAML_CLIENTCERT</code></li>
+<li>Move or copy this key (in this case named <code>key.pem</code>) and save it to the file specified in <code>saml.idpCert</code> property of the HedgeDoc configuration or in the enviroment-variable <code>CMD_SAML_CLIENTCERT</code></li>
 </ol>
 <h2 id="use-persistent-identifiers">Use Persistent Identifiers<a class="headerlink" href="#use-persistent-identifiers" title="Permanent link">&para;</a></h2>
-<p>Instead of using the username as the owner-key in the HedgeDoc database, you can also use a persistent identifier. This
-allows to change the username, without them loosing access to their notes.</p>
+<p>Instead of using the username as the owner-key in the HedgeDoc database, you can also use a persistent identifier. This allows to change the username, without them loosing access to their notes.</p>
 <ol>
-<li>Go to the HedgeDoc-Client in keycloak. Now enable the option "Force Name ID Format" and select "persistent" as the "
-   Name ID Format".
-   <img alt="keycloak_force_idformat" src="../../../images/auth/keycloak_force_idformat.png" /></li>
-<li>For HedgeDoc to be able to use the username and email configured in keycloak, you have to create the following SAML
-   protocol mappers:
-   2.1. Create a mapper with the type <code>User Property</code>. Set the Name, Property and SAML Attribute Name to <code>username</code>. Now
-   you can specify a friendly name (for example <code>Username</code>)
-   <img alt="keycloak_mapper_username" src="../../../images/auth/keycloak_mapper_username.png" />
-   2.2 Create a mapper with the type <code>User Property</code>. Set the Name, Property and SAML Attribute Name to <code>email</code>. Now you
-   can specify a friendly name (for example <code>E-Mail</code>)
-   <img alt="keycloak_mapper_email" src="../../../images/auth/keycloak_mapper_email.png" /></li>
+<li>Go to the HedgeDoc-Client in keycloak. Now enable the option "Force Name ID Format" and select "persistent" as the "Name ID Format".
+<img alt="keycloak_force_idformat" src="../../../images/auth/keycloak_force_idformat.png" /></li>
+<li>For HedgeDoc to be able to use the username and email configured in keycloak, you have to create the following SAML protocol mappers:
+    2.1. Create a mapper with the type <code>User Property</code>. Set the Name, Property and SAML Attribute Name to <code>username</code>. Now you can specify a friendly name (for example <code>Username</code>)
+<img alt="keycloak_mapper_username" src="../../../images/auth/keycloak_mapper_username.png" />
+    2.2 Create a mapper with the type <code>User Property</code>. Set the Name, Property and SAML Attribute Name to <code>email</code>. Now you can specify a friendly name (for example <code>E-Mail</code>)
+<img alt="keycloak_mapper_email" src="../../../images/auth/keycloak_mapper_email.png" /></li>
 </ol>
 <p>The configured mappers should look like this:
 <img alt="keycloak_mapper_overview" src="../../../images/auth/keycloak_mapper_overview.png" /></p>

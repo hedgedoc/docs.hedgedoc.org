@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
     
     
       
@@ -868,7 +865,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/auth/nextcloud.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/auth/nextcloud.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -887,7 +884,7 @@
 <img alt="Where to find OAuth2 in Nextcloud" src="../../../images/auth/nextcloud-oauth2-1-settings.png" /></p>
 </li>
 <li>
-<p>Add your CodiMD instance by giving it a <em>name</em> (perhaps CodiMD, but could be anything) and a <em>Redirection-URI</em>. The Redirection-URI will be <code>\&lt;your-codimd-url\&gt;/auth/oauth2/callback</code>. Click <kbd>Add</kbd>.<br />
+<p>Add your HedgeDoc instance by giving it a <em>name</em> (perhaps HedgeDoc, but could be anything) and a <em>Redirection-URI</em>. The Redirection-URI will be <code>\&lt;your-hedgedoc-url\&gt;/auth/oauth2/callback</code>. Click <kbd>Add</kbd>.<br />
 <img alt="Adding a client to Nextcloud" src="../../../images/auth/nextcloud-oauth2-2-client-add.png" /></p>
 </li>
 <li>
@@ -895,16 +892,17 @@
    <img alt="Successfully added OAuth2-client" src="../../../images/auth/nextcloud-oauth2-3-clientid-secret.png" /></p>
 </li>
 <li>
-<p>That's it for Nextcloud, the rest is configured in your CodiMD <code>config.json</code> or via the <code>CMD_</code> environment variables!</p>
+<p>That's it for Nextcloud, the rest is configured in your HedgeDoc <code>config.json</code> or via the <code>CMD_</code> environment variables!</p>
 </li>
 <li>
 <p>Add the Client ID and Client Secret to your <code>config.json</code> file or pass them as environment variables. Make sure you also replace <code>&lt;your-nextcloud-domain&gt;</code> with the right domain name.</p>
-<ul>
-<li><code>config.json</code>:
-  <code>javascript
-  {
-    "production": {
-      "oauth2": {
+</li>
+<li>
+<p><code>config.json</code>:
+    <code>javascript
+    {
+      "production": {
+        "oauth2": {
           "clientID": "ii4p1u3jz7dXXXXXXXXXXXXXXX",
           "clientSecret": "mqzzx6fydbXXXXXXXXXXXXXXXX",
           "authorizationURL": "https://&lt;your-nextcloud-domain&gt;/apps/oauth2/authorize",
@@ -913,9 +911,10 @@
           "userProfileUsernameAttr": "ocs.data.id",
           "userProfileDisplayNameAttr": "ocs.data.display-name",
           "userProfileEmailAttr": "ocs.data.email"
+        }
       }
-    }
-  }</code></li>
+    }</code></p>
+<ul>
 <li>environment variables:
   <code>sh
   CMD_OAUTH2_CLIENT_ID=ii4p1u3jz7dXXXXXXXXXXXXXXX

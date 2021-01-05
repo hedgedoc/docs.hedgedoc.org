@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../theme/styles/roboto.css">
     
     
       
@@ -909,7 +906,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/dev/documentation.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/dev/documentation.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -917,32 +914,21 @@
                 <h1 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h1>
 <p>Our documentation is build with <a href="https://www.mkdocs.org">mkdocs</a>.</p>
 <h2 id="writing">Writing<a class="headerlink" href="#writing" title="Permanent link">&para;</a></h2>
-<p>All documentation files are found in the <code>docs/content</code> directory of
-the <a href="https://github.com/hedgedoc/hedgedoc">hedgedoc/hedgedoc repo</a>. These files are just normal markdown files with
-nothing special about them.</p>
-<p>The configuration for mkdocs lies in the <code>docs</code> folder in a file called <code>mkdocs.yml</code>. With that file the theme and menu</p>
-<ul>
-<li>amoung others - can be configured.
-  <strong>Please note:</strong> Any new files need to be linked to by other files or put in the navigation or the files will be very
-  hard to find on the documentation website.</li>
-</ul>
+<p>All documentation files are found in the <code>docs/content</code> directory of the <a href="https://github.com/hedgedoc/hedgedoc">hedgedoc/hedgedoc repo</a>. These files are just normal markdown files with nothing special about them.</p>
+<p>The configuration for mkdocs lies in the <code>docs</code> folder in a file called <code>mkdocs.yml</code>. With that file the theme and menu - amoung others - can be configured.
+<strong>Please note:</strong> Any new files need to be linked to by other files or put in the navigation or the files will be very hard to find on the documentation website.</p>
 <h2 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h2>
 <p>To build the documentation locally you need to perform the following steps:</p>
 <ol>
 <li>Make sure you have python3 installed.</li>
 <li>Go into the <code>docs</code> folder.</li>
-<li>Install all the dependencies (E.g. with a <a href="https://docs.python.org/3/library/venv.html">venv</a>)
-   with <code>pip install -r requirements.txt</code></li>
+<li>Install all the dependencies (E.g. with a <a href="https://docs.python.org/3/library/venv.html">venv</a>) with <code>pip install -r requirements.txt</code></li>
 <li>Start the mkdocs dev server (<code>mkdocs serve</code>) or build the documentation (<code>mkdocs build</code>).</li>
 </ol>
 <h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
 <p>The documentation is deployed with <a href="https://github.com/traefik/structor">Messor Structor</a>.</p>
-<p>The necessary Dockerfile and version menu template and also the github action to build the whole documentation can be
-found in the <a href="https://github.com/hedgedoc/docs.hedgedoc.org">docs.hedgedoc.org repo</a>. This repo is also used to deploy
-the actuall website to github.io.</p>
-<p>Messor Structor builds and deploys the documentation by finding all branches that follow the pattern <code>v*</code>. For each
-branch the docs are generated separately by first installing the dependencies from <code>requirements.txt</code> and then running
-mkdocs. Afterwards the menu go template is used to include a version switcher in the theme.</p>
+<p>The necessary Dockerfile and version menu template and also the github action to build the whole documentation can be found in the <a href="https://github.com/hedgedoc/docs.hedgedoc.org">docs.hedgedoc.org repo</a>. This repo is also used to deploy the actuall website to github.io.</p>
+<p>Messor Structor builds and deploys the documentation by finding all branches that follow the pattern <code>v*</code>. For each branch the docs are generated separately by first installing the dependencies from <code>requirements.txt</code> and then running mkdocs. Afterwards the menu go template is used to include a version switcher in the theme.</p>
                 
               
               

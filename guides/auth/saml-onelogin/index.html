@@ -38,15 +38,12 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
-      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-color.css">
+      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
+    
+      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
     
     
       
@@ -868,16 +865,20 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/guides/auth/saml-onelogin.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/auth/saml-onelogin.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="authentication-guide-saml-onelogin">Authentication guide - SAML (OneLogin)<a class="headerlink" href="#authentication-guide-saml-onelogin" title="Permanent link">&para;</a></h1>
-<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>CodiMD</code> in your mind :smile: thanks!</em></p>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</em></p>
 <ol>
-<li>Sign-in or sign-up for an OneLogin account. (available free trial for 2 weeks)</li>
-<li>Go to the administration page.</li>
+<li>
+<p>Sign-in or sign-up for an OneLogin account. (available free trial for 2 weeks)</p>
+</li>
+<li>
+<p>Go to the administration page.</p>
+</li>
 <li>
 <p>Select the <strong>APPS</strong> menu and click on the <strong>Add Apps</strong>.<br />
 <img alt="onelogin-add-app" src="../../../images/auth/onelogin-add-app.png" /></p>
@@ -892,44 +893,56 @@
 </li>
 <li>
 <p>After that other tabs will appear, click the <strong>Configuration</strong>, and fill out the below items, and click <strong>SAVE</strong>.</p>
-<ul>
-<li>RelayState: The base URL of your CodiMD, which is issuer. (last slash is not needed)</li>
-<li>ACS (Consumer) URL Validator: The callback URL of your CodiMD. (serverurl + /auth/saml/callback)</li>
-<li>ACS (Consumer) URL: same as above.</li>
-<li>Login URL: login URL(SAML requester) of your CopiMD. (serverurl + /auth/saml)<br />
-<img alt="onelogin-edit-sp-metadata" src="../../../images/auth/onelogin-edit-sp-metadata.png" /></li>
-</ul>
+</li>
+<li>
+<p>RelayState: The base URL of your HedgeDoc, which is issuer. (last slash is not needed)</p>
+</li>
+<li>
+<p>ACS (Consumer) URL Validator: The callback URL of your HedgeDoc. (serverurl + /auth/saml/callback)</p>
+</li>
+<li>
+<p>ACS (Consumer) URL: same as above.</p>
+</li>
+<li>
+<p>Login URL: login URL(SAML requester) of your CopiMD. (serverurl + /auth/saml)<br />
+<img alt="onelogin-edit-sp-metadata" src="../../../images/auth/onelogin-edit-sp-metadata.png" /></p>
 </li>
 <li>
 <p>The registration is completed. Next, click <strong>SSO</strong> and copy or download the items below.</p>
-<ul>
-<li>X.509 Certificate: Click <strong>View Details</strong> and <strong>DOWNLOAD</strong> or copy the content of certificate ....(A)</li>
-<li>SAML 2.0 Endpoint (HTTP): Copy the URL ....(B)<br />
-<img alt="onelogin-copy-idp-metadata" src="../../../images/auth/onelogin-copy-idp-metadata.png" /></li>
-</ul>
 </li>
 <li>
-<p>In your CodiMD server, create IdP certificate file from (A)</p>
+<p>X.509 Certificate: Click <strong>View Details</strong> and <strong>DOWNLOAD</strong> or copy the content of certificate ....(A)</p>
 </li>
-<li>Add the IdP URL (B) and the Idp certificate file path to your config.json file or pass them as environment variables.<ul>
-<li><code>config.json</code>:
-  <code>javascript
-  {
-    "production": {
-      "saml": {
-        "idpSsoUrl": "https://*******.onelogin.com/trust/saml2/http-post/sso/******",
-        "idpCert": "/path/to/idp_cert.pem"
+<li>
+<p>SAML 2.0 Endpoint (HTTP): Copy the URL ....(B)<br />
+<img alt="onelogin-copy-idp-metadata" src="../../../images/auth/onelogin-copy-idp-metadata.png" /></p>
+</li>
+<li>
+<p>In your HedgeDoc server, create IdP certificate file from (A)</p>
+</li>
+<li>Add the IdP URL (B) and the Idp certificate file path to your config.json file or pass them as environment variables.</li>
+<li>
+<p><code>config.json</code>:
+    <code>javascript
+    {
+      "production": {
+        "saml": {
+          "idpSsoUrl": "https://*******.onelogin.com/trust/saml2/http-post/sso/******",
+          "idpCert": "/path/to/idp_cert.pem"
+        }
       }
-    }
-  }</code></li>
+    }</code></p>
+<ul>
 <li>environment variables
   <code>sh
   CMD_SAML_IDPSSOURL=https://*******.onelogin.com/trust/saml2/http-post/sso/******
   CMD_SAML_IDPCERT=/path/to/idp_cert.pem</code></li>
 </ul>
 </li>
-<li>Try sign-in with SAML from your CodiMD sign-in button or OneLogin dashboard (like the screenshot below).<br />
-<img alt="onelogin-use-dashboard" src="../../../images/auth/onelogin-use-dashboard.png" /></li>
+<li>
+<p>Try sign-in with SAML from your HedgeDoc sign-in button or OneLogin dashboard (like the screenshot below).<br />
+<img alt="onelogin-use-dashboard" src="../../../images/auth/onelogin-use-dashboard.png" /></p>
+</li>
 </ol>
                 
               
