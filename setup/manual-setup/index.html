@@ -598,7 +598,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/auth/saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -650,7 +650,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/auth/nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -664,6 +664,63 @@
   <li class="md-nav__item">
     <a href="../../guides/auth/twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -705,66 +762,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../guides/minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../guides/s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../../guides/providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -924,10 +924,8 @@
 <li>NPM (and its dependencies, <a href="https://github.com/nodejs/node-gyp#installation">node-gyp</a>)</li>
 <li>Yarn</li>
 <li>Bash (for the setup script)</li>
-<li>For <strong>building</strong> the HedgeDoc frontend you need a machine with at least <strong>2 GB</strong> RAM.<ul>
-<li>Starting with release 1.7 the release tarball includes the frontend, so building it yourself is not necessary.</li>
-</ul>
-</li>
+<li>For <strong>building</strong> the HedgeDoc frontend you need a machine with at least <strong>2 GB</strong> RAM.
+    - Starting with release 1.7 the release tarball includes the frontend, so building it yourself is not necessary.</li>
 </ul>
 <h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
 <ol>
@@ -938,10 +936,12 @@
 <li>Modify the file named <code>config.json</code> or configure HedgeDoc through environment variables which will overwrite the configs, see docs <a href="https://github.com/hedgedoc/hedgedoc/blob/master/docs/configuration.md">here</a>.</li>
 <li><strong>If using the release tarball for 1.7.0 or newer, this step can be skipped.</strong><br />
    Build the frontend bundle by <code>yarn run build</code> (use <code>yarn run dev</code> if you are in development)</li>
-<li>Modify the file named <code>.sequelizerc</code>, change the value of the variable <code>url</code> to your db connection string. For example:</li>
+<li>Modify the file named <code>.sequelizerc</code>, change the value of the variable <code>url</code> to your db connection string. For example:<ul>
 <li><code>postgres://username:password@localhost:5432/hedgedoc</code></li>
 <li><code>mysql://username:password@localhost:3306/hedgedoc</code></li>
 <li><code>sqlite:///opt/hedgedoc/hedgedoc.sqlite</code> (note that you need to use an absolute path to the SQLite file)</li>
+</ul>
+</li>
 <li>It is recommended to start your server manually once: <code>NODE_ENV=production yarn start</code>, this way it's easier to see warnings or errors that might occur (leave out <code>NODE_ENV=production</code> for development).</li>
 <li>Run the server as you like (node, forever, pm2, SystemD, Init-Scripts)</li>
 </ol>

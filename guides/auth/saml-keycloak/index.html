@@ -667,7 +667,7 @@
 
   <li class="md-nav__item">
     <a href="../saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -719,7 +719,7 @@
 
   <li class="md-nav__item">
     <a href="../nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -733,6 +733,63 @@
   <li class="md-nav__item">
     <a href="../twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -774,66 +831,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -1009,15 +1009,15 @@
 </ol>
 <h2 id="configure-hedgedoc">Configure HedgeDoc<a class="headerlink" href="#configure-hedgedoc" title="Permanent link">&para;</a></h2>
 <h3 id="config-file">Config file<a class="headerlink" href="#config-file" title="Permanent link">&para;</a></h3>
-<p>You have to put the following block inside your <code>config.json</code>:</p>
-<pre><code class="language-json">&quot;saml&quot;: {
-  &quot;issuer&quot;: &quot;hedgedoc&quot;, // Change to the &quot;Client ID&quot; specified in the Keycloak Client
-  &quot;identifierFormat&quot;: &quot;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&quot;,
-  &quot;idpSsoUrl&quot;: &quot;https://keycloak.example.org/auth/realms/test/protocol/saml&quot;, // replace keycloak.example.org with the url of your keycloak server
-  &quot;idpCert&quot;: &quot;/path/to/the/cert.pem&quot;,
-  &quot;clientCert&quot;: &quot;/path/to/the/key.pem&quot; // this one is optional, see below
-}
-</code></pre>
+<p>You have to put the following block inside your <code>config.json</code>:
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;saml&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;issuer&quot;</span><span class="p">:</span> <span class="s2">&quot;hedgedoc&quot;</span><span class="p">,</span> <span class="err">//</span> <span class="err">Cha</span><span class="kc">n</span><span class="err">ge</span> <span class="kc">t</span><span class="err">o</span> <span class="kc">t</span><span class="err">he</span> <span class="s2">&quot;Client ID&quot;</span> <span class="err">speci</span><span class="kc">f</span><span class="err">ied</span> <span class="err">i</span><span class="kc">n</span> <span class="kc">t</span><span class="err">he</span> <span class="err">Keycloak</span> <span class="err">Clie</span><span class="kc">nt</span>
+  <span class="nt">&quot;identifierFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;idpSsoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://keycloak.example.org/auth/realms/test/protocol/saml&quot;</span><span class="p">,</span> <span class="err">//</span> <span class="err">replace</span> <span class="err">keycloak.example.org</span> <span class="err">wi</span><span class="kc">t</span><span class="err">h</span> <span class="kc">t</span><span class="err">he</span> <span class="err">url</span> <span class="err">o</span><span class="kc">f</span> <span class="err">your</span> <span class="err">keycloak</span> <span class="err">server</span>
+  <span class="nt">&quot;idpCert&quot;</span><span class="p">:</span> <span class="s2">&quot;/path/to/the/cert.pem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;clientCert&quot;</span><span class="p">:</span> <span class="s2">&quot;/path/to/the/key.pem&quot;</span> <span class="err">//</span> <span class="kc">t</span><span class="err">his</span> <span class="err">o</span><span class="kc">ne</span> <span class="err">is</span> <span class="err">op</span><span class="kc">t</span><span class="err">io</span><span class="kc">nal</span><span class="p">,</span> <span class="err">see</span> <span class="err">below</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>CMD_SAML_IDPSSOURL</code>: <code>https://keycloak.example.org/auth/realms/test/protocol/saml</code> (replace keycloak.example.org with the url of your keycloak server)</li>
@@ -1030,14 +1030,16 @@
 <p>If you want keycloak to be able to verify HedgeDoc, you hava to create a client certificate. There are two options for this:</p>
 <h3 id="create-private-keys-for-signing">Create Private Keys for Signing<a class="headerlink" href="#create-private-keys-for-signing" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Generate the private key and certificate with the following commands:</li>
-</ol>
-<pre><code class="language-shell">openssl genrsa -out priv.pem 2048
+<li>
+<p>Generate the private key and certificate with the following commands:
+<div class="highlight"><pre><span></span><code>openssl genrsa -out priv.pem <span class="m">2048</span>
 openssl req -new -x509 -key priv.pem -out cert.pem
-</code></pre>
-<p><em>execute the following steps in keycloak</em></p>
-<ol>
-<li>Select "Client" in left sidebar</li>
+</code></pre></div>
+<em>execute the following steps in keycloak</em></p>
+</li>
+<li>
+<p>Select "Client" in left sidebar</p>
+</li>
 <li>Go to your HedgeDoc-Client</li>
 <li>Select the "SAML Keys" tab
 <img alt="keycloak_saml_import_cert" src="../../../images/auth/keycloak_saml_import_cert.png" /></li>
@@ -1063,11 +1065,9 @@ openssl req -new -x509 -key priv.pem -out cert.pem
 <li>Here you can select the output format, choose <code>PKCS12</code>. You also have to set a password. Choose your own.
 <img alt="keycloak_saml_export_cert_details" src="../../../images/auth/keycloak_saml_export_cert_details.png" /></li>
 <li>Click on "Download" and save the file somewhere on you computer</li>
-<li>You now have to extract the private Key. You can do this with the following command. WHen asked, enter your password.</li>
-</ol>
-<pre><code class="language-shell">openssl pkcs12 -in keystore.p12 -out key.pem -nocerts -nodes
-</code></pre>
-<ol>
+<li>You now have to extract the private Key. You can do this with the following command. WHen asked, enter your password.
+<div class="highlight"><pre><span></span><code>openssl pkcs12 -in keystore.p12 -out key.pem -nocerts -nodes
+</code></pre></div></li>
 <li>Move or copy this key (in this case named <code>key.pem</code>) and save it to the file specified in <code>saml.idpCert</code> property of the HedgeDoc configuration or in the enviroment-variable <code>CMD_SAML_CLIENTCERT</code></li>
 </ol>
 <h2 id="use-persistent-identifiers">Use Persistent Identifiers<a class="headerlink" href="#use-persistent-identifiers" title="Permanent link">&para;</a></h2>
@@ -1084,17 +1084,17 @@ openssl req -new -x509 -key priv.pem -out cert.pem
 <p>The configured mappers should look like this:
 <img alt="keycloak_mapper_overview" src="../../../images/auth/keycloak_mapper_overview.png" /></p>
 <ol>
-<li>You now have to add the following block to the saml-definition inside your <code>config.json</code>:</li>
+<li>You now have to add the following block to the saml-definition inside your <code>config.json</code>:
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;attribute&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="nt">&quot;username&quot;</span>
+      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+It you configure HedgeDoc with enviroment variables, these are the ones you have to set:
+<div class="highlight"><pre><span></span><code><span class="nv">CMD_SAML_ATTRIBUTE_USERNAME</span><span class="o">=</span>username
+<span class="nv">CMD_SAML_ATTRIBUTE_EMAIL</span><span class="o">=</span>email
+</code></pre></div></li>
 </ol>
-<pre><code class="language-json">&quot;attribute&quot;: {
-      &quot;username&quot;: &quot;username&quot;
-      &quot;email&quot;: &quot;email&quot;,
-}
-</code></pre>
-<p>It you configure HedgeDoc with enviroment variables, these are the ones you have to set:</p>
-<pre><code class="language-bash">CMD_SAML_ATTRIBUTE_USERNAME=username
-CMD_SAML_ATTRIBUTE_EMAIL=email
-</code></pre>
                 
               
               
@@ -1134,7 +1134,7 @@ CMD_SAML_ATTRIBUTE_EMAIL=email
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                SAML Onelogin
+                SAML OneLogin
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

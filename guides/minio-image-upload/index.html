@@ -20,7 +20,7 @@
     
     
       
-        <title>Minion - HedgeDoc</title>
+        <title>MinIO - HedgeDoc</title>
       
     
     
@@ -98,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Minion
+              MinIO
             
           </span>
         </div>
@@ -546,7 +546,7 @@
 
   <li class="md-nav__item">
     <a href="../auth/saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -598,7 +598,7 @@
 
   <li class="md-nav__item">
     <a href="../auth/nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -612,6 +612,74 @@
   <li class="md-nav__item">
     <a href="../auth/twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      MinIO
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -652,78 +720,10 @@
           
 
 
-  
-
-
-  
-    
-  
-  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      Minion
-    </a>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
 
   <li class="md-nav__item">
     <a href="../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -871,80 +871,82 @@
                 
                 
                 <h1 id="minio-guide-for-hedgedoc">Minio Guide for HedgeDoc<a class="headerlink" href="#minio-guide-for-hedgedoc" title="Permanent link">&para;</a></h1>
-<p><em>Note:</em> This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</p>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind 😃 thanks!</em></p>
 <ol>
-<li>First of all you need to setup Minio itself.</li>
-</ol>
+<li>
+<p>First of all you need to setup Minio itself.</p>
 <p>Please refer to the <a href="https://docs.minio.io/">official Minio docs</a> for an
-   production setup.</p>
+ production setup.</p>
 <p>For checking it out and development purposes a non-persistent setup is enough:
-   <code>sh
-   docker run --name test-minio --rm -d -p 9000:9000 minio/minio server /data</code></p>
+ <div class="highlight"><pre><span></span><code>docker run --name test-minio --rm -d -p <span class="m">9000</span>:9000 minio/minio server /data
+</code></pre></div></p>
 <p><em>Please notice this is not for productive use as all your data gets lost
-   when you stop this container</em></p>
-<ol>
-<li>Next step is to get the credentials form the container:</li>
-</ol>
-<p><code>sh
-   docker logs test-minio</code></p>
+ when you stop this container</em></p>
+</li>
+<li>
+<p>Next step is to get the credentials form the container:</p>
+<div class="highlight"><pre><span></span><code>docker logs test-minio
+</code></pre></div>
 <p><img alt="docker logs" src="../../images/minio-image-upload/docker-logs.png" /></p>
-<ol>
-<li>Open <a href="http://localhost:9000">http://localhost:9000</a> and login with the shown credentials.</li>
-</ol>
+</li>
+<li>
+<p>Open <a href="http://localhost:9000">http://localhost:9000</a> and login with the shown credentials.</p>
 <p><img alt="minio default view" src="../../images/minio-image-upload/default-view.png" /></p>
-<ol>
-<li>Create a bucket for HedgeDoc</li>
-</ol>
+</li>
+<li>
+<p>Create a bucket for HedgeDoc</p>
 <p><img alt="minio create bucket" src="../../images/minio-image-upload/create-bucket.png" /></p>
-<ol>
-<li>Add a policy for the prefix <code>uploads</code> and make it read-only.</li>
-</ol>
+</li>
+<li>
+<p>Add a policy for the prefix <code>uploads</code> and make it read-only.</p>
 <p><img alt="minio edit policy" src="../../images/minio-image-upload/open-edit-policy.png" />
-   <em>Open policy editor</em></p>
+ <em>Open policy editor</em></p>
 <p><img alt="minio policy adding" src="../../images/minio-image-upload/create-policy.png" />
-   <em>Add policy for uploads</em></p>
-<ol>
-<li>Set credentials and configs for Minio in HedgeDoc's <code>config.json</code></li>
-</ol>
-<p><code>JSON
-   "minio": {
-     "accessKey": "888MXJ7EP4XXXXXXXXX",
-     "secretKey": "yQS2EbM1Y6IJrp/1BUKWq2/XXXXXXXXXXXXXXX",
-     "endPoint": "localhost",
-     "port": 9000,
-     "secure": false
-   }</code>
-   <em>You have to use different values for <code>endpoint</code> and <code>port</code> for a production
-   setup. Keep in mind the <code>endpoint</code>-address has to be public accessible from
-   your browser.</em></p>
-<ol>
-<li>Set bucket name</li>
-</ol>
-<p><code>JSON
-   "s3bucket": "hedgedoc"</code></p>
-<ol>
-<li>Set upload type.</li>
-</ol>
-<p><code>JSON
-   "imageuploadtype": "minio"</code></p>
-<ol>
-<li>Review your config.</li>
-</ol>
-<p><code>json
-   {
-     // all your other config…
-     "minio": {
-       "accessKey": "888MXJ7EP4XXXXXXXXX",
-       "secretKey": "yQS2EbM1Y6IJrp/1BUKWq2/XXXXXXXXXXXXXXX",
-       "endPoint": "localhost",
-       "port": 9000,
-       "secure": false
-     },
-     "s3bucket": "hedgedoc",
-     "imageuploadtype": "minio"
-   }</code></p>
-<ol>
-<li>If you were using filesystem before</li>
+ <em>Add policy for uploads</em></p>
+</li>
+<li>
+<p>Set credentials and configs for Minio in HedgeDoc's <code>config.json</code></p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;minio&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;accessKey&quot;</span><span class="p">:</span> <span class="s2">&quot;888MXJ7EP4XXXXXXXXX&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;secretKey&quot;</span><span class="p">:</span> <span class="s2">&quot;yQS2EbM1Y6IJrp/1BUKWq2/XXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;endPoint&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">9000</span><span class="p">,</span>
+  <span class="nt">&quot;secure&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+ <em>You have to use different values for <code>endpoint</code> and <code>port</code> for a production
+ setup. Keep in mind the <code>endpoint</code>-address has to be public accessible from
+ your browser.</em></p>
+</li>
+<li>
+<p>Set bucket name</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;s3bucket&quot;</span><span class="p">:</span> <span class="s2">&quot;hedgedoc&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Set upload type.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;imageuploadtype&quot;</span><span class="p">:</span> <span class="s2">&quot;minio&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Review your config.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="err">//</span> <span class="err">all</span> <span class="err">your</span> <span class="err">o</span><span class="kc">t</span><span class="err">her</span> <span class="err">co</span><span class="kc">nf</span><span class="err">ig…</span>
+  <span class="nt">&quot;minio&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;accessKey&quot;</span><span class="p">:</span> <span class="s2">&quot;888MXJ7EP4XXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;secretKey&quot;</span><span class="p">:</span> <span class="s2">&quot;yQS2EbM1Y6IJrp/1BUKWq2/XXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;endPoint&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">9000</span><span class="p">,</span>
+    <span class="nt">&quot;secure&quot;</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;s3bucket&quot;</span><span class="p">:</span> <span class="s2">&quot;hedgedoc&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;imageuploadtype&quot;</span><span class="p">:</span> <span class="s2">&quot;minio&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>If you were using filesystem before</p>
+</li>
 </ol>
 <p>and you want to migrate assets to minio.</p>
 <p>You could use a convenience script located in <code>bin/migrate_from_fs_to_minio</code>.</p>
@@ -968,7 +970,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../migrations-and-breaking-changes/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../auth/twitter/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -977,7 +979,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Breaking Changes
+                Twitter
               </div>
             </div>
           </a>

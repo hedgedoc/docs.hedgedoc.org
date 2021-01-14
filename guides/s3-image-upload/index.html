@@ -546,7 +546,7 @@
 
   <li class="md-nav__item">
     <a href="../auth/saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -598,7 +598,7 @@
 
   <li class="md-nav__item">
     <a href="../auth/nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -626,32 +626,6 @@
           
 
 
-
-  <li class="md-nav__item">
-    <a href="../migrate-etherpad/" class="md-nav__link">
-      Migrate from Etherpad
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../migrations-and-breaking-changes/" class="md-nav__link">
-      Breaking Changes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
   
 
 
@@ -661,14 +635,14 @@
   <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-3-2">
       Media Backend
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+      <label class="md-nav__title" for="nav-3-2">
         <span class="md-nav__icon md-icon"></span>
         Media Backend
       </label>
@@ -683,7 +657,7 @@
 
   <li class="md-nav__item">
     <a href="../minio-image-upload/" class="md-nav__link">
-      Minion
+      MinIO
     </a>
   </li>
 
@@ -751,8 +725,34 @@
 
 
   <li class="md-nav__item">
+    <a href="../migrate-etherpad/" class="md-nav__link">
+      Migrate from Etherpad
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../migrations-and-breaking-changes/" class="md-nav__link">
+      Breaking Changes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
     <a href="../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -900,7 +900,7 @@
                 
                 
                 <h1 id="guide-setup-hedgedoc-s3-image-upload">Guide - Setup HedgeDoc S3 image upload<a class="headerlink" href="#guide-setup-hedgedoc-s3-image-upload" title="Permanent link">&para;</a></h1>
-<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</em></p>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind 😃 thanks!</em></p>
 <ol>
 <li>
 <p>Go to <a href="https://console.aws.amazon.com/s3/home">AWS S3 console</a> and create a new bucket.
@@ -913,18 +913,18 @@
 <li>
 <p>Enter the following policy, replace <code>bucket_name</code> with your bucket name:
    <img alt="bucket-policy-editor" src="../../images/s3-image-upload/bucket-policy-editor.png" /></p>
-<p><code>json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::bucket_name/uploads/*"
-        }
-    ]
-}</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Principal&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:s3:::bucket_name/uploads/*&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 </li>
 <li>
 <p>Go to IAM console and create a new IAM user. Remember your user credentials(<code>key</code>/<code>access token</code>)</p>
@@ -940,41 +940,41 @@
 <li>
 <p>Enter the following policy, replace <code>bucket_name</code> with your bucket name:
    <img alt="review-policy" src="../../images/s3-image-upload/review-policy.png" /></p>
-<p><code>json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:*"
-            ],
-            "Resource": [
-                "arn:aws:s3:::bucket_name/uploads/*"
-            ]
-        }
-    ]
-}</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;s3:*&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;arn:aws:s3:::bucket_name/uploads/*&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 </li>
 <li>
 <p>Edit <code>config.json</code> and set following keys:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="s2">&quot;production&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="s2">&quot;imageuploadtype&quot;</span><span class="o">:</span> <span class="s2">&quot;s3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;s3&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;accessKeyId&quot;</span><span class="o">:</span> <span class="s2">&quot;YOUR_S3_ACCESS_KEY_ID&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;secretAccessKey&quot;</span><span class="o">:</span> <span class="s2">&quot;YOUR_S3_ACCESS_KEY&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;region&quot;</span><span class="o">:</span> <span class="s2">&quot;YOUR_S3_REGION&quot;</span> <span class="c1">// example: ap-northeast-1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;s3bucket&quot;</span><span class="o">:</span> <span class="s2">&quot;YOUR_S3_BUCKET_NAME&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 </li>
-</ol>
-<p><code>javascript
-   {
-     "production": {
-       ...
-       "imageuploadtype": "s3",
-       "s3": {
-         "accessKeyId": "YOUR_S3_ACCESS_KEY_ID",
-         "secretAccessKey": "YOUR_S3_ACCESS_KEY",
-         "region": "YOUR_S3_REGION" // example: ap-northeast-1
-       },
-       "s3bucket": "YOUR_S3_BUCKET_NAME"
-     }
-   }</code></p>
-<ol>
-<li>In additional to edit <code>config.json</code> directly, you could also try <a href="../../configuration/">environment variables</a>.</li>
+<li>
+<p>In additional to edit <code>config.json</code> directly, you could also try <a href="../../configuration/">environment variables</a>.</p>
+</li>
 </ol>
 <h2 id="related-tools">Related Tools<a class="headerlink" href="#related-tools" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1007,19 +1007,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Minion
+                MinIO
               </div>
             </div>
           </a>
         
         
-          <a href="../providing-terms/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../migrate-etherpad/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Setting Terms
+                Migrate from Etherpad
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

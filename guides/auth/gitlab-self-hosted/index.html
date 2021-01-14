@@ -548,7 +548,7 @@
 
   <li class="md-nav__item">
     <a href="../saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -609,7 +609,7 @@
 
   <li class="md-nav__item">
     <a href="../nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -623,6 +623,63 @@
   <li class="md-nav__item">
     <a href="../twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -664,66 +721,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -871,33 +871,40 @@
                 
                 
                 <h1 id="gitlab-self-hosted">GitLab (self-hosted)<a class="headerlink" href="#gitlab-self-hosted" title="Permanent link">&para;</a></h1>
-<p><em>Note:</em> This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</p>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind 😃 thanks!</em></p>
 <ol>
 <li>Sign in to your GitLab</li>
 <li>Navigate to the application management page at <code>https://your.gitlab.domain/admin/applications</code> (admin permissions required)</li>
-<li>Click <strong>New application</strong> to create a new application and fill out the registration form:</li>
-</ol>
+<li>
+<p>Click <strong>New application</strong> to create a new application and fill out the registration form:</p>
 <p><img alt="New GitLab application" src="../../../images/auth/gitlab-new-application.png" /></p>
-<ol>
-<li>Click <strong>Submit</strong></li>
-<li>In the list of applications select <strong>HackMD</strong>. Leave that site open to copy the application ID and secret in the next step.</li>
-</ol>
+</li>
+<li>
+<p>Click <strong>Submit</strong></p>
+</li>
+<li>
+<p>In the list of applications select <strong>HackMD</strong>. Leave that site open to copy the application ID and secret in the next
+   step.</p>
 <p><img alt="Application: HackMD" src="../../../images/auth/gitlab-application-details.png" /></p>
-<ol>
-<li>In the <code>docker-compose.yml</code> add the following environment variables to <code>app:</code> <code>environment:</code></li>
-</ol>
-<pre><code class="language-Dockerfile">- CMD_DOMAIN=your.hedgedoc.domain
-- CMD_URL_ADDPORT=true
-- CMD_PROTOCOL_USESSL=true
-- CMD_GITLAB_BASEURL=https://your.gitlab.domain
-- CMD_GITLAB_CLIENTID=23462a34example99XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-- CMD_GITLAB_CLIENTSECRET=5532e9dexamplXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-</code></pre>
-<ol>
-<li>Run <code>docker-compose up -d</code> to apply your settings.</li>
-<li>Sign in to your HedgeDoc using your GitLab ID:</li>
-</ol>
+</li>
+<li>
+<p>In the <code>docker-compose.yml</code> add the following environment variables to <code>app:</code> <code>environment:</code></p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_DOMAIN=your.hedgedoc.domain</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_URL_ADDPORT=true</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_PROTOCOL_USESSL=true</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_GITLAB_BASEURL=https://your.gitlab.domain</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_GITLAB_CLIENTID=23462a34example99XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_GITLAB_CLIENTSECRET=5532e9dexamplXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+</code></pre></div>
+</li>
+<li>
+<p>Run <code>docker-compose up -d</code> to apply your settings.</p>
+</li>
+<li>
+<p>Sign in to your HedgeDoc using your GitLab ID:</p>
 <p><img alt="Sign in via GitLab" src="../../../images/auth/gitlab-sign-in.png" /></p>
+</li>
+</ol>
                 
               
               

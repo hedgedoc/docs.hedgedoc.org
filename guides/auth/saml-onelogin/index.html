@@ -20,7 +20,7 @@
     
     
       
-        <title>SAML Onelogin - HedgeDoc</title>
+        <title>SAML OneLogin - HedgeDoc</title>
       
     
     
@@ -98,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              SAML Onelogin
+              SAML OneLogin
             
           </span>
         </div>
@@ -556,7 +556,7 @@
     
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      SAML Onelogin
+      SAML OneLogin
     </a>
     
   </li>
@@ -609,7 +609,7 @@
 
   <li class="md-nav__item">
     <a href="../nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -623,6 +623,63 @@
   <li class="md-nav__item">
     <a href="../twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -664,66 +721,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -871,7 +871,7 @@
                 
                 
                 <h1 id="authentication-guide-saml-onelogin">Authentication guide - SAML (OneLogin)<a class="headerlink" href="#authentication-guide-saml-onelogin" title="Permanent link">&para;</a></h1>
-<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind :smile: thanks!</em></p>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind 😃 thanks!</em></p>
 <ol>
 <li>
 <p>Sign-in or sign-up for an OneLogin account. (available free trial for 2 weeks)</p>
@@ -893,50 +893,54 @@
 </li>
 <li>
 <p>After that other tabs will appear, click the <strong>Configuration</strong>, and fill out the below items, and click <strong>SAVE</strong>.</p>
-</li>
-<li>
-<p>RelayState: The base URL of your HedgeDoc, which is issuer. (last slash is not needed)</p>
-</li>
-<li>
-<p>ACS (Consumer) URL Validator: The callback URL of your HedgeDoc. (serverurl + /auth/saml/callback)</p>
-</li>
-<li>
-<p>ACS (Consumer) URL: same as above.</p>
-</li>
-<li>
-<p>Login URL: login URL(SAML requester) of your CopiMD. (serverurl + /auth/saml)<br />
-<img alt="onelogin-edit-sp-metadata" src="../../../images/auth/onelogin-edit-sp-metadata.png" /></p>
+<ul>
+<li>RelayState: The base URL of your HedgeDoc, which is issuer. (last slash is not needed)</li>
+</ul>
+<ul>
+<li>ACS (Consumer) URL Validator: The callback URL of your HedgeDoc. (serverurl + /auth/saml/callback)</li>
+</ul>
+<ul>
+<li>ACS (Consumer) URL: same as above.</li>
+</ul>
+<ul>
+<li>Login URL: login URL(SAML requester) of your CopiMD. (serverurl + /auth/saml)<br />
+<img alt="onelogin-edit-sp-metadata" src="../../../images/auth/onelogin-edit-sp-metadata.png" /></li>
+</ul>
 </li>
 <li>
 <p>The registration is completed. Next, click <strong>SSO</strong> and copy or download the items below.</p>
-</li>
-<li>
-<p>X.509 Certificate: Click <strong>View Details</strong> and <strong>DOWNLOAD</strong> or copy the content of certificate ....(A)</p>
-</li>
-<li>
-<p>SAML 2.0 Endpoint (HTTP): Copy the URL ....(B)<br />
-<img alt="onelogin-copy-idp-metadata" src="../../../images/auth/onelogin-copy-idp-metadata.png" /></p>
+<ul>
+<li>X.509 Certificate: Click <strong>View Details</strong> and <strong>DOWNLOAD</strong> or copy the content of certificate ....(A)</li>
+</ul>
+<ul>
+<li>SAML 2.0 Endpoint (HTTP): Copy the URL ....(B)<br />
+<img alt="onelogin-copy-idp-metadata" src="../../../images/auth/onelogin-copy-idp-metadata.png" /></li>
+</ul>
 </li>
 <li>
 <p>In your HedgeDoc server, create IdP certificate file from (A)</p>
 </li>
-<li>Add the IdP URL (B) and the Idp certificate file path to your config.json file or pass them as environment variables.</li>
+<li>
+<p>Add the IdP URL (B) and the Idp certificate file path to your config.json file or pass them as environment variables.</p>
+<ul>
 <li>
 <p><code>config.json</code>:
-    <code>javascript
-    {
-      "production": {
-        "saml": {
-          "idpSsoUrl": "https://*******.onelogin.com/trust/saml2/http-post/sso/******",
-          "idpCert": "/path/to/idp_cert.pem"
-        }
-      }
-    }</code></p>
+  <div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;production&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;saml&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;idpSsoUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://*******.onelogin.com/trust/saml2/http-post/sso/******&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;idpCert&quot;</span><span class="p">:</span> <span class="s2">&quot;/path/to/idp_cert.pem&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <ul>
 <li>environment variables
-  <code>sh
-  CMD_SAML_IDPSSOURL=https://*******.onelogin.com/trust/saml2/http-post/sso/******
-  CMD_SAML_IDPCERT=/path/to/idp_cert.pem</code></li>
+  <div class="highlight"><pre><span></span><code><span class="nv">CMD_SAML_IDPSSOURL</span><span class="o">=</span>https://*******.onelogin.com/trust/saml2/http-post/sso/******
+<span class="nv">CMD_SAML_IDPCERT</span><span class="o">=</span>/path/to/idp_cert.pem
+</code></pre></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>

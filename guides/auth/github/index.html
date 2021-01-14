@@ -548,7 +548,7 @@
 
   <li class="md-nav__item">
     <a href="../saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -609,7 +609,7 @@
 
   <li class="md-nav__item">
     <a href="../nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -623,6 +623,63 @@
   <li class="md-nav__item">
     <a href="../twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -664,66 +721,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -885,35 +885,32 @@
 <li>
 <p>Fill out the new OAuth application registration form, and click <strong>Register Application</strong><br />
 <img alt="register-oauth-application-form" src="../../../images/auth/register-oauth-application-form.png" /></p>
-</li>
-</ol>
 <p><strong>Note:</strong> <em>The callback URL is <your-hedgedoc-url>/auth/github/callback</em></p>
-<ol>
+</li>
 <li>
 <p>After successfully registering the application, you'll receive the Client ID and Client Secret for the application<br />
 <img alt="application-page" src="../../../images/auth/application-page.png" /></p>
 </li>
 <li>
 <p>Add the Client ID and Client Secret to your config.json file or pass them as environment variables</p>
-</li>
-<li>
-<p><code>config.json</code>:
-    <code>js
-    {
-      "production": {
-        "github": {
-          "clientID": "3747d30eaccXXXXXXXXX",
-          "clientSecret": "2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX"
-        }
-      }
-    }</code></p>
-</li>
-<li>
-<p>environment variables:
-    ```sh
-    CMD_GITHUB_CLIENTID=3747d30eaccXXXXXXXXX
-    CMD_GITHUB_CLIENTSECRET=2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX
-    ````</p>
+<ul>
+<li><code>config.json</code>:
+  <div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;production&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;github&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;clientID&quot;</span><span class="p">:</span> <span class="s2">&quot;3747d30eaccXXXXXXXXX&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<ul>
+<li>environment variables:
+  <div class="highlight"><pre><span></span><code><span class="nv">CMD_GITHUB_CLIENTID</span><span class="o">=</span>3747d30eaccXXXXXXXXX
+<span class="nv">CMD_GITHUB_CLIENTSECRET</span><span class="o">=</span>2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX
+</code></pre></div></li>
+</ul>
 </li>
 </ol>
                 
@@ -943,7 +940,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                SAML Onelogin
+                SAML OneLogin
               </div>
             </div>
           </a>

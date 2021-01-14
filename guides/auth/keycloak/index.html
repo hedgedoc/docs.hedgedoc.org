@@ -548,7 +548,7 @@
 
   <li class="md-nav__item">
     <a href="../saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -658,7 +658,7 @@
 
   <li class="md-nav__item">
     <a href="../nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -672,6 +672,63 @@
   <li class="md-nav__item">
     <a href="../twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -713,66 +770,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -946,19 +946,19 @@
 <ol>
 <li>In the <code>docker-compose.yml</code> add the following environment variables to <code>app:</code> <code>environment:</code></li>
 </ol>
-<pre><code class="language-Dockerfile">CMD_OAUTH2_USER_PROFILE_URL=https://keycloak.example.com/auth/realms/your-realm/protocol/openid-connect/userinfo
-CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=preferred_username
-CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR=name
-CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR=email
-CMD_OAUTH2_TOKEN_URL=https://keycloak.example.com/auth/realms/your-realm/protocol/openid-connect/token
-CMD_OAUTH2_AUTHORIZATION_URL=https://keycloak.example.com/auth/realms/your-realm/protocol/openid-connect/auth
-CMD_OAUTH2_CLIENT_ID=&lt;your client ID&gt;
-CMD_OAUTH2_CLIENT_SECRET=&lt;your client secret, which you can find under the Credentials tab for your client&gt;
-CMD_OAUTH2_PROVIDERNAME=Keycloak
-CMD_DOMAIN=&lt;hedgedoc.example.com&gt;
-CMD_PROTOCOL_USESSL=true 
-CMD_URL_ADDPORT=false
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_URL=https://keycloak.example.com/auth/realms/your-realm/protocol/openid-connect/userinfo</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=preferred_username</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR=name</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR=email</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_TOKEN_URL=https://keycloak.example.com/auth/realms/your-realm/protocol/openid-connect/token</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_AUTHORIZATION_URL=https://keycloak.example.com/auth/realms/your-realm/protocol/openid-connect/auth</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_ID=&lt;your client ID&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_SECRET=&lt;your client secret, which you can find under the Credentials tab for your client&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_PROVIDERNAME=Keycloak</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_DOMAIN=&lt;hedgedoc.example.com&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">CMD_PROTOCOL_USESSL=true</span> 
+<span class="l l-Scalar l-Scalar-Plain">CMD_URL_ADDPORT=false</span>
+</code></pre></div>
 <ol>
 <li>Run <code>docker-compose up -d</code> to apply your settings.</li>
 <li>Sign in to your HedgeDoc using your Keycloak ID</li>
@@ -1002,7 +1002,7 @@ CMD_URL_ADDPORT=false
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                NextCloud
+                Nextcloud
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

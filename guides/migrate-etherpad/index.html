@@ -546,7 +546,7 @@
 
   <li class="md-nav__item">
     <a href="../auth/saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -598,7 +598,7 @@
 
   <li class="md-nav__item">
     <a href="../auth/nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -612,6 +612,63 @@
   <li class="md-nav__item">
     <a href="../auth/twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -712,66 +769,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -940,82 +940,82 @@ the admin interface, Etherpad does not have a dedicated function to dump a list 
 However, the Etherpad wiki explains how to list all the pads by <a href="https://github.com/ether/etherpad-lite/wiki/How-to-list-all-pads/49701ecdcbe07aea7ad27ffa23aed0d99c2e17db">talking directly to the
 database</a>.</p>
 <p>You will end up with a file containing a pad name on each line:</p>
-<pre><code class="language-bash">date-ideas
+<div class="highlight"><pre><span></span><code>date-ideas
 groceries
 london
 weddingchecklist
-(...)
-</code></pre>
+<span class="o">(</span>...<span class="o">)</span>
+</code></pre></div>
 <h2 id="2-run-the-migration">2. Run the migration<a class="headerlink" href="#2-run-the-migration" title="Permanent link">&para;</a></h2>
 <p>Download <a href="https://github.com/hedgedoc/cli/blob/master/bin/hedgedoc">hedgedoc-cli</a> and put the script in the same directory as the file containing the pad names.
 Add to this directory the file listed below, I called it <code>migrate-etherpad.sh</code>. Modify at least the
 configuration settings <code>ETHERPAD_SERVER</code> and <code>HEDGEDOC_SERVER</code>.</p>
-<pre><code class="language-shell">#!/bin/sh
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 
-# migrate-etherpad.sh
-#
-# Description: Migrate pads from etherpad to HedgeDoc
-# Author: Daan Sprenkels &lt;hello@dsprenkels.com&gt;
+<span class="c1"># migrate-etherpad.sh</span>
+<span class="c1">#</span>
+<span class="c1"># Description: Migrate pads from etherpad to HedgeDoc</span>
+<span class="c1"># Author: Daan Sprenkels &lt;hello@dsprenkels.com&gt;</span>
 
-# This script uses the HedgeDoc command line script[1] to import a list of pads from
-# [1]: https://github.com/hedgedoc/cli/blob/master/bin/hedgedoc
+<span class="c1"># This script uses the HedgeDoc command line script[1] to import a list of pads from</span>
+<span class="c1"># [1]: https://github.com/hedgedoc/cli/blob/master/bin/hedgedoc</span>
 
-# The base url to where etherpad is hosted
-ETHERPAD_SERVER=&quot;https://etherpad.example.com&quot;
+<span class="c1"># The base url to where etherpad is hosted</span>
+<span class="nv">ETHERPAD_SERVER</span><span class="o">=</span><span class="s2">&quot;https://etherpad.example.com&quot;</span>
 
-# The base url where HedgeDoc is hosted
-HEDGEDOC_SERVER=&quot;https://hedgedoc.example.com&quot;
+<span class="c1"># The base url where HedgeDoc is hosted</span>
+<span class="nv">HEDGEDOC_SERVER</span><span class="o">=</span><span class="s2">&quot;https://hedgedoc.example.com&quot;</span>
 
-# Write a list of pads and the urls which they were migrated to
-REDIRECTS_FILE=&quot;redirects.txt&quot;
+<span class="c1"># Write a list of pads and the urls which they were migrated to</span>
+<span class="nv">REDIRECTS_FILE</span><span class="o">=</span><span class="s2">&quot;redirects.txt&quot;</span>
 
 
-# Fail if not called correctly
-if (( $# != 1 )); then
-    echo &quot;Usage: $0 PAD_NAMES_FILE&quot;
-    exit 2
-fi
+<span class="c1"># Fail if not called correctly</span>
+<span class="k">if</span> <span class="o">((</span> <span class="nv">$#</span> !<span class="o">=</span> <span class="m">1</span> <span class="o">))</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> PAD_NAMES_FILE&quot;</span>
+    <span class="nb">exit</span> <span class="m">2</span>
+<span class="k">fi</span>
 
-# Do the migration
-for PAD_NAME in $1; do
-    # Download the pad
-    PAD_FILE=&quot;$(mktemp)&quot;
-    curl &quot;$ETHERPAD_SERVER/p/$PAD_NAME/export/txt&quot; &gt;&quot;$PAD_FILE&quot;
+<span class="c1"># Do the migration</span>
+<span class="k">for</span> PAD_NAME <span class="k">in</span> <span class="nv">$1</span><span class="p">;</span> <span class="k">do</span>
+    <span class="c1"># Download the pad</span>
+    <span class="nv">PAD_FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>mktemp<span class="k">)</span><span class="s2">&quot;</span>
+    curl <span class="s2">&quot;</span><span class="nv">$ETHERPAD_SERVER</span><span class="s2">/p/</span><span class="nv">$PAD_NAME</span><span class="s2">/export/txt&quot;</span> &gt;<span class="s2">&quot;</span><span class="nv">$PAD_FILE</span><span class="s2">&quot;</span>
 
-    # Import the pad into HedgeDoc
-    OUTPUT=&quot;$(./hedgedoc import &quot;$PAD_FILE&quot;)&quot;
-    echo &quot;$PAD_NAME -&gt; $OUTPUT&quot; &gt;&gt;&quot;$REDIRECTS_FILE&quot;
-done
-</code></pre>
+    <span class="c1"># Import the pad into HedgeDoc</span>
+    <span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>./hedgedoc import <span class="s2">&quot;</span><span class="nv">$PAD_FILE</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$PAD_NAME</span><span class="s2"> -&gt; </span><span class="nv">$OUTPUT</span><span class="s2">&quot;</span> &gt;&gt;<span class="s2">&quot;</span><span class="nv">$REDIRECTS_FILE</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
 <p>Call this file like this:</p>
-<pre><code class="language-shell">./migrate-etherpad.sh pad_names.txt
-</code></pre>
+<div class="highlight"><pre><span></span><code>./migrate-etherpad.sh pad_names.txt
+</code></pre></div>
 <p>This will download all the pads in <code>pad_names.txt</code> and put them on HedgeDoc. They will get assigned
 random ids, so you won't be able to find them. The script will save the mappings to a file though
 (in my case <code>redirects.txt</code>). You can use this file to redirect your users when they visit your
 etherpad using a <code>301 Permanent Redirect</code> status code (see the next section).</p>
 <h2 id="3-setup-redirects-optional">3. Setup redirects (optional)<a class="headerlink" href="#3-setup-redirects-optional" title="Permanent link">&para;</a></h2>
 <p>I got a <code>redirects.txt</code> file that looked a bit like this:</p>
-<pre><code class="language-log">date-ideas -&gt; Found. Redirecting to https://hedgedoc.example.com/mPt0KfiKSBOTQ3mNcdfn
+<div class="highlight"><pre><span></span><code>date-ideas -&gt; Found. Redirecting to https://hedgedoc.example.com/mPt0KfiKSBOTQ3mNcdfn
 groceries -&gt; Found. Redirecting to https://hedgedoc.example.com/UukqgwLfhYyUUtARlcJ2_y
 london -&gt; Found. Redirecting to https://hedgedoc.example.com/_d3wa-BE8t4Swv5w7O2_9R
 weddingchecklist -&gt; Found. Redirecting to https://hedgedoc.example.com/XcQGqlBjl0u40wfT0N8TzQ
 (...)
-</code></pre>
+</code></pre></div>
 <p>Using some <code>sed</code> magic, I changed it to an nginx config snippet:</p>
-<pre><code class="language-nginx">location = /p/date-ideas {
-    return 301 https://hedgedoc.example.com/mPt0M1KfiKSBOTQ3mNcdfn;
-}
-location = /p/groceries {
-    return 301 https://hedgedoc.example.com/UukqgwLfhYyUUtARlcJ2_y;
-}
-location = /p/london {
-    return 301 https://hedgedoc.example.com/_d3wa-BE8t4Swv5w7O2_9R;
-}
-location = /p/weddingchecklist {
-    return 301 https://hedgedoc.example.com/XcQGqlBjl0u40wfT0N8TzQ;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">location</span> <span class="p">=</span> <span class="s">/p/date-ideas</span> <span class="p">{</span>
+    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://hedgedoc.example.com/mPt0M1KfiKSBOTQ3mNcdfn</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">location</span> <span class="p">=</span> <span class="s">/p/groceries</span> <span class="p">{</span>
+    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://hedgedoc.example.com/UukqgwLfhYyUUtARlcJ2_y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">location</span> <span class="p">=</span> <span class="s">/p/london</span> <span class="p">{</span>
+    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://hedgedoc.example.com/_d3wa-BE8t4Swv5w7O2_9R</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">location</span> <span class="p">=</span> <span class="s">/p/weddingchecklist</span> <span class="p">{</span>
+    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://hedgedoc.example.com/XcQGqlBjl0u40wfT0N8TzQ</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>I put this file into my <code>etherpad.example.com</code> nginx config, such that all the users would be
 redirected accordingly.</p>
                 
@@ -1036,7 +1036,7 @@ redirected accordingly.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../auth/twitter/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../s3-image-upload/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1045,7 +1045,7 @@ redirected accordingly.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Twitter
+                S3
               </div>
             </div>
           </a>

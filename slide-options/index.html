@@ -542,7 +542,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/auth/saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -594,7 +594,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/auth/nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -608,6 +608,63 @@
   <li class="md-nav__item">
     <a href="../guides/auth/twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -649,66 +706,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../guides/minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../guides/s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../guides/providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -859,7 +859,7 @@
 <p>If you're getting started with reveal.js slides, there are a few things you need to know.</p>
 <p>There are two types of slides, those that transition horizontally and those that transition vertically (subslides).</p>
 <p>The following separators are used for each in the HedgeDoc syntax:</p>
-<pre><code class="language-markdown"># First Slide
+<p><div class="highlight"><pre><span></span><code># First Slide
 
 ---
 
@@ -868,24 +868,24 @@
 ----
 
 ## Subslide
-</code></pre>
-<p>as you can see, horizontal transitions are separated by <code>---</code> and vertical transitions by <code>----</code></p>
+</code></pre></div>
+as you can see, horizontal transitions are separated by <code>---</code> and vertical transitions by <code>----</code></p>
 <h2 id="basic-yaml-header">Basic YAML header<a class="headerlink" href="#basic-yaml-header" title="Permanent link">&para;</a></h2>
 <p>It's possible to customise the slide options using the YAML header in the slide markdown.</p>
-<p>eg:</p>
-<pre><code class="language-yaml">---
-title: Example Slide
-tags: presentation
-slideOptions:
-  theme: solarized
-  transition: 'fade'
-  # parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'
----
-</code></pre>
-<p>make sure to have two spaces only at the start of the listed slide options.</p>
+<p>eg:
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Example Slide</span>
+<span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">presentation</span>
+<span class="nt">slideOptions</span><span class="p">:</span>
+  <span class="nt">theme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">solarized</span>
+  <span class="nt">transition</span><span class="p">:</span> <span class="s">&#39;fade&#39;</span>
+  <span class="c1"># parallaxBackgroundImage: &#39;https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg&#39;</span>
+<span class="nn">---</span>
+</code></pre></div>
+make sure to have two spaces only at the start of the listed slide options.</p>
 <p>you can comment out options with a <code>#</code></p>
 <h3 id="some-other-options">Some other options<a class="headerlink" href="#some-other-options" title="Permanent link">&para;</a></h3>
-<pre><code class="language-markdown"># Display controls in the bottom right corner
+<div class="highlight"><pre><span></span><code># Display controls in the bottom right corner
 controls: true
 
 # Display a presentation progress bar
@@ -962,26 +962,26 @@ hideAddressBar: true
 previewLinks: false
 
 # Transition style
-transition: 'slide' 
+transition: &#39;slide&#39; 
 # none/fade/slide/convex/concave/zoom
 
 # Transition speed
-transitionSpeed: 'default'
+transitionSpeed: &#39;default&#39;
 # default/fast/slow
 
 # Transition style for full page slide backgrounds
-backgroundTransition: 'fade'
+backgroundTransition: &#39;fade&#39;
 # none/fade/slide/convex/concave/zoom
 
 # Number of slides away from the current that are visible
 viewDistance: 3
 
 # Parallax background image
-parallaxBackgroundImage: ''
-# e.g. &quot;'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'&quot;
+parallaxBackgroundImage: &#39;&#39;
+# e.g. &quot;&#39;https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg&#39;&quot;
 
 # Parallax background size
-parallaxBackgroundSize: ''
+parallaxBackgroundSize: &#39;&#39;
 # CSS syntax, e.g. &quot;2100px 900px&quot;
 
 # Number of pixels to move the parallax background per slide
@@ -991,17 +991,17 @@ parallaxBackgroundHorizontal: null
 parallaxBackgroundVertical: null
 
 # The display mode that will be used to show slides
-display: 'block'
-</code></pre>
+display: &#39;block&#39;
+</code></pre></div>
 <h2 id="customising-individual-slides">Customising individual slides<a class="headerlink" href="#customising-individual-slides" title="Permanent link">&para;</a></h2>
 <p>custom background image:</p>
-<pre><code class="language-markdown">---
+<div class="highlight"><pre><span></span><code>---
 
 &lt;!-- .slide: data-background=&quot;https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg&quot; --&gt;
 #### testslide
 
 ---
-</code></pre>
+</code></pre></div>
                 
               
               

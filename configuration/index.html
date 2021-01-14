@@ -544,7 +544,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/auth/saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -596,7 +596,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/auth/nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -610,6 +610,63 @@
   <li class="md-nav__item">
     <a href="../guides/auth/twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../guides/s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -651,66 +708,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../guides/minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../guides/s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../guides/providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -1079,13 +1079,11 @@
 <p>You can choose to configure HedgeDoc with either a config file or with environment variables.</p>
 <p>Environment variables take precedence over configurations from the config files. They generally start with <code>CMD_</code> for our own options, but we also list node-specific options you can configure this way.</p>
 <ul>
-<li>
-<p>Environment variables are processed in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/environment.js"><code>lib/config/environment.js</code></a> - so this is the first place to look if anything is missing not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js"><code>lib/config/default.js</code></a>, in case you wonder if you even need to override it.</p>
-</li>
-<li>
-<p>The config file is processed in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/index.js"><code>lib/config/index.js</code></a> - so this is the first place to look if anything is missing not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js"><code>lib/config/default.js</code></a>, in case you wonder if you even need to override it. To get started, it is a good idea to take the <code>config.json.example</code> and copy it
-to <code>config.json</code> before filling in your own details.</p>
-</li>
+<li>Environment variables are processed in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/environment.js"><code>lib/config/environment.js</code></a> - so this is the first place to look if anything is missing not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js"><code>lib/config/default.js</code></a>, in case you wonder if you even need to override it.</li>
+</ul>
+<ul>
+<li>The config file is processed in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/index.js"><code>lib/config/index.js</code></a> - so this is the first place to look if anything is missing not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js"><code>lib/config/default.js</code></a>, in case you wonder if you even need to override it. To get started, it is a good idea to take the <code>config.json.example</code> and copy it
+to <code>config.json</code> before filling in your own details.</li>
 </ul>
 <p><strong>Note:</strong> <em>Due to the rename process we renamed all <code>HMD_</code>-prefix variables to be <code>CMD_</code>-prefixed. The old ones continue to work.</em></p>
 <h2 id="nodejs">Node.JS<a class="headerlink" href="#nodejs" title="Permanent link">&para;</a></h2>
@@ -2225,7 +2223,7 @@ you don't have to use either of these.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Setting Terms
+                Terms of Use Setup
               </div>
             </div>
           </a>

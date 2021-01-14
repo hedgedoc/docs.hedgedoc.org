@@ -557,7 +557,7 @@
 
   <li class="md-nav__item">
     <a href="../saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -609,7 +609,7 @@
 
   <li class="md-nav__item">
     <a href="../nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -623,6 +623,63 @@
   <li class="md-nav__item">
     <a href="../twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -664,66 +721,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -872,29 +872,32 @@
                 
                 <h1 id="ad-ldap-auth">AD LDAP auth<a class="headerlink" href="#ad-ldap-auth" title="Permanent link">&para;</a></h1>
 <p>To setup your HedgeDoc instance with Active Directory you need the following configs:</p>
-<pre><code class="language-env">CMD_LDAP_URL=ldap://internal.example.com
-CMD_LDAP_BINDDN=cn=binduser,cn=Users,dc=internal,dc=example,dc=com
-CMD_LDAP_BINDCREDENTIALS=&lt;super secret password&gt;
-CMD_LDAP_SEARCHBASE=dc=internal,dc=example,dc=com
-CMD_LDAP_SEARCHFILTER=(&amp;(objectcategory=person)(objectclass=user)(|(sAMAccountName={{username}})(mail={{username}})))
-CMD_LDAP_USERIDFIELD=sAMAccountName
-CMD_LDAP_PROVIDERNAME=Example Inc AD
-</code></pre>
-<p><code>CMD_LDAP_BINDDN</code> is either the <code>distinguishedName</code> or the <code>userPrincipalName</code>. <em>This can cause "username/password is invalid" when either this value or the password from <code>CMD_LDAP_BINDCREDENTIALS</code> are incorrect.</em></p>
-<p><code>CMD_LDAP_SEARCHFILTER</code> matches on all users and uses either the email address or the <code>sAMAccountName</code> (usually the login name you also use to login to Windows).</p>
+<div class="highlight"><pre><span></span><code><span class="nv">CMD_LDAP_URL</span><span class="o">=</span>ldap://internal.example.com
+<span class="nv">CMD_LDAP_BINDDN</span><span class="o">=</span><span class="nv">cn</span><span class="o">=</span>binduser,cn<span class="o">=</span>Users,dc<span class="o">=</span>internal,dc<span class="o">=</span>example,dc<span class="o">=</span>com
+<span class="nv">CMD_LDAP_BINDCREDENTIALS</span><span class="o">=</span><span class="s2">&quot;&lt;super secret password&gt;&quot;</span>
+<span class="nv">CMD_LDAP_SEARCHBASE</span><span class="o">=</span><span class="nv">dc</span><span class="o">=</span>internal,dc<span class="o">=</span>example,dc<span class="o">=</span>com
+<span class="nv">CMD_LDAP_SEARCHFILTER</span><span class="o">=(</span><span class="p">&amp;</span><span class="o">(</span><span class="nv">objectcategory</span><span class="o">=</span>person<span class="o">)(</span><span class="nv">objectclass</span><span class="o">=</span>user<span class="o">)(</span><span class="p">|</span><span class="o">(</span><span class="nv">sAMAccountName</span><span class="o">={{</span>username<span class="o">}})(</span><span class="nv">mail</span><span class="o">={{</span>username<span class="o">}})))</span>
+<span class="nv">CMD_LDAP_USERIDFIELD</span><span class="o">=</span>sAMAccountName
+<span class="nv">CMD_LDAP_PROVIDERNAME</span><span class="o">=</span><span class="s2">&quot;Example Inc AD&quot;</span>
+</code></pre></div>
+<p><code>CMD_LDAP_BINDDN</code> is either the <code>distinguishedName</code> or the <code>userPrincipalName</code>.<br />
+<em>This can cause "username/password is invalid" when either this value or the password from <code>CMD_LDAP_BINDCREDENTIALS</code>
+are incorrect.</em></p>
+<p><code>CMD_LDAP_SEARCHFILTER</code> matches on all users and uses either the email address or the <code>sAMAccountName</code> (usually the
+login name you also use to login to Windows).</p>
 <p><em>Only using <code>sAMAccountName</code> looks like this:</em> <code>(&amp;(objectcategory=person)(objectclass=user)(sAMAccountName={{username}}))</code></p>
 <p><code>CMD_LDAP_USERIDFIELD</code> says we want to use <code>sAMAccountName</code> as unique identifier for the account itself.</p>
 <p><code>CMD_LDAP_PROVIDERNAME</code> just the name written above the username and password field on the login page.</p>
 <p>Same in json:</p>
-<pre><code class="language-json">&quot;ldap&quot;: {
-    &quot;url&quot;: &quot;ldap://internal.example.com&quot;,
-    &quot;bindDn&quot;: &quot;cn=binduser,cn=Users,dc=internal,dc=example,dc=com&quot;,
-    &quot;bindCredentials&quot;: &quot;&lt;super secret password&gt;&quot;,
-    &quot;searchBase&quot;: &quot;dc=internal,dc=example,dc=com&quot;,
-    &quot;searchFilter&quot;: &quot;(&amp;(objectcategory=person)(objectclass=user)(|(sAMAccountName={{username}})(mail={{username}})))&quot;,
-    &quot;useridField&quot;: &quot;sAMAccountName&quot;,
-},
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;ldap&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;ldap://internal.example.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;bindDn&quot;</span><span class="p">:</span> <span class="s2">&quot;cn=binduser,cn=Users,dc=internal,dc=example,dc=com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;bindCredentials&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;super secret password&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;searchBase&quot;</span><span class="p">:</span> <span class="s2">&quot;dc=internal,dc=example,dc=com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;searchFilter&quot;</span><span class="p">:</span> <span class="s2">&quot;(&amp;(objectcategory=person)(objectclass=user)(|(sAMAccountName={{username}})(mail={{username}})))&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;useridField&quot;</span><span class="p">:</span> <span class="s2">&quot;sAMAccountName&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+</code></pre></div>
 <p>More details and example: <a href="https://www.npmjs.com/package/passport-ldapauth">https://www.npmjs.com/package/passport-ldapauth</a></p>
                 
               

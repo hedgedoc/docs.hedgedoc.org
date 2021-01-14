@@ -20,7 +20,7 @@
     
     
       
-        <title>NextCloud - HedgeDoc</title>
+        <title>Nextcloud - HedgeDoc</title>
       
     
     
@@ -98,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              NextCloud
+              Nextcloud
             
           </span>
         </div>
@@ -548,7 +548,7 @@
 
   <li class="md-nav__item">
     <a href="../saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -608,7 +608,7 @@
     
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      NextCloud
+      Nextcloud
     </a>
     
   </li>
@@ -623,6 +623,63 @@
   <li class="md-nav__item">
     <a href="../twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -664,66 +721,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -871,8 +871,13 @@
                 
                 
                 <h1 id="authentication-guide-nextcloud-self-hosted">Authentication guide - Nextcloud (self-hosted)<a class="headerlink" href="#authentication-guide-nextcloud-self-hosted" title="Permanent link">&para;</a></h1>
-<p><em>This has been constructed using the <a href="https://docs.nextcloud.com/server/14/admin_manual/configuration_server/oauth2.html?highlight=oauth2">Nextcloud OAuth2 Documentation</a> combined with <a href="https://github.com/nextcloud/server/issues/5694#issuecomment-314761326">this issue comment on the nextcloud bugtracker</a>.</em></p>
-<p>This guide uses the generic OAuth2 module for compatibility with Nextcloud 13 and above (this guide has been tested successfully with Nextcloud 14).</p>
+<p><em>This has been constructed using
+the <a href="https://docs.nextcloud.com/server/14/admin_manual/configuration_server/oauth2.html?highlight=oauth2">Nextcloud OAuth2 Documentation</a>
+combined
+with <a href="https://github.com/nextcloud/server/issues/5694#issuecomment-314761326">this issue comment on the nextcloud bugtracker</a>
+.</em></p>
+<p>This guide uses the generic OAuth2 module for compatibility with Nextcloud 13 and above (this guide has been tested
+successfully with Nextcloud 14 and Nextcloud 20).</p>
 <ol>
 <li>
 <p>Sign-in with an administrator account to your Nextcloud server</p>
@@ -892,39 +897,45 @@
    <img alt="Successfully added OAuth2-client" src="../../../images/auth/nextcloud-oauth2-3-clientid-secret.png" /></p>
 </li>
 <li>
-<p>That's it for Nextcloud, the rest is configured in your HedgeDoc <code>config.json</code> or via the <code>CMD_</code> environment variables!</p>
+<p>That's it for Nextcloud, the rest is configured in your HedgeDoc <code>config.json</code> or via the <code>CMD_</code> environment
+   variables!</p>
 </li>
 <li>
-<p>Add the Client ID and Client Secret to your <code>config.json</code> file or pass them as environment variables. Make sure you also replace <code>&lt;your-nextcloud-domain&gt;</code> with the right domain name.</p>
-</li>
-<li>
-<p><code>config.json</code>:
-    <code>javascript
-    {
-      "production": {
-        "oauth2": {
-          "clientID": "ii4p1u3jz7dXXXXXXXXXXXXXXX",
-          "clientSecret": "mqzzx6fydbXXXXXXXXXXXXXXXX",
-          "authorizationURL": "https://&lt;your-nextcloud-domain&gt;/apps/oauth2/authorize",
-          "tokenURL": "https://&lt;your-nextcloud-domain&gt;/apps/oauth2/api/v1/token",
-          "userProfileURL": "https://&lt;your-nextcloud-domain&gt;/ocs/v2.php/cloud/user?format=json",
-          "userProfileUsernameAttr": "ocs.data.id",
-          "userProfileDisplayNameAttr": "ocs.data.display-name",
-          "userProfileEmailAttr": "ocs.data.email"
-        }
-      }
-    }</code></p>
+<p>Add the Client ID and Client Secret to your <code>config.json</code> file or pass them as environment variables. Make sure you
+   also replace <code>&lt;your-nextcloud-domain&gt;</code> with the right domain name.</p>
 <ul>
-<li>environment variables:
-  <code>sh
-  CMD_OAUTH2_CLIENT_ID=ii4p1u3jz7dXXXXXXXXXXXXXXX
-  CMD_OAUTH2_CLIENT_SECRET=mqzzx6fydbXXXXXXXXXXXXXXXX
-  CMD_OAUTH2_AUTHORIZATION_URL=https://&lt;your-nextcloud-domain&gt;/apps/oauth2/authorize
-  CMD_OAUTH2_TOKEN_URL=https://&lt;your-nextcloud-domain&gt;/apps/oauth2/api/v1/token
-  CMD_OAUTH2_USER_PROFILE_URL=https://&lt;your-nextcloud-domain&gt;/ocs/v2.php/cloud/user?format=json
-  CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=ocs.data.id
-  CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR=ocs.data.display-name
-  CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR=ocs.data.email</code></li>
+<li>
+<p><code>config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;production&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;oauth2&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;clientID&quot;</span><span class="p">:</span> <span class="s2">&quot;ii4p1u3jz7dXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;mqzzx6fydbXXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorizationURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://&lt;your-nextcloud-domain&gt;/apps/oauth2/authorize&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tokenURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://&lt;your-nextcloud-domain&gt;/apps/oauth2/api/v1/token&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;userProfileURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://&lt;your-nextcloud-domain&gt;/ocs/v2.php/cloud/user?format=json&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;userProfileUsernameAttr&quot;</span><span class="p">:</span> <span class="s2">&quot;ocs.data.id&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;userProfileDisplayNameAttr&quot;</span><span class="p">:</span> <span class="s2">&quot;ocs.data.display-name&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;userProfileEmailAttr&quot;</span><span class="p">:</span> <span class="s2">&quot;ocs.data.email&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>environment variables:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">CMD_OAUTH2_CLIENT_ID</span><span class="o">=</span>ii4p1u3jz7dXXXXXXXXXXXXXXX
+<span class="nv">CMD_OAUTH2_CLIENT_SECRET</span><span class="o">=</span>mqzzx6fydbXXXXXXXXXXXXXXXX
+<span class="nv">CMD_OAUTH2_AUTHORIZATION_URL</span><span class="o">=</span>https://&lt;your-nextcloud-domain&gt;/apps/oauth2/authorize
+<span class="nv">CMD_OAUTH2_TOKEN_URL</span><span class="o">=</span>https://&lt;your-nextcloud-domain&gt;/apps/oauth2/api/v1/token
+<span class="nv">CMD_OAUTH2_USER_PROFILE_URL</span><span class="o">=</span>https://&lt;your-nextcloud-domain&gt;/ocs/v2.php/cloud/user?format<span class="o">=</span>json
+<span class="nv">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR</span><span class="o">=</span>ocs.data.id
+<span class="nv">CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR</span><span class="o">=</span>ocs.data.display-name
+<span class="nv">CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR</span><span class="o">=</span>ocs.data.email
+</code></pre></div>
+</li>
 </ul>
 </li>
 </ol>

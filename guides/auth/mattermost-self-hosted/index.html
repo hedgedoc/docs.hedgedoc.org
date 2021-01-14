@@ -542,7 +542,7 @@
 
   <li class="md-nav__item">
     <a href="../saml-onelogin/" class="md-nav__link">
-      SAML Onelogin
+      SAML OneLogin
     </a>
   </li>
 
@@ -594,7 +594,7 @@
 
   <li class="md-nav__item">
     <a href="../nextcloud/" class="md-nav__link">
-      NextCloud
+      Nextcloud
     </a>
   </li>
 
@@ -608,6 +608,63 @@
   <li class="md-nav__item">
     <a href="../twitter/" class="md-nav__link">
       Twitter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Media Backend
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Media Backend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../minio-image-upload/" class="md-nav__link">
+      MinIO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../s3-image-upload/" class="md-nav__link">
+      S3
     </a>
   </li>
 
@@ -649,66 +706,9 @@
 
 
 
-  
-    
-  
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-    
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Media Backend
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Media Backend" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon"></span>
-        Media Backend
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../minio-image-upload/" class="md-nav__link">
-      Minion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="../../s3-image-upload/" class="md-nav__link">
-      S3
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-
   <li class="md-nav__item">
     <a href="../../providing-terms/" class="md-nav__link">
-      Setting Terms
+      Terms of Use Setup
     </a>
   </li>
 
@@ -886,37 +886,39 @@
 </li>
 <li>
 <p>Add the Client ID and Client Secret to your config.json file or pass them as environment variables</p>
-</li>
+<ul>
 <li>
 <p><code>config.json</code>:
-    <code>javascript
-    {
-      "production": {
-        "oauth2": {
-          "baseURL": "https://your.mattermost.domain",
-          "userProfileURL": "https://your.mattermost.domain/api/v4/users/me",
-          "userProfileUsernameAttr": "id",
-          "userProfileDisplayNameAttr": "username",
-          "userProfileEmailAttr": "email",
-          "tokenURL": "https://your.mattermost.domain/oauth/access_token",
-          "authorizationURL": "https://your.mattermost.domain/oauth/authorize",
-          "clientID": "ii4p1u3jz7dXXXXXXXXXXXXXXX",
-          "clientSecret": "mqzzx6fydbXXXXXXXXXXXXXXXX"
-        }
-      }
-    }</code></p>
+  <div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;production&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;oauth2&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;baseURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your.mattermost.domain&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;userProfileURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your.mattermost.domain/api/v4/users/me&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;userProfileUsernameAttr&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;userProfileDisplayNameAttr&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;userProfileEmailAttr&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;tokenURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your.mattermost.domain/oauth/access_token&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;authorizationURL&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your.mattermost.domain/oauth/authorize&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;clientID&quot;</span><span class="p">:</span> <span class="s2">&quot;ii4p1u3jz7dXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;mqzzx6fydbXXXXXXXXXXXXXXXX&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <ul>
 <li>environment variables:
-  <code>sh
-  CMD_OAUTH2_BASEURL=https://your.mattermost.domain
-  CMD_OAUTH2_USER_PROFILE_URL=https://your.mattermost.domain/api/v4/users/me
-  CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=id
-  CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR=username
-  CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR=email
-  CMD_OAUTH2_TOKEN_URL=https://your.mattermost.domain/oauth/access_token
-  CMD_OAUTH2_AUTHORIZATION_URL=https://your.mattermost.domain/oauth/authorize
-  CMD_OAUTH2_CLIENT_ID=ii4p1u3jz7dXXXXXXXXXXXXXXX
-  CMD_OAUTH2_CLIENT_SECRET=mqzzx6fydbXXXXXXXXXXXXXXXX</code></li>
+  <div class="highlight"><pre><span></span><code><span class="nv">CMD_OAUTH2_BASEURL</span><span class="o">=</span>https://your.mattermost.domain
+<span class="nv">CMD_OAUTH2_USER_PROFILE_URL</span><span class="o">=</span>https://your.mattermost.domain/api/v4/users/me
+<span class="nv">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR</span><span class="o">=</span>id
+<span class="nv">CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR</span><span class="o">=</span>username
+<span class="nv">CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR</span><span class="o">=</span>email
+<span class="nv">CMD_OAUTH2_TOKEN_URL</span><span class="o">=</span>https://your.mattermost.domain/oauth/access_token
+<span class="nv">CMD_OAUTH2_AUTHORIZATION_URL</span><span class="o">=</span>https://your.mattermost.domain/oauth/authorize
+<span class="nv">CMD_OAUTH2_CLIENT_ID</span><span class="o">=</span>ii4p1u3jz7dXXXXXXXXXXXXXXX
+<span class="nv">CMD_OAUTH2_CLIENT_SECRET</span><span class="o">=</span>mqzzx6fydbXXXXXXXXXXXXXXXX
+</code></pre></div></li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
