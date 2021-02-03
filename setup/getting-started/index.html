@@ -13,14 +13,14 @@
         <meta name="author" content="HedgeDoc Developers">
       
       
-        <link rel="canonical" href="https://docs.hedgedoc.org/guides/reverse-proxy/">
+        <link rel="canonical" href="https://docs.hedgedoc.org/setup/getting-started/">
       
       <link rel="shortcut icon" href="../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Reverse Proxy - HedgeDoc</title>
+        <title>Getting Started - HedgeDoc</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-a-reverse-proxy-with-hedgedoc" class="md-skip">
+        <a href="#getting-started" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Reverse Proxy
+              Getting Started
             
           </span>
         </div>
@@ -176,22 +176,6 @@
         
   
   
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../setup/getting-started/" class="md-tabs__link">
-        Installation
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
     
   
 
@@ -201,6 +185,22 @@
   
     <li class="md-tabs__item">
       <a href="./" class="md-tabs__link md-tabs__link--active">
+        Installation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../guides/reverse-proxy/" class="md-tabs__link">
         Guides
       </a>
     </li>
@@ -312,12 +312,14 @@
       
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Installation
@@ -336,11 +338,20 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../setup/getting-started/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Getting Started
     </a>
+    
   </li>
 
         
@@ -377,7 +388,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../setup/docker/" class="md-nav__link">
+    <a href="../docker/" class="md-nav__link">
       Docker Image
     </a>
   </li>
@@ -390,7 +401,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../setup/manual-setup/" class="md-nav__link">
+    <a href="../manual-setup/" class="md-nav__link">
       Manual Installation
     </a>
   </li>
@@ -403,7 +414,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../setup/heroku/" class="md-nav__link">
+    <a href="../heroku/" class="md-nav__link">
       Heroku
     </a>
   </li>
@@ -447,7 +458,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../setup/docker-linuxserver/" class="md-nav__link">
+    <a href="../docker-linuxserver/" class="md-nav__link">
       LinuxServer Docker Image
     </a>
   </li>
@@ -460,7 +471,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../setup/kubernetes-helm/" class="md-nav__link">
+    <a href="../kubernetes-helm/" class="md-nav__link">
       Helm Chart
     </a>
   </li>
@@ -473,7 +484,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../setup/yunohost/" class="md-nav__link">
+    <a href="../yunohost/" class="md-nav__link">
       YunoHost App
     </a>
   </li>
@@ -486,7 +497,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../setup/cloudron/" class="md-nav__link">
+    <a href="../cloudron/" class="md-nav__link">
       Cloudron App
     </a>
   </li>
@@ -499,7 +510,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../setup/arch-linux/" class="md-nav__link">
+    <a href="../arch-linux/" class="md-nav__link">
       Arch Linux Package
     </a>
   </li>
@@ -520,14 +531,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
     
     <label class="md-nav__link" for="nav-3">
       Guides
@@ -546,83 +555,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Reverse Proxy
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../guides/reverse-proxy/" class="md-nav__link">
       Reverse Proxy
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#hedgedoc-config" class="md-nav__link">
-    HedgeDoc config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reverse-proxy-config" class="md-nav__link">
-    Reverse Proxy config
-  </a>
-  
-    <nav class="md-nav" aria-label="Reverse Proxy config">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generic" class="md-nav__link">
-    Generic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nginx" class="md-nav__link">
-    Nginx
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apache" class="md-nav__link">
-    Apache
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -659,7 +596,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/ldap-ad/" class="md-nav__link">
+    <a href="../../guides/auth/ldap-ad/" class="md-nav__link">
       LDAP
     </a>
   </li>
@@ -672,7 +609,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/oauth/" class="md-nav__link">
+    <a href="../../guides/auth/oauth/" class="md-nav__link">
       OAuth
     </a>
   </li>
@@ -685,7 +622,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/saml/" class="md-nav__link">
+    <a href="../../guides/auth/saml/" class="md-nav__link">
       SAML
     </a>
   </li>
@@ -698,7 +635,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/saml-keycloak/" class="md-nav__link">
+    <a href="../../guides/auth/saml-keycloak/" class="md-nav__link">
       SAML Keycloak
     </a>
   </li>
@@ -711,7 +648,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/saml-onelogin/" class="md-nav__link">
+    <a href="../../guides/auth/saml-onelogin/" class="md-nav__link">
       SAML OneLogin
     </a>
   </li>
@@ -724,7 +661,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/github/" class="md-nav__link">
+    <a href="../../guides/auth/github/" class="md-nav__link">
       GitHub
     </a>
   </li>
@@ -737,7 +674,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/gitlab-self-hosted/" class="md-nav__link">
+    <a href="../../guides/auth/gitlab-self-hosted/" class="md-nav__link">
       GitLab
     </a>
   </li>
@@ -750,7 +687,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/keycloak/" class="md-nav__link">
+    <a href="../../guides/auth/keycloak/" class="md-nav__link">
       Keycloak
     </a>
   </li>
@@ -763,7 +700,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/nextcloud/" class="md-nav__link">
+    <a href="../../guides/auth/nextcloud/" class="md-nav__link">
       Nextcloud
     </a>
   </li>
@@ -776,7 +713,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../auth/twitter/" class="md-nav__link">
+    <a href="../../guides/auth/twitter/" class="md-nav__link">
       Twitter
     </a>
   </li>
@@ -820,7 +757,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../minio-image-upload/" class="md-nav__link">
+    <a href="../../guides/minio-image-upload/" class="md-nav__link">
       MinIO
     </a>
   </li>
@@ -833,7 +770,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../s3-image-upload/" class="md-nav__link">
+    <a href="../../guides/s3-image-upload/" class="md-nav__link">
       S3
     </a>
   </li>
@@ -851,7 +788,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../migrate-etherpad/" class="md-nav__link">
+    <a href="../../guides/migrate-etherpad/" class="md-nav__link">
       Migrate from Etherpad
     </a>
   </li>
@@ -864,7 +801,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../migrations-and-breaking-changes/" class="md-nav__link">
+    <a href="../../guides/migrations-and-breaking-changes/" class="md-nav__link">
       Breaking Changes
     </a>
   </li>
@@ -877,7 +814,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../providing-terms/" class="md-nav__link">
+    <a href="../../guides/providing-terms/" class="md-nav__link">
       Terms of Use Setup
     </a>
   </li>
@@ -1020,140 +957,20 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/reverse-proxy.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/setup/getting-started.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="using-a-reverse-proxy-with-hedgedoc">Using a Reverse Proxy with HedgeDoc<a class="headerlink" href="#using-a-reverse-proxy-with-hedgedoc" title="Permanent link">&para;</a></h1>
-<p>If you want to use a reverse proxy to serve HedgeDoc, here are the essential
-configs that you'll have to do.</p>
-<p>This documentation will cover HTTPS setup, with comments for HTTP setup.</p>
-<h2 id="hedgedoc-config">HedgeDoc config<a class="headerlink" href="#hedgedoc-config" title="Permanent link">&para;</a></h2>
-<p><a href="../../configuration/">Full explanation of the configuration options</a></p>
-<table>
-<thead>
-<tr>
-<th><code>config.json</code> parameter</th>
-<th>Environment variable</th>
-<th>Value</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>domain</code></td>
-<td><code>CMD_DOMAIN</code></td>
-<td>The full domain where your instance will be available</td>
-<td><code>hedgedoc.example.com</code></td>
-</tr>
-<tr>
-<td><code>host</code></td>
-<td><code>CMD_HOST</code></td>
-<td>An ip or domain name that is only available to HedgeDoc and your reverse proxy</td>
-<td><code>localhost</code></td>
-</tr>
-<tr>
-<td><code>port</code></td>
-<td><code>CMD_PORT</code></td>
-<td>An available port number on that IP</td>
-<td><code>3000</code></td>
-</tr>
-<tr>
-<td><code>path</code></td>
-<td><code>CMD_PATH</code></td>
-<td>path to UNIX domain socket to listen on (if specified, <code>host</code> or <code>CMD_HOST</code> and <code>port</code> or <code>CMD_PORT</code> are ignored)</td>
-<td><code>/var/run/hedgedoc.sock</code></td>
-</tr>
-<tr>
-<td><code>protocolUseSSL</code></td>
-<td><code>CMD_PROTOCOL_USESSL</code></td>
-<td><code>true</code> if you want to serve your instance over SSL (HTTPS), <code>false</code> if you want to use plain HTTP</td>
-<td><code>true</code></td>
-</tr>
-<tr>
-<td><code>useSSL</code></td>
-<td></td>
-<td><code>false</code>, the communications between HedgeDoc and the proxy are unencrypted</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>urlAddPort</code></td>
-<td><code>CMD_URL_ADDPORT</code></td>
-<td><code>false</code>, HedgeDoc should not append its port to the URLs it links</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>hsts.enable</code></td>
-<td><code>CMD_HSTS_ENABLE</code></td>
-<td><code>true</code> if you host over SSL, <code>false</code> otherwise</td>
-<td><code>true</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="reverse-proxy-config">Reverse Proxy config<a class="headerlink" href="#reverse-proxy-config" title="Permanent link">&para;</a></h2>
-<h3 id="generic">Generic<a class="headerlink" href="#generic" title="Permanent link">&para;</a></h3>
-<p>The reverse proxy must allow websocket <code>Upgrade</code> requests at path <code>/sockets.io/</code>.</p>
-<p>It must pass through the scheme used by the client (http or https).</p>
-<h3 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h3>
-<p>Here is an example configuration for Nginx.</p>
-<div class="highlight"><pre><span></span><code>map $http_upgrade $connection_upgrade {
-        default upgrade;
-        &#39;&#39;      close;
-}
-server {
-        server_name hedgedoc.example.com;
-
-        location / {
-                proxy_pass http://127.0.0.1:3000;
-                proxy_set_header Host $host; 
-                proxy_set_header X-Real-IP $remote_addr; 
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
-                proxy_set_header X-Forwarded-Proto $scheme;
-        }
-
-        location /socket.io/ {
-                proxy_pass http://127.0.0.1:3000;
-                proxy_set_header Host $host; 
-                proxy_set_header X-Real-IP $remote_addr; 
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
-                proxy_set_header X-Forwarded-Proto $scheme;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-        }
-
-    listen [::]:443 ssl http2;
-    listen 443 ssl http2;
-    ssl_certificate fullchain.pem;
-    ssl_certificate_key privkey.pem;
-    include options-ssl-nginx.conf;
-    ssl_dhparam ssl-dhparams.pem;
-}
-</code></pre></div>
-<h3 id="apache">Apache<a class="headerlink" href="#apache" title="Permanent link">&para;</a></h3>
-<p>You will need these modules enabled: <code>proxy</code>, <code>proxy_http</code> and <code>proxy_wstunnel</code>.<br />
-Here is an example config snippet:
-<div class="highlight"><pre><span></span><code>&lt;VirtualHost *:443&gt;
-  ServerName hedgedoc.example.com
-
-  RewriteEngine on
-  RewriteCond %{REQUEST_URI} ^/socket.io             [NC]
-  RewriteCond %{HTTP:Upgrade} =websocket [NC]
-  RewriteRule /(.*)  ws://127.0.0.1:3000/$1          [P,L]
-
-  ProxyPass / http://127.0.0.1:3000/
-  ProxyPassReverse / http://127.0.0.1:3000/
-
-  RequestHeader set &quot;X-Forwarded-Proto&quot; expr=%{REQUEST_SCHEME}
-
-  ErrorLog ${APACHE_LOG_DIR}/error.log
-  CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-  SSLCertificateFile /etc/letsencrypt/live/hedgedoc.example.com/fullchain.pem
-  SSLCertificateKeyFile /etc/letsencrypt/live/hedgedoc.example.com/privkey.pem
-  Include /etc/letsencrypt/options-ssl-apache.conf
-&lt;/VirtualHost&gt;
-</code></pre></div></p>
+                <h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<p>Thank you for choosing HedgeDoc!
+To set up your instance follow these steps:</p>
+<ol>
+<li>Choose an installation method and follow the instructions</li>
+<li><a href="https://docs.hedgedoc.org/guides/reverse-proxy/">Configure your reverse proxy</a></li>
+<li><a href="https://docs.hedgedoc.org/configuration/">Configure HedgeDoc</a></li>
+</ol>
+<p>Follow us on <a href="http://social.codimd.org/" target="_blank" rel="noreferer noopener"><span class="twemoji mastodon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 01-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg></span>Mastodon</a> or <a href="http://social.codimd.org/twitter" target="_blank" rel="noreferer noopener"><span class="twemoji twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span>Twitter</a> for updates.</p>
                 
               
               
@@ -1172,7 +989,7 @@ Here is an example config snippet:
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../setup/arch-linux/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../.." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1181,19 +998,19 @@ Here is an example config snippet:
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Arch Linux Package
+                Home
               </div>
             </div>
           </a>
         
         
-          <a href="../auth/ldap-ad/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../docker/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                LDAP
+                Docker Image
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
