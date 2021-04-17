@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://docs.hedgedoc.org/setup/getting-started/">
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9299cb39.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -363,9 +363,45 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Getting Started
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-hedgedoc" class="md-nav__link">
+    Upgrading HedgeDoc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-from-codimd-hackmd" class="md-nav__link">
+    Migrating from CodiMD &amp; HackMD
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -786,18 +822,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/migrations-and-breaking-changes/" class="md-nav__link">
-        Breaking Changes
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../guides/migration-troubleshooting/" class="md-nav__link">
         Migration Troubleshooting
       </a>
@@ -1009,8 +1033,27 @@ To set up your instance follow these steps:</p>
 <li>Choose an installation method and follow the instructions</li>
 <li><a href="https://docs.hedgedoc.org/guides/reverse-proxy/">Configure your reverse proxy</a></li>
 <li><a href="https://docs.hedgedoc.org/configuration/">Configure HedgeDoc</a></li>
+<li>If you didn't disable <a href="/configuration/#email-local-account">local accounts</a>, you can use the "Sign In" button to
+   create an account, login and start using HedgeDoc.</li>
 </ol>
 <p>Follow us on <a href="https://social.hedgedoc.org/" target="_blank" rel="noreferer noopener"><span class="twemoji mastodon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg></span>Mastodon</a> or <a href="https://social.hedgedoc.org/twitter" target="_blank" rel="noreferer noopener"><span class="twemoji twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span>Twitter</a> for updates.</p>
+<h2 id="upgrading-hedgedoc">Upgrading HedgeDoc<a class="headerlink" href="#upgrading-hedgedoc" title="Permanent link">&para;</a></h2>
+<p>HedgeDoc follows <a href="https://semver.org/">Semantic Versioning</a>.<br />
+This means that minor and patch releases should not introduce user-facing backwards-incompatible changes.</p>
+<p>You can find more details about upgrading in the instructions of your installation method.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before you upgrade, <strong>always read the release notes</strong>.<br />
+You can find them on our <a href="https://hedgedoc.org/releases/">releases page</a>.</p>
+</div>
+<h2 id="migrating-from-codimd-hackmd">Migrating from CodiMD &amp; HackMD<a class="headerlink" href="#migrating-from-codimd-hackmd" title="Permanent link">&para;</a></h2>
+<p>Migrating from CodiMD &lt;= 1.6.0 or HackMD &lt;= 1.1.0 to HedgeDoc should be safe,
+just make sure to read the release notes.<br />
+A particular issue that has come up is when handling TLS connections using a reverse proxy.
+You must <a href="https://docs.hedgedoc.org/guides/reverse-proxy/#reverse-proxy-config">set the <code>X-Forwarded-Proto</code> header correctly</a>.</p>
+<p>Migrating from more recent versions of CodiMD is not guaranteed to work, although some community members
+<a href="https://community.hedgedoc.org/t/solved-upgrade-from-dockerlized-codimd/271">reported success migrating from CodiMD 2.2</a>.
+If you successfully migrated from other versions, please report your upgrade results in the <a href="https://community.hedgedoc.org/">community forum</a>.</p>
                 
               
               
@@ -1082,7 +1125,7 @@ To set up your instance follow these steps:</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7353b375.min.js"></script>
       
     
   </body>

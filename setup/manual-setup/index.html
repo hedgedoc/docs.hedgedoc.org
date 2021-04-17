@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://docs.hedgedoc.org/setup/manual-setup/">
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9299cb39.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -435,22 +435,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements-on-your-server" class="md-nav__link">
-    Requirements on your server
+  <a href="#upgrading" class="md-nav__link">
+    Upgrading
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#instructions" class="md-nav__link">
-    Instructions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-upgrade-your-installation" class="md-nav__link">
-    How to upgrade your installation
+  <a href="#systemd-unit-example" class="md-nav__link">
+    Systemd Unit Example
   </a>
   
 </li>
@@ -831,18 +824,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/migrations-and-breaking-changes/" class="md-nav__link">
-        Breaking Changes
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../guides/migration-troubleshooting/" class="md-nav__link">
         Migration Troubleshooting
       </a>
@@ -1048,9 +1029,10 @@
                 
                 
                 <h1 id="manual-installation">Manual Installation<a class="headerlink" href="#manual-installation" title="Permanent link">&para;</a></h1>
-<h2 id="requirements-on-your-server">Requirements on your server<a class="headerlink" href="#requirements-on-your-server" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Requirements on your server</p>
 <ul>
-<li>Node.js 10.13 or up</li>
+<li>Node.js 10.13 or higher</li>
 <li>Database (PostgreSQL, MySQL, MariaDB, SQLite, MSSQL)<br />
   The database must use charset <code>utf8</code>. This is typically the default in PostgreSQL and SQLite.<br />
   In MySQL and MariaDB UTF-8 might need to be set with <code>alter database &lt;DBNAME&gt; character set utf8 collate utf8_bin;</code><br />
@@ -1058,35 +1040,134 @@
   This can break if symbols with more bytes are used.
   You can use <code>alter database &lt;DBNAME&gt; character set utf8mb4 COLLATE utf8mb4_unicode_ci</code> to be on the safe side.</li>
 <li>NPM (and its dependencies, <a href="https://github.com/nodejs/node-gyp#installation">node-gyp</a>)</li>
-<li>Yarn</li>
+<li><a href="https://classic.yarnpkg.com">Yarn Classic</a> 1.22 or higher (Yarn 2 is currently not supported)</li>
 <li>Bash (for the setup script)</li>
-<li>For <strong>building</strong> the HedgeDoc frontend you need a machine with at least <strong>2 GB</strong> RAM.
-    - Starting with release 1.7 the release tarball includes the frontend, so building it yourself is not necessary.</li>
+<li>For <strong>building</strong> the HedgeDoc frontend you need a machine with at least <strong>2 GB</strong> RAM.<ul>
+<li>Starting with release 1.7 the release tarball includes the prebuilt frontend, so building it yourself is not necessary.</li>
 </ul>
-<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
+</li>
+</ul>
+</div>
 <ol>
-<li>Check if you meet the <a href="#requirements-on-your-server">requirements at the top of this document</a>.</li>
-<li>Download a <a href="https://github.com/hedgedoc/hedgedoc/releases">release</a> tarball and extract it.
-   Alternatively, you can use Git to clone the repository and checkout a release, e.g. with <code>git clone -b 1.7.2 https://github.com/hedgedoc/hedgedoc.git</code>.</li>
-<li>Enter the directory and type <code>bin/setup</code>, which will install the dependencies and create configs.</li>
-<li>Modify the file named <code>config.json</code> or configure HedgeDoc through environment variables which will overwrite the configs, see docs <a href="../../configuration/">here</a>.</li>
-<li><strong>If using the release tarball for 1.7.0 or newer, this step can be skipped.</strong><br />
-   Build the frontend bundle by <code>yarn run build</code> (use <code>yarn run dev</code> if you are in development)</li>
-<li>It is recommended to start your server manually once: <code>NODE_ENV=production yarn start</code>, this way it's easier to see warnings or errors that might occur (leave out <code>NODE_ENV=production</code> for development).</li>
-<li>Run the server as you like (node, forever, pm2, SystemD, Init-Scripts)</li>
+<li>Check if you meet the <a href="#manual-installation">requirements at the top of this document</a>.</li>
+<li>Download the <a href="https://hedgedoc.org/latest-release/">latest release</a> and extract it.<br />
+   <small>Alternatively, you can use Git to clone the repository and checkout a release, e.g. with <code>git clone -b 1.7.2 https://github.com/hedgedoc/hedgedoc.git</code>.</small></li>
+<li>Enter the directory and execute <code>bin/setup</code>, which will install the dependencies and create example configs.</li>
+<li>Configure HedgeDoc: To get started, you can use this minimal <code>config.json</code>:
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;production&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;db&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;dialect&quot;</span><span class="p">:</span> <span class="s2">&quot;sqlite&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;storage&quot;</span><span class="p">:</span> <span class="s2">&quot;./db.hedgedoc.sqlite&quot;</span>
+   <span class="p">},</span>
+    <span class="nt">&quot;urlAddPort&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+   It's also possible to use environment variables.
+   For details, have a look at <a href="../../configuration/">the configuration documentation</a>.</li>
+<li><em><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.695 8.695 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.75.75 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75zM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75zM5.75 12a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5z"/></svg></span> If you use the release tarball for 1.7.0 or newer, this step can be skipped.</em><br />
+   Build the frontend bundle by running <code>yarn run build</code>.</li>
+<li>It is recommended to start your server manually once:<br />
+   <div class="highlight"><pre><span></span><code><span class="nv">NODE_ENV</span><span class="o">=</span>production yarn start
+</code></pre></div>
+   This way it's easier to see warnings or errors that might occur.<br />
+   <small>You can leave out <code>NODE_ENV=production</code> for development.</small>  </li>
+<li>If you use the example config, HedgeDoc should now be available at <a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a>.</li>
+<li>Run the server as you like (node, forever, pm2, systemd, Init-Scripts).<br />
+   See <a href="#systemd-unit-example">below</a> for an example using systemd.</li>
 </ol>
-<h2 id="how-to-upgrade-your-installation">How to upgrade your installation<a class="headerlink" href="#how-to-upgrade-your-installation" title="Permanent link">&para;</a></h2>
-<p>If you are upgrading HedgeDoc from an older version, follow these steps:</p>
+<h2 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before you upgrade, <strong>always read the release notes</strong>.<br />
+You can find them on our <a href="https://hedgedoc.org/releases/">releases page</a>.</p>
+</div>
+<p>If you want to upgrade HedgeDoc from an older version, follow these steps:</p>
 <ol>
-<li>Check if you meet the <a href="#requirements-on-your-server">requirements at the top of this document</a>.</li>
-<li>Verify which version you were running before and take a look at <a href="../../guides/migrations-and-breaking-changes/">migrations and breaking changes</a> to see if additional steps, or configuration changes are necessary!</li>
+<li>Check if you still meet the <a href="#requirements-on-your-server">requirements at the top of this document</a>.</li>
+<li>Ensure you read the <a href="https://hedgedoc.org/releases/">release notes</a> of all versions between your current version
+   and the latest release.</li>
 <li>Fully stop your old HedgeDoc server.</li>
-<li><code>git pull</code> or unzip a new release in the directory.</li>
+<li><a href="https://hedgedoc.org/latest-release/">Download</a> the new release and extract it over the old directory.<br />
+   <small>If you use Git, you can check out the new tag with e.g. <code>git fetch origin &amp;&amp; git checkout 1.7.2</code></small></li>
 <li>Run <code>bin/setup</code>. This will take care of installing dependencies. It is safe to run on an existing installation.</li>
-<li>Build front-end bundle by <code>yarn run build</code> (use <code>yarn run dev</code> if you are in development).</li>
-<li>It is recommended to start your server manually once: <code>NODE_ENV=production yarn start</code>, this way it's easier to see warnings or errors that might occur (leave out <code>NODE_ENV=production</code> for development).</li>
+<li><em><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.695 8.695 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.75.75 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75zM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75zM5.75 12a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5z"/></svg></span> If you used the release tarball for 1.7.0 or newer, this step can be skipped.</em><br />
+   Build the frontend bundle by running <code>yarn run build</code>.</li>
+<li>It is recommended to start your server manually once:
+   <div class="highlight"><pre><span></span><code><span class="nv">NODE_ENV</span><span class="o">=</span>production yarn start
+</code></pre></div>
+   This way it's easier to see warnings or errors that might occur.</li>
 <li>You can now restart the HedgeDoc server!</li>
 </ol>
+<h2 id="systemd-unit-example">Systemd Unit Example<a class="headerlink" href="#systemd-unit-example" title="Permanent link">&para;</a></h2>
+<p>Using the unit file below, you can run HedgeDoc as a systemd service.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>In this example, you must configure HedgeDoc using the <code>config.json</code> file and the 
+<code>production</code> key.</li>
+<li>Make sure the user and group <code>hedgedoc</code> exists and has appropriate permissions in the
+directory you installed HedgeDoc in or change the <code>User</code> and <code>Group</code> settings in the unit
+file.</li>
+<li>Make sure <code>WorkingDirectory</code> points to the directory you installed HedgeDoc in.</li>
+<li>Make sure <code>ReadWritePaths</code> contains all directories HedgeDoc might write to. This may
+include the <code>public/uploads</code> folder if you configured local storage. If you use SQLite, you
+must also include the directory where the database file is saved. <strong>Do not save the SQLite
+file in the root directory of the HedgeDoc installation</strong>, but create a subfolder like <code>db</code>!</li>
+<li>If you use an external database like PostgreSQL or MariaDB, make sure to add a corresponding
+<code>After</code> statement.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">HedgeDoc - The best platform to write and share markdown.</span>
+<span class="na">Documentation</span><span class="o">=</span><span class="s">https://docs.hedgedoc.org/</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+<span class="c1"># Uncomment if you use MariaDB/MySQL</span>
+<span class="c1"># After=mysql.service</span>
+<span class="c1"># Uncomment if you use PostgreSQL</span>
+<span class="c1"># After=postgresql.service</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">exec</span>
+<span class="na">Environment</span><span class="o">=</span><span class="s">NODE_ENV=production</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="na">RestartSec</span><span class="o">=</span><span class="s">2s</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/yarn start --production</span>
+<span class="na">CapabilityBoundingSet</span><span class="o">=</span>
+<span class="na">NoNewPrivileges</span><span class="o">=</span><span class="s">true</span>
+<span class="na">PrivateDevices</span><span class="o">=</span><span class="s">true</span>
+<span class="na">RemoveIPC</span><span class="o">=</span><span class="s">true</span>
+<span class="na">LockPersonality</span><span class="o">=</span><span class="s">true</span>
+<span class="na">ProtectControlGroups</span><span class="o">=</span><span class="s">true</span>
+<span class="na">ProtectKernelTunables</span><span class="o">=</span><span class="s">true</span>
+<span class="na">ProtectKernelModules</span><span class="o">=</span><span class="s">true</span>
+<span class="na">ProtectKernelLogs</span><span class="o">=</span><span class="s">true</span>
+<span class="na">ProtectClock</span><span class="o">=</span><span class="s">true</span>
+<span class="na">ProtectHostname</span><span class="o">=</span><span class="s">true</span>
+<span class="na">ProtectProc</span><span class="o">=</span><span class="s">noaccess</span>
+<span class="na">RestrictRealtime</span><span class="o">=</span><span class="s">true</span>
+<span class="na">RestrictSUIDSGID</span><span class="o">=</span><span class="s">true</span>
+<span class="na">RestrictNamespaces</span><span class="o">=</span><span class="s">true</span>
+<span class="na">RestrictAddressFamilies</span><span class="o">=</span><span class="s">AF_UNIX AF_INET AF_INET6</span>
+<span class="na">ProtectSystem</span><span class="o">=</span><span class="s">strict</span>
+<span class="na">ProtectHome</span><span class="o">=</span><span class="s">true</span>
+<span class="na">PrivateTmp</span><span class="o">=</span><span class="s">true</span>
+<span class="na">SystemCallArchitectures</span><span class="o">=</span><span class="s">native</span>
+<span class="na">SystemCallFilter</span><span class="o">=</span><span class="s">@system-service</span>
+
+<span class="c1"># You may have to adjust these settings</span>
+<span class="na">User</span><span class="o">=</span><span class="s">hedgedoc</span>
+<span class="na">Group</span><span class="o">=</span><span class="s">hedgedoc</span>
+<span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/opt/hedgedoc</span>
+
+<span class="c1"># Example: local storage for uploads and SQLite</span>
+<span class="c1"># ReadWritePaths=/opt/hedgedoc/public/uploads /opt/hedgedoc/db</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</code></pre></div>
                 
               
               
@@ -1158,7 +1239,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7353b375.min.js"></script>
       
     
   </body>

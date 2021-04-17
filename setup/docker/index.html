@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://docs.hedgedoc.org/setup/docker/">
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9299cb39.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -423,15 +423,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#debian-based-version" class="md-nav__link">
-    Debian-based version
+  <a href="#upgrading" class="md-nav__link">
+    Upgrading
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-from-codimd-hackmd" class="md-nav__link">
+    Migrating from CodiMD &amp; HackMD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    Backup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#alpine-based-version" class="md-nav__link">
-    Alpine-based version
+  <a href="#restore" class="md-nav__link">
+    Restore
   </a>
   
 </li>
@@ -824,18 +844,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/migrations-and-breaking-changes/" class="md-nav__link">
-        Breaking Changes
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../guides/migration-troubleshooting/" class="md-nav__link">
         Migration Troubleshooting
       </a>
@@ -1041,17 +1049,83 @@
                 
                 
                 <h1 id="hedgedoc-docker-image">HedgeDoc Docker Image<a class="headerlink" href="#hedgedoc-docker-image" title="Permanent link">&para;</a></h1>
-<p><a href="http://play-with-docker.com?stack=https://github.com/hedgedoc/container/raw/master/docker-compose.yml&amp;stack_name=hedgedoc"><img alt="Try in PWD" src="https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png" /></a></p>
-<h2 id="debian-based-version">Debian-based version<a class="headerlink" href="#debian-based-version" title="Permanent link">&para;</a></h2>
-<p><a href="https://quay.io/repository/hedgedoc/hedgedoc"><img alt="Docker Repository on Quay" src="https://quay.io/repository/hedgedoc/hedgedoc/status" title="Docker Repository on Quay" /></a></p>
-<h2 id="alpine-based-version">Alpine-based version<a class="headerlink" href="#alpine-based-version" title="Permanent link">&para;</a></h2>
-<p><a href="https://quay.io/repository/hedgedoc/hedgedoc"><img alt="Docker Repository on Quay" src="https://quay.io/repository/hedgedoc/hedgedoc/status" title="Docker Repository on Quay" /></a></p>
-<p>The easiest way to setup HedgeDoc using docker are using the following three commands:</p>
-<p><div class="highlight"><pre><span></span><code>git clone https://github.com/hedgedoc/container.git hedgedoc-container
-<span class="nb">cd</span> hedgedoc-container
-docker-compose up
+<div class="admonition info">
+<p class="admonition-title">Requirements on your server</p>
+<ul>
+<li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="https://docs.docker.com/get-docker/">Docker</a> 17.03.1 or higher</li>
+<li><a href="https://docs.docker.com/compose/install/">Docker Compose</a></li>
+</ul>
+</div>
+<p>The official docker images are <a href="https://quay.io/repository/hedgedoc/hedgedoc">available on quay.io</a>.
+We currently only support the <code>amd64</code> architecture.</p>
+<p>The easiest way to get started with HedgeDoc and Docker is to use the following <code>docker-compose.yml</code>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a minimal example to get started quickly and not intended for production use.</p>
+</div>
+<p><div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;3&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">database</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres:9.6-alpine</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_USER=hedgedoc</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD=password</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_DB=hedgedoc</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">database:/var/lib/postgresql/data</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+  <span class="nt">app</span><span class="p">:</span>
+    <span class="c1"># Make sure to use the latest release from https://hedgedoc.org/latest-release</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">quay.io/hedgedoc/hedgedoc:1.7.2</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_DB_URL=postgres://hedgedoc:password@database:5432/hedgedoc</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_DOMAIN=localhost</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_URL_ADDPORT=true</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">uploads:/hedgedoc/public/uploads</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;3000:3000&quot;</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
+<span class="nt">volumes</span><span class="p">:</span>
+  <span class="nt">database</span><span class="p">:</span>
+  <span class="nt">uploads</span><span class="p">:</span>
 </code></pre></div>
-Read more about it in the <a href="https://github.com/hedgedoc/container">container repository</a>.</p>
+After executing <code>docker-compose up</code>, HedgeDoc should be available at <a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a>.<br />
+You can now continue to configure your container with environment variables.
+Check out <a href="/configuration">the configuration docs</a> for more details.</p>
+<h2 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before you upgrade, <strong>always read the release notes</strong>.<br />
+You can find them on our <a href="https://hedgedoc.org/releases/">releases page</a>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Upgrading to 1.7</p>
+<p>Together with changing the name to "HedgeDoc" the default username,
+password and database name have been changed in <code>docker-compose.yml</code>.</p>
+<p>In order to migrate the existing database to the new default credentials, run
+<div class="highlight"><pre><span></span><code>docker-compose <span class="nb">exec</span> database createuser --superuser -Uhackmd postgres
+docker-compose <span class="nb">exec</span> database psql -Upostgres -c <span class="s2">&quot;alter role hackmd rename to hedgedoc; alter role hedgedoc with password &#39;password&#39;; alter database hackmd rename to hedgedoc;&quot;</span>
+</code></pre></div>
+before running <code>docker-compose up</code>.</p>
+</div>
+<p>You can upgrade to the latest release by stopping the containers and changing the referenced image version in <code>docker-compose.yml</code>.<br />
+Then run <code>docker-compose up</code> to start HedgeDoc again. </p>
+<h3 id="migrating-from-codimd-hackmd">Migrating from CodiMD &amp; HackMD<a class="headerlink" href="#migrating-from-codimd-hackmd" title="Permanent link">&para;</a></h3>
+<p>If you currently use CodiMD or HackMD, you should be able to swap the docker image for ours.
+See <a href="/setup/getting-started/#migrating-from-codimd-hackmd">the general migration hints</a> for compatibility details.</p>
+<h2 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h2>
+<p>If you use a PostgreSQL database, you can leverage this command to create a backup: </p>
+<div class="highlight"><pre><span></span><code> docker-compose <span class="nb">exec</span> database pg_dump hedgedoc -U hedgedoc &gt; backup.sql
+</code></pre></div>
+<h2 id="restore">Restore<a class="headerlink" href="#restore" title="Permanent link">&para;</a></h2>
+<p>If you want to restore your PostgreSQL backup, run these commands before starting the application for the first time:</p>
+<div class="highlight"><pre><span></span><code>docker-compose up -d database
+cat backup.sql <span class="p">|</span> docker <span class="nb">exec</span> -i <span class="k">$(</span>docker-compose ps -q database<span class="k">)</span> psql -U hedgedoc
+</code></pre></div>
                 
               
               
@@ -1123,7 +1197,7 @@ Read more about it in the <a href="https://github.com/hedgedoc/container">contai
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7353b375.min.js"></script>
       
     
   </body>
