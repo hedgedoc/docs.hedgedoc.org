@@ -12,21 +12,21 @@
         <meta name="author" content="HedgeDoc Developers">
       
       
-        <link rel="canonical" href="https://docs.hedgedoc.org/guides/reverse-proxy/">
+        <link rel="canonical" href="https://docs.hedgedoc.org/guides/auth/authelia/">
       
-      <link rel="icon" href="../../images/favicon.png">
+      <link rel="icon" href="../../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.11">
     
     
       
-        <title>Reverse Proxy - HedgeDoc</title>
+        <title>OAuth with Authelia SSO (self-hosted) - HedgeDoc</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.50e68009.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50e68009.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -35,11 +35,11 @@
       
     
     
-      <link rel="stylesheet" href="../../theme/styles/hedgedoc-custom.css">
+      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
     
-      <link rel="stylesheet" href="../../theme/styles/roboto.css">
+      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-a-reverse-proxy-with-hedgedoc" class="md-skip">
+        <a href="#oauth-with-authelia-sso-self-hosted" class="md-skip">
           Skip to content
         </a>
       
@@ -81,9 +81,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="HedgeDoc" class="md-header__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
+    <a href="../../.." title="HedgeDoc" class="md-header__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../../../images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reverse Proxy
+              OAuth with Authelia SSO (self-hosted)
             
           </span>
         </div>
@@ -196,7 +196,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../.." class="md-tabs__link">
+    <a href="../../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -211,7 +211,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../setup/getting-started/" class="md-tabs__link">
+      <a href="../../../setup/getting-started/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -221,15 +221,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../reverse-proxy/" class="md-tabs__link">
         Guides
       </a>
     </li>
@@ -242,7 +240,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../configuration/" class="md-tabs__link">
+    <a href="../../../configuration/" class="md-tabs__link">
       Configuration
     </a>
   </li>
@@ -257,7 +255,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../references/hfm/" class="md-tabs__link">
+      <a href="../../../references/hfm/" class="md-tabs__link">
         References
       </a>
     </li>
@@ -273,7 +271,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../dev/getting-started/" class="md-tabs__link">
+      <a href="../../../dev/getting-started/" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -286,7 +284,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../faq/" class="md-tabs__link">
+    <a href="../../../faq/" class="md-tabs__link">
       FAQ
     </a>
   </li>
@@ -315,9 +313,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
+    <a href="../../.." title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../../../images/logo.svg" alt="logo">
 
     </a>
     HedgeDoc
@@ -345,7 +343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -386,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/getting-started/" class="md-nav__link">
+      <a href="../../../setup/getting-started/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -428,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/docker/" class="md-nav__link">
+      <a href="../../../setup/docker/" class="md-nav__link">
         Docker Image
       </a>
     </li>
@@ -442,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/manual-setup/" class="md-nav__link">
+      <a href="../../../setup/manual-setup/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -456,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/heroku/" class="md-nav__link">
+      <a href="../../../setup/heroku/" class="md-nav__link">
         Heroku
       </a>
     </li>
@@ -505,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/docker-linuxserver/" class="md-nav__link">
+      <a href="../../../setup/docker-linuxserver/" class="md-nav__link">
         LinuxServer Docker Image
       </a>
     </li>
@@ -519,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/kubernetes-helm/" class="md-nav__link">
+      <a href="../../../setup/kubernetes-helm/" class="md-nav__link">
         Helm Chart
       </a>
     </li>
@@ -533,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/yunohost/" class="md-nav__link">
+      <a href="../../../setup/yunohost/" class="md-nav__link">
         YunoHost App
       </a>
     </li>
@@ -547,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/cloudron/" class="md-nav__link">
+      <a href="../../../setup/cloudron/" class="md-nav__link">
         Cloudron App
       </a>
     </li>
@@ -561,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/arch-linux/" class="md-nav__link">
+      <a href="../../../setup/arch-linux/" class="md-nav__link">
         Arch Linux Package
       </a>
     </li>
@@ -588,14 +586,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -616,113 +612,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Reverse Proxy
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reverse-proxy/" class="md-nav__link">
         Reverse Proxy
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cloudflare" class="md-nav__link">
-    Cloudflare
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hedgedoc-config" class="md-nav__link">
-    HedgeDoc config
-  </a>
-  
-    <nav class="md-nav" aria-label="HedgeDoc config">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-configuration-options" class="md-nav__link">
-    Useful configuration options
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-asset-link-generation" class="md-nav__link">
-    Configure asset link generation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reverse-proxy-config" class="md-nav__link">
-    Reverse Proxy config
-  </a>
-  
-    <nav class="md-nav" aria-label="Reverse Proxy config">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generic" class="md-nav__link">
-    Generic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nginx" class="md-nav__link">
-    Nginx
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apache" class="md-nav__link">
-    Apache
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -762,7 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/ldap-ad/" class="md-nav__link">
+      <a href="../ldap-ad/" class="md-nav__link">
         LDAP
       </a>
     </li>
@@ -776,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/oauth/" class="md-nav__link">
+      <a href="../oauth/" class="md-nav__link">
         OAuth
       </a>
     </li>
@@ -790,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/saml/" class="md-nav__link">
+      <a href="../saml/" class="md-nav__link">
         SAML
       </a>
     </li>
@@ -804,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/saml-keycloak/" class="md-nav__link">
+      <a href="../saml-keycloak/" class="md-nav__link">
         SAML Keycloak
       </a>
     </li>
@@ -818,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/saml-onelogin/" class="md-nav__link">
+      <a href="../saml-onelogin/" class="md-nav__link">
         SAML OneLogin
       </a>
     </li>
@@ -832,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/github/" class="md-nav__link">
+      <a href="../github/" class="md-nav__link">
         GitHub
       </a>
     </li>
@@ -846,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/gitlab-self-hosted/" class="md-nav__link">
+      <a href="../gitlab-self-hosted/" class="md-nav__link">
         GitLab
       </a>
     </li>
@@ -860,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/keycloak/" class="md-nav__link">
+      <a href="../keycloak/" class="md-nav__link">
         Keycloak
       </a>
     </li>
@@ -874,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/mattermost-self-hosted/" class="md-nav__link">
+      <a href="../mattermost-self-hosted/" class="md-nav__link">
         Mattermost
       </a>
     </li>
@@ -888,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/nextcloud/" class="md-nav__link">
+      <a href="../nextcloud/" class="md-nav__link">
         Nextcloud
       </a>
     </li>
@@ -902,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth/twitter/" class="md-nav__link">
+      <a href="../twitter/" class="md-nav__link">
         Twitter
       </a>
     </li>
@@ -951,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../minio-image-upload/" class="md-nav__link">
+      <a href="../../minio-image-upload/" class="md-nav__link">
         MinIO
       </a>
     </li>
@@ -965,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../s3-image-upload/" class="md-nav__link">
+      <a href="../../s3-image-upload/" class="md-nav__link">
         S3
       </a>
     </li>
@@ -986,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migrate-etherpad/" class="md-nav__link">
+      <a href="../../migrate-etherpad/" class="md-nav__link">
         Migrate from Etherpad
       </a>
     </li>
@@ -1000,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migration-troubleshooting/" class="md-nav__link">
+      <a href="../../migration-troubleshooting/" class="md-nav__link">
         Migration Troubleshooting
       </a>
     </li>
@@ -1014,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../providing-terms/" class="md-nav__link">
+      <a href="../../providing-terms/" class="md-nav__link">
         Terms of Use Setup
       </a>
     </li>
@@ -1036,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/" class="md-nav__link">
+      <a href="../../../configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -1077,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../references/hfm/" class="md-nav__link">
+      <a href="../../../references/hfm/" class="md-nav__link">
         HedgeDoc Flavored Markdown
       </a>
     </li>
@@ -1125,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/getting-started/" class="md-nav__link">
+      <a href="../../../dev/getting-started/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -1139,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/api/" class="md-nav__link">
+      <a href="../../../dev/api/" class="md-nav__link">
         API
       </a>
     </li>
@@ -1153,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/ot/" class="md-nav__link">
+      <a href="../../../dev/ot/" class="md-nav__link">
         Operational Transformation
       </a>
     </li>
@@ -1167,7 +1061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/webpack/" class="md-nav__link">
+      <a href="../../../dev/webpack/" class="md-nav__link">
         Webpack
       </a>
     </li>
@@ -1181,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/documentation/" class="md-nav__link">
+      <a href="../../../dev/documentation/" class="md-nav__link">
         Documentation
       </a>
     </li>
@@ -1203,7 +1097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -1222,163 +1116,75 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/reverse-proxy.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/hedgedoc/hedgedoc/edit/master/docs/content/guides/auth/authelia.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="using-a-reverse-proxy-with-hedgedoc">Using a Reverse Proxy with HedgeDoc<a class="headerlink" href="#using-a-reverse-proxy-with-hedgedoc" title="Permanent link">&para;</a></h1>
-<p>If you want to use a reverse proxy to serve HedgeDoc, here are the essential
-configs that you'll have to do.</p>
-<p>This documentation will cover HTTPS setup, with comments for HTTP setup.</p>
-<h2 id="cloudflare">Cloudflare<a class="headerlink" href="#cloudflare" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If you use Cloudflare as reverse proxy then you <strong>MUST</strong> disable the minify features for HTML, CSS and JS, or your HedgeDoc instance may be broken.
-For more information please read the <a href="https://support.cloudflare.com/hc/en-us/articles/200168196-How-do-I-minify-HTML-CSS-and-JavaScript-to-optimize-my-site-">Cloudflare documentation</a>.</p>
-</div>
-<h2 id="hedgedoc-config">HedgeDoc config<a class="headerlink" href="#hedgedoc-config" title="Permanent link">&para;</a></h2>
-<h3 id="useful-configuration-options">Useful configuration options<a class="headerlink" href="#useful-configuration-options" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th><code>config.json</code> parameter</th>
-<th>Environment variable</th>
-<th>Value</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>domain</code></td>
-<td><code>CMD_DOMAIN</code></td>
-<td>The full domain where your instance will be available</td>
-<td><code>hedgedoc.example.com</code></td>
-</tr>
-<tr>
-<td><code>host</code></td>
-<td><code>CMD_HOST</code></td>
-<td>An ip or domain name that is only available to HedgeDoc and your reverse proxy</td>
-<td><code>localhost</code></td>
-</tr>
-<tr>
-<td><code>port</code></td>
-<td><code>CMD_PORT</code></td>
-<td>An available port number on that IP</td>
-<td><code>3000</code></td>
-</tr>
-<tr>
-<td><code>path</code></td>
-<td><code>CMD_PATH</code></td>
-<td>path to UNIX domain socket to listen on (if specified, <code>host</code> or <code>CMD_HOST</code> and <code>port</code> or <code>CMD_PORT</code> are ignored)</td>
-<td><code>/var/run/hedgedoc.sock</code></td>
-</tr>
-<tr>
-<td><code>protocolUseSSL</code></td>
-<td><code>CMD_PROTOCOL_USESSL</code></td>
-<td><code>true</code> if you want to serve your instance over SSL (HTTPS), <code>false</code> if you want to use plain HTTP</td>
-<td><code>true</code></td>
-</tr>
-<tr>
-<td><code>useSSL</code></td>
-<td></td>
-<td><code>false</code>, the communications between HedgeDoc and the proxy are unencrypted</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>urlAddPort</code></td>
-<td><code>CMD_URL_ADDPORT</code></td>
-<td><code>false</code>, HedgeDoc should not append its port to the URLs it links</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>hsts.enable</code></td>
-<td><code>CMD_HSTS_ENABLE</code></td>
-<td><code>true</code> if you host over SSL, <code>false</code> otherwise</td>
-<td><code>true</code></td>
-</tr>
-</tbody>
-</table>
-<p><a href="../../configuration/">Full explanation of the configuration options</a></p>
-<h3 id="configure-asset-link-generation">Configure asset link generation<a class="headerlink" href="#configure-asset-link-generation" title="Permanent link">&para;</a></h3>
-<p>HedgeDoc generates links to other pages and to assets (like images, stylesheets, fonts, etc) using the following settings. You must configure them according to the URL that you use to access your instance.</p>
-<ul>
-<li><code>domain</code> (env: <code>CMD_DOMAIN</code>)</li>
-<li><code>protocolUseSSL</code> (env: <code>CMD_PROTOCOL_USESSL</code>)</li>
-<li><code>urlAddPort</code> (env: <code>CMD_URL_ADDPORT</code>)</li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>You access your HedgeDoc instance using a reverse proxy via <code>https://markdown.example</code>. You must set:</p>
-<ul>
-<li><code>domain</code> to <code>markdown.example</code>.</li>
-<li><code>protocolUseSSL</code> to <code>true</code> because you access your instance via HTTPS.</li>
-<li><code>urlAddPort</code> to <code>false</code> because you access the instance using the default HTTPS port.</li>
-</ul>
-</div>
-<h2 id="reverse-proxy-config">Reverse Proxy config<a class="headerlink" href="#reverse-proxy-config" title="Permanent link">&para;</a></h2>
-<h3 id="generic">Generic<a class="headerlink" href="#generic" title="Permanent link">&para;</a></h3>
-<p>The reverse proxy must allow websocket <code>Upgrade</code> requests at path <code>/sockets.io/</code>.</p>
-<p>It must pass through the scheme used by the client (http or https).</p>
-<h3 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h3>
-<p>Here is an example configuration for Nginx.</p>
-<div class="highlight"><pre><span></span><code>map $http_upgrade $connection_upgrade {
-        default upgrade;
-        &#39;&#39;      close;
-}
-server {
-        server_name hedgedoc.example.com;
-
-        location / {
-                proxy_pass http://127.0.0.1:3000;
-                proxy_set_header Host $host; 
-                proxy_set_header X-Real-IP $remote_addr; 
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
-                proxy_set_header X-Forwarded-Proto $scheme;
-        }
-
-        location /socket.io/ {
-                proxy_pass http://127.0.0.1:3000;
-                proxy_set_header Host $host; 
-                proxy_set_header X-Real-IP $remote_addr; 
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
-                proxy_set_header X-Forwarded-Proto $scheme;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-        }
-
-    listen [::]:443 ssl http2;
-    listen 443 ssl http2;
-    ssl_certificate fullchain.pem;
-    ssl_certificate_key privkey.pem;
-    include options-ssl-nginx.conf;
-    ssl_dhparam ssl-dhparams.pem;
-}
+<h1 id="oauth-with-authelia-sso-self-hosted">OAuth with Authelia SSO (self-hosted)<a class="headerlink" href="#oauth-with-authelia-sso-self-hosted" title="Permanent link">&para;</a></h1>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>This guide assumes you have run and configured <a href="https://www.authelia.com/">Authelia</a>. If you want to get Authelia running quickly, there are example docker-compose files in the <a href="https://github.com/authelia/authelia/tree/master/examples/compose">Authelia Github repository</a>.
+Also this guides assumes you run HedgeDoc via a <a href="../../../setup/docker/">Docker container</a>. Find out how the mentioned config environment variables are mapped to entries in the config file at our <a href="../../../configuration/">configuration page</a>.</p>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Set up the necessary OpenID Connect parameters in your Authelia <code>configuration.yml</code> as explained in the documentation at <a href="https://www.authelia.com/docs/configuration/identity-providers/oidc.html">https://www.authelia.com/docs/configuration/identity-providers/oidc.html</a>.</li>
+<li>Make sure to generate safe secrets (such as <code>LENGTH=64; tr -cd '[:alnum:]' &lt; /dev/urandom | fold -w "${LENGTH}" | head -n 1 | tr -d '\n' ; echo</code>)</li>
+<li>A completed <code>identity_providers</code> section of the configuration may look like the following (the chosen Client ID <code>id</code> shouldn't actually be this guessable for safety reasons):</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nt">identity_providers</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">oidc</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">hmac_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;hmac secret here&gt;</span><span class="w"> </span><span class="c1"># use docker secrets for this</span><span class="w"></span>
+<span class="w">    </span><span class="nt">issuer_private_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;issuer private key secret here&gt;</span><span class="w"> </span><span class="c1"># use docker secrets for this</span><span class="w"></span>
+<span class="w">    </span><span class="nt">access_token_lifespan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span><span class="w"></span>
+<span class="w">    </span><span class="nt">authorize_code_lifespan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1m</span><span class="w"></span>
+<span class="w">    </span><span class="nt">id_token_lifespan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span><span class="w"></span>
+<span class="w">    </span><span class="nt">refresh_token_lifespan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90m</span><span class="w"></span>
+<span class="w">    </span><span class="nt">enable_client_debug_messages</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">    </span><span class="nt">clients</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HedgeDoc</span><span class="w"> </span><span class="c1"># this should be changed to something more secure</span><span class="w"></span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HedgeDoc SSO</span><span class="w"></span>
+<span class="w">        </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;client secret here&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">        </span><span class="nt">authorization_policy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">two_factor</span><span class="w"></span>
+<span class="w">        </span><span class="nt">audience</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
+<span class="w">        </span><span class="nt">scopes</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openid</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">email</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">profile</span><span class="w"></span>
+<span class="w">        </span><span class="nt">redirect_uris</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://&lt;your-hedgedoc-url&gt;/auth/oauth2/callback</span><span class="w"></span>
+<span class="w">        </span><span class="nt">grant_types</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">refresh_token</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">authorization_code</span><span class="w"></span>
+<span class="w">        </span><span class="nt">response_types</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code</span><span class="w"></span>
+<span class="w">        </span><span class="nt">response_modes</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">form_post</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">query</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fragment</span><span class="w"></span>
+<span class="w">        </span><span class="nt">userinfo_signing_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span><span class="w"></span>
 </code></pre></div>
-<h3 id="apache">Apache<a class="headerlink" href="#apache" title="Permanent link">&para;</a></h3>
-<p>You will need these modules enabled: <code>proxy</code>, <code>proxy_http</code> and <code>proxy_wstunnel</code>.<br />
-Here is an example config snippet:
-<div class="highlight"><pre><span></span><code>&lt;VirtualHost *:443&gt;
-  ServerName hedgedoc.example.com
-
-  RewriteEngine on
-  RewriteCond %{REQUEST_URI} ^/socket.io             [NC]
-  RewriteCond %{HTTP:Upgrade} =websocket             [NC]
-  RewriteRule /(.*)  ws://127.0.0.1:3000/$1          [P,L]
-
-  ProxyPass / http://127.0.0.1:3000/
-  ProxyPassReverse / http://127.0.0.1:3000/
-
-  RequestHeader set &quot;X-Forwarded-Proto&quot; expr=%{REQUEST_SCHEME}
-
-  ErrorLog ${APACHE_LOG_DIR}/error.log
-  CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-  SSLCertificateFile /etc/letsencrypt/live/hedgedoc.example.com/fullchain.pem
-  SSLCertificateKeyFile /etc/letsencrypt/live/hedgedoc.example.com/privkey.pem
-  Include /etc/letsencrypt/options-ssl-apache.conf
-&lt;/VirtualHost&gt;
-</code></pre></div></p>
+<ol>
+<li>Restart Authelia to apply to new configuration and check for any errors in the log</li>
+<li>In the <code>docker-compose.yml</code> of HedgeDoc add the following environment variables (you can choose different attributes for e.g. the display name - all available attributes you can find in the <a href="https://www.authelia.com/docs/configuration/identity-providers/oidc.html#scope-definitions">scope definitions</a>):</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_URL_ADDPORT=false</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_PROTOCOL_USESSL=true</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_PROVIDERNAME=Authelia</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_ID=HedgeDoc</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_SECRET=&lt;client secret here&gt;</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_SCOPE=openid email profile</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=sub</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR=name</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR=email</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_URL=https://&lt;your-authelia-url&gt;/api/oidc/userinfo</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_TOKEN_URL=https://&lt;your-authelia-url&gt;/api/oidc/token</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_AUTHORIZATION_URL=https://&lt;your-authelia-url&gt;/api/oidc/authorize</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>Run <code>docker-compose up -d</code> on HedgeDoc to apply your settings.</li>
+<li>Sign in to your HedgeDoc using your Authelia login</li>
+</ol>
 
               
             </article>
@@ -1388,41 +1194,6 @@ Here is an example config snippet:
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../../setup/arch-linux/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Arch Linux Package" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Arch Linux Package
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../auth/ldap-ad/" class="md-footer__link md-footer__link--next" aria-label="Next: LDAP" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              LDAP
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1444,10 +1215,10 @@ Here is an example config snippet:
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5a9542cf.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5a9542cf.min.js"></script>
       
     
   </body>
