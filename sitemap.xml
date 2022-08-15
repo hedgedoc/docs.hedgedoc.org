@@ -2,167 +2,167 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.hedgedoc.org/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/configuration/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/faq/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/dev/api/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/dev/documentation/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/dev/getting-started/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/dev/ot/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/dev/webpack/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/migrate-etherpad/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/migration-troubleshooting/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/minio-image-upload/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/providing-terms/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/reverse-proxy/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/s3-image-upload/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/authelia/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/github/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/gitlab-self-hosted/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/keycloak/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/ldap-ad/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/mattermost-self-hosted/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/nextcloud/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/oauth/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/saml-keycloak/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/saml-onelogin/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/saml/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/guides/auth/twitter/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/references/hfm/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/references/slide-options/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/references/url-scheme/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/setup/community/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/setup/docker/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/setup/getting-started/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.hedgedoc.org/setup/manual-setup/</loc>
-         <lastmod>2022-07-10</lastmod>
+         <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
