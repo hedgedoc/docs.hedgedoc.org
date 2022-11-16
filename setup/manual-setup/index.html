@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.hedgedoc.org/setup/manual-setup/">
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -113,6 +113,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="light" data-md-color-primary="hedgedoc" data-md-color-accent="hedgedoc"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
@@ -120,6 +121,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="hedgedoc" data-md-color-accent="hedgedoc"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
@@ -1108,7 +1110,7 @@
 <ol>
 <li>Check if you meet the <a href="#manual-installation">requirements at the top of this document</a>.</li>
 <li>Download the <a href="https://hedgedoc.org/latest-release/">latest release</a> and extract it.<br />
-   <small>Alternatively, you can use Git to clone the repository and checkout a release, e.g. with <code>git clone -b 1.9.4 https://github.com/hedgedoc/hedgedoc.git</code>.</small></li>
+   <small>Alternatively, you can use Git to clone the repository and checkout a release, e.g. with <code>git clone -b 1.9.6 https://github.com/hedgedoc/hedgedoc.git</code>.</small></li>
 <li>Enter the directory and execute <code>bin/setup</code>, which will install the dependencies and create example configs.</li>
 <li>Configure HedgeDoc: To get started, you can use this minimal <code>config.json</code>:
    <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
@@ -1148,7 +1150,7 @@ You can find them on our <a href="https://hedgedoc.org/releases/">releases page<
    and the latest release.</li>
 <li>Fully stop your old HedgeDoc server.</li>
 <li><a href="https://hedgedoc.org/latest-release/">Download</a> the new release and extract it over the old directory.<br />
-   <small>If you use Git, you can check out the new tag with e.g. <code>git fetch origin &amp;&amp; git checkout 1.9.4</code></small></li>
+   <small>If you use Git, you can check out the new tag with e.g. <code>git fetch origin &amp;&amp; git checkout 1.9.6</code></small></li>
 <li>Run <code>bin/setup</code>. This will take care of installing dependencies. It is safe to run on an existing installation.</li>
 <li><em><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.695 8.695 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.75.75 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75zM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75zM5.75 12a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5z"/></svg></span> If you used the release tarball for 1.7.0 or newer, this step can be skipped.</em><br />
    Build the frontend bundle by running <code>yarn install --frozen-lockfile</code> and <code>yarn build</code>. The extra <code>yarn install --frozen-lockfile</code> is necessary as <code>bin/setup</code> does not install the       build dependencies.</li>
@@ -1298,10 +1300,10 @@ file in the root directory of the HedgeDoc installation</strong>, but create a s
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
     
   </body>
