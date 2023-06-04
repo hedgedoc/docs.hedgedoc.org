@@ -21,7 +21,7 @@
         <link rel="next" href="../community/">
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -1136,7 +1136,8 @@
 <div class="admonition info">
 <p class="admonition-title">Requirements on your server</p>
 <ul>
-<li>Node.js <code>&gt;= 14.13.1</code> or any version of Node 16. Node 18 is NOT supported. We recommend to run HedgeDoc with the latest release of Node 16.</li>
+<li>Node.js 16 or later
+  We recommend to run HedgeDoc with the latest LTS release of Node.js.</li>
 <li>Database (PostgreSQL, MySQL, MariaDB, SQLite)<br />
   The database must use charset <code>utf8</code>. This is typically the default in PostgreSQL and SQLite.<br />
   In MySQL and MariaDB UTF-8 might need to be set with <code>alter database &lt;DBNAME&gt; character set utf8 collate utf8_bin;</code><br />
@@ -1144,7 +1145,9 @@
   This can break if symbols with more bytes are used.
   You can use <code>alter database &lt;DBNAME&gt; character set utf8mb4 COLLATE utf8mb4_unicode_ci</code> to be on the safe side.</li>
 <li>NPM (and its dependencies, <a href="https://github.com/nodejs/node-gyp#installation">node-gyp</a>)</li>
-<li><a href="https://classic.yarnpkg.com">Yarn Classic</a> 1.22 or higher (Yarn 2 is currently not supported)</li>
+<li><a href="https://yarnpkg.com/">Yarn 3</a>: Running <code>corepack enable</code> once should be sufficient, Node.js will then
+  automatically use the correct version of Yarn. If <code>corepack</code> is not available, try <code>npm i -g corepack</code> first.
+  See <a href="https://yarnpkg.com/getting-started/install">the official docs</a> for more information and other options.</li>
 <li>Bash (for the setup script)</li>
 <li>For <strong>building</strong> the HedgeDoc frontend you need a machine with at least <strong>2 GB</strong> RAM.<ul>
 <li>Starting with release 1.7 the release tarball includes the prebuilt frontend, so building it yourself is not necessary.</li>
@@ -1155,7 +1158,7 @@
 <ol>
 <li>Check if you meet the <a href="#manual-installation">requirements at the top of this document</a>.</li>
 <li>Download the <a href="https://hedgedoc.org/latest-release/">latest release</a> and extract it.<br />
-   <small>Alternatively, you can use Git to clone the repository and checkout a release, e.g. with <code>git clone -b 1.9.7 https://github.com/hedgedoc/hedgedoc.git</code>.</small></li>
+   <small>Alternatively, you can use Git to clone the repository and checkout a release, e.g. with <code>git clone -b 1.9.8 https://github.com/hedgedoc/hedgedoc.git</code>.</small></li>
 <li>Enter the directory and execute <code>bin/setup</code>, which will install the dependencies and create example configs.</li>
 <li>Configure HedgeDoc: To get started, you can use this minimal <code>config.json</code>:
    <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -1172,7 +1175,7 @@
    It's also possible to use environment variables.
    For details, have a look at <a href="../../configuration/">the configuration documentation</a>.</li>
 <li><em><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> If you use the release tarball for 1.7.0 or newer, this step can be skipped.</em><br />
-   Build the frontend bundle by running <code>yarn install --frozen-lockfile</code> and then <code>yarn build</code>. The extra <code>yarn install --frozen-lockfile</code> is necessary as <code>bin/setup</code> does not install the build dependencies.</li>
+   Build the frontend bundle by running <code>yarn install --immutable</code> and then <code>yarn build</code>. The extra <code>yarn install --immutable</code> is necessary as <code>bin/setup</code> does not install the build dependencies.</li>
 <li>It is recommended to start your server manually once:<br />
    <div class="highlight"><pre><span></span><code><span class="nv">NODE_ENV</span><span class="o">=</span>production<span class="w"> </span>yarn<span class="w"> </span>start
 </code></pre></div>
@@ -1195,10 +1198,10 @@ You can find them on our <a href="https://hedgedoc.org/releases/">releases page<
    and the latest release.</li>
 <li>Fully stop your old HedgeDoc server.</li>
 <li><a href="https://hedgedoc.org/latest-release/">Download</a> the new release and extract it over the old directory.<br />
-   <small>If you use Git, you can check out the new tag with e.g. <code>git fetch origin &amp;&amp; git checkout 1.9.7</code></small></li>
+   <small>If you use Git, you can check out the new tag with e.g. <code>git fetch origin &amp;&amp; git checkout 1.9.8</code></small></li>
 <li>Run <code>bin/setup</code>. This will take care of installing dependencies. It is safe to run on an existing installation.</li>
 <li><em><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> If you used the release tarball for 1.7.0 or newer, this step can be skipped.</em><br />
-   Build the frontend bundle by running <code>yarn install --frozen-lockfile</code> and <code>yarn build</code>. The extra <code>yarn install --frozen-lockfile</code> is necessary as <code>bin/setup</code> does not install the       build dependencies.</li>
+   Build the frontend bundle by running <code>yarn install --immutable</code> and <code>yarn build</code>. The extra <code>yarn install --immutable</code> is necessary as <code>bin/setup</code> does not install the       build dependencies.</li>
 <li>It is recommended to start your server manually once:
    <div class="highlight"><pre><span></span><code><span class="nv">NODE_ENV</span><span class="o">=</span>production<span class="w"> </span>yarn<span class="w"> </span>start
 </code></pre></div>
@@ -1238,7 +1241,7 @@ file in the root directory of the HedgeDoc installation</strong>, but create a s
 <span class="na">Environment</span><span class="o">=</span><span class="s">NODE_ENV=production</span>
 <span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
 <span class="na">RestartSec</span><span class="o">=</span><span class="s">2s</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/yarn start --production</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/yarn start</span>
 <span class="na">CapabilityBoundingSet</span><span class="o">=</span>
 <span class="na">NoNewPrivileges</span><span class="o">=</span><span class="s">true</span>
 <span class="na">PrivateDevices</span><span class="o">=</span><span class="s">true</span>
@@ -1312,7 +1315,7 @@ file in the root directory of the HedgeDoc installation</strong>, but create a s
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>
