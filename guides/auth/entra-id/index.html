@@ -12,7 +12,7 @@
         <meta name="author" content="HedgeDoc Developers">
       
       
-        <link rel="canonical" href="https://docs.hedgedoc.org/guides/auth/azure-ad/">
+        <link rel="canonical" href="https://docs.hedgedoc.org/guides/auth/entra-id/">
       
       
         <link rel="prev" href="../authelia/">
@@ -22,15 +22,15 @@
       
       
       <link rel="icon" href="../../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
-        <title>Azure Active Directory - HedgeDoc</title>
+        <title>Microsoft Entra ID (Azure AD) - HedgeDoc</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bcfcd587.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication-guide-azure-active-directory" class="md-skip">
+        <a href="#authentication-guide-microsoft-entra-id" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Azure Active Directory
+              Microsoft Entra ID (Azure AD)
             
           </span>
         </div>
@@ -411,20 +411,20 @@
     
     
     
-    
-    
       
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -472,20 +472,20 @@
     
     
     
-    
-    
       
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -592,14 +592,17 @@
     
     
     
-    
-    
+      
+        
+        
       
       
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
@@ -655,14 +658,17 @@
     
     
     
-    
-    
       
       
+        
+          
+          
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
@@ -954,15 +960,105 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Microsoft Entra ID (Azure AD)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Azure Active Directory
+    Microsoft Entra ID (Azure AD)
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-requisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-step
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-the-hedgedoc-app-in-azure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register the HedgeDoc app in Azure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-oauth2-bindings-in-azure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the OAuth2 bindings in Azure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-hedgedoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure HedgeDoc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-your-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test your login
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -986,14 +1082,17 @@
     
     
     
-    
-    
       
       
+        
+          
+          
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
@@ -1166,20 +1265,20 @@
     
     
     
-    
-    
       
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1297,20 +1396,20 @@
     
     
     
-    
-    
       
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1478,56 +1577,72 @@
   
 
 
-<h1 id="authentication-guide-azure-active-directory">Authentication Guide: Azure Active Directory<a class="headerlink" href="#authentication-guide-azure-active-directory" title="Permanent link">&para;</a></h1>
-<ol>
-<li>
-<p>Login or Sign-up on portal.azure.com  </p>
-</li>
-<li>
-<p>Navigate to Azure Active Directory from the homepage or the sidebar.<br />
-<img alt="azure active directory service in azure portal page" src="../../../images/auth/azure-active-directory-navigation.png" />  </p>
-</li>
-<li>
-<p>Navigate to App Registration<br />
-<img alt="where to create new app registration" src="../../../images/auth/azure-active-directory-new-registration.png" />  </p>
-</li>
-<li>
-<p>Enter Name "HedgeDoc". Then click on Register<br />
-<img alt="how to register an app" src="../../../images/auth/azure-active-directory-register.png" />  </p>
-</li>
-<li>
-<p>In the next page, click on <code>Add a certificate or secret</code> then navigate to <code>Client Secrets</code>.<br />
-   Create a new client secret, add a description of your choice and copy the secret value.<br />
-<img alt="generate new secret key" src="../../../images/auth/auzre-active-directory-new-secret.png" />  </p>
-</li>
-<li>
-<p>Navigate to authentication page, then add a new platform. Select web as the platform.<br />
-<img alt="Authentication page showing how to add a new web platform" src="../../../images/auth/azure-active-directory-authentication.png" />  </p>
-</li>
-<li>
-<p>Set the <code>Redirect URI</code> to <code>https://YOURHOSTNAME/auth/oauth2/callback</code>. Check <code>ID Tokens</code> and uncheck <code>Access Token</code>.<br />
-<img alt="configuring redirection uri" src="../../../images/auth/azure-active-directory-redirect-uri.png" />  </p>
-</li>
-<li>
-<p>Retrieve the APPLICATION-ID and DIRECTORY-ID from the "Overview" section.<br />
-<img alt="Find application id and directory id from overview page" src="../../../images/auth/azure-active-directory-overview.png" />  </p>
-</li>
-<li>
-<p>Pass in your credentials as environment variables down below.  </p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nv">CMD_OAUTH2_USER_PROFILE_URL</span><span class="o">=</span>graph.microsoft.com/v1.0/me
-<span class="nv">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR</span><span class="o">=</span>userPrincipalName
-<span class="nv">CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR</span><span class="o">=</span>displayName
-<span class="nv">CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR</span><span class="o">=</span>mail
-<span class="nv">CMD_OAUTH2_USER_PROFILE_ID_ATTR</span><span class="o">=</span>id
-<span class="nv">CMD_OAUTH2_TOKEN_URL</span><span class="o">=</span>https://login.microsoftonline.com/**DIRECTORY-ID**/oauth2/v2.0/token
-<span class="nv">CMD_OAUTH2_AUTHORIZATION_URL</span><span class="o">=</span>https://login.microsoftonline.com/**DIRECTORY-ID**/oauth2/v2.0/authorize
-<span class="nv">CMD_OAUTH2_CLIENT_ID</span><span class="o">=</span>APPLICATION-ID
-<span class="nv">CMD_OAUTH2_CLIENT_SECRET</span><span class="o">=</span>CLIENT-SECRET
-<span class="nv">CMD_OAUTH2_PROVIDERNAME</span><span class="o">=</span>AzureAD
-<span class="nv">CMD_OAUTH2_SCOPE</span><span class="o">=</span>openid<span class="w"> </span>offline_access<span class="w"> </span>email<span class="w"> </span>profile<span class="w"> </span>User.Read
+<h1 id="authentication-guide-microsoft-entra-id">Authentication Guide: Microsoft Entra ID<a class="headerlink" href="#authentication-guide-microsoft-entra-id" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Azure Active Directory was renamed to Microsoft Entra ID. Additionally, Microsoft Entra Connect v1 has been
+retired starting October 2023, so you should switch to Microsoft Entra Connect v2.x when using that.</p>
+</div>
+<h2 id="pre-requisites">Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permanent link">&para;</a></h2>
+<p>We assume, you've created an account on portal.azure.com and configured a tenant to use with Microsoft Entra ID.
+If you haven't done so, please follow the <a href="https://learn.microsoft.com/en-us/entra/fundamentals/create-new-tenant">official guide for that</a>.</p>
+<p>Open a text editor alongside to temporarily copy the id, secret and endpoints into it.</p>
+<h2 id="step-by-step">Step-by-step<a class="headerlink" href="#step-by-step" title="Permanent link">&para;</a></h2>
+<h3 id="register-the-hedgedoc-app-in-azure">Register the HedgeDoc app in Azure<a class="headerlink" href="#register-the-hedgedoc-app-in-azure" title="Permanent link">&para;</a></h3>
+<p>In the Azure Portal navigate to the Microsoft Entra ID service and select "App registrations" in the sidebar.</p>
+<p><img alt="Azure Portal with Microsoft Entra ID service dashboard" src="../../../images/auth/entra-id-dashboard.png" /></p>
+<p>Select "New registration".</p>
+<p><img alt="Azure Portal Microsoft Entra ID App registrations page" src="../../../images/auth/entra-id-app-register.png" /></p>
+<p>On the registration page enter a name like "HedgeDoc" and select which organizations should have access (the default allows only your tenant).
+If you want to allow any Microsoft account to be able to use your HedgeDoc instance, select the 3rd option.
+Finally confirm with the "Register" button.</p>
+<p><img alt="Azure Portal App registration" src="../../../images/auth/entra-id-app-registration.png" /></p>
+<h3 id="creating-the-oauth2-bindings-in-azure">Creating the OAuth2 bindings in Azure<a class="headerlink" href="#creating-the-oauth2-bindings-in-azure" title="Permanent link">&para;</a></h3>
+<p>You will now get to the details screen for your just created application. Copy the "Application (client) ID" into your temporary text editor as we need it later on.
+Continue by selecting "Authentication" in the sidebar.</p>
+<p><img alt="Azure Portal App details page" src="../../../images/auth/entra-id-app-details.png" /></p>
+<p>Click the button "Add a platform" and select the "Web" target.</p>
+<p><img alt="Azure Portal Add platform for app" src="../../../images/auth/entra-id-create-platform.png" /></p>
+<p>As a next step, navigate to "Certificates &amp; secrets" via the sidebar and click the "New secret" button.
+Enter a description as you like and select the expiry time.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Set yourself a reminder before the secret expires to create a new secret and update the configuration of HedgeDoc.
+Otherwise your users won't be able to sign-in anymore.</p>
+</div>
+<p><img alt="Azure Portal Create secret" src="../../../images/auth/entra-id-client-secret.png" /></p>
+<p>Copy the secret value after creation from the page, as you can't access it anytime later again.</p>
+<p>Return back to the overview of your HedgeDoc app in Azure and select "Endpoints" from the top bar.
+Copy the values of the "OAuth 2.0 authorization endpoint (v2)" and the "OAuth 2.0 token endpoint (v2)".
+Ensure, you copied the v2 URLs as the v1 URLs will stop working in the future.</p>
+<p><img alt="Azure Portal Endpoints" src="../../../images/auth/entra-id-endpoints.png" /></p>
+<h3 id="configure-hedgedoc">Configure HedgeDoc<a class="headerlink" href="#configure-hedgedoc" title="Permanent link">&para;</a></h3>
+<p>Add the following environment variables to your configuration (for example in the <code>docker-compose.yml</code>).
+Be sure to replace the values as mentioned in the comments below.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Replace these URLs with the ones previously copied.</span>
+<span class="nv">CMD_OAUTH2_AUTHORIZATION_URL</span><span class="o">=</span><span class="s2">&quot;https://login.microsoftonline.com/123456/oauth2/v2.0/authorize&quot;</span>
+<span class="nv">CMD_OAUTH2_TOKEN_URL</span><span class="o">=</span><span class="s2">&quot;https://login.microsoftonline.com/123456/oauth2/v2.0/token&quot;</span>
+
+<span class="c1"># Replace these values with the previously copied ID and secret.</span>
+<span class="nv">CMD_OAUTH2_CLIENT_ID</span><span class="o">=</span><span class="s2">&quot;APPLICATION-ID&quot;</span>
+<span class="nv">CMD_OAUTH2_CLIENT_SECRET</span><span class="o">=</span><span class="s2">&quot;CLIENT-SECRET&quot;</span>
+
+<span class="c1"># Change the name if you like it</span>
+<span class="nv">CMD_OAUTH2_PROVIDERNAME</span><span class="o">=</span><span class="s2">&quot;Microsoft Account&quot;</span>
+
+<span class="c1"># Leave these values unchanged</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_URL</span><span class="o">=</span><span class="s2">&quot;https://graph.microsoft.com/oidc/userinfo&quot;</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR</span><span class="o">=</span><span class="s2">&quot;sub&quot;</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR</span><span class="o">=</span><span class="s2">&quot;name&quot;</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR</span><span class="o">=</span><span class="s2">&quot;email&quot;</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_ID_ATTR</span><span class="o">=</span><span class="s2">&quot;sub&quot;</span>
+<span class="nv">CMD_OAUTH2_SCOPE</span><span class="o">=</span><span class="s2">&quot;openid email profile&quot;</span>
 </code></pre></div>
+<h3 id="test-your-login">Test your login<a class="headerlink" href="#test-your-login" title="Permanent link">&para;</a></h3>
+<p>After configuring, start your HedgeDoc instance. In the login dialog, there should be an orange new button for logging in
+via your Microsoft Account. After clicking it, sign-in with your Microsoft Account as usual and confirm the requested permissions.
+Now you're logged in.</p>
+<p><img alt="Microsoft login page asking for permissions" src="../../../images/auth/entra-id-login.png" /></p>
 
 
 
@@ -1574,10 +1689,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
     
   </body>
