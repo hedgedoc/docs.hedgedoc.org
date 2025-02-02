@@ -12,28 +12,28 @@
         <meta name="author" content="HedgeDoc Developers">
       
       
-        <link rel="canonical" href="https://docs.hedgedoc.org/guides/auth/github/">
+        <link rel="canonical" href="https://docs.hedgedoc.org/guides/s3-google-cloud-storage/">
       
       
-        <link rel="prev" href="../saml-onelogin/">
+        <link rel="prev" href="../s3-image-upload/">
       
       
-        <link rel="next" href="../gitlab-self-hosted/">
+        <link rel="next" href="../migrate-etherpad/">
       
       
-      <link rel="icon" href="../../../images/favicon.png">
+      <link rel="icon" href="../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
     
     
       
-        <title>GitHub - HedgeDoc</title>
+        <title>Google Cloud Storage - HedgeDoc</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,11 +46,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
+      <link rel="stylesheet" href="../../theme/styles/hedgedoc-custom.css">
     
-      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
+      <link rel="stylesheet" href="../../theme/styles/roboto.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication-guide-github" class="md-skip">
+        <a href="#guide-setup-hedgedoc-s3-image-upload-to-google-cloud-storage" class="md-skip">
           Skip to content
         </a>
       
@@ -90,9 +90,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="HedgeDoc" class="md-header__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
+    <a href="../.." title="HedgeDoc" class="md-header__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
       
-  <img src="../../../images/logo.svg" alt="logo">
+  <img src="../../images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GitHub
+              Google Cloud Storage
             
           </span>
         </div>
@@ -216,7 +216,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -235,7 +235,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../setup/getting-started/" class="md-tabs__link">
+        <a href="../../setup/getting-started/" class="md-tabs__link">
           
   
   Installation
@@ -255,7 +255,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../reverse-proxy/" class="md-tabs__link">
+        <a href="../reverse-proxy/" class="md-tabs__link">
           
   
   Guides
@@ -271,7 +271,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../configuration/" class="md-tabs__link">
+      <a href="../../configuration/" class="md-tabs__link">
         
   
     
@@ -290,7 +290,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../references/hfm/" class="md-tabs__link">
+        <a href="../../references/hfm/" class="md-tabs__link">
           
   
   References
@@ -308,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../dev/getting-started/" class="md-tabs__link">
+        <a href="../../dev/getting-started/" class="md-tabs__link">
           
   
   Developer
@@ -324,7 +324,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
     
@@ -360,9 +360,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
+    <a href="../.." title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
       
-  <img src="../../../images/logo.svg" alt="logo">
+  <img src="../../images/logo.svg" alt="logo">
 
     </a>
     HedgeDoc
@@ -389,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -451,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../setup/getting-started/" class="md-nav__link">
+      <a href="../../setup/getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -514,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../setup/docker/" class="md-nav__link">
+      <a href="../../setup/docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -536,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../setup/manual-setup/" class="md-nav__link">
+      <a href="../../setup/manual-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -566,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../setup/community/" class="md-nav__link">
+      <a href="../../setup/community/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reverse-proxy/" class="md-nav__link">
+      <a href="../reverse-proxy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -651,6 +651,344 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Authentication
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/ldap-ad/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/oauth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OAuth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/saml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SAML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/saml-keycloak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SAML Keycloak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/saml-onelogin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SAML OneLogin
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/gitlab-self-hosted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitLab
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/keycloak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Keycloak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/mattermost-self-hosted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mattermost
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/nextcloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nextcloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/twitter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Twitter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/authelia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authelia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/entra-id/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft Entra ID (Azure AD)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -680,14 +1018,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
-    Authentication
+    Media Backend
     
   </span>
   
@@ -695,10 +1033,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
-            Authentication
+            Media Backend
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -709,11 +1047,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../ldap-ad/" class="md-nav__link">
+      <a href="../minio-image-upload/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    LDAP
+    MinIO
     
   </span>
   
@@ -731,77 +1069,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../oauth/" class="md-nav__link">
+      <a href="../s3-image-upload/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    OAuth
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../saml/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SAML
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../saml-keycloak/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SAML Keycloak
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../saml-onelogin/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SAML OneLogin
+    S3
     
   </span>
   
@@ -828,280 +1100,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Google Cloud Storage
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    GitHub
-    
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gitlab-self-hosted/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    GitLab
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../keycloak/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Keycloak
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mattermost-self-hosted/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Mattermost
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../nextcloud/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Nextcloud
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../twitter/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Twitter
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../authelia/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Authelia
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../entra-id/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Microsoft Entra ID (Azure AD)
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Media Backend
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            Media Backend
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../minio-image-upload/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    MinIO
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../s3-image-upload/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    S3
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../s3-google-cloud-storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1111,6 +1122,86 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup-the-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup the bucket
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup the bucket">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-bucket-in-google-cloud-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a bucket in Google Cloud Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-the-bucket-to-the-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open the bucket to the public
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-interoperability-create-service-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup interoperability &amp; create Service Account
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add permissions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-hedgedoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure HedgeDoc
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1131,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../migrate-etherpad/" class="md-nav__link">
+      <a href="../migrate-etherpad/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../migration-troubleshooting/" class="md-nav__link">
+      <a href="../migration-troubleshooting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1175,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providing-terms/" class="md-nav__link">
+      <a href="../providing-terms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1204,7 +1295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1266,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/hfm/" class="md-nav__link">
+      <a href="../../references/hfm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1288,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/slide-options/" class="md-nav__link">
+      <a href="../../references/slide-options/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1310,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/url-scheme/" class="md-nav__link">
+      <a href="../../references/url-scheme/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1332,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/yaml-metadata/" class="md-nav__link">
+      <a href="../../references/yaml-metadata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1402,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/getting-started/" class="md-nav__link">
+      <a href="../../dev/getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1424,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/api/" class="md-nav__link">
+      <a href="../../dev/api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1446,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/ot/" class="md-nav__link">
+      <a href="../../dev/ot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1468,7 +1559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/webpack/" class="md-nav__link">
+      <a href="../../dev/webpack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1490,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/documentation/" class="md-nav__link">
+      <a href="../../dev/documentation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1519,7 +1610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1552,49 +1643,77 @@
   
 
 
-<h1 id="authentication-guide-github">Authentication guide - GitHub<a class="headerlink" href="#authentication-guide-github" title="Permanent link">&para;</a></h1>
+<h1 id="guide-setup-hedgedoc-s3-image-upload-to-google-cloud-storage">Guide - Setup HedgeDoc S3 image upload to Google Cloud Storage<a class="headerlink" href="#guide-setup-hedgedoc-s3-image-upload-to-google-cloud-storage" title="Permanent link">&para;</a></h1>
+<p>HedgeDoc has no direct/native support for storing images in Google Cloud Storage Buckets. 
+However since Google provides interoperability with S3, the S3 integration can be used. </p>
+<p>This guide will help you in getting things setup.</p>
+<h2 id="setup-the-bucket">Setup the bucket<a class="headerlink" href="#setup-the-bucket" title="Permanent link">&para;</a></h2>
+<h3 id="create-a-bucket-in-google-cloud-storage">Create a bucket in Google Cloud Storage<a class="headerlink" href="#create-a-bucket-in-google-cloud-storage" title="Permanent link">&para;</a></h3>
 <ol>
-<li>
-<p>Sign-in or sign-up for a GitHub account</p>
-</li>
-<li>
-<p>Navigate to developer settings in your GitHub account <a href="https://github.com/settings/developers">here</a> and select the "OAuth Apps" tab</p>
-</li>
-<li>
-<p>Click on the <strong>New OAuth App</strong> button, to create a new OAuth App:<br />
-<img alt="create-oauth-app" src="../../../images/auth/create-oauth-app.png" /></p>
-</li>
-<li>
-<p>Fill out the new OAuth application registration form, and click <strong>Register Application</strong><br />
-<img alt="register-oauth-application-form" src="../../../images/auth/register-oauth-application-form.png" /></p>
-<p><strong>Note:</strong> <em>The callback URL is <your-hedgedoc-url>/auth/github/callback</em></p>
-</li>
-<li>
-<p>After successfully registering the application, you'll receive the Client ID and Client Secret for the application<br />
-<img alt="application-page" src="../../../images/auth/application-page.png" /></p>
-</li>
-<li>
-<p>Add the Client ID and Client Secret to your config.json file or pass them as environment variables</p>
-<ul>
-<li><code>config.json</code>:
-  <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;production&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;github&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;clientID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3747d30eaccXXXXXXXXX&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></li>
-</ul>
-<ul>
-<li>environment variables:
-  <div class="highlight"><pre><span></span><code><span class="nv">CMD_GITHUB_CLIENTID</span><span class="o">=</span>3747d30eaccXXXXXXXXX
-<span class="nv">CMD_GITHUB_CLIENTSECRET</span><span class="o">=</span>2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX
-</code></pre></div></li>
-</ul>
-</li>
+<li>Create a new bucket <a href="https://console.cloud.google.com/storage/browser">within the Cloud Storage portal</a>.</li>
+<li>Give it a name, select the region and type of storage (e.g. multi dual-region)</li>
+<li>In "Choose how to control access to objects" disable "Enforce public access prevention on this bucket"</li>
 </ol>
+<h3 id="open-the-bucket-to-the-public">Open the bucket to the public<a class="headerlink" href="#open-the-bucket-to-the-public" title="Permanent link">&para;</a></h3>
+<p>In order to view the images uploaded to HedgeDoc the storage bucket needs to be set to public.</p>
+<ol>
+<li>Click the bucket you just created in <a href="https://console.cloud.google.com/storage/browser">the Cloud Storage portal</a>.</li>
+<li>Go to the Permissions tab</li>
+<li>Scroll down to the Permissions section</li>
+<li>Click Grant Access</li>
+<li>Add <code>allusers</code> as principal</li>
+<li>Give it role <code>Storage Object Viewer</code> to allow it to retrieve the roles</li>
+</ol>
+<h3 id="setup-interoperability-create-service-account">Setup interoperability &amp; create Service Account<a class="headerlink" href="#setup-interoperability-create-service-account" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to the <a href="https://console.cloud.google.com/storage/settings;tab=interoperability">interoperability tab</a> in the Google Cloud Console</li>
+<li>Scroll down to "Access keys for service accounts" and click on "Create a key for a service account"</li>
+<li>Select "Create new account"</li>
+<li>Give it a name, e.g. <code>hedgedoc</code></li>
+<li>Select the <code>Storage Object Creator</code> role and select Add IAM Condition</li>
+<li>Give it a name, e.g. <code>Restrict to bucket</code></li>
+<li>In Condition Builder:
+    1. Condition type: Name
+    2. Operator: Starts With
+    3. Value: <code>projects/_/buckets/YOUR_BUCKET_NAME_HERE</code></li>
+<li>Skip the 3rd step (Grant users access to this service account)</li>
+<li>Click done</li>
+<li>Copy the Access Key and Secret to a text editor, we'll be using this later</li>
+</ol>
+<h3 id="add-permissions">Add permissions<a class="headerlink" href="#add-permissions" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com/iam-admin/roles">Roles</a> within the IAM &amp; Admin section in Google Cloud Console</li>
+<li>Click Create Role</li>
+<li>Give it a name (e.g. <code>Allow to view buckets</code>) and an id (e.g. <code>bucket-viewer</code>)</li>
+<li>Click Add Permissions</li>
+<li>In the filter (below the dropdown) type <code>storage.buckets.get</code></li>
+<li>Check the box in front of the <code>storage.buckets.get</code> entry, click Add.</li>
+<li>
+<p>Click Create</p>
+</li>
+<li>
+<p>Go to <a href="https://console.cloud.google.com/iam-admin/iam">IAM &amp; Admin</a> section and go to the IAM page</p>
+</li>
+<li>Find the user we created in the previous step and edit it</li>
+<li>Click "Add another role" and select the role we just created</li>
+<li>Select the role we just created and select Add IAM Condition</li>
+<li>Give it a name, e.g. <code>Restrict to bucket</code></li>
+<li>In Condition Builder:
+    1. Condition type: Name
+    2. Operator: Starts With
+    3. Value: <code>projects/_/buckets/YOUR_BUCKET_NAME_HERE</code></li>
+<li>Save it.</li>
+</ol>
+<h2 id="configure-hedgedoc">Configure HedgeDoc<a class="headerlink" href="#configure-hedgedoc" title="Permanent link">&para;</a></h2>
+<p>Set the following environment variables (or the <a href="/configuration/#amazon-s3">corresponding config.json values</a>):</p>
+<div class="highlight"><pre><span></span><code>CMD_IMAGE_UPLOAD_TYPE=&quot;s3&quot;
+CMD_S3_ENDPOINT=&quot;https://storage.googleapis.com&quot;
+CMD_S3_ACCESS_KEY_ID=&quot;GOOG1EXXXXXXXXXX&quot;
+CMD_S3_SECRET_ACCESS_KEY=&quot;XXXXXXXXXX&quot;
+CMD_S3_BUCKET=&quot;your-bucket-name&quot;
+</code></pre></div>
+<p>The access key and secret key are the values you received when you enabled the interoperability feature.</p>
+<p>After restarting HedgeDoc you should now be able to add images to your pages.</p>
 
 
 
@@ -1641,10 +1760,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
       
     
   </body>
