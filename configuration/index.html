@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1760,6 +1760,28 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/release_checklist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Checklist
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2787,12 +2809,12 @@ Remember to also make the file available inside the Docker container, if you're 
 <td></td>
 <td><code>CMD_SAML_IDENTIFIERFORMAT</code></td>
 <td><strong><code>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</code></strong></td>
-<td>name identifier format (optional, default: <code>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</code>)</td>
+<td>name identifier format (optional, if using <code>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</code>, ensure that the IdP returns an unique email address for each user)</td>
 </tr>
 <tr>
 <td></td>
 <td><code>CMD_SAML_GROUPATTRIBUTE</code></td>
-<td><strong>no default</strong>, <code>memberOf</code></td>
+<td><strong>no default</strong>, <code>http://schemas.xmlsoap.org/claims/Group</code></td>
 <td>attribute name for group list (optional)</td>
 </tr>
 <tr>
@@ -2810,20 +2832,20 @@ Remember to also make the file available inside the Docker container, if you're 
 <tr>
 <td></td>
 <td><code>CMD_SAML_ATTRIBUTE_ID</code></td>
-<td><strong>no default</strong>, <code>sAMAccountName</code></td>
+<td><em>defaults to NameID as configured per requested NameID-Format</em>, <code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn</code></td>
 <td>attribute map for <code>id</code> (optional, default: NameID of SAML response)</td>
 </tr>
 <tr>
 <td></td>
 <td><code>CMD_SAML_ATTRIBUTE_USERNAME</code></td>
-<td><strong>no default</strong>, <code>mailNickname</code></td>
-<td>attribute map for <code>username</code> (optional, default: NameID of SAML response)</td>
+<td><strong><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name</code></strong></td>
+<td>attribute map for <code>username</code> (optional)</td>
 </tr>
 <tr>
 <td></td>
 <td><code>CMD_SAML_ATTRIBUTE_EMAIL</code></td>
-<td><strong>no default</strong>, <code>mail</code></td>
-<td>attribute map for <code>email</code> (optional, default: NameID of SAML response if <code>CMD_SAML_IDENTIFIERFORMAT</code> is default)</td>
+<td><strong><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</code></strong></td>
+<td>attribute map for <code>email</code> (optional)</td>
 </tr>
 <tr>
 <td></td>
@@ -3096,7 +3118,7 @@ you don't have to use either of these.</p>
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.f13b1293.min.js"></script>
       
     
   </body>
