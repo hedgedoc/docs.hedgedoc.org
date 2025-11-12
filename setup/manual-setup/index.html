@@ -1782,6 +1782,18 @@ must also include the directory where the database file is saved. <strong>Do not
 file in the root directory of the HedgeDoc installation</strong>, but create a subfolder like <code>db</code>!</li>
 <li>If you use an external database like PostgreSQL or MariaDB, make sure to add a corresponding
 <code>After</code> statement.</li>
+<li><code>SystemCallFilter=</code><ul>
+<li>More about filtering system calls can be read in the <a href="https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#System%20Call%20Filtering">systemd.exec documentation</a>.</li>
+<li>If the service does not start please have a look at your systemd-journal (<code>journalctl -f</code>) and then try to <code>systemctl start hedgedoc.service</code>.<ul>
+<li>In the systemd-journal you will then see a line with <code>... kernel: audit: ...</code>. The important part of this line is <code>syscall=</code> (example <code>syscall=330</code>).</li>
+<li>You can lookup the name of the syscall for the numer on a website like <a href="https://filippo.io/linux-syscall-table/">https://filippo.io/linux-syscall-table/</a>. Example: 330 is <code>pkey_alloc</code>.</li>
+<li>Add the name of the syscall at the end of the line of <code>SystemCallFilter=</code> (separated by spaces), <code>systemctl daemon-reload</code> and then <code>systemctl restart hedgedoc.service</code>.</li>
+<li>If it does not work have another look at the systemd-journal and repeat the previous steps (add/allow additional needed syscalls).</li>
+<li>You can also use groups of syscalls (starting with <code>@</code>). See the systemd.exec documentation as it contains a table of <code>Currently predefined system call sets</code> you can use. Of course as HedgeDoc is usually exposed to the internet it might be wise to only allow syscalls HedgeDoc really needs depending on your own paranoia. ;-)</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="highlight"><pre><span></span><code><span class="k">[Unit]</span>
@@ -1819,7 +1831,7 @@ file in the root directory of the HedgeDoc installation</strong>, but create a s
 <span class="na">ProtectHome</span><span class="o">=</span><span class="s">true</span>
 <span class="na">PrivateTmp</span><span class="o">=</span><span class="s">true</span>
 <span class="na">SystemCallArchitectures</span><span class="o">=</span><span class="s">native</span>
-<span class="na">SystemCallFilter</span><span class="o">=</span><span class="s">@system-service</span>
+<span class="na">SystemCallFilter</span><span class="o">=</span><span class="s">@system-service pkey_alloc pkey_mprotect</span>
 
 <span class="c1"># You may have to adjust these settings</span>
 <span class="na">User</span><span class="o">=</span><span class="s">hedgedoc</span>
