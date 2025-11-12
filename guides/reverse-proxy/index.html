@@ -1876,8 +1876,9 @@ server {
                 proxy_set_header Connection $connection_upgrade;
         }
 
-    listen [::]:443 ssl http2;
-    listen 443 ssl http2;
+    listen [::]:443 ssl;
+    listen 443 ssl;
+    http2 on;
     ssl_certificate fullchain.pem;
     ssl_certificate_key privkey.pem;
     include options-ssl-nginx.conf;
@@ -1890,6 +1891,55 @@ server {
 slashes are present, the browser will not be able to establish a WebSocket
 connection to the server, and the editor interface will display an endless loading
 animation.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Starting with NGINX Version <a href="https://nginx.org/en/CHANGES">1.25.1</a> (released on 13
+Jun 2023) the <code>http2</code>-<strong>parameter</strong> for the <code>listen</code>-directive has been deprecated!</p>
+<p>NGINX Version 1.25.1 introduces <a href="https://nginx.org/en/docs/http/ngx_http_v2_module.html"><code>http2</code> as a standalone directive</a>
+which can be enabled as can be seen in the example above.</p>
+<p>If you are running on an older NGINX version you can delete the <code>http2 on;</code>-line and
+add the <code>http2</code>-parameter to both <code>listen</code>-directive lines.</p>
+<div class="highlight"><pre><span></span><code>listen [::]:443 ssl http2;
+listen 443 ssl http2;
+</code></pre></div>
+</div>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>If you do not want to expose the <code>/metrics</code> and <code>/status</code> HTTP-endpoints to the whole
+internet but you need to (for example) monitor <code>/metrics</code> using your Prometheus
+installation (so disabling <code>enableStatsApi</code> in the HedgeDoc config is not a viable
+option) you can add the following location blocks to your NGINX-server-block to limit
+access to trusted (monitoring) networks / ip-literals.</p>
+<div class="highlight"><pre><span></span><code>location /metrics {
+    proxy_pass http://127.0.0.1:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    allow 2001:db8::/64;
+    allow 192.0.2.0/24;
+    [...]
+    deny all;
+}
+
+location /status {
+    proxy_pass http://127.0.0.1:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    allow 2001:db8::/64;
+    allow 192.0.2.0/24;
+    [...]
+    deny all;
+}
+</code></pre></div>
+<p>While it is certainly not a security issue itself to keep these public to the internet
+it could give attackers additional information and help them exploit your HedgeDoc installation.</p>
+<p>Therefore if you do not have a monitoring setup (like Prometheus) it's likely you do not
+need to expose this information at all and can simply set <code>enableStatsApi</code> to false (default
+is true) in your HedgeDoc <code>config.json</code>.</p>
 </div>
 <h3 id="apache">Apache<a class="headerlink" href="#apache" title="Permanent link">&para;</a></h3>
 <p>You will need these modules enabled: <code>proxy</code>, <code>proxy_http</code> and <code>proxy_wstunnel</code>.<br />
