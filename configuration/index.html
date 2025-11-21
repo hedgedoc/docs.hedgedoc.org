@@ -2396,6 +2396,12 @@ to work.</em></p>
 <td>Set notes default permission (only applied on signed-in users).</td>
 </tr>
 <tr>
+<td><code>enableUploads</code></td>
+<td><code>CMD_ENABLE_UPLOADS</code></td>
+<td><strong><code>all</code></strong> , <code>registered</code>, <code>none</code></td>
+<td>Set to specify who can upload images (<code>all</code> includes guest users, <code>registered</code> restricts to registered users, <code>none</code> disables uploads completely). If not set, but both <code>allowAnonymous</code> and <code>allowAnonymousEdits</code> are <code>false</code>, this will be set to <code>registered</code>.</td>
+</tr>
+<tr>
 <td><code>sessionName</code></td>
 <td></td>
 <td><strong><code>connect.sid</code></strong></td>
