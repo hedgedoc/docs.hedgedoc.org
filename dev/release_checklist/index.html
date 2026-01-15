@@ -1883,6 +1883,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#binscripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bin/scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#account-system" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2020,6 +2031,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker images
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2100,6 +2122,7 @@
 
 
 <h1 id="release-checklist">Release Checklist:<a class="headerlink" href="#release-checklist" title="Permanent link">&para;</a></h1>
+<p>To copy this checklist please go to <a href="https://github.com/hedgedoc/hedgedoc/blob/master/docs/content/dev/release_checklist.md">this link</a>.</p>
 <h2 id="preparations">Preparations:<a class="headerlink" href="#preparations" title="Permanent link">&para;</a></h2>
 <ul>
 <li>[ ] Create release PR(s)<ul>
@@ -2175,6 +2198,27 @@ tar<span class="w"> </span>cvzf<span class="w"> </span>hedgedoc-x.y.z.tar.gz<spa
 </code></pre></div></li>
 </ul>
 <p>Use this tar ball to test the following things:</p>
+<h3 id="binscripts">bin/scripts<a class="headerlink" href="#binscripts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] <code>bin/setup</code></li>
+<li>[ ] <code>bin/cleanup</code></li>
+<li>[ ] <code>bin/manage_users</code><ul>
+<li>[ ] <code>bin/manage_users --add test@example.com</code></li>
+<li>[ ] <code>bin/manage_users --reset test@example.com</code></li>
+<li>[ ] <code>bin/manage_users --del test@example.com</code></li>
+</ul>
+</li>
+<li>[ ] <code>bin/migrate_from_fs_to_minio</code><ol>
+<li>Clear the uploads directory.</li>
+<li>Start HedgeDoc 1 with filesystem uploads and a Postgres DB locally.</li>
+<li>Create a new note and upload an image. The image should be now in the uploads directory.</li>
+<li>Stop HedgeDoc. Update the config to configure a Minio instance (minio and s3bucket keys in config.json). Ensure the config on the Minio instance is existing (valid access key and secret, bucket existing and empty).</li>
+<li>Run <code>bin/migrate_fs_to_minio</code>.</li>
+<li>Start the HedgeDoc again. The note with the previously uploaded image should now contain the new image URL. The image should load.</li>
+<li>Check that the bucket in Minio contains the uploaded image.</li>
+</ol>
+</li>
+</ul>
 <h3 id="account-system">Account system<a class="headerlink" href="#account-system" title="Permanent link">&para;</a></h3>
 <ul>
 <li>[ ] User registration works</li>
@@ -2337,6 +2381,36 @@ opengraph:
 </code></pre></div></li>
 <li>[ ] GitHub</li>
 <li>[ ] Rate-limiting for basic user/password (try to login with e.g. test@example.com and invalid password about 10 to 15 times in a row -&gt; you should receive a message "Too many requests" at some point)</li>
+</ul>
+<h3 id="docker-images">Docker images<a class="headerlink" href="#docker-images" title="Permanent link">&para;</a></h3>
+<p>You need to clone the <a href="https://github.com/hedgedoc/container">container repo</a> and use the commands in the root there.</p>
+<ul>
+<li>
+<p>[ ] debian </p>
+<p><div class="highlight"><pre><span></span><code>docker buildx build -f debian/Dockerfile -t hedgedoc-local:1.x.y-debian . 
+docker run --rm -p 3000:3000 -e CMD_DOMAIN=&quot;localhost&quot; -e CMD_URL_ADDPORT=true -e &quot;CMD_DB_URL=sqlite://:memory:&quot; hedgedoc-local:1.x.y-debian
+</code></pre></div>
+The server is then accessable via <a href="http://localhost:3000">http://localhost:3000</a>. The log should inlcude a line like</p>
+<div class="highlight"><pre><span></span><code>127.0.0.1 - - [06/Dec/2025:16:17:51 +0000] &quot;GET /_health HTTP/1.1&quot; 200 14 &quot;-&quot; &quot;hedgedoc-container-healthcheck/1.2&quot;
+</code></pre></div>
+<p>You should also check <code>docker ps</code> for</p>
+<div class="highlight"><pre><span></span><code>hedgedoc-local:1.x.y-debian                     &quot;/usr/local/bin/dock…&quot;   29 seconds ago   Up 28 seconds (healthy)
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>[ ] alpine</p>
+<p><div class="highlight"><pre><span></span><code>docker buildx build -f alpine/Dockerfile -t hedgedoc-local:1.x.y-alpine . 
+docker run --rm -p 3000:3000 -e CMD_DOMAIN=&quot;localhost&quot; -e CMD_URL_ADDPORT=true -e &quot;CMD_DB_URL=sqlite://:memory:&quot; hedgedoc-local:1.x.y-alpine
+</code></pre></div>
+The server is then accessable via http://localhost:3000. The log should inlcude a line like</p>
+<div class="highlight"><pre><span></span><code>127.0.0.1 - - [06/Dec/2025:16:17:51 +0000] &quot;GET /_health HTTP/1.1&quot; 200 14 &quot;-&quot; &quot;hedgedoc-container-healthcheck/1.2&quot;
+</code></pre></div>
+<p>You should also check <code>docker ps</code> for</p>
+<div class="highlight"><pre><span></span><code>hedgedoc-local:1.x.y-alpine                     &quot;/usr/local/bin/dock…&quot;   29 seconds ago   Up 28 seconds (healthy)
+</code></pre></div>
+</li>
 </ul>
 <h2 id="release">Release:<a class="headerlink" href="#release" title="Permanent link">&para;</a></h2>
 <ul>
