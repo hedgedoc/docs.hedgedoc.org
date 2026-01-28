@@ -12,31 +12,31 @@
         <meta name="author" content="HedgeDoc Developers">
       
       
-        <link rel="canonical" href="https://docs.hedgedoc.org/guides/auth/oauth/">
+        <link rel="canonical" href="https://docs.hedgedoc.org/references/permissions/">
       
       
-        <link rel="prev" href="../ldap-ad/">
+        <link rel="prev" href="../yaml-metadata/">
       
       
-        <link rel="next" href="../saml/">
+        <link rel="next" href="../../dev/getting-started/">
       
       
         
       
       
-      <link rel="icon" href="../../../images/favicon.png">
+      <link rel="icon" href="../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>OAuth - HedgeDoc</title>
+        <title>Permissions - HedgeDoc</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,11 +49,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
+      <link rel="stylesheet" href="../../theme/styles/hedgedoc-custom.css">
     
-      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
+      <link rel="stylesheet" href="../../theme/styles/roboto.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#oauth-general-information" class="md-skip">
+        <a href="#permissions" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="HedgeDoc" class="md-header__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
+    <a href="../.." title="HedgeDoc" class="md-header__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
       
-  <img src="../../../images/logo.svg" alt="logo">
+  <img src="../../images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OAuth
+              Permissions
             
           </span>
         </div>
@@ -222,7 +222,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -243,7 +243,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../setup/getting-started/" class="md-tabs__link">
+        <a href="../../setup/getting-started/" class="md-tabs__link">
           
   
   
@@ -259,13 +259,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../reverse-proxy/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../guides/reverse-proxy/" class="md-tabs__link">
           
   
   
@@ -283,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../configuration/" class="md-tabs__link">
+      <a href="../../configuration/" class="md-tabs__link">
         
   
   
@@ -300,11 +298,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../references/hfm/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../hfm/" class="md-tabs__link">
           
   
   
@@ -324,7 +324,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../dev/getting-started/" class="md-tabs__link">
+        <a href="../../dev/getting-started/" class="md-tabs__link">
           
   
   
@@ -342,7 +342,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
   
@@ -379,9 +379,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
+    <a href="../.." title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
       
-  <img src="../../../images/logo.svg" alt="logo">
+  <img src="../../images/logo.svg" alt="logo">
 
     </a>
     HedgeDoc
@@ -408,7 +408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -487,7 +487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../setup/getting-started/" class="md-nav__link">
+      <a href="../../setup/getting-started/" class="md-nav__link">
         
   
   
@@ -567,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../setup/docker/" class="md-nav__link">
+      <a href="../../setup/docker/" class="md-nav__link">
         
   
   
@@ -595,7 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../setup/manual-setup/" class="md-nav__link">
+      <a href="../../setup/manual-setup/" class="md-nav__link">
         
   
   
@@ -631,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../setup/community/" class="md-nav__link">
+      <a href="../../setup/community/" class="md-nav__link">
         
   
   
@@ -663,31 +663,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -705,7 +700,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -723,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reverse-proxy/" class="md-nav__link">
+      <a href="../../guides/reverse-proxy/" class="md-nav__link">
         
   
   
@@ -748,31 +743,26 @@
                 
   
   
-    
   
   
-  
     
     
     
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
             
   
   
@@ -790,7 +780,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -808,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ldap-ad/" class="md-nav__link">
+      <a href="../../guides/auth/ldap-ad/" class="md-nav__link">
         
   
   
@@ -833,19 +823,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../guides/auth/oauth/" class="md-nav__link">
         
   
   
@@ -861,7 +842,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -874,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../saml/" class="md-nav__link">
+      <a href="../../guides/auth/saml/" class="md-nav__link">
         
   
   
@@ -902,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../saml-keycloak/" class="md-nav__link">
+      <a href="../../guides/auth/saml-keycloak/" class="md-nav__link">
         
   
   
@@ -930,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../saml-onelogin/" class="md-nav__link">
+      <a href="../../guides/auth/saml-onelogin/" class="md-nav__link">
         
   
   
@@ -958,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/" class="md-nav__link">
+      <a href="../../guides/auth/github/" class="md-nav__link">
         
   
   
@@ -986,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gitlab-self-hosted/" class="md-nav__link">
+      <a href="../../guides/auth/gitlab-self-hosted/" class="md-nav__link">
         
   
   
@@ -1014,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../keycloak/" class="md-nav__link">
+      <a href="../../guides/auth/keycloak/" class="md-nav__link">
         
   
   
@@ -1042,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mattermost-self-hosted/" class="md-nav__link">
+      <a href="../../guides/auth/mattermost-self-hosted/" class="md-nav__link">
         
   
   
@@ -1070,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../nextcloud/" class="md-nav__link">
+      <a href="../../guides/auth/nextcloud/" class="md-nav__link">
         
   
   
@@ -1098,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../twitter/" class="md-nav__link">
+      <a href="../../guides/auth/twitter/" class="md-nav__link">
         
   
   
@@ -1126,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authelia/" class="md-nav__link">
+      <a href="../../guides/auth/authelia/" class="md-nav__link">
         
   
   
@@ -1154,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../entra-id/" class="md-nav__link">
+      <a href="../../guides/auth/entra-id/" class="md-nav__link">
         
   
   
@@ -1196,20 +1176,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
             
   
   
@@ -1245,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../minio-image-upload/" class="md-nav__link">
+      <a href="../../guides/minio-image-upload/" class="md-nav__link">
         
   
   
@@ -1273,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../s3-image-upload/" class="md-nav__link">
+      <a href="../../guides/s3-image-upload/" class="md-nav__link">
         
   
   
@@ -1301,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../s3-google-cloud-storage/" class="md-nav__link">
+      <a href="../../guides/s3-google-cloud-storage/" class="md-nav__link">
         
   
   
@@ -1337,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../migrate-etherpad/" class="md-nav__link">
+      <a href="../../guides/migrate-etherpad/" class="md-nav__link">
         
   
   
@@ -1365,7 +1342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../migration-troubleshooting/" class="md-nav__link">
+      <a href="../../guides/migration-troubleshooting/" class="md-nav__link">
         
   
   
@@ -1393,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providing-terms/" class="md-nav__link">
+      <a href="../../guides/providing-terms/" class="md-nav__link">
         
   
   
@@ -1428,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -1452,26 +1429,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1489,7 +1471,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1507,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/hfm/" class="md-nav__link">
+      <a href="../hfm/" class="md-nav__link">
         
   
   
@@ -1535,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/slide-options/" class="md-nav__link">
+      <a href="../slide-options/" class="md-nav__link">
         
   
   
@@ -1563,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/url-scheme/" class="md-nav__link">
+      <a href="../url-scheme/" class="md-nav__link">
         
   
   
@@ -1591,7 +1573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/yaml-metadata/" class="md-nav__link">
+      <a href="../yaml-metadata/" class="md-nav__link">
         
   
   
@@ -1616,10 +1598,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../references/permissions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1635,6 +1626,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1706,7 +1698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/getting-started/" class="md-nav__link">
+      <a href="../../dev/getting-started/" class="md-nav__link">
         
   
   
@@ -1734,7 +1726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/api/" class="md-nav__link">
+      <a href="../../dev/api/" class="md-nav__link">
         
   
   
@@ -1762,7 +1754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/ot/" class="md-nav__link">
+      <a href="../../dev/ot/" class="md-nav__link">
         
   
   
@@ -1790,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/webpack/" class="md-nav__link">
+      <a href="../../dev/webpack/" class="md-nav__link">
         
   
   
@@ -1818,7 +1810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/documentation/" class="md-nav__link">
+      <a href="../../dev/documentation/" class="md-nav__link">
         
   
   
@@ -1846,7 +1838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/release_checklist/" class="md-nav__link">
+      <a href="../../dev/release_checklist/" class="md-nav__link">
         
   
   
@@ -1881,7 +1873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   
@@ -1921,46 +1913,81 @@
   
 
 
-<h1 id="oauth-general-information">OAuth general information<a class="headerlink" href="#oauth-general-information" title="Permanent link">&para;</a></h1>
+<h1 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h1>
+<p>HedgeDoc 1.x uses a basic permission system that differentiates between the owner of a note (the account who initially
+created it), logged-in users and guests.</p>
+<p>It is possible to change the access permission of a note through the little button on the top right of the view pane
+in the editor. However, only the note owner can change the permission of a note.</p>
+<p>The permissions are named <strong>Freely</strong>, <strong>Editable</strong>, <strong>Limited</strong>, <strong>Locked</strong>, <strong>Protected</strong> and <strong>Private</strong>.</p>
+<p>You can configure the default permission for new notes using the <code>defaultPermission</code> option in the <code>config.json</code> file or
+<code>CMD_DEFAULT_PERMISSION</code> environment variable.</p>
+<p>For more information, see the <a href="../../configuration/#users-and-privileges">configuration documentation</a>.</p>
 <table>
 <thead>
 <tr>
-<th>service</th>
-<th>callback URL (after the server URL)</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Permission</th>
+<th style="text-align: center;">Owner read/write</th>
+<th style="text-align: center;">Signed-in read</th>
+<th style="text-align: center;">Signed-in write</th>
+<th style="text-align: center;">Guest read</th>
+<th style="text-align: center;">Guest write</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>facebook</td>
-<td><code>/auth/facebook/callback</code></td>
+<td style="text-align: center;"><img src="/images/icons/leaf.svg" alt="leaf icon" height="16" width="16"></td>
+<td style="text-align: center;"><strong>Freely</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
 </tr>
 <tr>
-<td>twitter</td>
-<td><code>/auth/twitter/callback</code></td>
+<td style="text-align: center;"><img src="/images/icons/pencil.svg" alt="pencil icon" height="16" width="16"></td>
+<td style="text-align: center;"><strong>Editable</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✖</td>
 </tr>
 <tr>
-<td>github</td>
-<td><code>/auth/github/callback</code></td>
+<td style="text-align: center;"><img src="/images/icons/id-card.svg" alt="id card icon" height="16" width="16"></td>
+<td style="text-align: center;"><strong>Limited</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✖</td>
+<td style="text-align: center;">✖</td>
 </tr>
 <tr>
-<td>gitlab</td>
-<td><code>/auth/gitlab/callback</code></td>
+<td style="text-align: center;"><img src="/images/icons/lock.svg" alt="lock icon" height="16" width="16"></td>
+<td style="text-align: center;"><strong>Locked</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✖</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✖</td>
 </tr>
 <tr>
-<td>mattermost</td>
-<td><code>/auth/mattermost/callback</code></td>
+<td style="text-align: center;"><img src="/images/icons/umbrella.svg" alt="umbrella icon" height="16" width="16"></td>
+<td style="text-align: center;"><strong>Protected</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✖</td>
+<td style="text-align: center;">✖</td>
+<td style="text-align: center;">✖</td>
 </tr>
 <tr>
-<td>dropbox</td>
-<td><code>/auth/dropbox/callback</code></td>
-</tr>
-<tr>
-<td>google</td>
-<td><code>/auth/google/callback</code></td>
-</tr>
-<tr>
-<td>saml</td>
-<td><code>/auth/saml/callback</code></td>
+<td style="text-align: center;"><img src="/images/icons/hand-paper-o.svg" alt="hand icon" height="16" width="16"></td>
+<td style="text-align: center;"><strong>Private</strong></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✖</td>
+<td style="text-align: center;">✖</td>
+<td style="text-align: center;">✖</td>
+<td style="text-align: center;">✖</td>
 </tr>
 </tbody>
 </table>
@@ -2013,10 +2040,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
