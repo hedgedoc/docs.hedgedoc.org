@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2150,12 +2150,16 @@
 
 
 <h1 id="release-checklist">Release Checklist:<a class="headerlink" href="#release-checklist" title="Permanent link">&para;</a></h1>
-<p>To copy this checklist please go to <a href="https://github.com/hedgedoc/hedgedoc/blob/master/docs/content/dev/release_checklist.md">this link</a>.</p>
+<p>To copy this checklist please go to <a href="https://github.com/hedgedoc/hedgedoc/raw/refs/heads/master/docs/content/dev/release_checklist.md">this link</a>.</p>
 <h2 id="preparations">Preparations:<a class="headerlink" href="#preparations" title="Permanent link">&para;</a></h2>
 <ul>
 <li>[ ] Create release PR(s)<ul>
 <li>[ ] In the main repo (actually only create a local branch to include all the fixes, additions and so on and only push and create a PR after testing)</li>
-<li>[ ] Release PR in <a href="https://github.com/hedgedoc/container">https://github.com/hedgedoc/container</a></li>
+<li>[ ] Release PR in <a href="https://github.com/hedgedoc/container">https://github.com/hedgedoc/container</a><ul>
+<li>[ ] Update version in <code>.github/workflows/release.yml</code></li>
+<li>[ ] Update version in <code>docker-compose.yml</code></li>
+</ul>
+</li>
 <li>[ ] Release PR in <a href="https://github.com/hedgedoc/social-media">https://github.com/hedgedoc/social-media</a></li>
 </ul>
 </li>
@@ -2220,6 +2224,7 @@
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/tmp/hedgedoc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/tmp/hedgedoc
 git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>master<span class="w"> </span>https://github.com/hedgedoc/hedgedoc.git<span class="w"> </span>.
 yarn<span class="w"> </span>install
+yarn<span class="w"> </span>build:ot
 yarn<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>..
 tar<span class="w"> </span>cvzf<span class="w"> </span>hedgedoc-x.y.z.tar.gz<span class="w"> </span>--sort<span class="o">=</span>name<span class="w"> </span>--exclude<span class="w"> </span>hedgedoc/node_modules<span class="w"> </span>--exclude<span class="w"> </span>hedgedoc/.git<span class="w"> </span>--exclude<span class="w"> </span>hedgedoc/.github<span class="w"> </span>--exclude<span class="w"> </span>hedgedoc/.yarn/cache<span class="w"> </span>hedgedoc
@@ -2408,14 +2413,15 @@ opengraph:
 }
 </code></pre></div></li>
 <li>[ ] GitHub</li>
+<li>[ ] GitLab</li>
 <li>[ ] Rate-limiting for basic user/password (try to login with e.g. test@example.com and invalid password about 10 to 15 times in a row -&gt; you should receive a message "Too many requests" at some point)</li>
 </ul>
 <h3 id="docker-images">Docker images<a class="headerlink" href="#docker-images" title="Permanent link">&para;</a></h3>
 <p>You need to clone the <a href="https://github.com/hedgedoc/container">container repo</a> and use the commands in the root there.</p>
 <ul>
 <li>
-<p>[ ] debian </p>
-<p><div class="highlight"><pre><span></span><code>docker buildx build -f debian/Dockerfile -t hedgedoc-local:1.x.y-debian . 
+<p>[ ] debian</p>
+<p><div class="highlight"><pre><span></span><code>docker buildx build -f debian/Dockerfile -t hedgedoc-local:1.x.y-debian .
 docker run --rm -p 3000:3000 -e CMD_DOMAIN=&quot;localhost&quot; -e CMD_URL_ADDPORT=true -e &quot;CMD_DB_URL=sqlite://:memory:&quot; hedgedoc-local:1.x.y-debian
 </code></pre></div>
 The server is then accessable via <a href="http://localhost:3000">http://localhost:3000</a>. The log should inlcude a line like</p>
@@ -2429,7 +2435,7 @@ The server is then accessable via <a href="http://localhost:3000">http://localho
 <ul>
 <li>
 <p>[ ] alpine</p>
-<p><div class="highlight"><pre><span></span><code>docker buildx build -f alpine/Dockerfile -t hedgedoc-local:1.x.y-alpine . 
+<p><div class="highlight"><pre><span></span><code>docker buildx build -f alpine/Dockerfile -t hedgedoc-local:1.x.y-alpine .
 docker run --rm -p 3000:3000 -e CMD_DOMAIN=&quot;localhost&quot; -e CMD_URL_ADDPORT=true -e &quot;CMD_DB_URL=sqlite://:memory:&quot; hedgedoc-local:1.x.y-alpine
 </code></pre></div>
 The server is then accessable via http://localhost:3000. The log should inlcude a line like</p>
@@ -2445,18 +2451,19 @@ The server is then accessable via http://localhost:3000. The log should inlcude 
 <li>[ ] Merge Release PR in main repo</li>
 <li>[ ] Tag commit with <code>git tag 1.x.y</code> and push it</li>
 <li>[ ] Create release in GitHub and upload tar ball to GitHub</li>
+<li>[ ] Update placeholders in Security Advisories (if they exist)</li>
 <li>[ ] Publish Security Advisories (if they exist)</li>
 <li>[ ] Merge Release PR in <a href="https://github.com/hedgedoc/container">https://github.com/hedgedoc/container</a><ul>
 <li>Wait for the images to be available at <a href="https://quay.io/repository/hedgedoc/hedgedoc?tab=tags">https://quay.io/repository/hedgedoc/hedgedoc?tab=tags</a></li>
 </ul>
 </li>
-<li>[ ] Update website by running the <a href="https://github.com/hedgedoc/hedgedoc.github.io/actions?query=workflow%3A%22Deploy+to+github+actions+branch%22">"deploy" workflow</a> in hedgedoc/hedgedoc.github.io</li>
+<li>[ ] Update website by running the <a href="https://github.com/hedgedoc/hedgedoc.github.io/actions/workflows/deploy.yml">"deploy" workflow</a> in hedgedoc/hedgedoc.github.io</li>
 <li>[ ] Update docs.hedgedoc.org by running the <a href="https://github.com/hedgedoc/docs.hedgedoc.org/actions/workflows/build.yml">"build" workflow</a></li>
 <li>[ ] Merge Release PR in <a href="https://github.com/hedgedoc/social-media">https://github.com/hedgedoc/social-media</a><ul>
-<li>(optional) All people doing the release boost the post </li>
+<li>(optional) All people doing the release boost the post</li>
 </ul>
 </li>
-<li>[ ] Share the good news in the Matrix-Chatroom </li>
+<li>[ ] Share the good news in the Matrix-Chatroom</li>
 <li>[ ] Change this release checklist if necessary</li>
 </ul>
 
