@@ -2256,7 +2256,7 @@ tar<span class="w"> </span>cvzf<span class="w"> </span>hedgedoc-x.y.z.tar.gz<spa
 <ul>
 <li>[ ] User registration works</li>
 <li>[ ] User login works</li>
-<li>[ ] User self-deletion works</li>
+<li>[ ] User self-deletion works (notes are deleted as well)</li>
 </ul>
 <h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2284,7 +2284,7 @@ tar<span class="w"> </span>cvzf<span class="w"> </span>hedgedoc-x.y.z.tar.gz<spa
 <ul>
 <li>[ ] Postgres works</li>
 </ul>
-<p>Run <code>docker run -d --name=hd1-pg -p 5432:5432 -e POSTGRES_USER=hd1db -e POSTGRES_PASSWORD=hd1db -e POSTGRES_DB=hd1db postgres:latest</code>
+<p>Run <code>docker run -d --name=hd1-pg -p 5432:5432 -e POSTGRES_USER=hd1db -e POSTGRES_PASSWORD=hd1db -e POSTGRES_DB=hd1db --rm postgres:latest</code>
 and put this into your config:
 <div class="highlight"><pre><span></span><code>&quot;db&quot;: {
   &quot;username&quot;: &quot;hd1db&quot;,
@@ -2366,9 +2366,10 @@ opengraph:
 <h3 id="auth">Auth<a class="headerlink" href="#auth" title="Permanent link">&para;</a></h3>
 <ul>
 <li>[ ] SAML<ul>
-<li>config
+<li>Download certificate from Authentik Admin -&gt; Certificates -&gt; auth.hedgedoc.cloud to <code>/tmp/auth.hedgedoc.cloud.pem</code></li>
+<li>add to config.json:
 <div class="highlight"><pre><span></span><code>&quot;saml&quot;: {
-  &quot;idpSsoUrl&quot;: &quot;https://auth.hedgedoc.cloud/application/saml/test-hd1/sso/binding/redirect/&quot;,
+  &quot;idpSsoUrl&quot;: &quot;https://auth.hedgedoc.cloud/application/saml/test-hd1-saml/sso/binding/redirect/&quot;,
   &quot;idpCert&quot;: &quot;/tmp/auth.hedgedoc.cloud.pem&quot;,
   &quot;identifierFormat&quot;: &quot;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&quot;,
   &quot;attribute&quot;: {
@@ -2397,9 +2398,10 @@ opengraph:
 </code></pre></div></li>
 </ul>
 </li>
-<li>[ ] OAuth2
+<li>[ ] OAuth2<ul>
+<li>add to config.json and replace <code>REDACTED</code> with the proper client ID and secret
 <div class="highlight"><pre><span></span><code>&quot;oauth2&quot;: {
-  &quot;baseURL&quot;: &quot;https://auth.hedgedoc.cloud/application/o/test-hedgedoc/&quot;,
+  &quot;baseURL&quot;: &quot;https://auth.hedgedoc.cloud/application/o/test-hd1-oauth2/&quot;,
   &quot;userProfileURL&quot;: &quot;https://auth.hedgedoc.cloud/application/o/userinfo/&quot;,
   &quot;tokenURL&quot;: &quot;https://auth.hedgedoc.cloud/application/o/token/&quot;,
   &quot;authorizationURL&quot;: &quot;https://auth.hedgedoc.cloud/application/o/authorize/&quot;,
@@ -2412,6 +2414,8 @@ opengraph:
   &quot;pkce&quot;: true
 }
 </code></pre></div></li>
+</ul>
+</li>
 <li>[ ] GitHub</li>
 <li>[ ] GitLab</li>
 <li>[ ] Rate-limiting for basic user/password (try to login with e.g. test@example.com and invalid password about 10 to 15 times in a row -&gt; you should receive a message "Too many requests" at some point)</li>

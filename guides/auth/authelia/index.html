@@ -2000,12 +2000,11 @@ Also this guides assumes you run HedgeDoc via a <a href="../../../setup/docker/"
 <span class="w">    </span><span class="nt">refresh_token_lifespan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90m</span>
 <span class="w">    </span><span class="nt">enable_client_debug_messages</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">clients</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HedgeDoc</span><span class="w"> </span><span class="c1"># this should be changed to something more secure</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HedgeDoc SSO</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;random client id&gt;</span>
+<span class="w">        </span><span class="nt">client_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HedgeDoc</span>
 <span class="w">        </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;client secret here&gt;</span>
 <span class="w">        </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">        </span><span class="nt">authorization_policy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">two_factor</span>
-<span class="w">        </span><span class="nt">audience</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 <span class="w">        </span><span class="nt">scopes</span><span class="p">:</span>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openid</span>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">email</span>
@@ -2021,7 +2020,7 @@ Also this guides assumes you run HedgeDoc via a <a href="../../../setup/docker/"
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">form_post</span>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">query</span>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fragment</span>
-<span class="w">        </span><span class="nt">userinfo_signing_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="w">        </span><span class="nt">token_endpoint_auth_method</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;client_secret_post&#39;</span>
 </code></pre></div>
 <ol>
 <li>Restart Authelia to apply to new configuration and check for any errors in the log</li>
@@ -2030,7 +2029,7 @@ Also this guides assumes you run HedgeDoc via a <a href="../../../setup/docker/"
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_URL_ADDPORT=false</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_PROTOCOL_USESSL=true</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_PROVIDERNAME=Authelia</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_ID=HedgeDoc</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_ID=&lt;client id here&gt;</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_SECRET=&lt;client secret here&gt;</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_SCOPE=openid email profile</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=sub</span>
@@ -2038,7 +2037,7 @@ Also this guides assumes you run HedgeDoc via a <a href="../../../setup/docker/"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR=email</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_URL=https://&lt;your-authelia-url&gt;/api/oidc/userinfo</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_TOKEN_URL=https://&lt;your-authelia-url&gt;/api/oidc/token</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_AUTHORIZATION_URL=https://&lt;your-authelia-url&gt;/api/oidc/authorize</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_AUTHORIZATION_URL=https://&lt;your-authelia-url&gt;/api/oidc/authorization</span>
 </code></pre></div>
 <ol>
 <li>Run <code>docker-compose up -d</code> on HedgeDoc to apply your settings.</li>
