@@ -263,7 +263,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../guides/reverse-proxy/" class="md-tabs__link">
+        <a href="../guides/production-ready/" class="md-tabs__link">
           
   
   
@@ -718,6 +718,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../guides/production-ready/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Ready
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../guides/reverse-proxy/" class="md-nav__link">
         
   
@@ -759,10 +787,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
             
   
   
@@ -780,8 +808,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1183,10 +1211,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
             
   
   
@@ -1204,8 +1232,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1222,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/minio-image-upload/" class="md-nav__link">
+      <a href="../guides/media/minio-image-upload/" class="md-nav__link">
         
   
   
@@ -1250,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/s3-image-upload/" class="md-nav__link">
+      <a href="../guides/media/s3-image-upload/" class="md-nav__link">
         
   
   
@@ -1278,7 +1306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/s3-google-cloud-storage/" class="md-nav__link">
+      <a href="../guides/media/s3-google-cloud-storage/" class="md-nav__link">
         
   
   
@@ -2360,7 +2388,7 @@ to work.</em></p>
 <td><code>imageUploadType</code></td>
 <td><code>CMD_IMAGE_UPLOAD_TYPE</code></td>
 <td><strong><code>filesystem</code></strong>, <code>imgur</code>, <code>s3</code>, <code>minio</code>, <code>azure</code>, <code>lutim</code></td>
-<td>Where to upload images. For S3, see our Image Upload Guides for <a href="../guides/s3-image-upload/">S3</a> or <a href="../guides/minio-image-upload/">Minio</a>, also there's a whole section on their respective env vars below.</td>
+<td>Where to upload images. For S3, see our Image Upload Guides for <a href="../guides/media/s3-image-upload/">S3</a> or <a href="../guides/media/minio-image-upload/">Minio</a>, also there's a whole section on their respective env vars below.</td>
 </tr>
 <tr>
 <td><code>sourceURL</code></td>
@@ -2660,6 +2688,18 @@ to work.</em></p>
 <td><code>CMD_RATE_LIMIT_NEW_NOTES</code></td>
 <td><strong><code>20</code></strong>, <code>0</code> or any positive number</td>
 <td>Sets the maximum amount of new note creations per 5-minute window per user. Can be disabled by setting to <code>0</code>.</td>
+</tr>
+<tr>
+<td><code>rateLimitUser</code></td>
+<td><code>CMD_RATE_LIMIT_USER</code></td>
+<td><strong><code>10</code></strong>, <code>0</code> or any positive number</td>
+<td>Sets the maximum amount of user auth interactions (login, signup) per 5-minute window per user. Can be disabled by setting to <code>0</code>.</td>
+</tr>
+<tr>
+<td><code>rateLimitUsingCloudflare</code></td>
+<td><code>CMD_RATE_LIMIT_USING_CLOUDFLARE</code></td>
+<td><strong><code>false</code></strong> or <code>true</code></td>
+<td>Activate specialy cloudflare ip handling. If you use cloudflare for your instance you want this to be true.</td>
 </tr>
 </tbody>
 </table>
@@ -3346,7 +3386,7 @@ you don't have to use either of these.</p>
 <td><code>s3</code></td>
 <td></td>
 <td><code>{ "accessKeyId": "YOUR_S3_ACCESS_KEY_ID", "secretAccessKey": "YOUR_S3_ACCESS_KEY", "region": "YOUR_S3_REGION" }</code></td>
-<td>When <code>imageuploadtype</code> be set to <code>s3</code>, you would also need to setup this key, check our <a href="../guides/s3-image-upload/">S3 Image Upload Guide</a></td>
+<td>When <code>imageuploadtype</code> be set to <code>s3</code>, you would also need to setup this key, check our <a href="../guides/media/s3-image-upload/">S3 Image Upload Guide</a></td>
 </tr>
 <tr>
 <td></td>
@@ -3451,7 +3491,7 @@ you don't have to use either of these.</p>
 <td><code>minio</code></td>
 <td></td>
 <td><code>{ "accessKey": "YOUR_MINIO_ACCESS_KEY", "secretKey": "YOUR_MINIO_SECRET_KEY", "endpoint": "YOUR_MINIO_HOST", port: 9000, secure: true }</code></td>
-<td>When <code>imageUploadType</code> is set to <code>minio</code>, you need to set this key. Also check out our <a href="../guides/minio-image-upload/">Minio Image Upload Guide</a></td>
+<td>When <code>imageUploadType</code> is set to <code>minio</code>, you need to set this key. Also check out our <a href="../guides/media/minio-image-upload/">Minio Image Upload Guide</a></td>
 </tr>
 <tr>
 <td></td>

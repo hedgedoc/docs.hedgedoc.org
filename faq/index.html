@@ -261,7 +261,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../guides/reverse-proxy/" class="md-tabs__link">
+        <a href="../guides/production-ready/" class="md-tabs__link">
           
   
   
@@ -716,6 +716,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../guides/production-ready/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Ready
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../guides/reverse-proxy/" class="md-nav__link">
         
   
@@ -757,10 +785,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
             
   
   
@@ -778,8 +806,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1181,10 +1209,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
             
   
   
@@ -1202,8 +1230,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1220,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/minio-image-upload/" class="md-nav__link">
+      <a href="../guides/media/minio-image-upload/" class="md-nav__link">
         
   
   
@@ -1248,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/s3-image-upload/" class="md-nav__link">
+      <a href="../guides/media/s3-image-upload/" class="md-nav__link">
         
   
   
@@ -1276,7 +1304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/s3-google-cloud-storage/" class="md-nav__link">
+      <a href="../guides/media/s3-google-cloud-storage/" class="md-nav__link">
         
   
   
@@ -2067,15 +2095,15 @@ If you still want to allow embedding via iframe, ensure that:</p>
 <li><code>cookiePolicy</code> / <code>CMD_COOKIE_POLICY</code> is set to <code>none</code> (Otherwise you will get a <code>AUTH failed: No cookie transmitted</code> error.)</li>
 <li><code>csp.allowFraming</code> / <code>CMD_CSP_ALLOW_FRAMING</code> is set to <code>true</code></li>
 </ul>
-<p>See also the <a href="/configuration/#web-security-aspects">configuration docs</a> for more information about these options.</p>
+<p>See also the <a href="../configuration/#web-security-aspects">configuration docs</a> for more information about these options.</p>
 <h2 id="i-cant-upload-images-or-the-upload-gets-stuck">I can't upload images or the upload gets stuck<a class="headerlink" href="#i-cant-upload-images-or-the-upload-gets-stuck" title="Permanent link">&para;</a></h2>
 <p>This problem is typically accompanied by the error <code>Invalid URL: /uploads/</code> in the log and is often caused by a missing
 <code>domain</code> / <code>CMD_DOMAIN</code> config option or an incorrect reverse proxy config.<br />
-Have a look at our <a href="https://docs.hedgedoc.org/guides/reverse-proxy/">reverse proxy documentation</a>
+Have a look at our <a href="../guides/reverse-proxy/">reverse proxy documentation</a>
 and make sure that <code>protocolUseSSL</code> / <code>CMD_PROTOCOL_USESSL</code> is set to <code>true</code> if you serve HedgeDoc via HTTPS.</p>
 <h2 id="hedgedoc-fails-executing-migrations-and-does-not-start">HedgeDoc fails executing migrations and does not start<a class="headerlink" href="#hedgedoc-fails-executing-migrations-and-does-not-start" title="Permanent link">&para;</a></h2>
 <p>Unfortunately, older versions of HedgeDoc had some bugs regarding migrations and didn't always record that a migration was executed.<br />
-Have a look at the <em><a href="/guides/migration-troubleshooting/">Troubleshooting Migrations</a></em> guide for more information.</p>
+Have a look at the <em><a href="../guides/migration-troubleshooting/">Troubleshooting Migrations</a></em> guide for more information.</p>
 <h2 id="why-does-my-interface-look-weird">Why does my interface look weird?<a class="headerlink" href="#why-does-my-interface-look-weird" title="Permanent link">&para;</a></h2>
 <p>If your interface looks like this</p>
 <p><img alt="Broken HedgeDoc interface" src="interface_broken.png" /></p>

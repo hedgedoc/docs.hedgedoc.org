@@ -12,13 +12,13 @@
         <meta name="author" content="HedgeDoc Developers">
       
       
-        <link rel="canonical" href="https://docs.hedgedoc.org/guides/s3-google-cloud-storage/">
+        <link rel="canonical" href="https://docs.hedgedoc.org/guides/production-ready/">
       
       
-        <link rel="prev" href="../s3-image-upload/">
+        <link rel="prev" href="../../setup/community/">
       
       
-        <link rel="next" href="../migrate-etherpad/">
+        <link rel="next" href="../reverse-proxy/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Google Cloud Storage - HedgeDoc</title>
+        <title>Production Ready - HedgeDoc</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guide-setup-hedgedoc-s3-image-upload-to-google-cloud-storage" class="md-skip">
+        <a href="#how-to-make-your-hedgedoc-instance-production-ready" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Google Cloud Storage
+              Production Ready
             
           </span>
         </div>
@@ -265,7 +265,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../reverse-proxy/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -720,6 +720,180 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Ready
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Ready
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#node-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node Env
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTPS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uploads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Login
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guest-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guest Users
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-note-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Note Permission
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -767,10 +941,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
             
   
   
@@ -788,8 +962,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1175,8 +1349,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1192,14 +1364,14 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
             
   
   
@@ -1217,8 +1389,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1235,7 +1407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../minio-image-upload/" class="md-nav__link">
+      <a href="../media/minio-image-upload/" class="md-nav__link">
         
   
   
@@ -1263,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../s3-image-upload/" class="md-nav__link">
+      <a href="../media/s3-image-upload/" class="md-nav__link">
         
   
   
@@ -1288,37 +1460,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Google Cloud Storage
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../media/s3-google-cloud-storage/" class="md-nav__link">
         
   
   
@@ -1334,98 +1479,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#setup-the-bucket" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setup the bucket
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Setup the bucket">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-a-bucket-in-google-cloud-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create a bucket in Google Cloud Storage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#open-the-bucket-to-the-public" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Open the bucket to the public
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setup-interoperability-create-service-account" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setup interoperability &amp; create Service Account
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Add permissions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-hedgedoc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure HedgeDoc
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2030,77 +2083,37 @@
   
 
 
-<h1 id="guide-setup-hedgedoc-s3-image-upload-to-google-cloud-storage">Guide - Setup HedgeDoc S3 image upload to Google Cloud Storage<a class="headerlink" href="#guide-setup-hedgedoc-s3-image-upload-to-google-cloud-storage" title="Permanent link">&para;</a></h1>
-<p>HedgeDoc has no direct/native support for storing images in Google Cloud Storage Buckets. 
-However since Google provides interoperability with S3, the S3 integration can be used. </p>
-<p>This guide will help you in getting things setup.</p>
-<h2 id="setup-the-bucket">Setup the bucket<a class="headerlink" href="#setup-the-bucket" title="Permanent link">&para;</a></h2>
-<h3 id="create-a-bucket-in-google-cloud-storage">Create a bucket in Google Cloud Storage<a class="headerlink" href="#create-a-bucket-in-google-cloud-storage" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Create a new bucket <a href="https://console.cloud.google.com/storage/browser">within the Cloud Storage portal</a>.</li>
-<li>Give it a name, select the region and type of storage (e.g. multi dual-region)</li>
-<li>In "Choose how to control access to objects" disable "Enforce public access prevention on this bucket"</li>
-</ol>
-<h3 id="open-the-bucket-to-the-public">Open the bucket to the public<a class="headerlink" href="#open-the-bucket-to-the-public" title="Permanent link">&para;</a></h3>
-<p>In order to view the images uploaded to HedgeDoc the storage bucket needs to be set to public.</p>
-<ol>
-<li>Click the bucket you just created in <a href="https://console.cloud.google.com/storage/browser">the Cloud Storage portal</a>.</li>
-<li>Go to the Permissions tab</li>
-<li>Scroll down to the Permissions section</li>
-<li>Click Grant Access</li>
-<li>Add <code>allusers</code> as principal</li>
-<li>Give it role <code>Storage Object Viewer</code> to allow it to retrieve the roles</li>
-</ol>
-<h3 id="setup-interoperability-create-service-account">Setup interoperability &amp; create Service Account<a class="headerlink" href="#setup-interoperability-create-service-account" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Go to the <a href="https://console.cloud.google.com/storage/settings;tab=interoperability">interoperability tab</a> in the Google Cloud Console</li>
-<li>Scroll down to "Access keys for service accounts" and click on "Create a key for a service account"</li>
-<li>Select "Create new account"</li>
-<li>Give it a name, e.g. <code>hedgedoc</code></li>
-<li>Select the <code>Storage Object Creator</code> role and select Add IAM Condition</li>
-<li>Give it a name, e.g. <code>Restrict to bucket</code></li>
-<li>In Condition Builder:
-    1. Condition type: Name
-    2. Operator: Starts With
-    3. Value: <code>projects/_/buckets/YOUR_BUCKET_NAME_HERE</code></li>
-<li>Skip the 3rd step (Grant users access to this service account)</li>
-<li>Click done</li>
-<li>Copy the Access Key and Secret to a text editor, we'll be using this later</li>
-</ol>
-<h3 id="add-permissions">Add permissions<a class="headerlink" href="#add-permissions" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Go to <a href="https://console.cloud.google.com/iam-admin/roles">Roles</a> within the IAM &amp; Admin section in Google Cloud Console</li>
-<li>Click Create Role</li>
-<li>Give it a name (e.g. <code>Allow to view buckets</code>) and an id (e.g. <code>bucket-viewer</code>)</li>
-<li>Click Add Permissions</li>
-<li>In the filter (below the dropdown) type <code>storage.buckets.get</code></li>
-<li>Check the box in front of the <code>storage.buckets.get</code> entry, click Add.</li>
-<li>
-<p>Click Create</p>
-</li>
-<li>
-<p>Go to <a href="https://console.cloud.google.com/iam-admin/iam">IAM &amp; Admin</a> section and go to the IAM page</p>
-</li>
-<li>Find the user we created in the previous step and edit it</li>
-<li>Click "Add another role" and select the role we just created</li>
-<li>Select the role we just created and select Add IAM Condition</li>
-<li>Give it a name, e.g. <code>Restrict to bucket</code></li>
-<li>In Condition Builder:
-    1. Condition type: Name
-    2. Operator: Starts With
-    3. Value: <code>projects/_/buckets/YOUR_BUCKET_NAME_HERE</code></li>
-<li>Save it.</li>
-</ol>
-<h2 id="configure-hedgedoc">Configure HedgeDoc<a class="headerlink" href="#configure-hedgedoc" title="Permanent link">&para;</a></h2>
-<p>Set the following environment variables (or the <a href="/configuration/#amazon-s3">corresponding config.json values</a>):</p>
-<div class="highlight"><pre><span></span><code>CMD_IMAGE_UPLOAD_TYPE=&quot;s3&quot;
-CMD_S3_ENDPOINT=&quot;https://storage.googleapis.com&quot;
-CMD_S3_ACCESS_KEY_ID=&quot;GOOG1EXXXXXXXXXX&quot;
-CMD_S3_SECRET_ACCESS_KEY=&quot;XXXXXXXXXX&quot;
-CMD_S3_BUCKET=&quot;your-bucket-name&quot;
-</code></pre></div>
-<p>The access key and secret key are the values you received when you enabled the interoperability feature.</p>
-<p>After restarting HedgeDoc you should now be able to add images to your pages.</p>
+<h1 id="how-to-make-your-hedgedoc-instance-production-ready">How to make your HedgeDoc instance production ready<a class="headerlink" href="#how-to-make-your-hedgedoc-instance-production-ready" title="Permanent link">&para;</a></h1>
+<p>If you run your own HedgeDoc instance at one point you should probably consider a few things and how you want to handle them.
+In this guide we try to show you a few of those considerations and want to discuss what's best to do.</p>
+<h2 id="node-env">Node Env<a class="headerlink" href="#node-env" title="Permanent link">&para;</a></h2>
+<p>You want to start HedgeDoc with <code>NODE_ENV=production</code>. This tells HedgeDoc to run in production, log a bit less and use the production configuration in your config.json.</p>
+<h2 id="https">HTTPS<a class="headerlink" href="#https" title="Permanent link">&para;</a></h2>
+<p>You want to configure a reverse proxy that handles your HedgeDoc TLS termination. For this you should consult the <a href="../reverse-proxy/">reverse proxy guide</a>.<br />
+Look also at the hsts options in our <a href="../../configuration/#web-security-aspects">configuration</a> to specify what works for your setup.</p>
+<h2 id="uploads">Uploads<a class="headerlink" href="#uploads" title="Permanent link">&para;</a></h2>
+<p>Depending on your instance and your expected amount of usage you may want to configure a different upload backend or at the very least configure external monitoring for the filesystem folder where HedgeDoc should put uploads to account for any sudden increases in usage.</p>
+<h2 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h2>
+<p>We strongly recommend you use a different database than SQLite for your production instance. If you're a single user instance this is probably fine, but a database server is typically more robust than a single sqlite.db file.</p>
+<h2 id="login">Login<a class="headerlink" href="#login" title="Permanent link">&para;</a></h2>
+<p>You should configure a production ready user backend. This can either be via LDAP, SAML or OAuth2 or you use one of HedgeDoc preset configurations for e.g. GitHub. Our username / password system works, but lacks many functionalities you probably want like two-factor-auth or self-service password resets. </p>
+<h2 id="guest-users">Guest Users<a class="headerlink" href="#guest-users" title="Permanent link">&para;</a></h2>
+<p>When HegdeDoc was first written the internet was a different place. Back then allow anonymous usage of a service like HedgeDoc seemed like a cool idea.
+Unfortunatly we don't live in that time anymore and anonymous usage is probably not the best idea anymore.<br />
+To prevent anonyomous usage you should set <code>allowAnonymous</code> or <code>CMD_ALLOW_ANONYMOUS</code> to <code>false</code>. After that anonymous users are not able to create any notes.
+You could set <code>allowAnonymousEdits</code> or <code>CMD_ALLOW_ANONYMOUS_EDITS</code> to <code>true</code> to allow anonymous users to edit pages where the note owner explicity allowed this.</p>
+<h2 id="default-note-permission">Default Note Permission<a class="headerlink" href="#default-note-permission" title="Permanent link">&para;</a></h2>
+<p>Depending on your needs to may want to change the default permissions of notes to something more strict. Per default everybody expect guests can write to the notes, but you may want to have a different default. See <a href="../../references/permissions/">this table</a> to understand the different options.
+Regardless of what you chose here, the users will be able to change this behavior.</p>
+<h2 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h2>
+<p>Please be aware that HedgeDoc exposes a few metric endpoints <code>/status</code>, <code>/_health</code> and <code>/metrics</code>. You either want to disable the more verbose of these endpoints (<code>/status</code> and <code>/metrics</code>) via <code>enableStatsApi</code> or <code>CMD_ENABLE_STATS_API</code> or configure your reverse proxy to only route these endpoints to a private network that your metrics grabber has access to.</p>
+<h2 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h2>
+<p>We recommend keeping backups of your instance in case something fails allong the lines. These backups should include:</p>
+<ul>
+<li>Your database</li>
+<li>Your uploads</li>
+<li>Your configuration</li>
+</ul>
 
 
 

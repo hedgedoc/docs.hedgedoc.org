@@ -12,29 +12,31 @@
         <meta name="author" content="HedgeDoc Developers">
       
       
-        <link rel="canonical" href="https://docs.hedgedoc.org/">
+        <link rel="canonical" href="https://docs.hedgedoc.org/guides/media/minio-image-upload/">
       
       
+        <link rel="prev" href="../../auth/entra-id/">
       
-        <link rel="next" href="setup/getting-started/">
+      
+        <link rel="next" href="../s3-image-upload/">
       
       
         
       
       
-      <link rel="icon" href="images/favicon.png">
+      <link rel="icon" href="../../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>HedgeDoc</title>
+        <title>MinIO - HedgeDoc</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,11 +49,11 @@
       
     
     
-      <link rel="stylesheet" href="theme/styles/hedgedoc-custom.css">
+      <link rel="stylesheet" href="../../../theme/styles/hedgedoc-custom.css">
     
-      <link rel="stylesheet" href="theme/styles/roboto.css">
+      <link rel="stylesheet" href="../../../theme/styles/roboto.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-the-hedgedoc-documentation" class="md-skip">
+        <a href="#minio-guide-for-hedgedoc" class="md-skip">
           Skip to content
         </a>
       
@@ -90,9 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="HedgeDoc" class="md-header__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
+    <a href="../../.." title="HedgeDoc" class="md-header__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
       
-  <img src="images/logo.svg" alt="logo">
+  <img src="../../../images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              MinIO
             
           </span>
         </div>
@@ -218,11 +220,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -243,7 +243,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="setup/getting-started/" class="md-tabs__link">
+        <a href="../../../setup/getting-started/" class="md-tabs__link">
           
   
   
@@ -259,11 +259,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="guides/production-ready/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../production-ready/" class="md-tabs__link">
           
   
   
@@ -281,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="configuration/" class="md-tabs__link">
+      <a href="../../../configuration/" class="md-tabs__link">
         
   
   
@@ -302,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="references/hfm/" class="md-tabs__link">
+        <a href="../../../references/hfm/" class="md-tabs__link">
           
   
   
@@ -322,7 +324,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="dev/getting-started/" class="md-tabs__link">
+        <a href="../../../dev/getting-started/" class="md-tabs__link">
           
   
   
@@ -340,7 +342,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="faq/" class="md-tabs__link">
+      <a href="../../../faq/" class="md-tabs__link">
         
   
   
@@ -377,9 +379,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
+    <a href="../../.." title="HedgeDoc" class="md-nav__button md-logo" aria-label="HedgeDoc" data-md-component="logo">
       
-  <img src="images/logo.svg" alt="logo">
+  <img src="../../../images/logo.svg" alt="logo">
 
     </a>
     HedgeDoc
@@ -403,19 +405,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -431,7 +424,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -495,7 +487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/getting-started/" class="md-nav__link">
+      <a href="../../../setup/getting-started/" class="md-nav__link">
         
   
   
@@ -575,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/docker/" class="md-nav__link">
+      <a href="../../../setup/docker/" class="md-nav__link">
         
   
   
@@ -603,7 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/manual-setup/" class="md-nav__link">
+      <a href="../../../setup/manual-setup/" class="md-nav__link">
         
   
   
@@ -639,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="setup/community/" class="md-nav__link">
+      <a href="../../../setup/community/" class="md-nav__link">
         
   
   
@@ -671,26 +663,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -708,7 +705,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -726,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/production-ready/" class="md-nav__link">
+      <a href="../../production-ready/" class="md-nav__link">
         
   
   
@@ -754,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/reverse-proxy/" class="md-nav__link">
+      <a href="../../reverse-proxy/" class="md-nav__link">
         
   
   
@@ -788,17 +785,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
             
   
   
@@ -834,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/ldap-ad/" class="md-nav__link">
+      <a href="../../auth/ldap-ad/" class="md-nav__link">
         
   
   
@@ -862,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/oauth/" class="md-nav__link">
+      <a href="../../auth/oauth/" class="md-nav__link">
         
   
   
@@ -890,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/saml/" class="md-nav__link">
+      <a href="../../auth/saml/" class="md-nav__link">
         
   
   
@@ -918,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/saml-keycloak/" class="md-nav__link">
+      <a href="../../auth/saml-keycloak/" class="md-nav__link">
         
   
   
@@ -946,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/saml-onelogin/" class="md-nav__link">
+      <a href="../../auth/saml-onelogin/" class="md-nav__link">
         
   
   
@@ -974,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/github/" class="md-nav__link">
+      <a href="../../auth/github/" class="md-nav__link">
         
   
   
@@ -1002,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/gitlab-self-hosted/" class="md-nav__link">
+      <a href="../../auth/gitlab-self-hosted/" class="md-nav__link">
         
   
   
@@ -1030,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/keycloak/" class="md-nav__link">
+      <a href="../../auth/keycloak/" class="md-nav__link">
         
   
   
@@ -1058,7 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/mattermost-self-hosted/" class="md-nav__link">
+      <a href="../../auth/mattermost-self-hosted/" class="md-nav__link">
         
   
   
@@ -1086,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/nextcloud/" class="md-nav__link">
+      <a href="../../auth/nextcloud/" class="md-nav__link">
         
   
   
@@ -1114,7 +1114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/twitter/" class="md-nav__link">
+      <a href="../../auth/twitter/" class="md-nav__link">
         
   
   
@@ -1142,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/authelia/" class="md-nav__link">
+      <a href="../../auth/authelia/" class="md-nav__link">
         
   
   
@@ -1170,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/auth/entra-id/" class="md-nav__link">
+      <a href="../../auth/entra-id/" class="md-nav__link">
         
   
   
@@ -1203,26 +1203,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
             
   
   
@@ -1240,7 +1245,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1255,10 +1260,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="guides/media/minio-image-upload/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1274,6 +1288,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1286,7 +1301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/media/s3-image-upload/" class="md-nav__link">
+      <a href="../s3-image-upload/" class="md-nav__link">
         
   
   
@@ -1314,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/media/s3-google-cloud-storage/" class="md-nav__link">
+      <a href="../s3-google-cloud-storage/" class="md-nav__link">
         
   
   
@@ -1350,7 +1365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/migrate-etherpad/" class="md-nav__link">
+      <a href="../../migrate-etherpad/" class="md-nav__link">
         
   
   
@@ -1378,7 +1393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/migration-troubleshooting/" class="md-nav__link">
+      <a href="../../migration-troubleshooting/" class="md-nav__link">
         
   
   
@@ -1406,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guides/providing-terms/" class="md-nav__link">
+      <a href="../../providing-terms/" class="md-nav__link">
         
   
   
@@ -1441,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="configuration/" class="md-nav__link">
+      <a href="../../../configuration/" class="md-nav__link">
         
   
   
@@ -1520,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="references/hfm/" class="md-nav__link">
+      <a href="../../../references/hfm/" class="md-nav__link">
         
   
   
@@ -1548,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="references/slide-options/" class="md-nav__link">
+      <a href="../../../references/slide-options/" class="md-nav__link">
         
   
   
@@ -1576,7 +1591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="references/url-scheme/" class="md-nav__link">
+      <a href="../../../references/url-scheme/" class="md-nav__link">
         
   
   
@@ -1604,7 +1619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="references/yaml-metadata/" class="md-nav__link">
+      <a href="../../../references/yaml-metadata/" class="md-nav__link">
         
   
   
@@ -1632,7 +1647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="references/permissions/" class="md-nav__link">
+      <a href="../../../references/permissions/" class="md-nav__link">
         
   
   
@@ -1719,7 +1734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/getting-started/" class="md-nav__link">
+      <a href="../../../dev/getting-started/" class="md-nav__link">
         
   
   
@@ -1747,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/api/" class="md-nav__link">
+      <a href="../../../dev/api/" class="md-nav__link">
         
   
   
@@ -1775,7 +1790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/ot/" class="md-nav__link">
+      <a href="../../../dev/ot/" class="md-nav__link">
         
   
   
@@ -1803,7 +1818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/webpack/" class="md-nav__link">
+      <a href="../../../dev/webpack/" class="md-nav__link">
         
   
   
@@ -1831,7 +1846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/documentation/" class="md-nav__link">
+      <a href="../../../dev/documentation/" class="md-nav__link">
         
   
   
@@ -1859,7 +1874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/release_checklist/" class="md-nav__link">
+      <a href="../../../dev/release_checklist/" class="md-nav__link">
         
   
   
@@ -1894,7 +1909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         
   
   
@@ -1934,15 +1949,88 @@
   
 
 
-<h1 id="welcome-to-the-hedgedoc-documentation">Welcome to the HedgeDoc Documentation<a class="headerlink" href="#welcome-to-the-hedgedoc-documentation" title="Permanent link">&para;</a></h1>
-<p><img alt="HedgeDoc Logo" title="HedgeDoc Logo" class="light-mode-only" src="images/hedgedoc_logo_black.svg">
-<img alt="HedgeDoc Logo" title="HedgeDoc Logo" class="dark-mode-only" src="images/hedgedoc_logo_white.svg"></p>
-<p>HedgeDoc lets you create real-time collaborative markdown notes. You can test-drive
-it by visiting our <a href="https://demo.hedgedoc.org">HedgeDoc demo server</a>.</p>
-<p>It is inspired by Hackpad, Etherpad and similar collaborative editors. This
-project originated with the team at <a href="https://hackmd.io">HackMD</a> and now forked
-into its own organization. <a href="https://hedgedoc.org/history/details">A longer write-up can be read in the history doc</a> or <a href="https://hedgedoc.org/history">you can have a look at an explanatory graph over at our website</a>.</p>
-<p>If you have any questions that aren't answered here, feel free to ask us on <a href="https://chat.hedgedoc.org">Matrix</a>, stop by our <a href="https://community.hedgedoc.org">community forums</a> or have a look at our <a href="faq/">FAQ</a>.</p>
+<h1 id="minio-guide-for-hedgedoc">Minio Guide for HedgeDoc<a class="headerlink" href="#minio-guide-for-hedgedoc" title="Permanent link">&para;</a></h1>
+<p><strong>Note:</strong> <em>This guide was written before the renaming. Just replace <code>HackMD</code> with <code>HedgeDoc</code> in your mind 😃 thanks!</em></p>
+<ol>
+<li>
+<p>First of all you need to setup Minio itself.</p>
+<p>Please refer to the <a href="https://docs.minio.io/">official Minio docs</a> for an
+ production setup.</p>
+<p>For checking it out and development purposes a non-persistent setup is enough:
+ <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>test-minio<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">9000</span>:9000<span class="w"> </span>minio/minio<span class="w"> </span>server<span class="w"> </span>/data
+</code></pre></div></p>
+<p><em>Please notice this is not for productive use as all your data gets lost
+ when you stop this container</em></p>
+</li>
+<li>
+<p>Next step is to get the credentials form the container:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>logs<span class="w"> </span>test-minio
+</code></pre></div>
+<p><img alt="docker logs" src="../../../images/minio-image-upload/docker-logs.png" /></p>
+</li>
+<li>
+<p>Open <a href="http://localhost:9000">http://localhost:9000</a> and login with the shown credentials.</p>
+<p><img alt="minio default view" src="../../../images/minio-image-upload/default-view.png" /></p>
+</li>
+<li>
+<p>Create a bucket for HedgeDoc</p>
+<p><img alt="minio create bucket" src="../../../images/minio-image-upload/create-bucket.png" /></p>
+</li>
+<li>
+<p>Add a policy for the prefix <code>uploads</code> and make it read-only.</p>
+<p><img alt="minio edit policy" src="../../../images/minio-image-upload/open-edit-policy.png" />
+ <em>Open policy editor</em></p>
+<p><img alt="minio policy adding" src="../../../images/minio-image-upload/create-policy.png" />
+ <em>Add policy for uploads</em></p>
+</li>
+<li>
+<p>Set credentials and configs for Minio in HedgeDoc's <code>config.json</code></p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;minio&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;accessKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;888MXJ7EP4XXXXXXXXX&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;secretKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yQS2EbM1Y6IJrp/1BUKWq2/XXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;endPoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;secure&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+ <em>You have to use different values for <code>endpoint</code> and <code>port</code> for a production
+ setup. Keep in mind the <code>endpoint</code>-address has to be public accessible from
+ your browser.</em></p>
+</li>
+<li>
+<p>Set bucket name</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;s3bucket&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hedgedoc&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Set upload type.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;imageuploadtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;minio&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Review your config.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="c1">// all your other config…</span>
+<span class="w">  </span><span class="nt">&quot;minio&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;accessKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;888MXJ7EP4XXXXXXXXX&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;secretKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yQS2EbM1Y6IJrp/1BUKWq2/XXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;endPoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;secure&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;s3bucket&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hedgedoc&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;imageuploadtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;minio&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>If you were using filesystem before</p>
+</li>
+</ol>
+<p>and you want to migrate assets to minio.</p>
+<p>You could use a convenience script located in <code>bin/migrate_from_fs_to_minio</code>.</p>
+<p>Be careful, read carefully what it does, it was not tested in all environments.</p>
+<p>Take it as an inspiration to make your own migration script.</p>
 
 
 
@@ -1992,10 +2080,10 @@ into its own organization. <a href="https://hedgedoc.org/history/details">A long
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
