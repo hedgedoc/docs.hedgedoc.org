@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2066,10 +2066,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gdpr-features" class="md-nav__link">
+  <a href="#slides" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GDPR features
+        Slides
       
     </span>
   </a>
@@ -2285,6 +2285,8 @@ tar<span class="w"> </span>cvzf<span class="w"> </span>hedgedoc-x.y.z.tar.gz<spa
 <li>[ ] User registration works</li>
 <li>[ ] User login works</li>
 <li>[ ] User self-deletion works (notes are deleted as well)</li>
+<li>[ ] User data export works</li>
+<li>[ ] Rate-limiting for basic user/password (<code>curl -X POST --data email=test@example.com%40password=123456 http://localhost:3000/login</code>)</li>
 </ul>
 <h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2385,11 +2387,11 @@ opengraph:
   image:type: image/png
 ---
 </code></pre></div>
-<h3 id="gdpr-features">GDPR features<a class="headerlink" href="#gdpr-features" title="Permanent link">&para;</a></h3>
+<h3 id="slides">Slides<a class="headerlink" href="#slides" title="Permanent link">&para;</a></h3>
+<p><a href="http://localhost:3000/slide-example">http://localhost:3000/slide-example</a></p>
 <ul>
-<li>[ ] Delete account works</li>
-<li>[ ] When account is deleted, verify notes are gone as well</li>
-<li>[ ] Data export works</li>
+<li>[ ] Make sure the slide mode works as intended</li>
+<li>[ ] Speaker view is toggled by <code>S</code></li>
 </ul>
 <h3 id="auth">Auth<a class="headerlink" href="#auth" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2446,10 +2448,13 @@ opengraph:
 </li>
 <li>[ ] GitHub</li>
 <li>[ ] GitLab</li>
-<li>[ ] Rate-limiting for basic user/password (try to login with e.g. test@example.com and invalid password about 10 to 15 times in a row -&gt; you should receive a message "Too many requests" at some point)</li>
 </ul>
 <h3 id="docker-images">Docker images<a class="headerlink" href="#docker-images" title="Permanent link">&para;</a></h3>
-<p>You need to clone the <a href="https://github.com/hedgedoc/container">container repo</a> and use the commands in the root there.</p>
+<ol>
+<li>You should push the release branch to Github</li>
+<li>You need to clone the <a href="https://github.com/hedgedoc/container">container repo</a> and use the commands in the root there.</li>
+<li>Edit <code>debian/Dockerfile</code> and <code>alpine/Dockerfile</code> to use the release branch instead of the <code>master</code> branch for building</li>
+</ol>
 <ul>
 <li>
 <p>[ ] debian</p>
@@ -2470,7 +2475,7 @@ The server is then accessable via <a href="http://localhost:3000">http://localho
 <p><div class="highlight"><pre><span></span><code>docker buildx build -f alpine/Dockerfile -t hedgedoc-local:1.x.y-alpine .
 docker run --rm -p 3000:3000 -e CMD_DOMAIN=&quot;localhost&quot; -e CMD_URL_ADDPORT=true -e &quot;CMD_DB_URL=sqlite://:memory:&quot; hedgedoc-local:1.x.y-alpine
 </code></pre></div>
-The server is then accessable via http://localhost:3000. The log should inlcude a line like</p>
+The server is then accessable via <a href="http://localhost:3000">http://localhost:3000</a>. The log should inlcude a line like</p>
 <div class="highlight"><pre><span></span><code>127.0.0.1 - - [06/Dec/2025:16:17:51 +0000] &quot;GET /_health HTTP/1.1&quot; 200 14 &quot;-&quot; &quot;hedgedoc-container-healthcheck/1.2&quot;
 </code></pre></div>
 <p>You should also check <code>docker ps</code> for</p>
@@ -2496,6 +2501,7 @@ The server is then accessable via http://localhost:3000. The log should inlcude 
 </ul>
 </li>
 <li>[ ] Share the good news in the Matrix-Chatroom</li>
+<li>[ ] Request CVEs (if applicable)</li>
 <li>[ ] Change this release checklist if necessary</li>
 </ul>
 
@@ -2550,7 +2556,7 @@ The server is then accessable via http://localhost:3000. The log should inlcude 
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2266,15 +2266,15 @@
 our own options, but we also list node-specific options you can configure this way.</p>
 <ul>
 <li>Environment variables are processed in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/environment.js">
-  <code>lib/config/environment.js</code></a> - so this is
-  the first place to look if anything is missing not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js">
+  <code>lib/config/environment.js</code></a> which makes it
+  the first place to look if anything is missing or not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js">
   <code>lib/config/default.js</code></a>, in case you wonder
   if you even need to override it.</li>
 </ul>
 <ul>
 <li>The config file is processed in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/index.js">
-  <code>lib/config/index.js</code></a> - so this is the first
-  place to look if anything is missing not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js">
+  <code>lib/config/index.js</code></a> which makes it
+  the first place to look if anything is missing or not obvious from this document. The default values are defined in <a href="https://github.com/hedgedoc/hedgedoc/tree/master/lib/config/default.js">
   <code>lib/config/default.js</code></a>, in case you wonder
   if you even need to override it. To get started, it is a good idea to take the <a href="https://github.com/hedgedoc/hedgedoc/tree/master/config.json.example">
   <code>config.json.example</code></a> and copy it
@@ -2383,6 +2383,18 @@ to work.</em></p>
 <td><code>CMD_FORBIDDEN_NOTE_IDS</code></td>
 <td><strong><code>['robots.txt', 'favicon.ico', 'api', 'build', 'css', 'docs', 'fonts', 'js', 'uploads', 'vendor', 'views']</code></strong>, <code>['robots.txt']</code> or <code>'robots.txt'</code></td>
 <td>disallow creation of notes, even if <code>allowFreeUrl</code> or <code>CMD_ALLOW_FREEURL</code> is <code>true</code></td>
+</tr>
+<tr>
+<td><code>externalLinkWarning</code></td>
+<td><code>CMD_EXTERNAL_LINK_WARNING</code></td>
+<td><strong><code>true</code></strong>, <code>false</code></td>
+<td>When set to <code>false</code>, disables the external link warning page entirely. All external links open directly without being routed through the <code>/_link</code> redirect.</td>
+</tr>
+<tr>
+<td><code>externalLinkWhitelist</code></td>
+<td><code>CMD_EXTERNAL_LINK_WHITELIST</code></td>
+<td><strong><code>[]</code></strong>, <code>example.com,trusted.org,*.example.org</code></td>
+<td>Comma-separated list of hosts that bypass the external link warning page. An entry like <code>example.com</code> matches that host only; prefix with <code>*.</code> (e.g. <code>*.example.com</code>) to also match all of its subdomains.</td>
 </tr>
 <tr>
 <td><code>imageUploadType</code></td>
@@ -2548,7 +2560,7 @@ to work.</em></p>
 <td><code>path</code></td>
 <td><code>CMD_PATH</code></td>
 <td><strong>no default</strong>, <code>/var/run/hedgedoc.sock</code></td>
-<td>path to UNIX domain socket to listen on (if specified, <code>host</code> or <code>CMD_HOST</code> and <code>port</code> or <code>CMD_PORT</code> are ignored)</td>
+<td>path to UNIX domain socket to listen on (if specified, <code>host</code> or <code>CMD_HOST</code> and <code>port</code> or <code>CMD_PORT</code> are ignored for listening; however, <code>port</code> or <code>CMD_PORT</code> is still used for URL generation when <code>urlAddPort</code> is enabled)</td>
 </tr>
 <tr>
 <td><code>protocolUseSSL</code></td>
@@ -2567,12 +2579,6 @@ to work.</em></p>
 <td><code>CMD_URL_ADDPORT</code></td>
 <td><strong><code>false</code></strong> or <code>true</code></td>
 <td>set to add port on callback URL (ports <code>80</code> or <code>443</code> won't be applied) (only applied when domain is set)</td>
-</tr>
-<tr>
-<td><code>allowOrigin</code></td>
-<td><code>CMD_ALLOW_ORIGIN</code></td>
-<td><strong><code>['localhost']</code></strong>, <code>['hedgedoc.org']</code>, <code>['localhost', 'hedgedoc.org']</code></td>
-<td>domain name whitelist (use comma to separate)</td>
 </tr>
 </tbody>
 </table>
@@ -3602,7 +3608,7 @@ you don't have to use either of these.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
