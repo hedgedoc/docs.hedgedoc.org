@@ -2101,23 +2101,23 @@ Ensure, you copied the v2 URLs as the v1 URLs will stop working in the future.</
 <p>Add the following environment variables to your configuration (for example in the <code>docker-compose.yml</code>).
 Be sure to replace the values as mentioned in the comments below.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Replace these URLs with the ones previously copied.</span>
-<span class="nv">CMD_OAUTH2_AUTHORIZATION_URL</span><span class="o">=</span><span class="s2">&quot;https://login.microsoftonline.com/123456/oauth2/v2.0/authorize&quot;</span>
-<span class="nv">CMD_OAUTH2_TOKEN_URL</span><span class="o">=</span><span class="s2">&quot;https://login.microsoftonline.com/123456/oauth2/v2.0/token&quot;</span>
+<span class="nv">CMD_OAUTH2_AUTHORIZATION_URL</span><span class="o">=</span><span class="s2">"https://login.microsoftonline.com/123456/oauth2/v2.0/authorize"</span>
+<span class="nv">CMD_OAUTH2_TOKEN_URL</span><span class="o">=</span><span class="s2">"https://login.microsoftonline.com/123456/oauth2/v2.0/token"</span>
 
 <span class="c1"># Replace these values with the previously copied ID and secret.</span>
-<span class="nv">CMD_OAUTH2_CLIENT_ID</span><span class="o">=</span><span class="s2">&quot;APPLICATION-ID&quot;</span>
-<span class="nv">CMD_OAUTH2_CLIENT_SECRET</span><span class="o">=</span><span class="s2">&quot;CLIENT-SECRET&quot;</span>
+<span class="nv">CMD_OAUTH2_CLIENT_ID</span><span class="o">=</span><span class="s2">"APPLICATION-ID"</span>
+<span class="nv">CMD_OAUTH2_CLIENT_SECRET</span><span class="o">=</span><span class="s2">"CLIENT-SECRET"</span>
 
 <span class="c1"># Change the name if you like it</span>
-<span class="nv">CMD_OAUTH2_PROVIDERNAME</span><span class="o">=</span><span class="s2">&quot;Microsoft Account&quot;</span>
+<span class="nv">CMD_OAUTH2_PROVIDERNAME</span><span class="o">=</span><span class="s2">"Microsoft Account"</span>
 
 <span class="c1"># Leave these values unchanged</span>
-<span class="nv">CMD_OAUTH2_USER_PROFILE_URL</span><span class="o">=</span><span class="s2">&quot;https://graph.microsoft.com/oidc/userinfo&quot;</span>
-<span class="nv">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR</span><span class="o">=</span><span class="s2">&quot;sub&quot;</span>
-<span class="nv">CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR</span><span class="o">=</span><span class="s2">&quot;name&quot;</span>
-<span class="nv">CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR</span><span class="o">=</span><span class="s2">&quot;email&quot;</span>
-<span class="nv">CMD_OAUTH2_USER_PROFILE_ID_ATTR</span><span class="o">=</span><span class="s2">&quot;sub&quot;</span>
-<span class="nv">CMD_OAUTH2_SCOPE</span><span class="o">=</span><span class="s2">&quot;openid email profile&quot;</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_URL</span><span class="o">=</span><span class="s2">"https://graph.microsoft.com/oidc/userinfo"</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR</span><span class="o">=</span><span class="s2">"sub"</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR</span><span class="o">=</span><span class="s2">"name"</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR</span><span class="o">=</span><span class="s2">"email"</span>
+<span class="nv">CMD_OAUTH2_USER_PROFILE_ID_ATTR</span><span class="o">=</span><span class="s2">"sub"</span>
+<span class="nv">CMD_OAUTH2_SCOPE</span><span class="o">=</span><span class="s2">"openid email profile"</span>
 </code></pre></div>
 <h3 id="test-your-login">Test your login<a class="headerlink" href="#test-your-login" title="Permanent link">&para;</a></h3>
 <p>After configuring, start your HedgeDoc instance. In the login dialog, there should be an orange new button for logging in

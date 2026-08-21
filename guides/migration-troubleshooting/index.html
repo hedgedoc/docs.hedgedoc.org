@@ -1959,12 +1959,12 @@ In these cases, HedgeDoc will refuse to start with “already exists”-errors l
     For example, if you encounter this error
     <div class="highlight"><pre><span></span><code>== 20180306150303-fix-enum: migrating =======
 
-ERROR: type &quot;enum_Notes_permission&quot; already exists
+ERROR: type "enum_Notes_permission" already exists
 </code></pre></div>
     the name of the failed migration would be <code>20180306150303-fix-enum.js</code>.</li>
 <li>Make sure HedgeDoc does not run and insert the name into the <code>SequelizeMeta</code> table.<br />
    Ensure your database shell is connected to the HedgeDoc database. The SQL-statement may look like this: 
-   <div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="ss">&quot;SequelizeMeta&quot;</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;20180306150303-fix-enum.js&#39;</span><span class="p">);</span>
+   <div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="ss">"SequelizeMeta"</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">'20180306150303-fix-enum.js'</span><span class="p">);</span>
 </code></pre></div></li>
 <li>Start HedgeDoc again and observe if it starts correctly. It may be necessary to repeat this process 
     and insert multiple migrations into the <code>SequelizeMeta</code> table.</li>

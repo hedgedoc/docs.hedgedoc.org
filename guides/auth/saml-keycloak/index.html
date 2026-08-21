@@ -2144,12 +2144,12 @@
 <h2 id="configure-hedgedoc">Configure HedgeDoc<a class="headerlink" href="#configure-hedgedoc" title="Permanent link">&para;</a></h2>
 <h3 id="config-file">Config file<a class="headerlink" href="#config-file" title="Permanent link">&para;</a></h3>
 <p>You have to put the following block inside your <code>config.json</code>:
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;saml&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;issuer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hedgedoc&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Change to the &quot;Client ID&quot; specified in the Keycloak Client</span>
-<span class="w">  </span><span class="nt">&quot;identifierFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;idpSsoUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://keycloak.example.org/auth/realms/test/protocol/saml&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// replace keycloak.example.org with the url of your keycloak server</span>
-<span class="w">  </span><span class="nt">&quot;idpCert&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/the/cert.pem&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;clientCert&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/the/key.pem&quot;</span><span class="w"> </span><span class="c1">// this one is optional, see below</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"saml"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hedgedoc"</span><span class="p">,</span><span class="w"> </span><span class="c1">// Change to the "Client ID" specified in the Keycloak Client</span>
+<span class="w">  </span><span class="nt">"identifierFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"idpSsoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://keycloak.example.org/auth/realms/test/protocol/saml"</span><span class="p">,</span><span class="w"> </span><span class="c1">// replace keycloak.example.org with the url of your keycloak server</span>
+<span class="w">  </span><span class="nt">"idpCert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/the/cert.pem"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"clientCert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/the/key.pem"</span><span class="w"> </span><span class="c1">// this one is optional, see below</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
@@ -2219,9 +2219,9 @@ openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> <
 <img alt="keycloak_mapper_overview" src="../../../images/auth/keycloak_mapper_overview.png" /></p>
 <ol>
 <li>You now have to add the following block to the saml-definition inside your <code>config.json</code>:
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;attribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;username&quot;</span>
-<span class="w">      </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="nt">"username"</span>
+<span class="w">      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 It you configure HedgeDoc with enviroment variables, these are the ones you have to set:

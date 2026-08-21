@@ -2071,30 +2071,30 @@ configuration settings <code>ETHERPAD_SERVER</code> and <code>HEDGEDOC_SERVER</c
 <span class="c1"># [1]: https://github.com/hedgedoc/cli/blob/master/bin/hedgedoc</span>
 
 <span class="c1"># The base url to where etherpad is hosted</span>
-<span class="nv">ETHERPAD_SERVER</span><span class="o">=</span><span class="s2">&quot;https://etherpad.example.com&quot;</span>
+<span class="nv">ETHERPAD_SERVER</span><span class="o">=</span><span class="s2">"https://etherpad.example.com"</span>
 
 <span class="c1"># The base url where HedgeDoc is hosted</span>
-<span class="nv">HEDGEDOC_SERVER</span><span class="o">=</span><span class="s2">&quot;https://hedgedoc.example.com&quot;</span>
+<span class="nv">HEDGEDOC_SERVER</span><span class="o">=</span><span class="s2">"https://hedgedoc.example.com"</span>
 
 <span class="c1"># Write a list of pads and the urls which they were migrated to</span>
-<span class="nv">REDIRECTS_FILE</span><span class="o">=</span><span class="s2">&quot;redirects.txt&quot;</span>
+<span class="nv">REDIRECTS_FILE</span><span class="o">=</span><span class="s2">"redirects.txt"</span>
 
 
 <span class="c1"># Fail if not called correctly</span>
 <span class="k">if</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> PAD_NAMES_FILE&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Usage: </span><span class="nv">$0</span><span class="s2"> PAD_NAMES_FILE"</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
 <span class="k">fi</span>
 
 <span class="c1"># Do the migration</span>
 <span class="k">for</span><span class="w"> </span>PAD_NAME<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$1</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="c1"># Download the pad</span>
-<span class="w">    </span><span class="nv">PAD_FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>mktemp<span class="k">)</span><span class="s2">&quot;</span>
-<span class="w">    </span>curl<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ETHERPAD_SERVER</span><span class="s2">/p/</span><span class="nv">$PAD_NAME</span><span class="s2">/export/txt&quot;</span><span class="w"> </span>&gt;<span class="s2">&quot;</span><span class="nv">$PAD_FILE</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">PAD_FILE</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>mktemp<span class="k">)</span><span class="s2">"</span>
+<span class="w">    </span>curl<span class="w"> </span><span class="s2">"</span><span class="nv">$ETHERPAD_SERVER</span><span class="s2">/p/</span><span class="nv">$PAD_NAME</span><span class="s2">/export/txt"</span><span class="w"> </span>&gt;<span class="s2">"</span><span class="nv">$PAD_FILE</span><span class="s2">"</span>
 
 <span class="w">    </span><span class="c1"># Import the pad into HedgeDoc</span>
-<span class="w">    </span><span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>./hedgedoc<span class="w"> </span>import<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PAD_FILE</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PAD_NAME</span><span class="s2"> -&gt; </span><span class="nv">$OUTPUT</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="s2">&quot;</span><span class="nv">$REDIRECTS_FILE</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>./hedgedoc<span class="w"> </span>import<span class="w"> </span><span class="s2">"</span><span class="nv">$PAD_FILE</span><span class="s2">"</span><span class="k">)</span><span class="s2">"</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$PAD_NAME</span><span class="s2"> -&gt; </span><span class="nv">$OUTPUT</span><span class="s2">"</span><span class="w"> </span>&gt;&gt;<span class="s2">"</span><span class="nv">$REDIRECTS_FILE</span><span class="s2">"</span>
 <span class="k">done</span>
 </code></pre></div>
 <p>Call this file like this:</p>

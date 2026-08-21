@@ -2125,7 +2125,7 @@ You can also refer to this note's source code.</p>
 <p>default: not set</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>title: meta title
+<div class="highlight"><pre><span></span><code><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta title</span>
 </code></pre></div></p>
 <h2 id="description">description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
 <p>This option will set the note description as a <code>&lt;meta name="description"&gt;</code> tag. This only affects the Publish function.</p>
@@ -2133,7 +2133,7 @@ You can also refer to this note's source code.</p>
 <p>default: not set</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>description: meta description
+<div class="highlight"><pre><span></span><code><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta description</span>
 </code></pre></div></p>
 <h2 id="tags">tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h2>
 <p>This option will set the tags which prior than content tags.</p>
@@ -2141,18 +2141,18 @@ You can also refer to this note's source code.</p>
 <p>default: not set</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>tags: features, cool, updated
+<div class="highlight"><pre><span></span><code><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">features, cool, updated</span>
 </code></pre></div></p>
 <h2 id="robots">robots<a class="headerlink" href="#robots" title="Permanent link">&para;</a></h2>
 <p>This option will give below meta in the note head meta:
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;meta</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;robots&quot;</span><span class="w"> </span><span class="na">content=</span><span class="s">&quot;your_meta&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;meta</span><span class="w"> </span><span class="na">name=</span><span class="s">"robots"</span><span class="w"> </span><span class="na">content=</span><span class="s">"your_meta"</span><span class="nt">&gt;</span>
 </code></pre></div>
 So you can prevent any search engine index your note by set <code>noindex, nofollow</code>.</p>
 <blockquote>
 <p>default: not set</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>robots: noindex, nofollow
+<div class="highlight"><pre><span></span><code><span class="nt">robots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">noindex, nofollow</span>
 </code></pre></div></p>
 <h2 id="lang">lang<a class="headerlink" href="#lang" title="Permanent link">&para;</a></h2>
 <p>This option will set the language of the note.
@@ -2163,7 +2163,7 @@ You can find your the language code in ISO 639-1 standard:
 <p>default: not set (which will be en)</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>lang: ja-jp
+<div class="highlight"><pre><span></span><code><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ja-jp</span>
 </code></pre></div></p>
 <h2 id="dir">dir<a class="headerlink" href="#dir" title="Permanent link">&para;</a></h2>
 <p>This option specifies the direction of the text in this note.
@@ -2174,7 +2174,7 @@ Look more at here:
 <p>default: not set (which will be ltr)</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>dir: rtl
+<div class="highlight"><pre><span></span><code><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rtl</span>
 </code></pre></div></p>
 <h2 id="breaks">breaks<a class="headerlink" href="#breaks" title="Permanent link">&para;</a></h2>
 <p>This option means the hardbreaks in the note will be parsed or be ignore.
@@ -2184,7 +2184,7 @@ You can only use whether <code>true</code> or <code>false</code>.</p>
 <p>default: not set (which will be true)</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>breaks: false
+<div class="highlight"><pre><span></span><code><span class="nt">breaks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div></p>
 <h2 id="ga">GA<a class="headerlink" href="#ga" title="Permanent link">&para;</a></h2>
 <p>This option allows you to enable Google Analytics with your ID.</p>
@@ -2192,7 +2192,7 @@ You can only use whether <code>true</code> or <code>false</code>.</p>
 <p>default: not set (which won't enable)</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>GA: UA-12345667-8
+<div class="highlight"><pre><span></span><code><span class="nt">GA</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UA-12345667-8</span>
 </code></pre></div></p>
 <h2 id="disqus">disqus<a class="headerlink" href="#disqus" title="Permanent link">&para;</a></h2>
 <p>This option allows you to enable Disqus with your shortname.</p>
@@ -2200,7 +2200,7 @@ You can only use whether <code>true</code> or <code>false</code>.</p>
 <p>default: not set (which won't enable)</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>disqus: hedgedoc
+<div class="highlight"><pre><span></span><code><span class="nt">disqus</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hedgedoc</span>
 </code></pre></div></p>
 <h2 id="type">type<a class="headerlink" href="#type" title="Permanent link">&para;</a></h2>
 <p>This option allows you to switch the document view to the slide preview, to simplify live editing of presentations.</p>
@@ -2208,7 +2208,7 @@ You can only use whether <code>true</code> or <code>false</code>.</p>
 <p>default: not set</p>
 </blockquote>
 <p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code>type: slide
+<div class="highlight"><pre><span></span><code><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">slide</span>
 </code></pre></div></p>
 <h2 id="slideoptions">slideOptions<a class="headerlink" href="#slideoptions" title="Permanent link">&para;</a></h2>
 <p>This option allows you to provide custom options to slide mode.</p>
@@ -2223,9 +2223,9 @@ The current stable version of HedgeDoc uses Reveal 3.</p>
 <p>default: not set (which use default slide options)</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>slideOptions:
-  transition: fade
-  theme: white
+<div class="highlight"><pre><span></span><code><span class="nt">slideOptions</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">transition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fade</span>
+<span class="w">  </span><span class="nt">theme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">white</span>
 </code></pre></div></p>
 <h2 id="opengraph">opengraph<a class="headerlink" href="#opengraph" title="Permanent link">&para;</a></h2>
 <p>This option allows you to override the default generated opengraph metadata.
@@ -2235,10 +2235,10 @@ See the <a href="https://ogp.me">OpenGraph protocol documentation</a> for more i
 <p>default: not set (uses auto-generated metadata)</p>
 </blockquote>
 <p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code>opengraph:
-  title: Special title for OpenGraph protocol
-  image: https://dummyimage.com/600x600/000/fff
-  image:type: image/png
+<div class="highlight"><pre><span></span><code><span class="nt">opengraph</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Special title for OpenGraph protocol</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://dummyimage.com/600x600/000/fff</span>
+<span class="w">  </span><span class="nt">image:type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image/png</span>
 </code></pre></div></p>
 
 

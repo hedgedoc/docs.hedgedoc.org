@@ -2181,7 +2181,7 @@ For more information please read the <a href="https://developers.cloudflare.com/
 <p>Here is an example configuration for Nginx.</p>
 <div class="highlight"><pre><span></span><code>map $http_upgrade $connection_upgrade {
         default upgrade;
-        &#39;&#39;      close;
+        ''      close;
 }
 server {
         server_name hedgedoc.example.com;
@@ -2283,7 +2283,7 @@ Here is an example config snippet:
   ProxyPass / http://127.0.0.1:3000/
   ProxyPassReverse / http://127.0.0.1:3000/
 
-  RequestHeader set &quot;X-Forwarded-Proto&quot; expr=%{REQUEST_SCHEME}
+  RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
 
   ErrorLog ${APACHE_LOG_DIR}/error.log
   CustomLog ${APACHE_LOG_DIR}/access.log combined

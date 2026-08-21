@@ -1975,11 +1975,11 @@ you want to match your IdP, you can use more configurations as below.</p>
 <ul>
 <li><code>config.json</code>:
   <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="s2">&quot;production&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;saml&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">"production"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"saml"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="cm">/* omitted */</span>
-<span class="w">      </span><span class="s2">&quot;issuer&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;myhedgedoc&quot;</span>
-<span class="w">      </span><span class="s2">&quot;identifierFormat&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&quot;</span>
+<span class="w">      </span><span class="s2">"issuer"</span><span class="o">:</span><span class="w"> </span><span class="s2">"myhedgedoc"</span>
+<span class="w">      </span><span class="s2">"identifierFormat"</span><span class="o">:</span><span class="w"> </span><span class="s2">"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -2015,13 +2015,13 @@ you want to match your IdP, you can use more configurations as below.</p>
 <ul>
 <li><code>config.json</code>:
   <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;production&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;saml&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"production"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"saml"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="cm">/* omitted */</span>
-<span class="w">      </span><span class="nt">&quot;attribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sAMAccountName&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;displayName&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mail&quot;</span>
+<span class="w">      </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sAMAccountName"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"displayName"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mail"</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
@@ -2058,12 +2058,12 @@ you want to match your IdP, you can use more configurations as below.</p>
 <ul>
 <li><code>config.json</code>:
   <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;production&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;saml&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"production"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"saml"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="cm">/* omitted */</span>
-<span class="w">      </span><span class="nt">&quot;groupAttribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;memberOf&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;requiredGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;hedgedoc-users&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;board-members&quot;</span><span class="w"> </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">&quot;externalGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;temporary-staff&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="w">      </span><span class="nt">"groupAttribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"memberOf"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"requiredGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"hedgedoc-users"</span><span class="p">,</span><span class="w"> </span><span class="s2">"board-members"</span><span class="w"> </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"externalGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"temporary-staff"</span><span class="w"> </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
