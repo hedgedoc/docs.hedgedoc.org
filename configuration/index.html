@@ -2823,7 +2823,7 @@ to work.</em></p>
 <td><code>allowEmailRegister</code></td>
 <td><code>CMD_ALLOW_EMAIL_REGISTER</code></td>
 <td><strong><code>true</code></strong> or <code>false</code></td>
-<td>Set to allow registration of new accounts using an email address. If set to <code>false</code>, you can still create accounts using the command line - see <code>bin/manage_users</code> for details (In production mode, remember to run it with <code>NODE_ENV</code> set as <code>production</code> in the enviroment). This setting has no effect if <code>email</code> or <code>CMD_EMAIL</code> is <code>false</code>. The default for <code>allowEmailRegister</code> or <code>CMD_ALLOW_EMAIL_REGISTER</code> is <code>true</code>.</td>
+<td>Set to allow registration of new accounts using an email address. If set to <code>false</code>, you can still create accounts using the command line - see <code>bin/manage_users</code> for details (In production mode, remember to run it with <code>NODE_ENV</code> set as <code>production</code> in the environment). This setting has no effect if <code>email</code> or <code>CMD_EMAIL</code> is <code>false</code>. The default for <code>allowEmailRegister</code> or <code>CMD_ALLOW_EMAIL_REGISTER</code> is <code>true</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -3162,6 +3162,12 @@ to work.</em></p>
 <td><code>CMD_OAUTH2_USER_PROFILE_EMAIL_ATTR</code></td>
 <td><strong>no default</strong>, <code>email</code></td>
 <td>where to find the email address in the JSON from the user profile URL. (no default value)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>CMD_OAUTH2_USER_PROFILE_PHOTO_ATTR</code></td>
+<td><strong>no default</strong>, <code>picture</code></td>
+<td>where to find the profile photo URL in the JSON from the user profile URL. Falls back to a generated avatar if unset or not found. (no default value)</td>
 </tr>
 <tr>
 <td></td>

@@ -2293,16 +2293,16 @@ tar<span class="w"> </span>cvzf<span class="w"> </span>hedgedoc-x.y.z.tar.gz<spa
 </ul>
 <h3 id="config">Config<a class="headerlink" href="#config" title="Permanent link">&para;</a></h3>
 <ul>
-<li>[ ] Setting <code>allowAnonymous: false</code> disables guest note creation</li>
-<li>[ ] Setting <code>enableStatsApi: false</code> disables /metrics and /status endpoint</li>
+<li>[ ] Setting <code>"allowAnonymous": false,</code> disables guest note creation</li>
+<li>[ ] Setting <code>"enableStatsApi": false</code> disables /metrics and /status endpoint</li>
 </ul>
 <h3 id="account-system">Account system<a class="headerlink" href="#account-system" title="Permanent link">&para;</a></h3>
 <ul>
 <li>[ ] User registration works</li>
 <li>[ ] User login works</li>
-<li>[ ] User self-deletion works (notes are deleted as well)</li>
 <li>[ ] User data export works</li>
-<li>[ ] Rate-limiting for basic user/password (<code>curl -X POST --data email=test@example.com%40password=123456 http://localhost:3000/login</code>)</li>
+<li>[ ] User self-deletion works (notes are deleted as well)</li>
+<li>[ ] Rate-limiting for basic user/password (<code>watch -n 1 curl -sSD - -o /dev/null -X POST --data email=test@example.com%40password=123456 http://localhost:3000/login</code>)</li>
 </ul>
 <h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2317,7 +2317,11 @@ tar<span class="w"> </span>cvzf<span class="w"> </span>hedgedoc-x.y.z.tar.gz<spa
 <li>[ ] API <code>POST /new/some-test-note</code> works when FreeURL-mode is enabled</li>
 <li>[ ] API <code>POST /new/some-test-note</code> fails when FreeURL-mode is disabled</li>
 <li>[ ] Working with 2 (or more) devices on a page works and results in the same document</li>
-<li>[ ] Uploads work for images</li>
+<li>[ ] Uploads work for<ul>
+<li>[ ] .svg file</li>
+<li>[ ] .png / .jpeg / .webm file</li>
+</ul>
+</li>
 <li>[ ] Uploads fail for other data (e.g. binaries)</li>
 <li>[ ] Opening uploads in new tab downloads them instead of displaying</li>
 </ul>
@@ -2360,10 +2364,10 @@ and put this into your config:
 <h3 id="features-page">Features page<a class="headerlink" href="#features-page" title="Permanent link">&para;</a></h3>
 <ul>
 <li>[ ] Loading <code>/features</code> results in no browser console errors (they may appear for iframed code)</li>
-<li>[ ] Diagrams render without error</li>
-<li>[ ] MathJAX rendering works for inline <code>$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$</code></li>
-<li>[ ] MathJAX rendering works for multi-line (see features page)</li>
 <li>[ ] Codeblocks areas are highlighted and have line numbers in front.</li>
+<li>[ ] Diagrams render without error</li>
+<li>[ ] MathJAX rendering works for multi-line (see features page)</li>
+<li>[ ] MathJAX rendering works for inline <code>$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$</code></li>
 </ul>
 <h3 id="table-of-content-toc-tests">Table of content (TOC) tests<a class="headerlink" href="#table-of-content-toc-tests" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2485,23 +2489,19 @@ opengraph:
 <li>Edit <code>debian/Dockerfile</code> and <code>alpine/Dockerfile</code> to use the release branch instead of the <code>master</code> branch for building</li>
 </ol>
 <ul>
-<li>
-<p>[ ] debian</p>
-<p><div class="highlight"><pre><span></span><code>docker buildx build -f debian/Dockerfile -t hedgedoc-local:1.x.y-debian .
+<li>[ ] debian
+<div class="highlight"><pre><span></span><code>docker buildx build -f debian/Dockerfile -t hedgedoc-local:1.x.y-debian .
 docker run --rm -p 3000:3000 -e CMD_DOMAIN="localhost" -e CMD_URL_ADDPORT=true -e "CMD_DB_URL=sqlite://:memory:" hedgedoc-local:1.x.y-debian
 </code></pre></div>
-The server is then accessable via <a href="http://localhost:3000">http://localhost:3000</a>. The log should inlcude a line like</p>
+The server is then accessable via <a href="http://localhost:3000">http://localhost:3000</a>. The log should inlcude a line like</li>
+</ul>
 <div class="highlight"><pre><span></span><code>127.0.0.1 - - [06/Dec/2025:16:17:51 +0000] "GET /_health HTTP/1.1" 200 14 "-" "hedgedoc-container-healthcheck/1.2"
 </code></pre></div>
 <p>You should also check <code>docker ps</code> for</p>
-<div class="highlight"><pre><span></span><code>hedgedoc-local:1.x.y-debian                     "/usr/local/bin/dock…"   29 seconds ago   Up 28 seconds (healthy)
+<p><div class="highlight"><pre><span></span><code>hedgedoc-local:1.x.y-debian                     "/usr/local/bin/dock…"   29 seconds ago   Up 28 seconds (healthy)
 </code></pre></div>
-</li>
-</ul>
-<ul>
-<li>
-<p>[ ] alpine</p>
-<p><div class="highlight"><pre><span></span><code>docker buildx build -f alpine/Dockerfile -t hedgedoc-local:1.x.y-alpine .
+- [ ] alpine
+<div class="highlight"><pre><span></span><code>docker buildx build -f alpine/Dockerfile -t hedgedoc-local:1.x.y-alpine .
 docker run --rm -p 3000:3000 -e CMD_DOMAIN="localhost" -e CMD_URL_ADDPORT=true -e "CMD_DB_URL=sqlite://:memory:" hedgedoc-local:1.x.y-alpine
 </code></pre></div>
 The server is then accessable via <a href="http://localhost:3000">http://localhost:3000</a>. The log should inlcude a line like</p>
@@ -2510,8 +2510,6 @@ The server is then accessable via <a href="http://localhost:3000">http://localho
 <p>You should also check <code>docker ps</code> for</p>
 <div class="highlight"><pre><span></span><code>hedgedoc-local:1.x.y-alpine                     "/usr/local/bin/dock…"   29 seconds ago   Up 28 seconds (healthy)
 </code></pre></div>
-</li>
-</ul>
 <h2 id="release">Release:<a class="headerlink" href="#release" title="Permanent link">&para;</a></h2>
 <ul>
 <li>[ ] Merge Release PR in main repo</li>

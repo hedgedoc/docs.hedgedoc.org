@@ -2014,23 +2014,43 @@
 Also this guides assumes you run HedgeDoc via a <a href="../../../setup/docker/">Docker container</a>. Find out how the mentioned config environment variables are mapped to entries in the config file at our <a href="../../../configuration/">configuration page</a>.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Set up the necessary OpenID Connect parameters in your Authelia <code>configuration.yml</code> as explained in the documentation at <a href="https://www.authelia.com/docs/configuration/identity-providers/oidc.html">https://www.authelia.com/docs/configuration/identity-providers/oidc.html</a>.</li>
-<li>Make sure to generate safe secrets (such as <code>LENGTH=64; tr -cd '[:alnum:]' &lt; /dev/urandom | fold -w "${LENGTH}" | head -n 1 | tr -d '\n' ; echo</code>)</li>
-<li>A completed <code>identity_providers</code> section of the configuration may look like the following (the chosen Client ID <code>id</code> shouldn't actually be this guessable for safety reasons):</li>
-</ol>
+<li>
+<p>Set up the necessary OpenID Connect parameters in your Authelia <code>configuration.yml</code> as explained in the <a href="https://www.authelia.com/configuration/identity-providers/openid-connect/provider/">documentation</a>.</p>
+</li>
+<li>
+<p>Make sure to generate safe secrets (such as <code>LENGTH=64; tr -cd '[:alnum:]' &lt; /dev/urandom | fold -w "${LENGTH}" | head -n 1 | tr -d '\n' ; echo</code>)</p>
+</li>
+<li>
+<p>A completed <code>identity_providers</code> section of the configuration may look like the following (the chosen Client ID shouldn't actually be this guessable for safety reasons):
 <div class="highlight"><pre><span></span><code><span class="nt">identity_providers</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">oidc</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">hmac_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;hmac secret here&gt;</span><span class="w"> </span><span class="c1"># use docker secrets for this</span>
-<span class="w">    </span><span class="nt">issuer_private_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;issuer private key secret here&gt;</span><span class="w"> </span><span class="c1"># use docker secrets for this</span>
+<span class="w">    </span><span class="c1">## Load the HMAC secret dynamically from a Docker secret file</span>
+<span class="w">    </span><span class="nt">hmac_secret</span><span class="p">:</span><span class="w"> </span><span class="s">'{{</span><span class="nv"> </span><span class="s">secret</span><span class="nv"> </span><span class="s">"/run/secrets/authelia_hmac_secret"</span><span class="nv"> </span><span class="s">}}'</span>
+
+<span class="w">    </span><span class="c1">## Load the OIDC Private Key dynamically into the new JWKS structure</span>
+<span class="w">    </span><span class="nt">jwks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key_id</span><span class="p">:</span><span class="w"> </span><span class="s">'primary'</span>
+<span class="w">        </span><span class="nt">algorithm</span><span class="p">:</span><span class="w"> </span><span class="s">'RS256'</span>
+<span class="w">        </span><span class="nt">use</span><span class="p">:</span><span class="w"> </span><span class="s">'sig'</span>
+<span class="w">        </span><span class="c1"># The templating engine reads the secret file, indents it by 10 spaces, </span>
+<span class="w">        </span><span class="c1"># and formats it correctly for YAML using msquote and mindent.</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">secret "/run/secrets/authelia_oidc_private_key.pem" | mindent 10 "|" | msquote</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+
 <span class="w">    </span><span class="nt">access_token_lifespan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span>
 <span class="w">    </span><span class="nt">authorize_code_lifespan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1m</span>
 <span class="w">    </span><span class="nt">id_token_lifespan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span>
 <span class="w">    </span><span class="nt">refresh_token_lifespan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90m</span>
 <span class="w">    </span><span class="nt">enable_client_debug_messages</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
 <span class="w">    </span><span class="nt">clients</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;random client id&gt;</span>
-<span class="w">        </span><span class="nt">client_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HedgeDoc</span>
-<span class="w">        </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;client secret here&gt;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="s">'&lt;random</span><span class="nv"> </span><span class="s">client</span><span class="nv"> </span><span class="s">id&gt;'</span>
+<span class="w">        </span><span class="nt">client_name</span><span class="p">:</span><span class="w"> </span><span class="s">'HedgeDoc'</span>
+
+<span class="w">        </span><span class="c1">## In 4.38+, Authelia heavily recommends storing the Client Secret as a HASH, not plaintext.</span>
+<span class="w">        </span><span class="c1">## You give HedgeDoc the plaintext password, but store the hashed version here.</span>
+<span class="w">        </span><span class="c1">## Generate this hash using the 'authelia crypto hash generate' CLI command.</span>
+<span class="w">        </span><span class="nt">client_secret</span><span class="p">:</span><span class="w"> </span><span class="s">'&lt;hashed</span><span class="nv"> </span><span class="s">client</span><span class="nv"> </span><span class="s">secret&gt;'</span><span class="w"> </span>
+
 <span class="w">        </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">        </span><span class="nt">authorization_policy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">two_factor</span>
 <span class="w">        </span><span class="nt">scopes</span><span class="p">:</span>
@@ -2050,15 +2070,19 @@ Also this guides assumes you run HedgeDoc via a <a href="../../../setup/docker/"
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fragment</span>
 <span class="w">        </span><span class="nt">token_endpoint_auth_method</span><span class="p">:</span><span class="w"> </span><span class="s">'client_secret_post'</span>
 </code></pre></div>
-<ol>
-<li>Restart Authelia to apply to new configuration and check for any errors in the log</li>
-<li>In the <code>docker-compose.yml</code> of HedgeDoc add the following environment variables (you can choose different attributes for e.g. the display name - all available attributes you can find in the <a href="https://www.authelia.com/docs/configuration/identity-providers/oidc.html#scope-definitions">scope definitions</a>):</li>
-</ol>
+(Note: As of Authelia v4.38.0+, issuer_private_key was deprecated and replaced by jwks. The configuration above uses Authelia's templating engine to securely load the private key and HMAC secret from external Docker secrets files, avoiding plaintext keys in your YAML).</p>
+</li>
+<li>
+<p>Restart Authelia to apply to new configuration and check for any errors in the log.</p>
+</li>
+<li>
+<p>In the <code>docker-compose.yml</code> of HedgeDoc add the following environment variables (you can choose different attributes for e.g. the display name - all available attributes you can find in the <a href="https://www.authelia.com/docs/configuration/identity-providers/oidc.html#scope-definitions">scope definitions</a>):
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_URL_ADDPORT=false</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_PROTOCOL_USESSL=true</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_PROVIDERNAME=Authelia</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_ID=&lt;client id here&gt;</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_SECRET=&lt;client secret here&gt;</span>
+<span class="c1"># NOTE: Use the plaintext client secret here, NOT the hashed one used in Authelia's configuration</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_CLIENT_SECRET=&lt;plaintext client secret here&gt;</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_SCOPE=openid email profile</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=sub</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR=name</span>
@@ -2066,10 +2090,14 @@ Also this guides assumes you run HedgeDoc via a <a href="../../../setup/docker/"
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_USER_PROFILE_URL=https://&lt;your-authelia-url&gt;/api/oidc/userinfo</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_TOKEN_URL=https://&lt;your-authelia-url&gt;/api/oidc/token</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CMD_OAUTH2_AUTHORIZATION_URL=https://&lt;your-authelia-url&gt;/api/oidc/authorization</span>
-</code></pre></div>
-<ol>
-<li>Run <code>docker-compose up -d</code> on HedgeDoc to apply your settings.</li>
-<li>Sign in to your HedgeDoc using your Authelia login</li>
+</code></pre></div></p>
+</li>
+<li>
+<p>Run docker-compose up -d on HedgeDoc to apply your settings.</p>
+</li>
+<li>
+<p>Sign in to your HedgeDoc using your Authelia login.</p>
+</li>
 </ol>
 
 
