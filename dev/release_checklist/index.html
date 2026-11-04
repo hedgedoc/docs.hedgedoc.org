@@ -2293,8 +2293,16 @@ tar<span class="w"> </span>cvzf<span class="w"> </span>hedgedoc-x.y.z.tar.gz<spa
 </ul>
 <h3 id="config">Config<a class="headerlink" href="#config" title="Permanent link">&para;</a></h3>
 <ul>
-<li>[ ] Setting <code>"allowAnonymous": false,</code> disables guest note creation</li>
-<li>[ ] Setting <code>"enableStatsApi": false</code> disables /metrics and /status endpoint</li>
+<li>[ ] Setting <code>"allowAnonymous": false</code> disables guest note creation<ul>
+<li>[ ] "New guest note" button is missing</li>
+<li>[ ] http://localhost:3000/new does not work</li>
+</ul>
+</li>
+<li>[ ] Setting <code>"enableStatsApi": false</code> disables /metrics and /status endpoint<ul>
+<li>[ ] http://localhost:3000/status redirects to the homepage</li>
+<li>[ ] http://localhost:3000/metrics shows a 404 page</li>
+</ul>
+</li>
 </ul>
 <h3 id="account-system">Account system<a class="headerlink" href="#account-system" title="Permanent link">&para;</a></h3>
 <ul>
